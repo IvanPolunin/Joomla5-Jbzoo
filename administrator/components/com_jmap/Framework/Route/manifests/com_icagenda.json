@@ -1,0 +1,8 @@
+{
+	"categories_table":"#__icagenda_category",
+	"categories_table_id_field":"id",
+	"holdon_params":true,
+	"name_params":{"list":"mcatid","events":"mcatid"},
+	"additional_categories_needles":"events",
+	"fallback_views":["list"]
+}

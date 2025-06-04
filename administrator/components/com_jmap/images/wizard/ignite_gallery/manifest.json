@@ -1,0 +1,16 @@
+{
+	"postfields":{
+		"option":"com_igallery",
+		"table_maintable":"#__igallery",
+		"titlefield":"name",
+		"id":"id",
+		"idfield_as":"igid",
+		"orderby_maintable":"ordering",
+		"orderby_direction_maintable":"ASC"
+	},
+		
+	"querystringlinkparams":{
+		"view":"category",
+		"guess_sef_itemid":"1"
+	}
+}

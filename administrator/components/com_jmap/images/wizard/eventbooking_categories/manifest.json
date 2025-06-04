@@ -1,0 +1,14 @@
+{
+	"postfields":{
+		"option":"com_eventbooking",
+		"table_maintable":"#__eb_categories",
+		"titlefield":"name",
+		"id":"id",
+		"orderby_maintable":"ordering",
+		"orderby_direction_maintable":"ASC"
+	},
+		
+	"querystringlinkparams":{
+		"view":"category"
+	}
+}

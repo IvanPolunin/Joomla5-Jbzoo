@@ -1,0 +1,239 @@
+/** PageSpeed test **/
+
+form.jmap-pagespeed table.table-centered th,
+form.jmap-pagespeed table.table-centered td {
+	text-align: center;
+}
+
+form.jmap-pagespeed table.table-centered td span.label {
+	white-space: nowrap;
+}
+
+form.jmap-pagespeed table.table-centered th.corewebvitals {
+	background-image: url('../images/webvitals.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-top: 30px;
+}
+
+div.pagespeed-pagelink {
+	margin: 10px 5px;
+}
+
+img.pagespeed-preview + div.panel {
+	clear: both;
+}
+
+form.jmap-pagespeed span.label-score {
+	border-radius: 1px;
+    font-weight: bold;
+}
+
+form.jmap-pagespeed table.adminlist th:not(:last-child), 
+form.jmap-pagespeed table.adminlist td:not(:last-child) {
+    border-right: 1px solid #CCC;
+}
+
+form.jmap-pagespeed table.adminlist th a {
+	color: #3071a9;
+}
+
+form.jmap-pagespeed table.adminlist th {
+	white-space: normal;
+}
+
+form.jmap-pagespeed table.adminlist td.report-url {
+    max-width: 300px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+form.jmap-pagespeed img.pagespeed-preview {
+	max-width: 100%;
+	max-height: 200px;
+}
+
+div.container-main div.pagespeed-performance-score.badge {
+	clear: both;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    line-height: 54px;
+}
+
+div.pagespeed-performance-score.badge > span {
+    font-size: 50px;
+    vertical-align: text-top;
+    border-radius: 50px;
+    background: #FFF;
+    padding: 7px 9px 7px 8px;
+    margin-inline: inherit;
+    white-space: nowrap;
+}
+
+div.pagespeed-performance-score.badge > span.score-max {
+    font-size: 40px;
+    border-radius: 60px;
+    padding: 14px 2px 13px 3px;
+    white-space: nowrap;
+}
+
+div.pagespeed-performance-score.badge > span.score-min {
+	padding: 7px 22px 7px 22px;
+}
+
+#content div.pagespeed-performance-score.badge.bg-success {
+	color: #3c763d !important;
+	background-color: #3c763d !important;
+	border: 1px solid #3c763d;
+}
+
+#content div.pagespeed-performance-score.badge.bg-warning {
+	color: #f89406 !important;
+	background-color: #f89406 !important;
+	border: 1px solid #f89406;
+}
+
+#content div.pagespeed-performance-score.badge.bg-danger {
+	color: #d30000 !important;
+    background-color: #d30000 !important;
+    border: 1px solid #d30000;
+    margin: 0;
+}
+
+#content div.pagespeed-performance-score.badge.bg-primary {
+	color: #428bca !important;
+	background-color: #428bca !important;
+	border: 1px solid #428bca;
+}
+
+.fa-custom-icon-red {
+	color: #D30000;
+}
+
+.fa-custom-icon-green {
+	color: #468847;
+}
+
+.fa-custom-icon-gray {
+	color: #adadad;
+}
+
+.fa-custom-icon-large {
+	font-size: 20px;
+}
+
+form.jmap-pagespeed div.pagespeed_slider {
+    height: 20px;
+    width: 96%;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+form.jmap-pagespeed div.pagespeed_slider div.inner_slider {
+    height: 20px;
+    color: #FFF;
+    font-weight: bold;
+	min-width: 50px;
+}
+
+form.jmap-pagespeed div.pagespeed_slider div.inner_slider.slider-success {
+	background-color: #3c763d;
+}
+
+form.jmap-pagespeed div.pagespeed_slider div.inner_slider.slider-warning {
+    background-color: #f89406;
+}
+
+form.jmap-pagespeed div.pagespeed_slider div.inner_slider.slider-danger {
+	background-color: #d30000;
+}
+
+form.jmap-pagespeed div.pagespeed_slider div.inner_slider.slider-primary {
+	background-color: #428bca;
+}
+
+form.jmap-pagespeed div.pagespeed_slider_legend {
+	width: 96%;
+    margin: 5px 10px;
+    box-sizing: border-box;
+}
+
+form.jmap-pagespeed div.pagespeed_slider_legend span.pagespeed_slider_legend_success {
+	float: left;
+	width: 11%;
+    overflow: visible;
+    white-space: nowrap;
+    background: #3c763d;
+    font-size: 10px;
+    color: #FFF;
+	height: 12px;
+    line-height: 12px;
+}
+
+form.jmap-pagespeed div.pagespeed_slider_legend span.pagespeed_slider_legend_warning {
+	float: left;
+    width: 40%;
+    background: #f89406;
+    font-size: 10px;
+    color: #FFF;
+    height: 12px;
+    line-height: 12px;
+}
+
+form.jmap-pagespeed div.pagespeed_slider_legend span.pagespeed_slider_legend_danger {
+	float: left;
+	width: 49%;
+    background: #d30000;
+    font-size: 10px;
+    color: #FFF;
+    height: 12px;
+    line-height: 12px;
+}
+
+form.jmap-pagespeed span.badge.bg-nowrap {
+	white-space: nowrap;
+}
+
+@media ( min-width: 1200px) {
+	th.title-widthed {
+		width: 10%;
+	}
+}
+
+@media ( max-width: 1200px) {
+	form.jmap-pagespeed table th.hidden-smalldesktop,
+	form.jmap-pagespeed table td.hidden-smalldesktop {
+		display: none;
+	}
+}
+
+@media ( min-width: 480px) and (max-width: 870px) {
+	#jmap_google_pagespeed_performance table.adminlist th {
+		padding: 2px;
+		font-size: 11px;	
+	}
+}
+
+@media ( max-width: 480px) {
+	#jmap_google_pagespeed_performance table.adminlist th {
+	    padding: 2px;
+	    font-size: 12px;
+	}
+}
+
+@media ( max-width: 379px) {
+	form.jmap-pagespeed table th.hidden-xs-phone,
+	form.jmap-pagespeed table td.hidden-xs-phone {
+		display: none;
+	}
+}
+
+div.pagespeed-pagelink span.input-group {
+    max-width: 500px;
+}
+
+div.pagespeed-pagelink input.inputbox-large {
+	width: 100%;
+}

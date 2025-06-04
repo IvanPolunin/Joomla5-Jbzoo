@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="system" method="upgrade">
+	<name>plg_system_nrframework</name>
+	<description>PLG_SYSTEM_NRFRAMEWORK_DESC</description>
+	<version>5.0.25</version>
+	<creationDate>August 2016</creationDate>
+	<author>Tassos Marinos</author>
+	<copyright>Copyright © 2024 Tassos All Rights Reserved</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<authorEmail>info@tassos.gr</authorEmail>
+	<authorUrl>http://www.tassos.gr</authorUrl>
+	<scriptfile>script.install.php</scriptfile>
+	<files>
+		<filename plugin="nrframework">nrframework.php</filename>
+		<filename>script.install.helper.php</filename>
+		<filename>autoload.php</filename>
+		<folder>fields</folder>
+		<folder>helpers</folder>
+		<folder>xml</folder>
+		<folder>language</folder>
+		<folder>layouts</folder>
+		<folder>NRFramework</folder>
+	</files>
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/nrframework/fields">
+			<fieldset name="basic">
+				<field name="key" type="nrtext" 
+					size="15"
+					label="NR_DOWNLOAD_KEY"
+					description="NR_DOWNLOAD_KEY_DESC"
+					url="https://www.tassos.gr/downloads"
+					urltext="NR_DOWNLOAD_KEY_FIND"
+					urlclass="btn"
+				/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="gmapkey" type="nrtext" 
+					size="15"
+					label="NR_GMAP_KEY"
+					description="NR_GMAP_KEY_DESC"
+					url="https://developers.google.com/maps/documentation/javascript/get-api-key"
+					urltext="NR_GMAP_FIND_KEY"
+					urlclass="btn"
+				/>
+			</fieldset>
+			<fieldset name="breakpoints" label="NR_BREAKPOINTS" description="NR_BREAKPOINTS_SETUP_DESC">
+				<fields name="breakpoints">
+					<field name="desktop" type="nrtext"
+						readonly="true"
+						default="any"
+						size="15"
+						label="NR_DESKTOP_BREAKPOINT"
+						description="NR_DESKTOP_BREAKPOINT_WIDTH_DESC"
+					/>
+					<field name="tablet" type="nrnumber"
+						size="15"
+						default="1024"
+						label="NR_TABLET_BREAKPOINT"
+						description="NR_TABLET_BREAKPOINT_WIDTH_DESC"
+						addon="NR_PIXELS_MAX_WIDTH"
+					/>
+					<field name="mobile" type="nrnumber"
+						size="15"
+						default="575"
+						label="NR_MOBILE_BREAKPOINT"
+						description="NR_MOBILE_BREAKPOINT_WIDTH_DESC"
+						addon="NR_PIXELS_MAX_WIDTH"
+					/>
+				</fields>
+			</fieldset>
+		</fields>
+	</config>
+    <media folder="media" destination="plg_system_nrframework">
+        <folder>img</folder>
+        <folder>css</folder>
+        <folder>font</folder>
+        <folder>js</folder>
+        <folder>svg</folder>
+    </media>
+</extension>

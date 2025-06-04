@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  	<fieldset name="preferences" id="preferences" label="COM_JMAP_SITEMAP_PREFERENCES" addfieldprefix="JExtstore\Component\JMap\Administrator\Field">
+  		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_AUTO_UPDATER"/>
+		<field name="registration_email" type="text" datavalidation="email" default="" size="50" label="COM_JMAP_REGISTRATION_EMAIL_FORUPDATES" description="COM_JMAP_REGISTRATION_EMAIL_FORUPDATES_DESC" />
+		
+  		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_PREFERENCES"/>
+	 	<field name="show_title" class="btn-group" type="radio" default="1" label="COM_JMAP_SHOWMAINTITLE" description="COM_JMAP_SHOWMAINTITLE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="title_type" type="list" default="maintitle" label="COM_JMAP_MAINTITLE_TYPE" description="COM_JMAP_MAINTITLE_TYPE_DESC">
+			<option value="maintitle">COM_JMAP_MAINTITLE</option>
+			<option value="page_title">COM_JMAP_PAGEBROWSER_TITLE</option>
+		</field>
+		<field name="defaulttitle" size="40" type="text" default="" label="COM_JMAP_COMPONENTTITLE" description="COM_JMAP_COMPONENTTITLE_DESC" />
+		<field name="headerlevel" class="btn-group" type="radio" default="1" label="COM_JMAP_HEADERLEVEL" description="COM_JMAP_HEADERLEVEL_DESC">
+			<option value="1">h1</option>
+			<option value="2">h2</option>
+			<option value="3">h3</option>
+			<option value="4">h4</option>
+			<option value="5">h5</option>
+		</field>
+	  	<field name="classdiv" type="text" default="sitemap" label="COM_JMAP_CLASSFORDIV" description="COM_JMAP_CLASSFORDIV_DESC" />
+	  	<field name="show_pagebreaks" class="btn-group" type="radio" default="0" label="COM_JMAP_SHOW_CONTENT_PAGEBREAKS" description="COM_JMAP_SHOW_CONTENT_PAGEBREAKS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="opentarget" class="btn-group" type="radio" default="_self" label="COM_JMAP_OPEN_TARGET" description="COM_JMAP_OPEN_TARGET_DESC">
+			<option value="_self">COM_JMAP_SELF_WINDOW</option>
+			<option value="_blank">COM_JMAP_BLANK_WINDOW</option>       
+			<option value="_parent">COM_JMAP_PARENT_WINDOW</option>            
+		</field>
+		<field name="include_external_links" class="btn-group" type="radio" default="1" label="COM_JMAP_INCLUDE_EXTERNAL_LINKS" description="COM_JMAP_INCLUDE_EXTERNAL_LINKS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="unique_pagination" class="btn-group" type="radio" default="1" label="COM_JMAP_UNIQUE_PAGINATION" description="COM_JMAP_UNIQUE_PAGINATION_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="actionlogs_integration" class="btn-group" type="radio" default="0" label="COM_JMAP_ACTIONLOGS_INTEGRATION" description="COM_JMAP_ACTIONLOGS_INTEGRATION_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="disable_sitemap_formats" class="btn-group" type="radio" default="0" label="COM_JMAP_DISABLE_SITEMAP_FORMATS" description="COM_JMAP_DISABLE_SITEMAP_FORMATS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="disabled_sitemap_formats" type="list" default="0" size="10" multiple="multiple" label="COM_JMAP_DISABLED_SITEMAP_FORMATS" description="COM_JMAP_DISABLED_SITEMAP_FORMATS_DESC">
+			<option value="0">COM_JMAP_DISABLED_SITEMAP_FORMATS_NONE</option>
+			<option value="xml">COM_JMAP_DISABLED_SITEMAP_FORMATS_XML</option>
+			<option value="images">COM_JMAP_DISABLED_SITEMAP_FORMATS_IMAGES</option>
+			<option value="videos">COM_JMAP_DISABLED_SITEMAP_FORMATS_VIDEOS</option>
+			<option value="mobile">COM_JMAP_DISABLED_SITEMAP_FORMATS_MOBILE</option>
+			<option value="gnews">COM_JMAP_DISABLED_SITEMAP_FORMATS_GNEWS</option>
+			<option value="amp">COM_JMAP_DISABLED_SITEMAP_FORMATS_AMP</option>
+			<option value="hreflang">COM_JMAP_DISABLED_SITEMAP_FORMATS_HREFLANG</option>
+			<option value="rss">COM_JMAP_DISABLED_SITEMAP_FORMATS_RSS</option>
+		</field>
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_SEARCHBOX"/>
+		<field name="searchbox_enable" class="btn-group" type="radio" default="0" label="COM_JMAP_SEARCHBOX_ENABLE" description="COM_JMAP_SEARCHBOX_ENABLE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="searchbox_type" class="btn-group" type="radio" default="finder" label="COM_JMAP_SEARCHBOX_TYPE" description="COM_JMAP_SEARCHBOX_TYPE_DESC">
+			<option value="finder">COM_JMAP_SEARCHBOX_TYPE_FINDER</option>       
+			<option value="custom">COM_JMAP_SEARCHBOX_TYPE_CUSTOM</option>            
+		</field>
+		<field name="searchbox_custom" type="text" datavalidation="url" default="" hint="https://www.yourwebsite.com/search?q={search_term}" class="inputbox-large searchbox_styles" label="COM_JMAP_SEARCHBOX_CUSTOM" description="COM_JMAP_SEARCHBOX_CUSTOM_DESC" />
+		<field name="searchbox_url" type="text" datavalidation="url" default="" class="inputbox-large" label="COM_JMAP_SEARCHBOX_URL" description="COM_JMAP_SEARCHBOX_URL_DESC" />
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_OPTIN_CONTENTS"/>
+		<field name="optin_contents" class="btn-group" type="radio" default="0" label="COM_JMAP_OPTIN_CONTENTS_ENABLE" description="COM_JMAP_OPTIN_CONTENTS_ENABLE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="optin_contents_robots_directive" type="text" default="max-snippet:-1,max-image-preview:large,max-video-preview:-1" class="inputbox-large" label="COM_JMAP_OPTIN_CONTENTS_ROBOTS_DIRECTIVE" description="COM_JMAP_OPTIN_CONTENTS_ROBOTS_DIRECTIVE_DESC" />
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_CUSTOM_404_PAGE"/>
+		<field name="custom_404_page_status" class="btn-group" type="radio" default="0" label="COM_JMAP_CUSTOM_404_STATUS" description="COM_JMAP_CUSTOM_404_STATUS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="custom_404_page_override" class="btn-group" type="radio" default="1" label="COM_JMAP_CUSTOM_404_OVERRIDE" description="COM_JMAP_CUSTOM_404_OVERRIDE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="custom_404_page_mode" class="btn-group" type="radio" default="html" label="COM_JMAP_CUSTOM_404_MODE" description="COM_JMAP_CUSTOM_404_MODE_DESC">
+			<option value="text">COM_JMAP_CUSTOM_404_MODE_TEXT</option>
+			<option value="html">COM_JMAP_CUSTOM_404_MODE_HTML</option>
+		</field>
+		<field name="custom_404_process_content_plugins" class="btn-group" type="radio" default="0" label="COM_JMAP_CUSTOM_404_PROCESS_CONTENT_PLUGINS" description="COM_JMAP_CUSTOM_404_PROCESS_CONTENT_PLUGINS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="custom_404_page_text" type="editor" buttons="true" default="Sorry, this page is not available!" label="COM_JMAP_CUSTOM_404_TEXT" description="COM_JMAP_CUSTOM_404_TEXT_DESC"/>
+  	</fieldset>
+  
+	<fieldset name="aspect" id="aspect" label="COM_JMAP_SITEMAP_ASPECT">
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_TEMPLATE_HTML"/>
+		<field name="sitemap_html_template" type="list" default="" label="COM_JMAP_HTML_TEMPLATE" description="COM_JMAP_HTML_TEMPLATE_DESC">
+			<option value="">COM_JMAP_TMPL_DEFAULT</option>
+			<option value="mindmap">COM_JMAP_TMPL_MINDMAP</option>
+			<option value="modern">COM_JMAP_TMPL_MODERN</option>
+			<option value="gojs">COM_JMAP_TMPL_GOJS</option>
+			<option value="dynamic">COM_JMAP_TMPL_DYNAMIC</option>
+			<option value="led">COM_JMAP_TMPL_LED</option>             
+			<option value="large">COM_JMAP_TMPL_LARGE</option>
+			<option value="basic">COM_JMAP_TMPL_BASIC</option>
+			<option value="silver">COM_JMAP_TMPL_SILVER</option>
+			<option value="black">COM_JMAP_TMPL_BLACK</option>
+			<option value="light">COM_JMAP_TMPL_LIGHT</option>
+		</field>
+		<field name="show_sitemap_icons" class="btn-group" type="radio" default="1" label="COM_JMAP_SHOW_ICONS" description="COM_JMAP_SHOW_ICONS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="animated" class="btn-group" type="radio" default="1" label="COM_JMAP_ANIMATED_MAP" description="COM_JMAP_ANIMATED_MAP_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="animate_speed" class="btn-group" type="list" default="200" label="COM_JMAP_ANIMATED_MAP_SPEED" description="COM_JMAP_ANIMATED_MAP_SPEED_DESC">
+			<option value="600">COM_JMAP_VERYSLOW</option>
+			<option value="400">COM_JMAP_SLOW</option>
+			<option value="200">COM_JMAP_NORMAL</option>
+			<option value="100">COM_JMAP_FAST</option>
+			<option value="60">COM_JMAP_VERYFAST</option>
+		</field>
+		
+		<field type="spacer" class="badge bg-primary spacer mindmap_styles" label="COM_JMAP_MINDMAP_TEMPLATING"/>
+		<field name="minheight_root_folders" class="mindmap_styles" type="text" default="35" label="COM_JMAP_MINHEIGHT_ROOT_FOLDERS" description="COM_JMAP_MINHEIGHT_ROOT_FOLDERS_DESC" />
+	  	<field name="minheight_sub_folders" class="mindmap_styles" type="text" default="30" label="COM_JMAP_MINHEIGHT_SUB_FOLDERS" description="COM_JMAP_MINHEIGHT_SUB_FOLDERS_DESC" />
+	  	<field name="minheight_leaf" class="mindmap_styles" type="text" default="20" label="COM_JMAP_MINHEIGHT_LEAF" description="COM_JMAP_MINHEIGHT_LEAF_DESC" />
+	  	<field name="minwidth_columns" class="mindmap_styles" type="text" default="120" label="COM_JMAP_MINWIDTH_COLUMNS" description="COM_JMAP_MINWIDTH_COLUMNS_DESC" />
+	  	<field name="font_size_boxes" class="mindmap_styles" type="text" default="12" label="COM_JMAP_FONT_SIZE_BOXES" description="COM_JMAP_FONT_SIZE_BOXES_DESC" />
+		<field name="root_folders_color" class="mindmap_styles" type="text" default="#F60" label="COM_JMAP_ROOT_FOLDERS_COLOR" description="COM_JMAP_ROOT_FOLDERS_COLOR_DESC"/>
+		<field name="root_folders_border_color" class="mindmap_styles" type="text" default="#943B00" label="COM_JMAP_ROOT_FOLDERS_BORDER_COLOR" description="COM_JMAP_ROOT_FOLDERS_BORDER_COLOR_DESC"/>
+		<field name="root_folders_text_color" class="mindmap_styles" type="text" default="#FFF" label="COM_JMAP_ROOT_FOLDERS_TEXT_COLOR" description="COM_JMAP_ROOT_FOLDERS_TEXT_COLOR_DESC"/>
+		<field name="sub_folders_color" class="mindmap_styles" type="text" default="#99CDFF" label="COM_JMAP_SUB_FOLDERS_COLOR" description="COM_JMAP_SUB_FOLDERS_COLOR_DESC"/>
+		<field name="sub_folders_border_color" class="mindmap_styles" type="text" default="#11416F" label="COM_JMAP_SUB_FOLDERS_BORDER_COLOR" description="COM_JMAP_SUB_FOLDERS_BORDER_COLOR_DESC"/>
+		<field name="sub_folders_text_color" class="mindmap_styles" type="text" default="#11416F" label="COM_JMAP_SUB_FOLDERS_TEXT_COLOR" description="COM_JMAP_SUB_FOLDERS_TEXT_COLOR_DESC"/>
+		<field name="leaf_folders_color" class="mindmap_styles" type="text" default="#EBEBEB" label="COM_JMAP_LEAF_FOLDERS_COLOR" description="COM_JMAP_LEAF_FOLDERS_COLOR_DESC"/>
+		<field name="leaf_folders_border_color" class="mindmap_styles" type="text" default="#6E6E6E" label="COM_JMAP_LEAF_FOLDERS_BORDER_COLOR" description="COM_JMAP_LEAF_FOLDERS_BORDER_COLOR_DESC"/>
+		<field name="leaf_folders_text_color" class="mindmap_styles" type="text" default="#505050" label="COM_JMAP_LEAF_FOLDERS_TEXT_COLOR" description="COM_JMAP_LEAF_FOLDERS_TEXT_COLOR_DESC"/>
+		<field name="connections_color" class="mindmap_styles" type="text" default="#CCC" label="COM_JMAP_LEAF_CONNECTIONS_COLOR" description="COM_JMAP_LEAF_CONNECTIONS_COLOR_DESC"/>
+		<field name="expand_iconset" class="mindmap_styles" type="list" default="square-blue" label="COM_JMAP_EXPAND_ICONSET" description="COM_JMAP_EXPAND_ICONSET_DESC">
+			<option value="square-blue">COM_JMAP_SQUARE_BLUE</option>
+			<option value="square-gray">COM_JMAP_SQUARE_GRAY</option>
+			<option value="circle-blue">COM_JMAP_CIRCLE_BLUE</option>
+			<option value="circle-gray">COM_JMAP_CIRCLE_GRAY</option>
+		</field>
+		
+		<field type="spacer" class="badge bg-primary spacer gojs_styles" label="COM_JMAP_GOJS_TEMPLATING"/>
+		<field name="auto_height_canvas" class="btn-group gojs_styles" type="radio" default="1" label="COM_JMAP_AUTO_HEIGHT_CANVAS" description="COM_JMAP_AUTO_HEIGHT_CANVAS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="auto_scale_canvas" class="btn-group gojs_styles" type="radio" default="0" label="COM_JMAP_AUTO_SCALE_CANVAS" description="COM_JMAP_AUTO_SCALE_CANVAS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="tree_orientation" class="gojs_styles" type="list" default="horizontal" label="COM_JMAP_TREE_ORIENTATION" description="COM_JMAP_TREE_ORIENTATION_DESC">
+			<option value="horizontal">COM_JMAP_TREE_ORIENTATION_HORIZONTAL</option>
+			<option value="vertical">COM_JMAP_TREE_ORIENTATION_VERTICAL</option>
+		</field>
+		<field name="height_canvas" class="gojs_styles" type="text" default="1000" label="COM_JMAP_HEIGHT_CANVAS" description="COM_JMAP_HEIGHT_CANVAS_DESC" />
+	  	<field name="width_canvas" class="gojs_styles" type="text" default="100%" label="COM_JMAP_WIDTH_CANVAS" description="COM_JMAP_WIDTH_CANVAS_DESC" />
+		<field name="root_color" class="gojs_styles" type="text" default="#9df2e9" label="COM_JMAP_ROOT_COLOR" description="COM_JMAP_ROOT_COLOR_DESC"/>
+		<field name="child_color" class="gojs_styles" type="text" default="#e0c8be" label="COM_JMAP_CHILD_COLOR" description="COM_JMAP_CHILD_COLOR_DESC"/>
+		<field name="node_color_text" class="gojs_styles" type="text" default="#333" label="COM_JMAP_NODE_COLOR_TEXT" description="COM_JMAP_NODE_COLOR_TEXT_DESC"/>
+		<field name="instructions_canvas" class="btn-group gojs_styles" type="radio" default="1" label="COM_JMAP_INSTRUCTIONS_CANVAS" description="COM_JMAP_INSTRUCTIONS_CANVAS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		
+		<field name="draggable_sitemap" class="btn-group" type="radio" default="0" label="COM_JMAP_DRAGGABLE_SITEMAP" description="COM_JMAP_DRAGGABLE_SITEMAP_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="template_override" class="btn-group" type="radio" default="0" label="COM_JMAP_TEMPLATE_OVERRIDE" description="COM_JMAP_TEMPLATE_OVERRIDE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="treeview_scripts" class="btn-group" type="radio" default="1" label="COM_JMAP_ENABLE_TREEVIEW_SCRIPTS" description="COM_JMAP_ENABLE_TREEVIEW_SCRIPTS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_RENDERING"/>
+	 	<field name="show_expanded" class="btn-group" type="radio" default="0" label="COM_JMAP_SHOW_EXPANDED" description="COM_JMAP_SHOW_EXPANDED_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="expand_location" class="btn-group" type="radio" default="location" label="COM_JMAP_EXPAND_CURRENT_MENU_FOLDER" description="COM_JMAP_EXPAND_CURRENT_MENU_FOLDER_DESC">
+			<option value="none">COM_JMAP_JMAPCOLLAPSE</option>
+			<option value="location">COM_JMAP_JMAPEXPAND</option>
+		</field>
+		<field name="column_sitemap" class="btn-group" type="radio" default="0" label="COM_JMAP_COLUMN_SITEMAP" description="COM_JMAP_COLUMN_SITEMAP_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="column_maxnum" class="btn-group" type="radio" default="3" label="COM_JMAP_COLUMN_SITEMAP_MAXNUM" description="COM_JMAP_COLUMN_SITEMAP_MAXNUM_DESC">
+			<option value="2">COM_JMAP_2_COLUMNS</option>
+			<option value="3">COM_JMAP_3_COLUMNS</option>
+			<option value="4">COM_JMAP_4_COLUMNS</option>
+			<option value="5">COM_JMAP_5_COLUMNS</option>
+			<option value="6">COM_JMAP_6_COLUMNS</option>
+		</field>
+		<field name="multilevel_categories" class="btn-group" type="radio" default="0" label="COM_JMAP_MULTILEVEL_CATEGORIES" description="COM_JMAP_MULTILEVEL_CATEGORIES_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="hide_empty_cats" class="btn-group" type="radio" default="0" label="COM_JMAP_HIDE_EMPTY_CATS" description="COM_JMAP_HIDE_EMPTY_CATS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="expand_first_level" class="btn-group" type="radio" default="0" label="COM_JMAP_EXPAND_FIRST_LEVEL" description="COM_JMAP_EXPAND_FIRST_LEVEL_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="merge_alias_menu" class="btn-group" type="radio" default="0" label="COM_JMAP_MERGE_ALIAS_MENU" description="COM_JMAP_MERGE_ALIAS_MENU_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="merge_generic_menu_by_class" class="btn-group" type="radio" default="0" label="COM_JMAP_MERGE_GENERIC_MENU_BY_CLASS" description="COM_JMAP_MERGE_GENERIC_MENU_BY_CLASS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="show_toggler" class="btn-group" type="radio" default="0" label="COM_JMAP_SHOW_TOGGLER" description="COM_JMAP_SHOW_TOGGLER_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
+	
+	<fieldset name="caching" id="caching" label="COM_JMAP_SITEMAP_CACHING_SPLITTING">
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_CACHE_STANDARD"/>
+		<field name="enable_view_cache" type="radiocache" default="0" label="COM_JMAP_CACHE" description="COM_JMAP_CACHE_DESC">
+			<option value="1">JENABLED</option>
+			<option value="0">JDISABLED</option>
+		</field>
+		<field name="lifetime_view_cache" type="list" default="1" label="COM_JMAP_LIFETIME_CACHE" description="COM_JMAP_LIFETIME_CACHE_DESC">
+			<option value="1">COM_JMAP_1DAY</option>       
+			<option value="3">COM_JMAP_3DAYS</option>   
+			<option value="7">COM_JMAP_1WEEK</option>   
+			<option value="15">COM_JMAP_2WEEKS</option>  
+			<option value="30">COM_JMAP_1MONTH</option>  
+			<option value="99999">COM_JMAP_USE_ALWAYS</option>
+		</field>
+		<field name="rss_lifetime_view_cache" type="text" datavalidation="numbers" default="60" label="COM_JMAP_RSS_LIFETIME_CACHE" description="COM_JMAP_RSS_LIFETIME_CACHE_DESC" />
+		<field name="gnews_lifetime_view_cache" type="text" datavalidation="numbers" default="60" label="COM_JMAP_GNEWS_LIFETIME_CACHE" description="COM_JMAP_GNEWS_LIFETIME_CACHE_DESC" />
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_PRECACHING_AJAX"/>
+		<field name="enable_precaching" type="radiocache" default="0" cachetype="PRE" label="COM_JMAP_PRECACHING_ENABLED" description="COM_JMAP_PRECACHING_ENABLED_DESC">
+			<option value="1">JENABLED</option>
+			<option value="0">JDISABLED</option>
+		</field>
+	  	<field name="precaching_limit_xml" type="text" default="5000" label="COM_JMAP_PRECACHING_LIMIT_XML" description="COM_JMAP_PRECACHING_LIMIT_XML_DESC" />
+	  	<field name="precaching_limit_images" type="text" default="50" label="COM_JMAP_PRECACHING_LIMIT_IMAGES" description="COM_JMAP_PRECACHING_LIMIT_IMAGES_DESC" />
+	  	<field name="precaching_multilanguage_rawurls" class="btn-group" type="radio" default="0" label="COM_JMAP_PRECACHING_MULTILANGUAGE_RAWURLS" description="COM_JMAP_PRECACHING_MULTILANGUAGE_RAWURLS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_SPLITTING"/>
+		<field name="split_sitemap" class="btn-group" type="radio" default="0" label="COM_JMAP_SPLIT_SITEMAP" description="COM_JMAP_SPLIT_SITEMAP_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="split_chunks" type="text" default="50000" label="COM_JMAP_SPLITCHUNKS" description="COM_JMAP_SPLITCHUNKS_DESC" />
+		<field name="splitting_hardcoded_rootnode" class="btn-group" type="radio" default="1" label="COM_JMAP_SPLIT_ROOTNODE" description="COM_JMAP_SPLIT_ROOTNODE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
+	
+	<fieldset name="sitemapsettings" id="sitemapsettings" label="COM_JMAP_SITEMAP_SITEMAPS_SETTINGS">
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_GNEWS_SITEMAP"/>
+	 	<field name="gnews_publication_name" type="text" default="" size="50" label="COM_JMAP_GNEWS_PUBLICATION_NAME" description="COM_JMAP_GNEWS_PUBLICATION_NAME_DESC" />
+	 	<field name="gnews_limit_recent" class="btn-group" type="radio" default="0" label="COM_JMAP_GNEWS_LIMIT_RECENT" description="COM_JMAP_GNEWS_LIMIT_RECENT_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="gnews_limit_valid_days" type="text" default="2" label="COM_JMAP_GNEWS_LIMIT_VALID_DAYS" description="COM_JMAP_GNEWS_LIMIT_VALID_DAYS_DESC" />
+		<field name="gnews_genres" type="list" default="Blog" size="8" multiple="multiple" label="COM_JMAP_GNEWS_GENRES" description="COM_JMAP_GNEWS_GENRES_DESC">
+			<option value="">COM_JMAP_NONE</option>
+  			<option value="Blog">COM_JMAP_BLOG</option>
+			<option value="PressRelease">COM_JMAP_PRESSRELEASE</option>
+			<option value="Satire">COM_JMAP_SATIRE</option>
+			<option value="OpEd">COM_JMAP_OPED</option>
+			<option value="Opinion">COM_JMAP_OPINION</option>
+			<option value="UserGenerated">COM_JMAP_USERGENERATED</option>
+  		</field>
+
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_IMAGES_SITEMAP"/>
+		<field name="imagetitle_processor" class="btn-group" type="radio" default="title|alt" label="COM_JMAP_IMAGETITLE_PROCESSOR" description="COM_JMAP_IMAGETITLE_PROCESSOR_DESC">
+			<option value="title|alt">COM_JMAP_TITLE_ALT</option>
+			<option value="title">COM_JMAP_ALWAYS_TITLE</option>
+			<option value="alt">COM_JMAP_ALWAYS_ALT</option>
+			<option value="none">COM_JMAP_NONE</option>
+		</field>
+		<field name="max_images_requests" type="list" default="50" label="COM_JMAP_LIMIT_IMAGES_SITEMAP_REQUESTS" description="COM_JMAP_LIMIT_IMAGES_SITEMAP_REQUESTS_DESC">
+			<option value="0">COM_JMAP_LIMIT_IMAGES_SITEMAP_REQUESTS_UNLIMITED</option>
+			<option value="2000">2000 ~60 min</option>  
+			<option value="1000">1000 ~30 min</option>  
+			<option value="750">750 ~20 min</option>      
+			<option value="500">500 ~15 min</option>      
+			<option value="350">350 ~10 min</option> 
+			<option value="200">200 ~5 min</option>   
+			<option value="100">100 ~2 min</option>   
+			<option value="50">50 ~60 sec</option>       
+			<option value="40">40 ~50 sec</option>       
+			<option value="30">30 ~40 sec</option>       
+			<option value="20">20 ~30 sec</option>       
+			<option value="10">10 ~20 sec</option>       
+		</field>
+		<field name="regex_images_crawler" class="btn-group" type="radio" default="advanced" label="COM_JMAP_REGEX_IMAGES_CRAWLER" description="COM_JMAP_REGEX_IMAGES_CRAWLER_DESC">
+			<option value="standard">COM_JMAP_IMAGES_STANDARD_REGEX</option>
+			<option value="advanced">COM_JMAP_IMAGES_ADVANCED_REGEX</option>
+		</field>
+		<field name="fake_images_processor" class="btn-group" type="radio" default="0" label="COM_JMAP_FAKE_IMAGES" description="COM_JMAP_FAKE_IMAGES_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="lazyload_images_processor" class="btn-group" type="radio" default="0" label="COM_JMAP_LAZYLOAD_IMAGES" description="COM_JMAP_LAZYLOAD_IMAGES_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="custom_images_processor" class="btn-group" type="radio" default="0" label="COM_JMAP_CUSTOM_IMAGES" description="COM_JMAP_CUSTOM_IMAGES_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="custom_images_processor_tags" type="text" class="inputbox-large customtags_styles" default="" size="50" label="COM_JMAP_CUSTOM_IMAGES_TAGS" description="COM_JMAP_CUSTOM_IMAGES_TAGS_DESC" />
+		<field name="custom_images_processor_attributes" type="text" class="inputbox-large customtags_styles" default="" size="50" label="COM_JMAP_CUSTOM_IMAGES_ATTRIBUTES" description="COM_JMAP_CUSTOM_IMAGES_ATTRIBUTES_DESC" />
+		<field name="images_filters_mode" type="list" default="tag" label="COM_JMAP_IMAGES_FILTER_MODE" description="COM_JMAP_IMAGES_FILTER_MODE_DESC">
+			<option value="tag">COM_JMAP_IMAGES_FILTER_MODE_TAG</option>
+			<option value="attribute">COM_JMAP_IMAGES_FILTER_MODE_ATTRIBUTE</option>
+		</field>
+		<field name="include_description_only" class="btn-group" type="radio" default="0" label="COM_JMAP_INCLUDE_DESCRIPTION_ONLY" description="COM_JMAP_INCLUDE_DESCRIPTION_ONLY_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="sh404sef_multilanguage" class="btn-group" type="radio" default="0" label="COM_JMAP_SH404SEF_MULTILANGUAGE" description="COM_JMAP_SH404SEF_MULTILANGUAGE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="images_global_filter_include" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_ELEMENTS_IMAGES_FILTERINCLUDE" description="COM_JMAP_ELEMENTS_IMAGES_FILTERINCLUDE_DESC" />
+		<field name="images_global_filter_exclude" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_ELEMENTS_IMAGES_FILTEREXCLUDE" description="COM_JMAP_ELEMENTS_IMAGES_FILTEREXCLUDE_DESC" />
+		<field name="videos_global_filter_include" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_ELEMENTS_VIDEOS_FILTERINCLUDE" description="COM_JMAP_ELEMENTS_VIDEOS_FILTERINCLUDE_DESC" />
+		<field name="videos_global_filter_exclude" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_ELEMENTS_VIDEOS_FILTEREXCLUDE" description="COM_JMAP_ELEMENTS_VIDEOS_FILTEREXCLUDE_DESC" />
+		<field name="cdnprotocol" type="text" default="" size="50" label="COM_JMAP_CDN_PROTOCOL" description="COM_JMAP_CDN_PROTOCOL_DESC" />
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_RSS_FEED"/>
+		<field name="rss_channel_name" type="text" default="" size="50" label="COM_JMAP_RSS_CHANNEL_NAME" description="COM_JMAP_RSS_CHANNEL_NAME_DESC" />
+		<field name="rss_channel_description" type="textarea" default="" size="50" label="COM_JMAP_RSS_CHANNEL_DESCRIPTION" description="COM_JMAP_RSS_CHANNEL_DESCRIPTION_DESC" />
+		<field name="rss_channel_image" type="media" label="COM_JMAP_RSS_CHANNEL_IMAGE" description="COM_JMAP_RSS_CHANNEL_IMAGE_DESC" />
+		<field name="rss_webmaster_name" type="text" default="" size="50" label="COM_JMAP_RSS_WEBMASTER_NAME" description="COM_JMAP_RSS_WEBMASTER_NAME_DESC" />
+		<field name="rss_webmaster_email" type="text" datavalidation="email" default="" size="50" label="COM_JMAP_RSS_WEBMASTER_EMAIL" description="COM_JMAP_RSS_WEBMASTER_EMAIL_DESC" />
+		<field name="rss_channel_excludewords" type="textarea" default="" label="COM_JMAP_RSS_CHANNEL_EXCLUDE_WORDS" description="COM_JMAP_RSS_CHANNEL_EXCLUDE_WORDS_DESC" />
+		<field name="rss_limit_valid_days" type="text" default="" datavalidation="numbers" label="COM_JMAP_RSS_LIMIT_VALID_DAYS" description="COM_JMAP_RSS_LIMIT_VALID_DAYS_DESC" />
+		<field name="rss_limit_recent" type="text" default="" datavalidation="numbers" label="COM_JMAP_RSS_LIMIT_RECENT" description="COM_JMAP_RSS_LIMIT_RECENT_DESC" />
+		<field name="rss_process_content_plugins" class="btn-group" type="radio" default="0" label="COM_JMAP_RSS_PROCESS_CONTENT_PLUGINS" description="COM_JMAP_RSS_PROCESS_CONTENT_PLUGINS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="rss_include_images" type="list" default="0" label="COM_JMAP_RSS_INCLUDE_IMAGES" description="COM_JMAP_RSS_INCLUDE_IMAGES_DESC">
+			<option value="0">JNO</option>
+			<option value="1">COM_JMAP_RSS_INCLUDE_IMAGES_INTRO</option>
+			<option value="2">COM_JMAP_RSS_INCLUDE_IMAGES_FULL</option>
+			<option value="3">COM_JMAP_RSS_INCLUDE_IMAGES_BOTH</option>
+		</field>
+		<field name="rss_include_author" class="btn-group" type="radio" default="0" label="COM_JMAP_RSS_INCLUDE_AUTHOR" description="COM_JMAP_RSS_INCLUDE_AUTHOR_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="rss_include_fulltext" class="btn-group" type="radio" default="0" label="COM_JMAP_RSS_INCLUDE_FULLTEXT" description="COM_JMAP_RSS_INCLUDE_FULLTEXT_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_GEO_SITEMAP"/>
+		<field name="geositemap_enabled" class="btn-group" type="radio" default="0" label="COM_JMAP_GEO_SITEMAP_ENABLED" description="COM_JMAP_GEO_SITEMAP_ENABLED_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="geositemap_address" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_GEO_SITEMAP_ADDRESS" description="COM_JMAP_GEO_SITEMAP_ADDRESS_DESC" />
+		<field name="geositemap_name" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_GEO_SITEMAP_NAME" description="COM_JMAP_GEO_SITEMAP_NAME_DESC" />
+		<field name="geositemap_author" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_GEO_SITEMAP_AUTHOR" description="COM_JMAP_GEO_SITEMAP_AUTHOR_DESC" />
+		<field name="geositemap_description" type="text" class="inputbox-large" default="" size="50" label="COM_JMAP_GEO_SITEMAP_DESCRIPTION" description="COM_JMAP_GEO_SITEMAP_DESCRIPTION_DESC" />
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_AMP_SITEMAP"/>
+		<field name="amp_sitemap_enabled" class="btn-group" type="radio" default="0" label="COM_JMAP_AMP_SITEMAP_ENABLED" description="COM_JMAP_AMP_SITEMAP_ENABLED_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="amp_suffix" type="text" default="amp" size="50" label="COM_JMAP_AMP_SUFFIX" description="COM_JMAP_AMP_SUFFIX_DESC" />
+		<field name="amp_sef_suffix_enabled" class="btn-group" type="radio" default="0" label="COM_JMAP_AMP_SEF_SUFFIX_ENABLED" description="COM_JMAP_AMP_SEF_SUFFIX_ENABLED_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
+	
+	<fieldset name="features" id="features" label="COM_JMAP_TOOLS_AND_FEATURES">
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_MISC_ACL"/>
+	 	<field name="include_archived" class="btn-group" type="radio" default="0" label="COM_JMAP_INCLUDE_ARCHIVED_CONTENTS" description="COM_JMAP_INCLUDE_ARCHIVED_CONTENTS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="multiple_content_sources" class="btn-group" type="radio" default="0" label="COM_JMAP_MULTIPLE_CONTENT_SOURCES" description="COM_JMAP_MULTIPLE_CONTENT_SOURCES_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="enable_articles_exclusions" class="btn-group" type="radio" default="1" label="COM_JMAP_ENABLE_ARTICLES_EXCLUSIONS" description="COM_JMAP_ENABLE_ARTICLES_EXCLUSIONS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="disable_acl" class="btn-group" type="radio" default="enabled" label="COM_JMAP_DISABLE_ACL" description="COM_JMAP_DISABLE_ACL_DESC">
+			<option value="enabled">JENABLED</option>
+			<option value="disabled">JDISABLED</option>
+		</field>
+		<field name="enable_pattern_replacements" class="btn-group" type="radio" default="enabled" label="COM_JMAP_ENABLE_PATTERN_REPLACEMENTS" description="COM_JMAP_ENABLE_PATTERN_REPLACEMENTS_DESC">
+			<option value="enabled">JENABLED</option>
+			<option value="disabled">JDISABLED</option>
+		</field>
+		<field name="auto_exclude_noindex" class="btn-group" type="radio" default="0" label="COM_JMAP_AUTO_EXCLUDE_NOINDEX" description="COM_JMAP_AUTO_EXCLUDE_NOINDEX_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="auto_exclude_hidden_menu" class="btn-group" type="radio" default="0" label="COM_JMAP_AUTO_EXCLUDE_HIDDEN_MENU" description="COM_JMAP_AUTO_EXCLUDE_HIDDEN_MENU_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="showalways_language_dropdown" class="btn-group" type="radio" default="" label="COM_JMAP_SHOWALWAYS_LANGUAGE_DROPDOWN" description="COM_JMAP_SHOWALWAYS_LANGUAGE_DROPDOWN_DESC">
+			<option value="1">COM_JMAP_SHOW_ALWAYS</option>
+			<option value="">COM_JMAP_AUTODETECT</option>
+		</field>
+		<field name="lists_limit_pagination" type="list" default="10" label="COM_JMAP_LISTS_LIMIT_PAGINATION" description="COM_JMAP_LISTS_LIMIT_PAGINATION_DESC">
+			<option value="5">J5</option>
+			<option value="10">J10</option>
+			<option value="15">J15</option>
+			<option value="20">J20</option>
+			<option value="25">J25</option>
+			<option value="30">J30</option>
+			<option value="50">J50</option>
+			<option value="100">J100</option> 
+		</field>
+		<field name="selectable_limit_pagination" type="list" default="10" label="COM_JMAP_SELECTABLE_LIMIT_PAGINATION" description="COM_JMAP_SELECTABLE_LIMIT_PAGINATION_DESC">
+			<option value="5">J5</option>
+			<option value="10">J10</option>
+			<option value="15">J15</option>
+			<option value="20">J20</option>
+			<option value="25">J25</option>
+			<option value="30">J30</option>
+			<option value="50">J50</option>
+			<option value="100">J100</option> 
+		</field>
+		<field name="seostats_custom_link" type="text" size="50" datavalidation="url" default="" label="COM_JMAP_SEOSTATS_CUSTOMLINK" description="COM_JMAP_SEOSTATS_CUSTOMLINK_DESC" />
+		<field name="seostats_enabled" class="btn-group" type="radio" default="1" label="COM_JMAP_SEOSTATS" description="COM_JMAP_SEOSTATS_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="seostats_service" type="list" default="statscrop" label="COM_JMAP_SEOSTATS_SERVICE" description="COM_JMAP_SEOSTATS_SERVICE_DESC">
+			<option value="statscrop">COM_JMAP_SEOSTATS_SERVICE_STATSCROP</option>
+			<option value="xranks">COM_JMAP_SEOSTATS_SERVICE_XRANKS</option>
+			<option value="siterankdata">COM_JMAP_SEOSTATS_SERVICE_SITERANKDATA</option>
+			<option value="hypestat">COM_JMAP_SEOSTATS_SERVICE_HYPESTAT</option>
+			<option value="zigstat">COM_JMAP_SEOSTATS_SERVICE_ZIGSTAT</option>
+		</field>
+		<field name="seostats_site_query" class="btn-group" type="radio" default="1" label="COM_JMAP_SEOSTATS_SITE_QUERY" description="COM_JMAP_SEOSTATS_SITE_QUERY_DESC">
+   			<option value="1">COM_JMAP_EXACT_SITE</option>
+   			<option value="0">COM_JMAP_WHOLE_DOMAIN</option>
+   		</field>
+		<field name="seostats_gethost" class="btn-group" type="radio" default="1" label="COM_JMAP_SEOSTATS_GETHOST" description="COM_JMAP_SEOSTATS_GETHOST_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+		<field name="indexnow_apikey" class="inputbox-large" type="text" default="28bcb027f9b443719ceac7cd30556c3c" label="COM_JMAP_INDEXNOW_APIKEY" description="COM_JMAP_INDEXNOW_APIKEY_DESC" />
+   		
+   		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_AUTOPING_SEARCH_ENGINES"/>
+		<field name="default_autoping" class="btn-group" type="radio" default="0" label="COM_JMAP_ENABLE_DEFAULT_AUTOPING" description="COM_JMAP_ENABLE_DEFAULT_AUTOPING_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="default_autoping_single_article" class="btn-group" type="radio" default="1" label="COM_JMAP_ENABLE_DEFAULT_AUTOPING_SINGLE_ARTICLE" description="COM_JMAP_ENABLE_DEFAULT_AUTOPING_SINGLE_ARTICLE_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+		<field name="autoping" class="btn-group" type="radio" default="0" label="COM_JMAP_ENABLE_AUTOPING" description="COM_JMAP_ENABLE_AUTOPING_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		
+   		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_GOOGLE_INDEXING_API"/>
+   		<field name="enable_google_indexing_api" class="btn-group" type="radio" default="0" label="COM_JMAP_ENABLE_GOOGLE_INDEXING_API" description="COM_JMAP_ENABLE_GOOGLE_INDEXING_API_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="google_indexing_authentication" class="googleindexing" type="googleauth" label="COM_JMAP_GOOGLE_INDEXING_AUTHENTICATION" description="COM_JMAP_GOOGLE_INDEXING_AUTHENTICATION_DESC"/>
+   		<field name="google_indexing_authcode" class="googleindexing inputbox-large" type="text" default="" label="COM_JMAP_GOOGLE_INDEXING_AUTHCODE" description="COM_JMAP_GOOGLE_INDEXING_AUTHCODE_DESC" />
+   		<field name="google_indexing_api_key" type="text" size="70" default="" label="COM_JMAP_GOOGLE_INDEXING_APIKEY" description="COM_JMAP_GOOGLE_INDEXING_APIKEY_DESC"/>
+		<field name="google_indexing_client_id" type="text" size="70" default="" label="COM_JMAP_GOOGLE_INDEXING_CLIENTID" description="COM_JMAP_GOOGLE_INDEXING_CLIENTID_DESC"/>
+		<field name="google_indexing_client_secret" type="text" size="70" default="" label="COM_JMAP_GOOGLE_INDEXING_SECRET" description="COM_JMAP_GOOGLE_INDEXING_SECRET_DESC"/>
+   		<field name="google_indexing_authtoken" type="hidden" class="control-hidden" default="" />
+   		
+   		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_LINKS_ANALYZER"/>
+   		<field name="linksanalyzer_workingmode" class="btn-group" type="radio" default="1" label="COM_JMAP_LINKSANALYZER_WORKINGMODE" description="COM_JMAP_LINKSANALYZER_WORKINGMODE_DESC">
+   			<option value="1">COM_JMAP_STANDARD</option>
+   			<option value="0">COM_JMAP_COMPAT</option>
+   		</field>
+   		<field name="linksanalyzer_validation_analysis" class="btn-group" type="radio" default="2" label="COM_JMAP_LINKSANALYZER_VALIDATION_ANALYSIS" description="COM_JMAP_LINKSANALYZER_VALIDATION_ANALYSIS_DESC">
+   			<option value="1">COM_JMAP_ASYNC</option>
+   			<option value="2">COM_JMAP_STANDARD</option>
+   		</field>
+   		<field name="linksanalyzer_indexing_analysis" class="btn-group" type="radio" default="1" label="COM_JMAP_LINKSANALYZER_INDEXING_ANALYSIS" description="COM_JMAP_LINKSANALYZER_INDEXING_ANALYSIS_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="linksanalyzer_indexing_engine" type="list" default="webcrawler" label="COM_JMAP_LINKSANALYZER_INDEXING_ENGINE" description="COM_JMAP_LINKSANALYZER_INDEXING_ENGINE_DESC">
+			<option value="webcrawler">COM_JMAP_LINKSANALYZER_INDEXING_ENGINE_WEBCRAWLER</option>
+			<option value="bing">COM_JMAP_LINKSANALYZER_INDEXING_ENGINE_BING</option>
+		</field>
+		<field name="linksanalyzer_indexing_engine_selector_webcrawler" default="web-bing__url" type="text" label="COM_JMAP_LINKSANALYZER_INDEXING_ENGINE_SELECTOR_WEBCRAWLER" description="COM_JMAP_LINKSANALYZER_INDEXING_ENGINE_SELECTOR_WEBCRAWLER_DESC" />
+		<field name="linksanalyzer_indexing_engine_selector_bing" default="b_attribution" type="text" label="COM_JMAP_LINKSANALYZER_INDEXING_ENGINE_SELECTOR_BING" description="COM_JMAP_LINKSANALYZER_INDEXING_ENGINE_SELECTOR_BING_DESC" />
+   		<field name="linksanalyzer_serp_numresults" type="list" default="10" label="COM_JMAP_LINKSANALYZER_SERP_NUMRESULTS" description="COM_JMAP_LINKSANALYZER_SERP_NUMRESULTS_DESC">
+			<option value="1">COM_JMAP_LINKSANALYZER_TOP_1_RESULT</option>
+			<option value="2">COM_JMAP_LINKSANALYZER_TOP_2_RESULTS</option>
+			<option value="3">COM_JMAP_LINKSANALYZER_TOP_3_RESULTS</option>
+			<option value="4">COM_JMAP_LINKSANALYZER_TOP_4_RESULTS</option>
+			<option value="5">COM_JMAP_LINKSANALYZER_TOP_5_RESULTS</option>
+			<option value="6">COM_JMAP_LINKSANALYZER_TOP_6_RESULTS</option>
+			<option value="7">COM_JMAP_LINKSANALYZER_TOP_7_RESULTS</option>
+			<option value="8">COM_JMAP_LINKSANALYZER_TOP_8_RESULTS</option>
+			<option value="9">COM_JMAP_LINKSANALYZER_TOP_9_RESULTS</option> 
+			<option value="10">COM_JMAP_LINKSANALYZER_TOP_10_RESULTS</option>  
+		</field>
+		<field name="links_analyzer_pagespeed_insights_analysis" class="btn-group" type="radio" default="0" label="COM_JMAP_LINKSANALYZER_PAGESPEED_INSIGHTS_ANALYSIS" description="COM_JMAP_LINKSANALYZER_PAGESPEED_INSIGHTS_ANALYSIS_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="links_analyzer_pagespeed_insights_analysis_strategy" type="list" default="desktop" label="COM_JMAP_LINKSANALYZER_PAGESPEED_INSIGHTS_ANALYSIS_STRATEGY" description="COM_JMAP_LINKSANALYZER_PAGESPEED_INSIGHTS_ANALYSIS_STRATEGY_DESC">
+			<option value="desktop">COM_JMAP_LINKSANALYZER_PAGESPEED_INSIGHTS_ANALYSIS_STRATEGY_DESKTOP</option>
+			<option value="mobile">COM_JMAP_LINKSANALYZER_PAGESPEED_INSIGHTS_ANALYSIS_STRATEGY_MOBILE</option>
+		</field>
+   		<field name="linksanalyzer_remove_separators" class="btn-group" type="radio" default="1" label="COM_JMAP_LINKSANALYZER_REMOVE_SEPARATORS" description="COM_JMAP_LINKSANALYZER_REMOVE_SEPARATORS_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="linksanalyzer_remove_slashes" class="btn-group" type="list" default="2" label="COM_JMAP_LINKSANALYZER_REMOVE_SLASHES" description="COM_JMAP_LINKSANALYZER_REMOVE_SLASHES_DESC">
+   			<option value="0">JNO</option>
+   			<option value="1">JYES</option>
+   			<option value="2">COM_JMAP_LINKSANALYZER_REMOVE_MAX_ONE_SLASH</option>
+   			<option value="3">COM_JMAP_LINKSANALYZER_REMOVE_MAX_TWO_SLASH</option>
+   			<option value="4">COM_JMAP_LINKSANALYZER_REMOVE_MAX_THREE_SLASH</option>
+   		</field>
+   		
+   		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_SEOSPIDER"/>
+   		<field name="seospider_override_headings" class="btn-group" type="radio" default="1" label="COM_JMAP_SEOSPIDER_OVERRIDE_HEADINGS" description="COM_JMAP_SEOSPIDER_OVERRIDE_HEADINGS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="seospider_override_headings_html" class="btn-group" type="radio" default="0" label="COM_JMAP_SEOSPIDER_OVERRIDE_HEADINGS_HTML" description="COM_JMAP_SEOSPIDER_OVERRIDE_HEADINGS_HTML_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="seospider_override_canonical" class="btn-group" type="radio" default="1" label="COM_JMAP_SEOSPIDER_OVERRIDE_CANONICAL" description="COM_JMAP_SEOSPIDER_OVERRIDE_CANONICAL_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+   		<field name="seospider_crawler_delay" type="list" default="500" label="COM_JMAP_SEOSPIDER_CRAWLER_DELAY" description="COM_JMAP_SEOSPIDER_CRAWLER_DELAY_DESC">
+			<option value="500">COM_JMAP_SEOSPIDER_CRAWLER_DELAY_500MS</option>
+			<option value="800">COM_JMAP_SEOSPIDER_CRAWLER_DELAY_800MS</option>
+			<option value="1000">COM_JMAP_SEOSPIDER_CRAWLER_DELAY_1S</option>
+			<option value="2000">COM_JMAP_SEOSPIDER_CRAWLER_DELAY_2S</option>
+		</field>
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_METAINFO"/>
+		<field name="metainfo_auto_generate_metatitle" type="list" default="0" label="COM_JMAP_METAINFO_AUTO_GENERATE_METATITLE" description="COM_JMAP_METAINFO_AUTO_GENERATE_METATITLE_DESC" >
+		   <option value="0">JNO</option>
+		   <option value="1">JYES</option>
+		   <option value="2">COM_JMAP_METAINFO_AUTO_GENERATE_METATITLE_OVERRIDE</option>
+		</field>
+		<field name="metainfo_auto_generate_metatitle_css_selector" size="50" default="h1" type="text" label="COM_JMAP_METAINFO_AUTO_GENERATE_METATITLE_CSS_SELECTOR" description="COM_JMAP_METAINFO_AUTO_GENERATE_METATITLE_CSS_SELECTOR_DESC" />
+		<field name="metainfo_auto_generate_metatitle_max_length" default="55" type="text" label="COM_JMAP_METAINFO_AUTO_GENERATE_METATITLE_MAX_LENGTH" description="COM_JMAP_METAINFO_AUTO_GENERATE_METATITLE_MAX_LENGTH_DESC" />
+		
+		<field name="metainfo_auto_generate_metadescription" type="list" default="0" label="COM_JMAP_METAINFO_AUTO_GENERATE_METADESCRIPTION" description="COM_JMAP_METAINFO_AUTO_GENERATE_METADESCRIPTION_DESC" >
+		   <option value="0">JNO</option>
+		   <option value="1">JYES</option>
+		   <option value="2">COM_JMAP_METAINFO_AUTO_GENERATE_METADESCRIPTION_OVERRIDE</option>
+		</field>
+		<field name="metainfo_auto_generate_metadescription_css_selector" size="50" default="div[itemprop=articleBody],div.item-page" type="text" label="COM_JMAP_METAINFO_AUTO_GENERATE_METADESCRIPTION_CSS_SELECTOR" description="COM_JMAP_METAINFO_AUTO_GENERATE_METADESCRIPTION_CSS_SELECTOR_DESC" />
+		<field name="metainfo_auto_generate_metadescription_max_length" default="155" type="text" label="COM_JMAP_METAINFO_AUTO_GENERATE_METADESCRIPTION_MAX_LENGTH" description="COM_JMAP_METAINFO_AUTO_GENERATE_METADESCRIPTION_MAX_LENGTH_DESC" />
+		<field name="metainfo_urldecode" class="btn-group" type="radio" default="1" label="COM_JMAP_METAINFO_URLDECODE" description="COM_JMAP_METAINFO_URLDECODE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="metainfo_enable_chatgpt_generation" class="btn-group" type="radio" default="0" label="COM_JMAP_METAINFO_ENABLE_CHATGPT_GENERATION" description="COM_JMAP_METAINFO_ENABLE_CHATGPT_GENERATION_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="metainfo_urlencode_space" class="btn-group" type="radio" default="0" label="COM_JMAP_METAINFO_URLENCODE_SPACE" description="COM_JMAP_METAINFO_URLENCODE_SPACE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="metainfo_remove_trailing_slash" class="btn-group" type="radio" default="0" label="COM_JMAP_METAINFO_REMOVE_TRAILING_SLASH" description="COM_JMAP_METAINFO_REMOVE_TRAILING_SLASH_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="metainfo_add_trailing_slash" class="btn-group" type="radio" default="0" label="COM_JMAP_METAINFO_ADD_TRAILING_SLASH" description="COM_JMAP_METAINFO_ADD_TRAILING_SLASH_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="metainfo_ogtags" class="btn-group" type="radio" default="1" label="COM_JMAP_METAINFO_OGTAGS" description="COM_JMAP_METAINFO_OGTAGS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		
+		<field name="metainfo_twitter_card_enable" class="btn-group" type="radio" default="0" label="COM_JMAP_METAINFO_TWITTERCARD" description="COM_JMAP_METAINFO_TWITTERCARD_DESC" >
+		   <option value="1">JYES</option>
+		   <option value="0">JNO</option>
+		</field>
+		<field name="metainfo_twitter_card_site" default="" type="text" label="COM_JMAP_METAINFO_TWITTERCARD_SITE" description="COM_JMAP_METAINFO_TWITTERCARD_SITE_DESC" />
+		<field name="metainfo_twitter_card_creator" default="" type="text" label="COM_JMAP_METAINFO_TWITTERCARD_CREATOR" description="COM_JMAP_METAINFO_TWITTERCARD_CREATOR_DESC" />
+   		<field name="metainfo_autopopulate_socialimage_selector" size="50" default="" type="text" label="COM_JMAP_AUTOPOPULATE_SOCIALIMAGE_SELECTOR" description="COM_JMAP_AUTOPOPULATE_SOCIALIMAGE_SELECTOR_DESC" />
+   		
+   		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_AIGENERATOR"/>
+   		<field name="aigenerator_turn_datasrc" class="btn-group" type="radio" default="1" label="COM_JMAP_AIGENERATOR_TURN_DATASRC" description="COM_JMAP_AIGENERATOR_TURN_DATASRC_DESC" >
+		   <option value="1">JYES</option>
+		   <option value="0">JNO</option>
+		</field>
+		<field name="aigenerator_remove_links" class="btn-group" type="radio" default="1" label="COM_JMAP_AIGENERATOR_REMOVE_LINKS" description="COM_JMAP_AIGENERATOR_REMOVE_LINKS_DESC" >
+		   <option value="1">JYES</option>
+		   <option value="0">JNO</option>
+		</field>
+		<field name="aigenerator_remove_srcset" class="btn-group" type="radio" default="1" label="COM_JMAP_AIGENERATOR_REMOVE_SRCSET" description="COM_JMAP_AIGENERATOR_REMOVE_SRCSET_DESC" >
+		   <option value="1">JYES</option>
+		   <option value="0">JNO</option>
+		</field>
+		<field name="aigenerator_default_results" type="list" default="10" label="COM_JMAP_AIGENERATOR_DEFAULT_RESULTS" description="COM_JMAP_AIGENERATOR_DEFAULT_RESULTS_DESC">
+			<option value="1">COM_JMAP_SELECT_MAX_AI_RESULTS_1_ITEMS</option>
+			<option value="2">COM_JMAP_SELECT_MAX_AI_RESULTS_2_ITEMS</option>
+			<option value="3">COM_JMAP_SELECT_MAX_AI_RESULTS_3_ITEMS</option>
+			<option value="4">COM_JMAP_SELECT_MAX_AI_RESULTS_4_ITEMS</option>
+			<option value="5">COM_JMAP_SELECT_MAX_AI_RESULTS_5_ITEMS</option>
+			<option value="6">COM_JMAP_SELECT_MAX_AI_RESULTS_6_ITEMS</option>
+			<option value="7">COM_JMAP_SELECT_MAX_AI_RESULTS_7_ITEMS</option>
+			<option value="8">COM_JMAP_SELECT_MAX_AI_RESULTS_8_ITEMS</option>
+			<option value="9">COM_JMAP_SELECT_MAX_AI_RESULTS_9_ITEMS</option> 
+			<option value="10">COM_JMAP_SELECT_MAX_AI_RESULTS_10_ITEMS</option>
+			<option value="15">COM_JMAP_SELECT_MAX_AI_RESULTS_15_ITEMS</option>  
+			<option value="20">COM_JMAP_SELECT_MAX_AI_RESULTS_20_ITEMS</option>  
+			<option value="25">COM_JMAP_SELECT_MAX_AI_RESULTS_25_ITEMS</option>  
+			<option value="30">COM_JMAP_SELECT_MAX_AI_RESULTS_30_ITEMS</option>  
+			<option value="35">COM_JMAP_SELECT_MAX_AI_RESULTS_35_ITEMS</option>
+			<option value="40">COM_JMAP_SELECT_MAX_AI_RESULTS_40_ITEMS</option>  
+			<option value="45">COM_JMAP_SELECT_MAX_AI_RESULTS_45_ITEMS</option>  
+			<option value="50">COM_JMAP_SELECT_MAX_AI_RESULTS_50_ITEMS</option>      
+		</field>
+		<field
+			name="aigenerator_default_category" 
+			type="category"
+			extension="com_content"
+			default=""
+			label="COM_JMAP_AIGENERATOR_DEFAULT_CATEGORY"
+			description="COM_JMAP_AIGENERATOR_DEFAULT_CATEGORY_DESC" >
+			<option value="">COM_JMAP_AIGENERATOR_DEFAULT_CATEGORY_DEFAULT</option>
+		</field>
+		
+		<field
+			name="aigenerator_default_module_position" 
+			type="modulespositions"
+			default=""
+			client="site"
+			label="COM_JMAP_AIGENERATOR_DEFAULT_MODULE_POSITION"
+			description="COM_JMAP_AIGENERATOR_DEFAULT_MODULE_POSITION_DESC" >
+		</field>
+		
+		<field name="aigenerator_default_module_position_load" class="btn-group" type="radio" default="0" label="COM_JMAP_AIGENERATOR_DEFAULT_MODULE_POSITION_LOAD" description="COM_JMAP_AIGENERATOR_DEFAULT_MODULE_POSITION_LOAD_DESC" >
+		   <option value="1">JYES</option>
+		   <option value="0">JNO</option>
+		</field>
+		
+		<field name="aigenerator_service_http_transport" type="list" default="curl" label="COM_JMAP_AIGENERATOR_SERVICE_HTTP_TRANSPORT" description="COM_JMAP_AIGENERATOR_SERVICE_HTTP_TRANSPORT_DESC">
+			<option value="curl">COM_JMAP_AIGENERATOR_SERVICE_HTTP_TRANSPORT_CURL</option>       
+			<option value="socket">COM_JMAP_AIGENERATOR_SERVICE_HTTP_TRANSPORT_SOCKET</option>       
+		</field>
+		<field name="chatgpt_apikey" default="" hint="COM_JMAP_AIGENERATOR_CHATGPT_APIKEY_HINT" type="text" class="inputbox-large inputbox-smallfont" label="COM_JMAP_AIGENERATOR_CHATGPT_APIKEY" description="COM_JMAP_AIGENERATOR_CHATGPT_APIKEY_DESC" />
+		<field name="chatgpt_api" type="list" default="completions" label="COM_JMAP_AIGENERATOR_CHATGPT_API" description="COM_JMAP_AIGENERATOR_CHATGPT_API_DESC">
+			<option value="completions">COM_JMAP_AIGENERATOR_CHATGPT_API_COMPLETIONS</option>       
+			<option value="chatcompletions">COM_JMAP_AIGENERATOR_CHATGPT_API_CHATCOMPLETIONS</option>       
+		</field>
+		<field name="chatgpt_api_model" type="list" class="chatgptapi" default="gpt-3.5-turbo" label="COM_JMAP_AIGENERATOR_CHATGPT_API_MODEL" description="COM_JMAP_AIGENERATOR_CHATGPT_API_MODEL_DESC">
+			<option value="gpt-3.5-turbo">COM_JMAP_AIGENERATOR_CHATGPT_API_MODEL_GPT35TURBO</option>       
+			<option value="gpt-4">COM_JMAP_AIGENERATOR_CHATGPT_API_MODEL_GPT4TURBO</option>       
+		</field>
+		<field name="chatgpt_maxtokens" default="2048" type="text" label="COM_JMAP_AIGENERATOR_CHATGPT_MAXTOKENS" description="COM_JMAP_AIGENERATOR_CHATGPT_MAXTOKENS_DESC" />
+		<field name="chatgpt_images_size" type="list" default="256x256" label="COM_JMAP_AIGENERATOR_CHATGPT_IMAGE_SIZE" description="COM_JMAP_AIGENERATOR_CHATGPT_IMAGE_SIZE_DESC">
+			<option value="256x256">COM_JMAP_AIGENERATOR_CHATGPT_IMAGE_SIZE_256</option>
+			<option value="512x512">COM_JMAP_AIGENERATOR_CHATGPT_IMAGE_SIZE_512</option> 
+			<option value="1024x1024">COM_JMAP_AIGENERATOR_CHATGPT_IMAGE_SIZE_1024</option>  
+		</field>
+   	</fieldset>
+   	
+	<fieldset name="google_analytics" id="google_analytics" label="COM_JMAP_GOOGLE_ANALYTICS_SETTINGS">
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_GOOGLE_PREFERRED_DOMAIN"/>
+		<field name="analytics_service" type="list" default="google" label="COM_JMAP_ANALYTICS_SERVICE" description="COM_JMAP_ANALYTICS_SERVICE_DESC">
+			<option value="google">COM_JMAP_ANALYTICS_SERVICE_GOOGLE</option>
+			<option value="statscrop">COM_JMAP_ANALYTICS_SERVICE_STATSCROP</option>
+			<option value="hypestat">COM_JMAP_ANALYTICS_SERVICE_HYPESTAT</option>
+			<option value="searchmetrics">COM_JMAP_ANALYTICS_SERVICE_SEARCHMETRICS</option>
+		</field>
+		<field name="analytics_api" type="list" class="analyticsapi_styles" default="data" label="COM_JMAP_ANALYTICS_API" description="COM_JMAP_ANALYTICS_API_DESC">
+			<option value="data">COM_JMAP_ANALYTICS_API_DATA</option>
+		</field>
+		<field name="ga_property_id" type="text" class="analytics_api" datavalidation="numbers" default="" label="COM_JMAP_GOOGLE_PROPERTY_ID" description="COM_JMAP_GOOGLE_PROPERTY_ID_DESC"/>
+		<field name="ga_domain" type="text" class="no_analytics_api" size="50" default="" label="COM_JMAP_GOOGLE_DOMAIN" description="COM_JMAP_GOOGLE_DOMAIN_DESC"/>
+		<field name="wm_domain" type="text" size="50" default="" label="COM_JMAP_GOOGLE_WMDOMAIN" description="COM_JMAP_GOOGLE_WMDOMAIN_DESC"/>
+		<field name="pagespeed_domain" type="text" size="50" default="" label="COM_JMAP_GOOGLE_PAGESPEEDDOMAIN" description="COM_JMAP_GOOGLE_PAGESPEEDDOMAIN_DESC"/>
+		<field name="ga_num_results" type="list" default="24" label="COM_JMAP_GA_NUM_RESULTS" description="COM_JMAP_GA_NUM_RESULTS_DESC">
+			<option value="24">24</option>       
+			<option value="36">36</option>       
+			<option value="48">48</option>       
+			<option value="60">60</option>       
+		</field>
+		<field name="ga_domain_match_protocol" type="radio" class="btn-group" default="0" label="COM_JMAP_GOOGLE_DOMAIN_MATCH_PROTOCOL" description="COM_JMAP_GOOGLE_DOMAIN_MATCH_PROTOCOL_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="analytics_service_http_transport" type="list" default="curl" label="COM_JMAP_ANALYTICS_SERVICE_HTTP_TRANSPORT" description="COM_JMAP_ANALYTICS_SERVICE_HTTP_TRANSPORT_DESC">
+			<option value="curl">COM_JMAP_ANALYTICS_SERVICE_HTTP_TRANSPORT_CURL</option>       
+			<option value="socket">COM_JMAP_ANALYTICS_SERVICE_HTTP_TRANSPORT_SOCKET</option>       
+		</field>
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_GOOGLE_APP_CREDENTIALS"/>
+		<field name="ga_api_key" type="text" size="70" default="" label="COM_JMAP_GOOGLE_APIKEY" description="COM_JMAP_GOOGLE_APIKEY_DESC"/>
+		<field name="ga_client_id" type="text" size="70" default="" label="COM_JMAP_GOOGLE_CLIENTID" description="COM_JMAP_GOOGLE_CLIENTID_DESC"/>
+		<field name="ga_client_secret" type="text" size="70" default="" label="COM_JMAP_GOOGLE_SECRET" description="COM_JMAP_GOOGLE_SECRET_DESC"/>
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_GOOGLE_ANALYTICS_TRACKING_CODE" />
+		<field name="inject_gajs" type="radio" class="btn-group" default="0" label="COM_JMAP_INJECT_GAJS" description="COM_JMAP_INJECT_GAJS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="gajs_code" type="text" default="" hint="COM_JMAP_GAJS_CODE_HINT" size="30" label="COM_JMAP_GAJS_CODE" description="COM_JMAP_GAJS_CODE_DESC" />
+		<field name="inject_gajs_location" class="btn-group" type="radio" default="body" label="COM_JMAP_INJECT_GAJS_LOCATION" description="COM_JMAP_INJECT_GAJS_LOCATION_DESC">
+   			<option value="body">COM_JMAP_INJECT_GAJS_LOCATION_BODY</option>
+   			<option value="head">COM_JMAP_INJECT_GAJS_LOCATION_HEAD</option>
+   		</field>
+   		<field name="inject_gajs_version" class="btn-group" type="radio" default="gtag" label="COM_JMAP_INJECT_GAJS_VERSION" description="COM_JMAP_INJECT_GAJS_VERSION_DESC">
+   			<option value="analytics">COM_JMAP_INJECT_GAJS_VERSION_ANALYTICS</option>
+   			<option value="gtag">COM_JMAP_INJECT_GAJS_VERSION_GTAG</option>
+   		</field>
+   		<field name="gajs_anonymize" type="radio" class="btn-group" default="0" label="COM_JMAP_GAJS_ANONYMIZE" description="COM_JMAP_GAJS_ANONYMIZE_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_GTM_TRACKING_CODE" />
+		<field name="inject_gtmjs" type="radio" class="btn-group" default="0" label="COM_JMAP_GTMJS" description="COM_JMAP_GTMJS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="inject_gtm_noscript" type="radio" class="btn-group" default="1" label="COM_JMAP_GTMJS_NOSCRIPT" description="COM_JMAP_GTMJS_NOSCRIPT_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="gtmjs_code" type="text" default="" hint="COM_JMAP_GTMJS_CODE_HINT" size="30" label="COM_JMAP_GTMJS_CODE" description="COM_JMAP_GTMJS_CODE_DESC" />
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_MATOMO_TRACKING_CODE" />
+		<field name="inject_matomojs" type="radio" class="btn-group" default="0" label="COM_JMAP_MATOMOJS" description="COM_JMAP_MATOMOJS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="matomo_url" type="text" size="70" default="" label="COM_JMAP_MATOMO_URL" description="COM_JMAP_MATOMO_URL_DESC"/>
+		<field name="matomo_idsite" type="text" size="70" default="" label="COM_JMAP_MATOMO_IDSITE" description="COM_JMAP_MATOMO_IDSITE_DESC"/>
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_PIWIKPRO_TRACKING_CODE" />
+		<field name="inject_piwikprojs" type="radio" class="btn-group" default="0" label="COM_JMAP_PIWIKPROJS" description="COM_JMAP_PIWIKPROJS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="piwikpro_url" type="text" size="70" default="" label="COM_JMAP_PIWIKPRO_URL" description="COM_JMAP_PIWIKPRO_URL_DESC"/>
+		<field name="piwikpro_idsite" type="text" size="70" default="" label="COM_JMAP_PIWIKPRO_IDSITE" description="COM_JMAP_PIWIKPRO_IDSITE_DESC"/>
+		
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_FBPIXEL_TRACKING_CODE" />
+		<field name="inject_fbpixel" type="radio" class="btn-group" default="0" label="COM_JMAP_INJECT_FBPIXEL" description="COM_JMAP_INJECT_FBPIXEL_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="fbpixel_id" type="text" size="70" default="" label="COM_JMAP_FBPIXEL_ID" description="COM_JMAP_FBPIXEL_ID_DESC"/>
+	</fieldset>
+	
+	<fieldset name="advanced" id="advanced" label="COM_JMAP_SITEMAP_ADVANCED_SETTINGS" >
+		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_ADVANCED"/>
+		<field name="sitemap_links_sef" class="btn-group" type="radio" default="0" label="COM_JMAP_ENABLE_SITEMAP_SEF_LINKS" description="COM_JMAP_ENABLE_SITEMAP_SEF_LINKS_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="sitemap_links_forceformat" class="btn-group" type="radio" default="0" label="COM_JMAP_SITEMAP_LINKS_FORCE_FORMAT" description="COM_JMAP_SITEMAP_LINKS_FORCE_FORMAT_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="sitemap_links_random" class="btn-group" type="radio" default="0" label="COM_JMAP_ENABLE_SITEMAP_RANDOM_LINKS" description="COM_JMAP_ENABLE_SITEMAP_RANDOM_LINKS_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="append_livesite" class="btn-group" type="radio" default="1" label="COM_JMAP_APPEND_LIVESITE" description="COM_JMAP_APPEND_LIVESITE_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="disable_priority" class="btn-group" type="radio" default="0" label="COM_JMAP_DISABLE_PRIORITY" description="COM_JMAP_DISABLE_PRIORITY_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="disable_changefreq" class="btn-group" type="radio" default="0" label="COM_JMAP_DISABLE_CHANGEFREQ" description="COM_JMAP_DISABLE_CHANGEFREQ_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+  		<field name="custom_sitemap_domain" type="text" size="50" datavalidation="url" default="" label="COM_JMAP_CUSTOM_SITEMAP_DOMAIN" description="COM_JMAP_CUSTOM_SITEMAP_DOMAIN_DESC" />
+   		<field name="custom_http_port" type="text" default="" label="COM_JMAP_CUSTOM_HTTP_PORT" description="COM_JMAP_CUSTOM_HTTP_PORT_DESC" />
+   		<field name="resources_limit_management" class="btn-group" type="radio" default="1" label="COM_JMAP_MEMORY_LIMIT_MANAGEMENT" description="COM_JMAP_MEMORY_LIMIT_MANAGEMENT_DESC">
+   			<option value="1">COM_JMAP_COMPONENT</option>
+   			<option value="0">COM_JMAP_SERVER</option>
+   		</field>
+   		<field name="preprocess_route_helpers" class="btn-group" type="radio" default="1" label="COM_JMAP_PREPROCESS_ROUTE_HELPERS" description="COM_JMAP_PREPROCESS_ROUTE_HELPERS_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="remove_sitemap_serp" class="btn-group" type="radio" default="0" label="COM_JMAP_REMOVE_SITEMAP_SERP" description="COM_JMAP_REMOVE_SITEMAP_SERP_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="remove_home_slash" class="btn-group" type="radio" default="0" label="COM_JMAP_REMOVE_HOME_SLASH" description="COM_JMAP_REMOVE_HOME_SLASH_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="advanced_multilanguage" class="btn-group" type="radio" default="0" label="COM_JMAP_ADVANCED_MULTILANGUAGE" description="COM_JMAP_ADVANCED_MULTILANGUAGE_DESC">
+			<option value="1">COM_JMAP_MODE_ADVANCED</option>
+			<option value="0">COM_JMAP_MODE_STANDARD</option>
+		</field>
+   		<field name="socket_mode" class="btn-group" type="radio" default="dns" label="COM_JMAP_SOCKET_MODE" description="COM_JMAP_SOCKET_MODE_DESC">
+   			<option value="ip">COM_JMAP_IPMODE</option>
+   			<option value="dns">COM_JMAP_DNSMODE</option>
+   		</field>
+		<field name="force_crawler_http" class="btn-group" type="radio" default="0" label="COM_JMAP_FORCE_CRAWLER_HTTP" description="COM_JMAP_FORCE_CRAWLER_HTTP_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="sh404sef_multilang" class="btn-group" type="radio" default="0" label="COM_JMAP_SH404SEF_MULTILANG" description="COM_JMAP_SH404SEF_MULTILANG_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+   		<field name="site_itemid" type="text" default="" datavalidation="numbers" label="COM_JMAP_MENUID_SITEMAP_LINKS" description="COM_JMAP_MENUID_SITEMAP_LINKS_DESC"/>
+		<field name="robots_joomla_subfolder" class="btn-group" type="radio" default="0" label="COM_JMAP_ROBOTS_JOOMLA_SUBFOLDER" description="COM_JMAP_ROBOTS_JOOMLA_SUBFOLDER_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="indexing_tester_custom_selectors_title" default="" type="text" label="COM_JMAP_INDEXING_TESTER_CUSTOM_SELECTOR_TITLE" description="COM_JMAP_INDEXING_TESTER_CUSTOM_SELECTOR_TITLE_DESC" />
+		<field name="indexing_tester_custom_selectors_link" default="" type="text" label="COM_JMAP_INDEXING_TESTER_CUSTOM_SELECTOR_LINK" description="COM_JMAP_INDEXING_TESTER_CUSTOM_SELECTOR_LINK_DESC" />
+		<field name="indexing_tester_custom_selectors_description" default="" type="text" label="COM_JMAP_INDEXING_TESTER_CUSTOM_SELECTOR_DESCRIPTION" description="COM_JMAP_INDEXING_TESTER_CUSTOM_SELECTOR_DESCRIPTION_DESC" />
+		<field name="disable_version_checker" class="btn-group" type="radio" default="0" label="COM_JMAP_DISABLE_VERSION_CHECKER" description="COM_JMAP_DISABLE_VERSION_CHECKER_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="loadasyncscripts" class="btn-group" type="radio" default="0" label="COM_JMAP_LOAD_ASYNC_SCRIPTS" description="COM_JMAP_LOAD_ASYNC_SCRIPTS_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+   		<field name="includejquery" class="btn-group" type="radio" default="1" label="COM_JMAP_INCLUDE_JQUERY" description="COM_JMAP_INCLUDE_JQUERY_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="enable_debug" class="btn-group" type="radio" default="0" label="COM_JMAP_ENABLE_DEBUG" description="COM_JMAP_ENABLE_DEBUG_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		
+   		<field type="spacer" class="badge bg-primary spacer" label="COM_JMAP_PROXY_SETTINGS"/>
+   		<field name="enable_proxy" class="btn-group" type="radio" default="0" label="COM_JMAP_ENABLE_PROXY" description="COM_JMAP_ENABLE_PROXY_DESC">
+   			<option value="1">JYES</option>
+   			<option value="0">JNO</option>
+   		</field>
+   		<field name="proxy_server_ipaddress" type="text" default="" label="COM_JMAP_PROXY_SERVER_IPADDRESS" description="COM_JMAP_PROXY_SERVER_IPADDRESS_DESC" />
+   		<field name="proxy_server_port" type="text" default="" label="COM_JMAP_PROXY_SERVER_PORT" description="COM_JMAP_PROXY_SERVER_PORT_DESC" />
+   		<field name="proxy_server_username" type="text" default="" label="COM_JMAP_PROXY_SERVER_USERNAME" description="COM_JMAP_PROXY_SERVER_USERNAME_DESC" />
+   		<field name="proxy_server_password" type="text" default="" label="COM_JMAP_PROXY_SERVER_PASSWORD" description="COM_JMAP_PROXY_SERVER_PASSWORD_DESC" />
+	</fieldset>
+	
+	<fieldset name="permissions" id="permissions" label="COM_JMAP_PERMISSIONS">
+		<field name="rules"
+			type="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			validate="rules"
+			filter="rules"
+			component="com_jmap"
+			section="component" />
+ 	</fieldset>
+</config>

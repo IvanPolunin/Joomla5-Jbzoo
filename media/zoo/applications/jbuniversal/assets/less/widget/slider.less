@@ -1,0 +1,67 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+.jbzoo .jbslider {
+
+    &-ui {
+        margin: 5px 0 15px 0;
+    }
+
+    &-input {
+        // conflicts with css framworks. Nice payment blocks =)
+        padding: 2px 4px !important;
+        outline: none !important;
+        width: 40% !important;
+        background: inherit !important;
+
+        border-radius: 3px;
+        border: 1px solid transparent;
+        margin: 0;
+        min-width: 60px;
+        height: 26px;
+
+        #font > .sans-serif(normal, 14px, 26px);
+        .transition(none);
+
+        &:hover,
+        &:focus {
+            .transition(.5s);
+            border: 1px solid #ddd;
+            background: #fff !important;;
+        }
+
+        &-min {
+            float: left;
+            text-align: left;
+        }
+
+        &-max {
+            float: right;
+            text-align: right;
+        }
+
+    }
+
+    .slider-value-0 {
+        float: left;
+        margin-top: 0.5em;
+    }
+
+    .slider-value-1 {
+        float: right;
+        margin-top: 0.5em;
+    }
+
+}

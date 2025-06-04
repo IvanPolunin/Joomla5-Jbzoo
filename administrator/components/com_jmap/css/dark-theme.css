@@ -1,0 +1,136 @@
+@media (prefers-color-scheme: dark) {
+	table.table.adminlist th {
+		color: #FFF;
+	}
+	table.admintable input, table.admintable textarea {
+		color: #000;
+	}
+	table.headerlist input,
+	table.admintable input:-webkit-autofill,
+	table.full.headerlist input:-webkit-autofill,
+	#uploadrow input:-webkit-autofill,
+	div.controls input:-webkit-autofill,
+	div.google_login input[type=text]:-webkit-autofill,
+	#focus_keyword:-webkit-autofill {
+		color: #000;
+		-webkit-text-fill-color: #000;
+		-webkit-box-shadow: 0 0 0px 1000px #FFF inset;
+		background: #FFF;
+	}
+	/* Styling for Edge */
+	table.headerlist input,
+	table.admintable input:-ms-input-placeholder,
+	table.full.headerlist input:-ms-input-placeholder,
+	#uploadrow input:-ms-input-placeholder,
+	div.controls input:-ms-input-placeholder,
+	div.google_login input[type=text]:-ms-input-placeholder,
+	#focus_keyword:-ms-input-placeholder {
+		color: #000;
+		-webkit-text-fill-color: #000;
+		-webkit-box-shadow: 0 0 0px 1000px #FFF inset;
+		background: #FFF;
+	}
+	table.admintable td.left_title label,
+	table.admintable td.left_title_pattern label,
+	div.jmap-sample-text,
+	td.center_td_regex p {
+		color: #212529;
+	}
+	table.adminlist textarea.metainfo,
+	table.adminlist div.input-group input,
+	table.full.headerlist span.input-group input[type=text],
+	#robots_contents,
+	#robots_ctrls input,
+	#htaccess_contents,
+	#htaccess_controls input,
+	div.control-label label,
+	div.controls input[type=text],
+	input.ordering_input,
+	#focus_keyword,
+	span.content-analysis-result {
+		color: #000;
+	}
+	table.adminlist div.input-group input:focus,
+	div.controls input[type=text]  {
+		background-color: #FFF;
+	}
+	h3.popover-header {
+		color: #FFF;
+		background-color: #343a40;
+	}
+	div.tooltip-inner {
+		background-color: #000;
+		color: #FFF;
+	}
+	div.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow:before, div.bs-tooltip-top .tooltip-arrow:before {
+    	border-top-color: #000;
+	}
+	div.bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow:before, .bs-tooltip-start .tooltip-arrow:before {
+		border-left-color: #000;
+	}
+	div.jmapmodal h4.modal-title {
+	    color: #87b7ff;
+	}
+	div.jmapmodal div.modal-content {
+	    background-color: #000;
+	}
+	
+	div.popover input.popover-body {
+		color: #000;
+	}
+	div#accordion_cpanel_seo input.sitemap_links,
+	input.sitemap_links,
+	input.text_area,
+	label[for=exactsearchpage],
+	#seo_stats div.single_stat_container span.fas::before,
+	div.google_login input[type=text] {
+	    color: #000;
+	}
+	#content table.adminlist span.bg-primary {
+		background-color: #2a5ea1 !important;
+	}
+	#adminForm h3.googletitle {
+    	color: #86aaff;
+	}
+	#adminForm a.googlelink {
+    	color: #8bd9a4;
+	}
+	#aigenerator_details #adminForm {
+		background: #FFF;
+	}
+	#accordion_aigenerator_contents_results div.card-body {
+		color: #000;
+	}
+	#accordion_aigenerator_contents_results div.card-header,
+	#accordion_aigenerator_contents_results div.card-header span,
+	div.card.card-body,
+	#ga-dash .table-striped tbody tr:nth-of-type(odd),
+	div.google-visualization-table th,
+	div.google-visualization-table td {
+		color: #000;
+	}
+	#ga-dash .table-striped tbody tr:nth-of-type(even):hover {
+		color: #000;
+	}
+	div.controls input:focus {
+		color: #000;
+		background: #FFF;
+	}
+	select.form-select[multiple] {
+		background-color: var(--body-bg) !important;
+	}
+	#content span.badge-gaproperty {
+		background-color: #225493 !important;
+	}
+	ul.nav-tabs a.nav-link:focus, ul.nav-tabs a.nav-link:hover {
+	    border-color: #cfcfcf;
+	}
+	input.canonical-content {
+		background: #FFF;
+	    color: #000;
+	}
+	input.canonical-content:-webkit-autofill {
+		-webkit-text-fill-color: #000;
+		-webkit-box-shadow: 0 0 0px 1000px #FFF inset;
+	}
+}

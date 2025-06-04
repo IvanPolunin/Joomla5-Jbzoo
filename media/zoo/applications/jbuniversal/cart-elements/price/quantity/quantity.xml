@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="quantity" group="Core" hidden="true" core="true" system-tmpl="true">
+    <name>JBZOO_ELEMENT_PRICE_QUANTITY_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_PRICE_QUANTITY_DESC</description>
+
+    <params group="render">
+
+        <param name="min" type="text" default="1" label="JBZOO_ELEMENT_PRICE_QUANTITY_MIN"
+               description="JBZOO_ELEMENT_PRICE_QUANTITY_MIN_DESC"/>
+
+        <param name="max" type="text" default="999" label="JBZOO_ELEMENT_PRICE_QUANTITY_MAX"
+               description="JBZOO_ELEMENT_PRICE_QUANTITY_MAX_DESC"/>
+
+        <param name="step" type="text" default="1" label="JBZOO_ELEMENT_PRICE_QUANTITY_STEP"
+               description="JBZOO_ELEMENT_PRICE_QUANTITY_STEP_DESC"/>
+
+        <param name="default" type="text" default="1" label="JBZOO_ELEMENT_PRICE_QUANTITY_DEFAULT"
+               description="JBZOO_ELEMENT_PRICE_QUANTITY_DEFAULT_DESC"/>
+
+        <param name="decimals" type="text" default="0" label="JBZOO_ELEMENT_PRICE_QUANTITY_DECIMALS"
+               description="JBZOO_ELEMENT_PRICE_QUANTITY_DECIMALS_DESC"/>
+
+    </params>
+
+</element>

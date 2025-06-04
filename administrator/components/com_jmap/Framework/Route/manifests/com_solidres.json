@@ -1,0 +1,7 @@
+{
+	"categories_table":"#__sr_experience_categories",
+	"categories_table_id_field":"id",
+	"holdon_params":true,
+	"additional_categories_needles":"experiences",
+	"name_params":{"experiences":"categories"}
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="3.1" method="upgrade">
+    <name>Widgetkit</name>
+    <packagename>widgetkit</packagename>
+    <version>3.1.27</version>
+    <description>A widget toolkit by YOOtheme.</description>
+    <creationDate>April 2024</creationDate>
+    <copyright>Copyright (C) YOOtheme GmbH</copyright>
+    <license>GNU General Public License v2 or later</license>
+    <author>YOOtheme</author>
+    <authorEmail>info@yootheme.com</authorEmail>
+    <authorUrl>https://yootheme.com</authorUrl>
+    <scriptfile>script.php</scriptfile>
+    <dlid prefix="key=" />
+    <files folder="packages">
+        <file type="component" id="com_widgetkit">com_widgetkit</file>
+        <file type="module" id="mod_widgetkit" client="site">mod_widgetkit</file>
+        <file type="plugin" id="widgetkit" group="content">plg_content_widgetkit</file>
+        <file type="plugin" id="widgetkit" group="editors-xtd">plg_extd_widgetkit</file>
+        <file type="plugin" id="widgetkit" group="system">plg_system_widgetkit</file>
+        <file type="plugin" id="widgetkit_zoo" group="system">plg_system_widgetkit_zoo</file>
+        <file type="plugin" id="widgetkit_k2" group="system">plg_system_widgetkit_k2</file>
+    </files>
+    <updateservers>
+        <server
+            name="YOOtheme - Widgetkit"
+            type="extension"
+            priority="1"
+        >https://api.yootheme.com/v1/package/widgetkit_j33.xml?v=3.1.27</server>
+    </updateservers>
+</extension>

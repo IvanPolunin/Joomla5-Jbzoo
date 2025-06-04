@@ -1,0 +1,3 @@
+/* Copyright (C) YOOtheme GmbH, https://www.gnu.org/licenses/gpl.html GNU/GPL */
+
+/*! jQuery.onMediaQuery() - jQuery plugin to bind events on CSS media type/query */(function(e,t,d){if(!e.onMediaQuery){var i={},o=t.matchMedia&&t.matchMedia("only all").matches;e(d).ready(function(){for(var r in i){var n=e(i[r]).trigger("init");i[r].matches&&e(i[r]).trigger("valid")}}),e(t).on("load",function(){for(var r in i)i[r].matches&&e(i[r]).trigger("valid")}),e.onMediaQuery=function(r,n){var a=r&&i[r];return a||(a=i[r]=t.matchMedia(r),a.supported=o,a.addListener(function(){e(a).trigger(a.matches?"valid":"invalid")})),e(a).on(n),a}}})(jQuery,window,document);

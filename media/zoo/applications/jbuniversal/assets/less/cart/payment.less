@@ -1,0 +1,83 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+.jbzoo .jbcart-payment {
+
+    &-row {
+
+        .column:last-child {
+            margin-right: 0;
+        }
+
+    }
+
+    &-desc {
+        color: #9ea7af;
+        font-size: 14px;
+        min-height: 60px;
+        margin: 12px 0 0 0;
+        font-style: italic;
+        display: inline-block;
+    }
+
+    &-element {
+        float: left;
+        max-width: 170px;
+        min-height: 50px;
+
+        &-name {
+            font-size: 16px;
+        }
+
+        a,
+        a:hover {
+            background: none !important;
+        }
+
+        img {
+            max-width: 136px;
+        }
+    }
+
+    &-debug {
+        color: #e00;
+        font-size: 14px;
+        font-style: italic;
+        margin: 16px 0 8px 0;
+    }
+
+    &-radio + .jbcart-payment-label img {
+        #filter > .grayscale(100%);
+        .opacity(0.6);
+    }
+
+    &-radio:checked + .jbcart-payment-label img,
+    .jbcart-payment-label:hover img {
+        #filter > .grayscale(0%);
+        .opacity(1);
+        .transition(all 500ms);
+    }
+
+    .jbcart-radio-label {
+        padding: 10px;
+        display: block;
+    }
+
+    .rborder {
+        border: 1px solid #ccc;
+        .border-radius(6px);
+    }
+
+}

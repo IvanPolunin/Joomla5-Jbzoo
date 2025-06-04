@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" hidden="false">
+    <name>JBZOO_ELEMENT_CURRENCY_MANUAL_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_CURRENCY_MANUAL_DESC</description>
+
+    <params>
+        <param name="rate" type="text" default="1" label="JBZOO_ELEMENT_CURRENCY_MANUAL_RATE"
+               description="JBZOO_ELEMENT_CURRENCY_MANUAL_RATE_DESC"/>
+
+        <param name="fallback_rate" type="hidden" default="1"/>
+        <param name="current_rate" type="hidden" default="1"/>
+    </params>
+
+</element>

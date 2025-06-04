@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+	<name>JMap</name>
+	<author>Joomla! Extensions Store</author>
+	<creationDate>2024-07-31</creationDate>
+	<copyright>Copyright (C) 2016 - Joomla! Extensions Store. All Rights Reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@storejextensions.org</authorEmail>
+	<authorUrl>http://storejextensions.org</authorUrl>
+	<version>4.18.6</version>
+	<description>COM_JMAP_INFO_MESSAGES</description>
+	<namespace>JExtstore\Component\JMap</namespace>
+  
+	<scriptfile>installscript.php</scriptfile> 
+	
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install> 
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	
+	<files folder="site">
+		<!-- DISPATCHER -->
+		<folder>Dispatcher</folder>
+		<!-- SERVICE -->
+		<folder>Service</folder>
+		<!-- PRECACHE -->
+		<folder>precache</folder>
+		<!-- CONTROLLERS -->
+		<folder>Controller</folder>
+		<!-- MODELS -->
+		<folder>Model</folder>
+		<!-- VIEWS -->
+		<folder>View</folder>
+		<folder>tmpl</folder>
+		<!-- JS -->
+		<folder>js</folder>
+		<!-- XSLT -->
+		<folder>xslt</folder>
+		<!-- MANIFESTS -->
+		<folder>manifests</folder>
+		<!-- LANGUAGE -->
+		<folder>language</folder>
+		<filename>index.html</filename>
+	</files>
+
+	<administration>
+		<menu link="option=com_jmap" img="class:jmap-16x16">JMAP</menu> 
+		<files folder="admin">
+			<filename>config.xml</filename>
+			<filename>access.xml</filename>
+			<folder>images</folder>
+			<filename>index.html</filename>
+			<!-- DISPATCHER -->
+			<folder>Dispatcher</folder>
+			<!-- EXTENSION -->
+			<folder>Extension</folder>
+			<!-- SERVICES -->
+			<folder>services</folder>
+			<!-- CACHE -->
+			<folder>cache</folder>
+			<!-- CONTROLLERS -->
+			<folder>Controller</folder>
+			<!-- MODELS -->
+			<folder>Model</folder>
+			<!-- VIEWS -->
+			<folder>View</folder>
+			<folder>tmpl</folder>
+			<!-- LAYOUTS -->
+			<folder>layouts</folder>
+			<!-- PLUGINS -->
+			<folder>plugins</folder>
+			<!-- JS -->
+			<folder>js</folder>
+			<!-- CSS files-->
+			<folder>css</folder>
+			<!-- JMap Framework -->
+			<folder>Framework</folder>
+			<!-- TABLES ORM -->
+			<folder>Table</folder>
+			<!-- FIELDS -->
+			<folder>Field</folder>
+			<!-- ASSETS -->
+			<folder>images</folder>
+			<!-- SQL files section -->
+			<folder>sql</folder> 
+			<!-- LANGUAGE -->
+			<folder>language</folder>
+		</files>
+	</administration>
+	
+	<!-- CHANGELOG -->
+	<changelogurl>http://storejextensions.org/changelogs/jsitemap_professional.xml</changelogurl>
+	
+	<!-- UPDATE SERVERS -->
+	<updateservers>
+		<server type="extension" priority="1" name="JSitemap Professional Update Server">http://storejextensions.org/updates/jsitemap_updater.xml</server>
+	</updateservers>
+</extension>

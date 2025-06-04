@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general">
+		<field name="operator" type="comparator"/>
+        <field name="value" type="tfinputrepeater" 
+            class="tf-auto-width-columns"
+            label="NR_CART_CONTAINS_PRODUCTS"
+            description="NR_CART_CONTAINS_PRODUCTS_DESC">
+            <form>
+                <field name="value" type="componentitems" 
+                    label="NR_CART_CONTAINS_PRODUCTS" 
+                    description="NR_SELECT_PRODUCT"
+                    table="hikashop_product"
+                    column_id="product_id"
+                    column_title="product_name"
+                    column_state="product_published"
+                    searchPlaceholder="NR_SEARCH_PRODUCTS"
+                />
+                <field name="params" hiddenLabel="true" type="TFEcommRangeField" prefixLabel="NR_AND_QUANTITY_IS_LC" showIsAnyOption="true" />
+            </form>
+        </field>
+    </fieldset>
+</form>

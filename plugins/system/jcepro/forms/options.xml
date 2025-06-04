@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<form>
+    <fields>
+        <fieldset name="standard" >
+            <field name="replace_media_manager" type="radio" default="1" label="WF_CPANEL_REPLACE_MEDIAMANAGER_LABEL" class="btn-group btn-group-yesno" description="WF_CPANEL_REPLACE_MEDIAMANAGER_DESCRIPTION">
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

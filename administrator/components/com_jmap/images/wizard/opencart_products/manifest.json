@@ -1,0 +1,40 @@
+{
+	"postfields":{
+		"option":"com_opencart",
+		"table_maintable":"oc_product_description",
+		"titlefield":"name",
+		"id":"product_id",
+		"idfield_as":"_route_",
+		"url_filter_id":"1",
+		"orderby_maintable":"name",
+		"orderby_direction_maintable":"ASC",
+		"table_joinfrom_jointable1":"oc_product_description",
+		"table_joinwith_jointable1":"oc_product_to_category",
+		"jointype_jointable1":"",
+		"field_joinfrom_jointable1":"product_id",
+		"field_joinwith_jointable1":"product_id",
+		"table_joinfrom_jointable2":"oc_product_to_category",
+		"table_joinwith_jointable2":"oc_category",
+		"jointype_jointable2":"",
+		"field_joinfrom_jointable2":"category_id",
+		"field_joinwith_jointable2":"category_id",
+		"table_joinfrom_jointable3":"oc_category",
+		"table_joinwith_jointable3":"oc_category_description",
+		"jointype_jointable3":"",
+		"field_joinfrom_jointable3":"category_id",
+		"field_joinwith_jointable3":"category_id",
+		"field_select_jointable3":"name",
+		"field_as_jointable3":"catname",
+		"use_category_title_jointable3":"1",
+		"orderby_jointable3":"category_id",
+		"orderby_direction_jointable3":"ASC"
+	},
+		
+	"substitutions":[
+		["`oc_product_description`.`product_id` AS `_route_`","CONCAT('p-',`oc_product_description`.`product_id`,'-',`oc_product_description`.`name`) AS `_route_`"]
+	],
+		
+	"querystringlinkparams":{
+		"guess_sef_itemid":"1"
+	}
+}

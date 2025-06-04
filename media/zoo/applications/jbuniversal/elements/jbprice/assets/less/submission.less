@@ -1,0 +1,79 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@row-field-width:   240px;
+
+.jbzoo-price {
+
+    .basic-value-wrap .row-field {
+        display: none;
+    }
+    .row-field {
+        display: block;
+        width: @row-field-width;
+        float: left;
+    }
+
+    .jbprice-row,
+    .jbpriceadv-row {
+        margin-bottom: 10px;
+    }
+
+    .default_variant {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .basic-balance-wrap,
+    .variant-balance-wrap {
+
+        .balance-variant {
+            margin-left: @row-field-width;
+        }
+
+        .balance-custom {
+
+            label {
+                float: left;
+
+                input {
+                    position: relative;
+                    top: 6px;
+                    margin-right: 4px;
+                }
+
+            }
+
+        }
+
+    }
+
+    .jbprice-params {
+        margin-bottom: 10px;
+
+        .variant-param {
+            margin-bottom: 10px;
+        }
+
+
+        .variant-balance-wrap {
+            .balance {
+                margin-left: @row-field-width;
+            }
+
+        }
+
+    }
+
+}

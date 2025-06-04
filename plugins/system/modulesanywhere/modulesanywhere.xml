@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4" type="plugin" group="system" method="upgrade">
+  <name>PLG_SYSTEM_MODULESANYWHERE</name>
+  <description>PLG_SYSTEM_MODULESANYWHERE_DESC</description>
+  <version>8.1.2</version>
+  <creationDate>July 2024</creationDate>
+  <author>Regular Labs (Peter van Westen)</author>
+  <authorEmail>info@regularlabs.com</authorEmail>
+  <authorUrl>https://regularlabs.com</authorUrl>
+  <copyright>Copyright © 2024 Regular Labs - All Rights Reserved</copyright>
+  <license>GNU General Public License version 2 or later</license>
+  <namespace path="src">RegularLabs\Plugin\System\ModulesAnywhere</namespace>
+  <scriptfile>script.install.php</scriptfile>
+  <files>
+    <file plugin="modulesanywhere">modulesanywhere.php</file>
+    <folder>language</folder>
+    <folder>src</folder>
+  </files>
+  <media folder="media" destination="modulesanywhere">
+    <folder>images</folder>
+    <folder>js</folder>
+  </media>
+  <config>
+    <fields name="params" addfieldprefix="RegularLabs\Library\Form\Field">
+      <fieldset name="basic">
+        <field name="@load_script_descriptions" type="LoadMedia" filetype="script" file="regularlabs.admin-form-descriptions"/>
+        <field name="@load_language_regularlabs" type="LoadLanguage" extension="plg_system_regularlabs"/>
+        <field name="@jcompatibility" type="JCompatibility" extension="ARTICLESANYWHERE"/>
+        <field name="@license" type="License" extension="MODULESANYWHERE"/>
+        <field name="@version" type="Version" extension="MODULESANYWHERE"/>
+        <field name="@header" type="Header" label="MODULESANYWHERE" description="MODULESANYWHERE_DESC,                                    &lt;span class=&quot;rl-code&quot;&gt;{module title=&quot;Main Menu&quot;}&lt;/span&gt;,                                    &lt;span class=&quot;rl-code&quot;&gt;{module id=&quot;3&quot;}&lt;/span&gt;,                                    &lt;span class=&quot;rl-code&quot;&gt;{modulepos mainmenu}&lt;/span&gt;,                                    &lt;span class=&quot;rl-code&quot;&gt;{module title=&quot;Main Menu&quot; style=&quot;card&quot;}&lt;/span&gt;" url="https://regularlabs.com/modulesanywhere"/>
+      </fieldset>
+      <fieldset name="RL_BEHAVIOUR" addfieldprefix="RegularLabs\Plugin\System\ModulesAnywhere\Form\Field">
+        <field name="style" type="ChromeStyle" default="System-none" class="w-auto" label="MA_DEFAULT_STYLE" description="MA_DEFAULT_STYLE_DESC"/>
+        <field name="@note__override_settings" type="OnlyPro" label="MA_ENABLE_PARAMETER_OVERRIDING" description="MA_ENABLE_PARAMETER_OVERRIDING_DESC,                                    &lt;span class=&quot;rl_code&quot;&gt;{module title=&quot;Main Menu&quot; moduleclass_sfx=&quot;red&quot; some_other_setting=&quot;123&quot;}&lt;/span&gt;,                                    &lt;span class=&quot;rl_code&quot;&gt;name=&quot;param[...]&quot;&lt;/span&gt;"/>
+        <field name="ignore_access" type="Radio" default="0" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_IGNORE_MODULE_ACCESS" description="MA_IGNORE_MODULE_ACCESS_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="ignore_state" type="Radio" default="0" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_IGNORE_MODULE_STATE" description="MA_IGNORE_MODULE_STATE_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="ignore_assignments" type="Radio" default="1" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_IGNORE_MODULE_CONDITIONS" description="MA_IGNORE_MODULE_CONDITIONS_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="ignore_caching" type="Radio" default="0" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_IGNORE_CACHING" description="MA_IGNORE_CACHING_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="@load_language_config" type="LoadLanguage" extension="com_config"/>
+        <field name="@note__show_edit" type="OnlyPro" label="MA_FRONTEND_EDITING"/>
+        <field name="fix_html" type="Radio" default="1" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="RL_FIX_HTML" description="RL_FIX_HTML_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="place_comments" type="Radio" default="1" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="RL_PLACE_HTML_COMMENTS" description="RL_PLACE_HTML_COMMENTS_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+      </fieldset>
+      <fieldset name="RL_SETTINGS_SECURITY">
+        <field name="@block__articles__a" type="Block" start="1" label="RL_ARTICLES" description="MA_ARTICLES_DESC"/>
+        <field name="@note__articles" type="OnlyPro" label="MA_SECURITY_LEVEL" description="MA_SECURITY_LEVEL_DESC"/>
+        <field name="@block__articles__b" type="Block" end="1"/>
+        <field name="@block__components__a" type="Block" start="1" label="RL_COMPONENTS" description="MA_COMPONENTS_DESC"/>
+        <field name="@note__components" type="OnlyPro" label="RL_DISABLE_ON_COMPONENTS" description="MA_DISABLE_ON_COMPONENTS_DESC"/>
+        <field name="@block__components__b" type="Block" end="1"/>
+        <field name="@block__otherareas__a" type="Block" start="1" label="RL_OTHER_AREAS" description="MA_OTHER_AREAS_DESC"/>
+        <field name="@note__otherareas" type="OnlyPro" label="RL_ENABLE_OTHER_AREAS" description="MA_ENABLE_OTHER_AREAS_DESC"/>
+        <field name="@block__otherareas__b" type="Block" end="1"/>
+      </fieldset>
+      <fieldset name="RL_SETTINGS_EDITOR_BUTTON">
+        <field name="button_text" type="Text" default="Module" label="RL_BUTTON_TEXT" description="RL_BUTTON_TEXT_DESC"/>
+        <field name="enable_frontend" type="Radio" default="1" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="RL_ENABLE_IN_FRONTEND" description="RL_ENABLE_IN_FRONTEND_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="add_title_to_id" type="Radio" default="0" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_ADD_TITLE_TO_ID" description="MA_ADD_TITLE_TO_ID_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="@block__default_tag__a" type="Block" start="1" label="MA_DEFAULT_DATA_TAG_SETTINGS"/>
+        <field name="showtitle" type="radio" default="" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_SHOW_TITLE" description="MA_SHOW_TITLE_DESC">
+          <option value="" class="btn btn-outline-info">JDEFAULT</option>
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="@block__default_tag_ab" type="Block" end="1"/>
+      </fieldset>
+      <fieldset name="RL_TAG_SYNTAX">
+        <field name="module_tag" type="Text" default="module" label="MA_MODULE_TAG" description="MA_TAG_DESC"/>
+        <field name="modulepos_tag" type="Text" default="modulepos" label="MA_MODULEPOS_TAG" description="MA_TAG_DESC"/>
+        <field name="tag_characters" type="list" default="{.}" label="RL_TAG_CHARACTERS" description="RL_TAG_CHARACTERS_DESC">
+          <option value="{.}">{...}</option>
+          <option value="[.]">[...]</option>
+          <option value="«.»">«...»</option>
+          <option value="{{.}}">{{...}}</option>
+          <option value="[[.]]">[[...]]</option>
+          <option value="[:.:]">[:...:]</option>
+          <option value="[%.%]">[%...%]</option>
+        </field>
+        <field name="handle_core_tags" type="Radio" default="0" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_HANDLE_CORE_TAGS" description="MA_HANDLE_CORE_TAGS_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="activate_jumper" type="Radio" default="0" class="btn-group rl-btn-group btn-group-md btn-group-yesno" label="MA_ACTIVATE_JUMPER" description="MA_ACTIVATE_JUMPER_DESC" showon="handle_core_tags:1">
+          <option value="0">JNO</option>
+          <option value="" class="btn btn-outline-success">JYES</option>
+        </field>
+        <field name="@note__jumper" type="Image" label="---" src="../media/modulesanywhere/images/jump.gif?20230311" height="160" width="160" showon="handle_core_tags:1[AND]activate_jumper:"/>
+      </fieldset>
+    </fields>
+  </config>
+</extension>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" method="upgrade">
+    <name>pkg_selectcity</name>
+    <packagename>selectcity</packagename>
+    <author>Ivan Polunin</author>
+    <creationDate>March 2024</creationDate>
+    <version>1.1.19</version>
+    <license>GNU GPL 3.0</license>
+    <url>https://insib.su/</url>
+    <dlid prefix="download_key=" suffix=""/>
+    <description>
+        This package includes a component, module, and plugin for SelectCity functionality.&lt;br /&gt;
+        Установка успешно выполнена&lt;br /&gt;
+        Перейдите в компонент и заполните список городов&lt;br /&gt;
+        Поддержать проект - &lt;a href='https://insib.su/proekty/selectcity-komponent-vybora-gorodov-dlya-joomla-5'&gt; https://insib.su/proekty/selectcity-komponent-vybora-gorodov-dlya-joomla-5 &lt;/a&gt;
+    </description>
+    <files>
+        <folder type="component" id="com_selectcity" client="site">com_selectcity</folder>
+        <folder type="module" id="mod_selectcity" client="site">mod_selectcity</folder>
+        <folder type="plugin" group="system">plg_selectcity</folder>
+        <folder type="plugin" group="task">plg_selectcity_sitemap</folder>
+    </files>
+    <updateservers>
+		<server type="extension" priority="1" name="Selectcity - Компонент выбора городов для Joomla 5 (4) updates">https://insib.su/component/swjprojects/jupdate?element=pkg_selectcity</server>
+	</updateservers>
+	<changelogurl>https://insib.su/component/swjprojects/jchangelog?element=pkg_selectcity</changelogurl>
+</extension>

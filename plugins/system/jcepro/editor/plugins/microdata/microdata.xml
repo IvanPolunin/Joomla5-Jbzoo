@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<extension version="3.4" type="plugin" group="jce" method="upgrade">
+    <name>WF_MICRODATA_TITLE</name>
+    <version>2.9.81</version>
+    <creationDate>24-09-2024</creationDate>
+    <author>Ryan Demmer</author>
+    <authorEmail>info@joomlacontenteditor.net</authorEmail>
+    <authorUrl>https://www.joomlacontenteditor.net/</authorUrl>
+    <copyright>Ryan Demmer</copyright>
+    <license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+    <description>WF_MICRODATA_DESC</description>
+    <icon>microdata</icon>
+    <files></files>
+    <fields name="microdata">
+        <fieldset name="config">
+            <field type="text" name="schema_url" value="" placeholder="" label="WF_MICRODATA_SCHEMA_URL" description="WF_MICRODATA_SCHEMA_URL_DESC" />
+            <field type="text" name="cache_ttl" value="" placeholder="eg: 7" label="WF_MICRODATA_CACHE_TTL" description="WF_MICRODATA_CACHE_TTL_DESC" />
+        </fieldset>
+    </fields>
+    <languages></languages>
+    <help>
+        <topic key="microdata.about" title="WF_MICRODATA_HELP_ABOUT" />
+        <topic key="microdata.create" title="WF_MICRODATA_HELP_CREATE" />
+    </help>
+</extension>

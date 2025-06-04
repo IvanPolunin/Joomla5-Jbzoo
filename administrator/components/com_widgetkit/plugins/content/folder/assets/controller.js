@@ -1,0 +1,1 @@
+"use strict";angular.module("widgetkit").controller("folderCtrl",[function(){}]).run(["$rootScope","mediaInfo",function(i,o){i.$on("wk.preview.content",function(t,e){if(e.type==="folder"&&e.data.prepared){var r=JSON.parse(e.data.prepared),a;r.length>0&&(a=r[0].media,t.preview=o(a).image)}})}]);

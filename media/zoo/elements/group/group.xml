@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element type="group" group="Other">
+	<name>Group</name>
+	<author>YOOtheme</author>
+	<creationDate>July 2020</creationDate>
+	<copyright>Copyright (C) YOOtheme GmbH</copyright>
+	<authorEmail>info@yootheme.com</authorEmail>
+	<authorUrl>https://yootheme.com</authorUrl>
+	<version>3.4.0</version>
+	<description>Group Element</description>
+	<params>
+		<param name="upload_directory" type="text" default="images/zoo/uploads/" label="Upload Directory" description="UPLOAD_DIR_DESCRIPTION" />
+		<param name="max_upload_size" type="text" default="512" label="MAX UPLOAD SIZE KB" description="UPLOAD_MAX_SIZE_DESCRIPTION" />
+		<param name="element" type="elements" label="Elements" description="">
+			<option name="text">Text</option>
+			<option name="textarea">Textarea</option>
+			<option name="image">Image</option>
+		</param>
+	</params>
+	<params group="render">
+		<param name="separated_by" type="zoolist" default="Div" label="Separated by" description="CHOOSE_SEPARATOR_REPEATED_ELEMENTS">
+			<option name="COM_ZOO_NONE"><![CDATA[tag=[%s]]]></option>
+			<option name="Paragraph"><![CDATA[tag=[<p>%s</p>]]]></option>
+			<option name="Div"><![CDATA[tag=[<div>%s</div>]]]></option>
+			<option name="List Item"><![CDATA[tag=[<li>%s</li>]]]></option>
+			<option name="Unordered List"><![CDATA[tag=[<li>%s</li>] enclosing_tag=[<ul>%s</ul>]]]></option>
+			<option name="Ordered List"><![CDATA[tag=[<li>%s</li>] enclosing_tag=[<ol>%s</ol>]]]></option>
+			<option name="Blank"><![CDATA[tag=[%s]]]></option>
+			<option name="UIkit Block"><![CDATA[tag=[<div class="uk-margin">%s</div>]]]></option>
+			<option name="UIkit Article"><![CDATA[tag=[<article class="uk-article">%s</article>]]]></option>
+			<option name="UIkit List"><![CDATA[tag=[<li>%s</li>] enclosing_tag=[<ul class="uk-list">%s</ul>]]]></option>
+			<option name="UIkit List Line"><![CDATA[tag=[<li>%s</li>] enclosing_tag=[<ul class="uk-list uk-list-line">%s</ul>]]]></option>
+		</param>
+	</params>
+</element>

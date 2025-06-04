@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" hidden="false">
+    <name>JBZOO_ELEMENT_EMAIL_STATUS_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_EMAIL_STATUS_DESC</description>
+
+    <params>
+
+        <param name="ordertype" type="list" default="main" label="JBZOO_ELEMENT_EMAIL_STATUS_ORDERTYPE"
+               description="JBZOO_ELEMENT_EMAIL_STATUS_ORDERTYPE_DESC">
+            <option value="main">JBZOO_ELEMENT_EMAIL_STATUS_ORDERTYPE_MAIN</option>
+            <option value="shipping">JBZOO_ELEMENT_EMAIL_STATUS_ORDERTYPE_SHIPPING</option>
+            <option value="payment">JBZOO_ELEMENT_EMAIL_STATUS_ORDERTYPE_PAYMENT</option>
+        </param>
+
+    </params>
+
+</element>

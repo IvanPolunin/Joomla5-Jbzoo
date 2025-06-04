@@ -1,0 +1,70 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+.jbzoo .jbadvert {
+
+    &-hidden {
+        display: none;
+    }
+
+    &-control {
+
+        margin-bottom: 1em;
+
+        label {
+            display: block;
+            float: left;
+            margin-right: 0.5em;
+            width: auto;
+        }
+
+        input[type=radio],
+        input[type=checkbox] {
+            float: left;
+        }
+    }
+
+    &-edit {
+        margin-top: 8px;
+
+        .radio-lbl {
+            margin-right: 12px;
+        }
+
+        .param-list {
+            overflow: hidden;
+
+            dt {
+                float: left;
+                clear: both;
+                font-weight: bold;
+                #text > .truncate(120px);
+            }
+
+            dd {
+                margin-left: 160px;
+            }
+
+            pre {
+                width: 200px;
+                white-space: nowrap;
+                overflow: auto !important;
+                overflow-y: hidden;
+                word-break: normal;
+            }
+
+        }
+    }
+}

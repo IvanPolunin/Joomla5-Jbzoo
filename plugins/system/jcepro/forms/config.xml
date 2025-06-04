@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<form>
+    <fields name="params">
+        <fieldset name="config" addfieldpath="plugins/system/jcepro/fields">
+            <field name="editor_fallback" type="editorplugins" exclude="jce" default="" label="WF_PARAM_EDITOR_FALLBACK" description="WF_PARAM_EDITOR_FALLBACK_DESC">
+                <option value="">WF_OPTION_NOT_SET</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>

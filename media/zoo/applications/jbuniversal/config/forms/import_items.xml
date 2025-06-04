@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<form>
+    <fields>
+        <fieldset name="source" label="JBZOO_IMPORT_SOURCE"
+                  addfieldpath="/media/zoo/applications/jbuniversal/joomla/fields">
+
+            <field type="file"
+                   name="csvfile"
+                   label="JBZOO_IMPORT_FILE"
+                   description="JBZOO_IMPORT_FILE_DESC"/>
+
+        </fieldset>
+
+        <fieldset name="config" label="JBZOO_IMPORT_CONFIG">
+            <field type="jbbool"
+                   default="1"
+                   name="header"
+                   label="JBZOO_IMPORT_IS_HEADER"
+                   description="JBZOO_IMPORT_IS_HEADER_DESC"/>
+
+            <field type="text"
+                   default=""
+                   name="separator"
+                   maxlength="1"
+                   required="true"
+                   label="JBZOO_IMPORT_SEPARATOR"
+                   description="JBZOO_IMPORT_SEPARATOR_DESC"/>
+
+            <field type="text"
+                   default=""
+                   name="enclosure"
+                   maxlength="1"
+                   required="true"
+                   label="JBZOO_IMPORT_ENCLOSURE"
+                   description="JBZOO_IMPORT_ENCLOSURE_DESC"/>
+
+            <field type="list"
+                   default="25"
+                   name="step"
+                   required="true"
+                   label="JBZOO_IMPORT_STEP"
+                   description="JBZOO_IMPORT_STEP_DESC">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="500">500</option>
+            </field>
+
+            <field type="hidden" name="import-type" default="items"/>
+
+        </fieldset>
+    </fields>
+</form>

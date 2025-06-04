@@ -1,0 +1,108 @@
+#progressModal2 div.modal-dialog {
+	width: 600px;
+	padding-top: 230px;
+	padding-bottom: 30px;
+}
+
+div.card div.card {
+	float: left;
+}
+
+div.card p {
+	margin-bottom: 2px;
+}
+
+div.card a {
+	margin-left: 5px;
+}
+
+div#common span.controls label,div#specialized span.controls label {
+	margin-top: -6px;
+	padding: 3px 8px;
+}
+
+div.service_control {
+    margin: 20px 0;
+	padding: 5px;
+}
+
+div.service_control a:hover {
+	text-decoration: none;
+}
+
+div.service_control a label {
+	cursor: pointer;
+}
+
+label.bg-primary {
+	display: inline-block;
+	margin: 4px;
+    padding: 6px 12px;
+}
+
+label#lastping {
+	padding: 6px 12px;
+}
+
+label.validation.services {
+	margin-left: 5px;
+	display: inline-block;
+	padding: .4em .6em;
+}
+
+#pingomatic_iframe,
+#pingomatic_ajaxloader {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
+label.hasClickPopover {
+	cursor: pointer;
+}
+
+.popover-header {
+	background-color: #f7f7f7 !important;
+	background: url('../images/close.png') no-repeat;
+	background-position: right top;
+	cursor: pointer;
+}
+
+.popover.right {
+	margin-left: 10px;
+	margin-top: 15px;
+	width: 300px;
+	max-width: 300px;
+}
+
+/* Override table width */
+table.admintable {
+	width: 85%;
+}
+
+#title {
+	width: 50% !important;
+}
+
+#linkurl,#rssurl {
+	width: 70% !important;
+}
+
+@media (prefers-color-scheme: dark) {
+	div.popover-body {
+		background-color: #FFF;
+	}
+	div.popover h3.popover-header {
+		color: #000 !important;
+		background-color: #cdcdcd !important;
+	}
+	
+	div.bs-popover-auto[data-popper-placement^=bottom]>.popover-arrow:after, div.bs-popover-bottom>.popover-arrow:after {
+		border-bottom-color: #cdcdcd;
+	}
+	
+	div.bs-popover-auto[data-popper-placement^=bottom] .popover-header:before, div.bs-popover-bottom .popover-header:before,
+	div.bs-popover-auto[data-popper-placement^=bottom]>.popover-arrow:before, div.bs-popover-bottom>.popover-arrow:before {
+		border-bottom-color: #cdcdcd;
+	}
+}

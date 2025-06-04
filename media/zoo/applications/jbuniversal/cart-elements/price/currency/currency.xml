@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="currency" group="Core" core="true" hidden="true" system-tmpl="true">
+    <name>JBZOO_ELEMENT_PRICE_CURRENCY_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_PRICE_CURRENCY_DESC</description>
+
+    <params group="render">
+
+        <param name="currency_default" type="jbcurrency" default="default_cur"
+               label="JBZOO_ELEMENT_PRICE_CURRENCY_CURRENCY_DEFAULT"
+               description="JBZOO_ELEMENT_PRICE_CURRENCY_CURRENCY_DEFAULT_DESC" multiple="0"/>
+
+        <param name="currency_list" type="jbcurrency" default="all" multiple="1" showall="1"
+               label="JBZOO_ELEMENT_PRICE_CURRENCY_CURRENCY_LIST"
+               description="JBZOO_ELEMENT_PRICE_CURRENCY_CURRENCY_LIST_DESC"/>
+
+    </params>
+
+    <params group="filter">
+
+        <param name="jbzoo_filter_render" type="list" label="JBZOO_ELEMENT_TEMPLATE"
+               description="JBZOO_ELEMENT_TEMPLATE_DESC" default="currency">
+            <option value="currency">JBZOO_ELEMENT_TEMPLATE_CURRENCY</option>
+        </param>
+
+        <param name="currency_default" type="jbcurrency" default="EUR" label="JBZOO_JBPRICE_CURRENCY_DEFAULT"
+               description="JBZOO_JBPRICE_CURRENCY_DEFAULT" multiple="0"/>
+
+        <param name="currency_list" type="jbcurrency" default="" label="JBZOO_JBPRICE_CURRENCY_LIST"
+               description="JBZOO_JBPRICE_CURRENCY_LIST_DESC" multiple="1"/>
+
+    </params>
+
+</element>

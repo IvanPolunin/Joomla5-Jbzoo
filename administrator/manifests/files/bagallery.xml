@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0.0" type="file" method="upgrade">
+    <name>BaGallery</name>
+    <creationDate>18 June 2015</creationDate>
+    <author>Balbooa</author>
+    <copyright>Balbooa 2016</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>support@balbooa.com</authorEmail>
+    <authorUrl>http://balbooa.com</authorUrl>
+    <version>1.5.3</version>
+    <description>BAGALLERY_DESCRIPTION</description>
+    <fileset>
+    <files folder="administrator" target="administrator/language/ru-RU">
+        <filename>ru-RU.com_bagallery.ini</filename>
+        <filename>ru-RU.com_bagallery.sys.ini</filename>
+    </files>
+</fileset>
+</extension>

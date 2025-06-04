@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general">
+        <fields name="params">
+            <field name="operator" type="comparator" label="NR_VISITOR_IS">
+                <option value="is">NR_ON_HOMEPAGE</option>
+                <option value="is_not">NR_NOT_ON_HOMEPAGE</option>
+            </field>
+        </fields>
+    </fieldset>
+</form>

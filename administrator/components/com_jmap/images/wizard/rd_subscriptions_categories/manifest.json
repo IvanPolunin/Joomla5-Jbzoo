@@ -1,0 +1,15 @@
+{
+	"postfields":{
+		"option":"com_rdsubs",
+		"table_maintable":"#__rd_subs_categories",
+		"titlefield":"name",
+		"id":"id",
+		"orderby_maintable":"name",
+		"orderby_direction_maintable":"ASC"
+	},
+	
+	"querystringlinkparams":{
+		"view":"category",
+		"guess_sef_itemid":"1"
+	}
+}

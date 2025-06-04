@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<renderer>
+    <positions layout="default">
+        <position name="fields">Fields</position>
+    </positions>
+
+    <positions layout="accordion">
+        <position name="tab-1">Tab #1</position>
+        <position name="tab-2">Tab #2</position>
+        <position name="tab-3">Tab #3</position>
+        <position name="tab-4">Tab #4</position>
+        <position name="tab-5">Tab #5</position>
+        <position name="tab-6">Tab #6</position>
+        <position name="tab-7">Tab #7</position>
+        <position name="tab-8">Tab #8</position>
+        <position name="tab-9">Tab #9</position>
+        <position name="tab-10">Tab #10</position>
+    </positions>
+
+</renderer>

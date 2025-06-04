@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="option" group="Core" hidden="true">
+    <name>JBZOO_ELEMENT_ORDER_OPTION_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_ORDER_OPTION_DESC</description>
+
+    <params>
+        <param name="default" type="text" default="" label="JBZOO_DEFAULT" description=""/>
+        <param name="options" type="options" default="" label="JBZOO_OPTIONS" description=""/>
+    </params>
+
+    <params group="render">
+
+        <param name="required" type="jbbool" default="" label="JBZOO_ELEMENT_REQUIRED"
+               description="JBZOO_ELEMENT_REQUIRED_DESC"/>
+
+        <param name="user_field" type="jbuserdata" label="JBZOO_ELEMENT_ORDER_OPTION_USER_FIELD" description=""/>
+
+    </params>
+
+</element>

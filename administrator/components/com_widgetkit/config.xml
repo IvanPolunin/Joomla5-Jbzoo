@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset
+            name="options"
+            label="Options"
+            addfieldpath="/administrator/components/com_widgetkit/models/fields">
+
+        <field
+                name="theme_support"
+                type="list"
+                label="3rd Party Theme"
+                description="If instead of YOOtheme Pro or Warp 7 a 3rd party theme is used, select whether the theme uses UIkit 3, UIkit 2 or no UIkit at all."
+                default="scoped"
+        >
+            <option value="scoped">Load UIkit 3 with Scoped CSS and uk- Prefix (Theme doesn't use UIkit)</option>
+            <option value="noconflict">Load UIkit 3 with Scoped CSS and wk- Prefix (Theme uses UIkit 2)</option>
+            <option value="uikit3">Don't load UIkit (Theme already uses UIkit 3)</option>
+        </field>
+
+        <field
+                name="googlemapseapikey"
+                label="Google Maps API Key"
+                description="Insert your Google Maps API Key. Visit https://console.developers.google.com/apis to generate your API key."
+                type="text"
+                component="com_widgetkit" />
+
+        <field
+                name="system_editor"
+                label="Use tinyMCE Editor"
+                description="Enable the tinyMCE Editor for Widgetkit content fields."
+                type="checkbox"
+                component="com_widgetkit" />
+
+        <field
+                name="clear_cache"
+                label="Clear Cache"
+                description="Clear the Widgetkit Cache Folder"
+                type="Cache"
+                component="com_widgetkit" />
+
+    </fieldset>
+
+    <fieldset
+            name="permissions"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            description="JCONFIG_PERMISSIONS_DESC"
+            >
+
+        <field
+                name="rules"
+                type="rules"
+                label="JCONFIG_PERMISSIONS_LABEL"
+                validate="rules"
+                filter="rules"
+                component="com_widgetkit"
+                section="component" />
+    </fieldset>
+</config>

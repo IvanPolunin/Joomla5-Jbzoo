@@ -1,0 +1,1 @@
+ALTER TABLE `#__baforms_submissions` CHANGE `title` `title` varchar(255) NOT NULL;

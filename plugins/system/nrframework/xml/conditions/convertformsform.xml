@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general" addfieldpath="administrator/components/com_convertforms/models/forms/fields">
+        <field name="operator" type="comparator">
+            <option value="includes">NR_CONVERTFORMS_HAS_SUBMITTED_FORMS</option>
+            <option value="not_includes">NR_CONVERTFORMS_HAS_NOT_SUBMITTED_FORMS</option>
+        </field>
+        <field name="value" type="convertforms"
+            label="NR_CONVERTFORMS_FORMS_LIST"
+            multiple="true"
+            class="hasChosen"
+        />
+    </fieldset>
+</form>

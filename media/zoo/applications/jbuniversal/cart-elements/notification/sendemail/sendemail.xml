@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" core="false" hidden="false">
+    <name>JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_DESC</description>
+
+    <params>
+
+        <param name="layout_email" type="jbelementlayout" default="" auto="false"
+               path="jbapp:templates-system/renderer/email"
+               label="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_LAYOUY_LIST"
+               description="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_LAYOUY_LIST_DESC"/>
+
+        <param name="subject" type="jbordermacros" default="" label="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_SUBJECT"
+               description="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_SUBJECT_DESC"/>
+
+        <param name="fromemail" type="text" default="" label="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_FROMEMAIL"
+               description="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_FROMEMAIL_DESC"/>
+
+        <param name="fromname" type="text" default="" label="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_FROMNAME"
+               description="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_FROMNAME_DESC"/>
+
+        <param name="recipients" type="jbsendemailrecipients" default="admin"
+               label="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_RECIPIENTS"
+               description="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_RECIPIENTS_DESC">
+        </param>
+
+        <param name="ishtml" type="jbbool" default="1" label="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_ISHTML"
+               description="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_ISHTML_DESC"/>
+
+        <param name="issleep" type="jbbool" default="0" label="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_ISSLEEP"
+               description="JBZOO_ELEMENT_NOTIFICATION_SENDEMAIL_ISSLEEP_DESC"/>
+
+    </params>
+
+</element>

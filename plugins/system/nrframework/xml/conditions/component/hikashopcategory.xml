@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general">
+        <field name="operator" type="comparator"/>
+        <field name="value" type="nrhikashopcategories"
+            label="NR_CURRENT_PRODUCT_CATEGORY"
+            description="NR_CONDITION_HIKA_PRODUCT_CATEGORY_DESC"
+            multiple="true"
+            default=""
+        />
+        <fields name="params">
+            <field name="inc_children" type="list"
+                label="NR_ALSO_ON_CHILD_ITEMS"
+                description="NR_ALSO_ON_CHILD_ITEMS_DESC"
+                class="input-medium"
+                default="0">
+                <option value="0">JNO</option>
+                <option value="1">JYES</option>
+                <option value="2">NR_ONLY</option>
+            </field>
+        </fields>
+    </fieldset>
+</form>

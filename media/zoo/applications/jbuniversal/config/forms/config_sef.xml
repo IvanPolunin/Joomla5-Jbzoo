@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<form>
+    <fields>
+        <fieldset name="configsef" label="" addfieldpath="/media/zoo/applications/jbuniversal/joomla/fields">
+
+            <field name="enabled" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_ENABLED"
+                   description="JBZOO_CONFIG_SEF_ENABLED_DESC"/>
+
+            <field name="spacer_menu" type="jbspacer" default="JBZOO_CONFIG_SEF_MENU"/>
+
+            <field name="fix_menu" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_FIX_MENU"
+                   description="JBZOO_CONFIG_SEF_FIX_MENU_DESC"/>
+
+            <field name="spacer_item" type="jbspacer" default="JBZOO_CONFIG_SEF_ITEM"/>
+
+            <field name="fix_item" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_FIX_ITEM"
+                   description="JBZOO_CONFIG_SEF_FIX_ITEM_DESC"/>
+
+            <field name="item_alias_id" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_ITEM_ALIAS_ID"
+                   description="JBZOO_CONFIG_SEF_ITEM_ALIAS_ID_DESC"/>
+
+            <field name="fix_category_id" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_FIX_CATEGORY_ID"
+                   description="JBZOO_CONFIG_SEF_FIX_CATEGORY_ID_DESC"/>
+
+            <field name="spacer_category" type="jbspacer" default="JBZOO_CONFIG_SEF_CATEGORY"/>
+
+            <field name="fix_category" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_FIX_CATEGORY"
+                   description="JBZOO_CONFIG_SEF_FIX_CATEGORY_DESC"/>
+
+            <field name="category_alias_id" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_FIX_CATEGORY_ALIAS_ID"
+                   description="JBZOO_CONFIG_SEF_FIX_CATEGORY_ALIAS_ID_DESC"/>
+
+            <field name="spacer_others" type="jbspacer" default="JBZOO_CONFIG_SEF_OTHERS"/>
+
+            <field name="fix_feed" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_FIX_FEED"
+                   description="JBZOO_CONFIG_SEF_FIX_FEED_DESC"/>
+
+            <field name="spacer_misc" type="jbspacer" default="JBZOO_CONFIG_SEF_MISC"/>
+
+            <field name="redirect" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_REDIRECT"
+                   description="JBZOO_CONFIG_SEF_REDIRECT_DESC"/>
+
+            <field name="fix_canonical" type="jbbool" default="0" label="JBZOO_CONFIG_SEF_FIX_CANONICAL"
+                   description="JBZOO_CONFIG_SEF_FIX_CANONICAL_DESC"/>
+
+            <field name="fix_canonical_v1" type="jbbool" default="0" label="Simple Canonical App alias and Item alias"
+                   description="Very simple generate canonical fix - app_alias and item_alias"/>
+
+            <field name="fix_canonical_v2" type="jbbool" default="0" label="New BETA version Canonical (beta)"
+                   description="Find canonical from related category in menu and replace it - Please before test it on page"/>
+
+            <field name="parse_priority" type="list" default="item" label="JBZOO_CONFIG_SEF_PARSE_PRIORITY"
+                   description="JBZOO_CONFIG_SEF_PARSE_PRIORITY_DESC">
+                <option value="item">JBZOO_CONFIG_SEF_PARSE_PRIORITY_ITEM</option>
+                <option value="category">JBZOO_CONFIG_SEF_PARSE_PRIORITY_CATEGORY</option>
+            </field>
+
+            <field name="canonical_redirect" type="list" default="none" label="JBZOO_CONFIG_SEF_CANONICAL_REDIRECT"
+                   description="JBZOO_CONFIG_SEF_CANONICAL_REDIRECT_DESC">
+                <option value="none">JBZOO_CONFIG_SEF_CANONICAL_REDIRECT_NONE</option>
+                <option value="404_strict">JBZOO_CONFIG_SEF_CANONICAL_REDIRECT_404_STRICT</option>
+                <option value="404_noquery">JBZOO_CONFIG_SEF_CANONICAL_REDIRECT_404_NOQUERY</option>
+                <option value="301_strict">JBZOO_CONFIG_SEF_CANONICAL_REDIRECT_301_STRICT</option>
+                <option value="301_noquery">JBZOO_CONFIG_SEF_CANONICAL_REDIRECT_301_NOQUERY</option>
+            </field>
+
+            <field name="zoo_route_caching" type="hidden" default="0" label="JBZOO_CONFIG_SEF_ZOO_ROUTE_CACHING"
+                   description="JBZOO_CONFIG_SEF_ZOO_ROUTE_CACHING_DESC"/>
+
+        </fieldset>
+    </fields>
+</form>

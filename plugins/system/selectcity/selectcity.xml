@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>plg_system_selectcity</name>
+	<author>Ivan Polunin</author>
+	<creationDate>2024-03</creationDate>
+	<copyright>(C) 2024 insib.su</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<authorEmail>ipolynin@gmail.com</authorEmail>
+	<authorUrl>insib.su</authorUrl>
+	<version>1.1.19</version>
+	<description>Плагин поддерживает замену шорт кодов: &lt;br /&gt; 
+	{city} - название города &lt;br /&gt; 
+    {city_1} - число от 1 до 6, название города будет в соответствующем падеже &lt;br /&gt;
+	{cityName_Барнаул}Любой текст{/cityName_Барнаул} - Барнаул нужно заменить на название любого города, выведится текст если текущий город соответствует городу в шорт коде&lt;br /&gt; 
+	{!cityName_Барнаул}Любой текст{/!cityName_Барнаул} - Барнаул нужно заменить на название любого города, выведится текст если текущий город не соответствует городу в шорт коде&lt;br /&gt; 
+	{city_url} - алиас текущего города &lt;br /&gt; 
+	{sitename} - название сайта из настроек &lt;br /&gt; 
+	{domain} - домен сайта&lt;br /&gt; &lt;br /&gt; 
+	Поддержать проект - &lt;a href='https://insib.su/proekty/selectcity-komponent-vybora-gorodov-dlya-joomla-5'&gt; https://insib.su/proekty/selectcity-komponent-vybora-gorodov-dlya-joomla-5 &lt;/a&gt;
+	</description>
+	<namespace path="src">Joomla\Plugin\System\Selectcity</namespace>
+	<files>
+		<folder plugin="selectcity">services</folder>
+		<folder>form</folder>
+		<folder>src</folder>
+	</files>
+    <scriptfile>script.php</scriptfile>
+	<config>
+		<fields name="params">
+		    <fieldset name="basic">
+		        <field
+                    name="description_text"
+                    type="spacer"
+                    default=""
+                    label="Внимание, включение этих опций может давать нагрузку на сервер сайта при высокой посещаемости, т.к. функции используют регулярное выражение."
+                    description="Внимание, включение этих опций может давать нагрузку на сервер сайта при высокой посещаемости, т.к. функции используют регулярное выражение.">
+                </field>
+		        
+                <field
+                    name="auto_shortcode_replace"
+                    type="radio"
+                    default="1"
+                    label="Замена шорткодов"
+                    description="Замена шорткодов">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            
+			<fieldset name="basic">
+                <field
+                    name="auto_city_alias"
+                    type="radio"
+                    default="1"
+                    label="Добавление алиаса города в ссылки страницы (html, текст, код шаблона)"
+                    description="Добавление алиаса города в ссылки страницы (html, текст, код шаблона)">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            
+            <fieldset name="seo" label="SEO Settings">
+                <field name="replace_robots_txt" type="radio" default="0" label="Заменять в файле robots.txt и sitemap.xml домен сайта" description="Определяет, следует ли заменять содержимое файла robots.txt для различных городов.">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="unique_code" type="radio" default="0" label="Уникализация HTML кода" description="Включает уникализацию кода на странице для SEO.">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field 
+                    name="excluded_urls" 
+                    type="subform" 
+                    formsource="plugins/system/selectcity/form/excludes.xml"
+					layout="joomla.form.field.subform.repeatable-table"
+                    multiple="true" 
+                    label="Url исключения (ссылки содержащие данные url будут перенаправлены на основной город)" 
+                    description="Введите URL, которые должны быть исключены и перенаправлены на основной город.">
+                </field>
+            </fieldset>
+            
+		</fields>
+	</config>
+</extension>

@@ -1,0 +1,23 @@
+/* Copyright (C) YOOtheme GmbH, https://www.gnu.org/licenses/gpl.html GNU/GPL */
+
+/*
+ * social bookmarks
+ */
+
+.yoo-zoo.socialbookmarks { overflow: hidden; }
+
+.yoo-zoo.socialbookmarks a {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin: 0px 7px 0px 0px;
+	background: url(../images/socialbookmarks.png) 0 0 no-repeat;
+	float: left;
+}
+.yoo-zoo.socialbookmarks a:last-child { margin-right: 0px; }
+
+.yoo-zoo.socialbookmarks a.facebook { background-position: 0 0; }
+.yoo-zoo.socialbookmarks a.twitter { background-position: 0 -25px; }
+.yoo-zoo.socialbookmarks a.google { background-position: 0 -50px; }
+.yoo-zoo.socialbookmarks a.reddit { background-position: 0 -175px; }
+.yoo-zoo.socialbookmarks a.email { background-position: 0 -275px; }

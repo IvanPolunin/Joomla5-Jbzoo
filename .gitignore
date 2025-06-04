@@ -1,0 +1,10 @@
+/administrator/backups/
+/cache/
+/images/
+/logs/
+/tmp/
+/media/uploads/
+/templates/
+.htaccess
+configuration.php
+.env

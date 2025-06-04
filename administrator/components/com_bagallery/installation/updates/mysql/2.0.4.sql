@@ -1,0 +1,1 @@
+ ALTER TABLE `#__bagallery_galleries` ADD `load_jquery` tinyint(1) NOT NULL DEFAULT 1;

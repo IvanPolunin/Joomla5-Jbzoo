@@ -1,0 +1,27 @@
+<extension type="module" version="1.0.0" client="site" method="upgrade">
+    <name>mod_selectcitylist</name>
+    <author>Ivan Polunin</author>
+    <version>1.1.19</version>
+    <description>Select City List Module</description>
+    <files>
+        <filename module="mod_selectcitylist">mod_selectcitylist.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+        <folder>assets/css</folder>
+        <folder>assets/js</folder>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="layout" type="list" label="Стиль" description="" default="default">
+                    <option value="default">DEFAULT</option>
+                    <!-- Добавьте дополнительные варианты шаблона здесь -->
+                </field>
+                <!-- ... другие поля ... -->
+                <field name="label_text" type="text" default="Ваш город:" label="Текст перед названием города" description="Укажите текст, который будет отображаться перед названием города." />
+                <field name="label_popup" type="text" default="Выберите Ваш город" label="Текст заголовка в Popup окне" description="Укажите текст, который будет в заголовке Popup окна." />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

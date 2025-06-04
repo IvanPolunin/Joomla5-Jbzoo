@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general">
+        <field name="ecomm_last_purchased_date_start" type="nr_inline"
+            class="tf-inline-fields"
+            label="NR_LAST_PURCHASED_DATE"
+        />
+        <fields name="params">
+            <field name="is_note" type="note" class="tf-center-note" label="NR_IS" />
+            <field name="operator" type="list"
+                hiddenLabel="true"
+                default="within_hours">
+                    <option value="within_hours">NR_IN_THE_LAST_X_HOURS</option>
+                    <option value="within_days">NR_IN_THE_LAST_X_DAYS</option>
+                    <option value="within_weeks">NR_IN_THE_LAST_X_WEEKS</option>
+                    <option value="within_months">NR_IN_THE_LAST_X_MONTHS</option>
+                    <option value="equal">NR_ON</option>
+                    <option value="before">NR_BEFORE</option>
+                    <option value="after">NR_AFTER</option>
+                    <option value="range">NR_BETWEEN</option>
+            </field>
+            <field name="within_value" type="number"
+                hiddenLabel="true"
+                min="1"
+                hint="1"
+                showon="operator:within_hours,within_days,within_weeks,within_months"
+            />
+        </fields>
+        <field name="value" type="calendar"
+            hiddenLabel="true"
+            size="40"
+            hint="NR_SELECT_DATE"
+            translateformat="true"
+            filter="user_utc"
+            showon="params.operator:before,after,range,equal"
+        />
+        <fields name="params">
+            <field name="range_note" type="note" 
+                class="tf-note-and"
+                description="NR_AND_LC"
+                showon="operator:range"
+            />
+            <field name="value2" type="calendar"
+                hiddenLabel="true"
+                size="40"
+                hint="NR_SELECT_DATE"
+                translateformat="true"
+                filter="user_utc"
+                showon="operator:range"
+            />
+        </fields>
+        <field name="ecomm_last_purchased_date_end" type="nr_inline" end="1" />
+    </fieldset>
+</form>

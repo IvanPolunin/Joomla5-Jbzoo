@@ -1,0 +1,465 @@
+{
+    "packages": [
+        {
+            "name": "akeeba/engine",
+            "version": "dev-development",
+            "version_normalized": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:akeeba/engine.git",
+                "reference": "08a0fc090b0d881c0b90ab2f84ad4c91d9e19ac2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akeeba/engine/zipball/08a0fc090b0d881c0b90ab2f84ad4c91d9e19ac2",
+                "reference": "08a0fc090b0d881c0b90ab2f84ad4c91d9e19ac2",
+                "shasum": ""
+            },
+            "require": {
+                "akeeba/s3": "dev-development",
+                "ext-fileinfo": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "greenlion/php-sql-parser": "^4.6.0",
+                "php": ">=7.4 <8.4"
+            },
+            "require-dev": {
+                "composer/ca-bundle": "^1.3.6",
+                "joomla/uri": "^3.0-dev",
+                "mnapoli/silly": "^1.8.3",
+                "phpunit/phpunit": "^9.0.0",
+                "rector/rector": "^0.15.21"
+            },
+            "suggest": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-ftp": "*",
+                "ext-mysqli": "*",
+                "ext-openssl": "*",
+                "ext-pdo": "*",
+                "ext-simplexml": "*",
+                "ext-sqlite3": "*",
+                "ext-ssh2": "*",
+                "ext-zip": "*"
+            },
+            "time": "2024-11-21T07:57:33+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "Akeeba\\Engine\\": "engine/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Akeeba\\Engine\\DevPlatform\\": "dev_platform/",
+                    "Akeeba\\Engine\\Filter\\": "dev_platform/Platform/Filter/",
+                    "Akeeba\\Engine\\Platform\\": "dev_platform/Platform/",
+                    "Akeeba\\Engine\\Test\\": "Test/"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    "binned_ideas",
+                    "connector_development",
+                    "dev_platform",
+                    "run",
+                    "Test",
+                    "tools"
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nicholas K. Dionysopoulos",
+                    "email": "nicholas_NO_SPAM_PLEASE@akeeba.com",
+                    "homepage": "https://www.dionysopoulos.me",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Davide Tampellini",
+                    "email": "davide_NO_SPAM_PLEASE@akeeba.com",
+                    "homepage": "https://www.dionysopoulos.me",
+                    "role": "Senior Developer"
+                }
+            ],
+            "description": "Akeeba Engine - a site backup engine written in pure PHP",
+            "homepage": "https://github.com/akeeba/engine",
+            "keywords": [
+                "backup",
+                "mysql",
+                "php"
+            ],
+            "support": {
+                "source": "https://github.com/akeeba/engine/tree/development",
+                "issues": "https://github.com/akeeba/engine/issues"
+            },
+            "install-path": "../akeeba/engine"
+        },
+        {
+            "name": "akeeba/phpfinder",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akeeba/phpfinder.git",
+                "reference": "3170e283062275c7d1034214076043515db6305c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akeeba/phpfinder/zipball/3170e283062275c7d1034214076043515db6305c",
+                "reference": "3170e283062275c7d1034214076043515db6305c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0 <=8.4"
+            },
+            "time": "2024-10-01T08:29:39+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Akeeba\\PHPFinder\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nicholas K. Dionysopoulos",
+                    "email": "nicholas_NO_SPAM_PLEASE@akeeba.com",
+                    "homepage": "http://www.dionysopoulos.me",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Locate the PHP CLI binary on the server",
+            "homepage": "https://github.com/akeeba/phpfinder",
+            "keywords": [
+                "cli",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/akeeba/phpfinder/issues",
+                "source": "https://github.com/akeeba/phpfinder/tree/master"
+            },
+            "install-path": "../akeeba/phpfinder"
+        },
+        {
+            "name": "akeeba/s3",
+            "version": "dev-development",
+            "version_normalized": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akeeba/s3.git",
+                "reference": "c51238eb4b5a4c30e8afd52abd94f54590127d2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akeeba/s3/zipball/c51238eb4b5a4c30e8afd52abd94f54590127d2b",
+                "reference": "c51238eb4b5a4c30e8afd52abd94f54590127d2b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-simplexml": "*",
+                "php": ">=7.1.0 <8.4"
+            },
+            "time": "2024-11-15T15:35:39+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/aliasing.php"
+                ],
+                "psr-4": {
+                    "Akeeba\\S3\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nicholas K. Dionysopoulos",
+                    "email": "nicholas_NO_SPAM_PLEASE@akeeba.com",
+                    "homepage": "http://www.dionysopoulos.me",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A compact, dependency-less Amazon S3 API client implementing the most commonly used features",
+            "homepage": "https://github.com/akeeba/s3",
+            "keywords": [
+                "s3"
+            ],
+            "support": {
+                "issues": "https://github.com/akeeba/s3/issues",
+                "source": "https://github.com/akeeba/s3/tree/development"
+            },
+            "install-path": "../akeeba/s3"
+        },
+        {
+            "name": "akeeba/stats_collector",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akeeba/stats_collector.git",
+                "reference": "22adf89ca92ab4fd4702ea7076c2900a797ffa97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akeeba/stats_collector/zipball/22adf89ca92ab4fd4702ea7076c2900a797ffa97",
+                "reference": "22adf89ca92ab4fd4702ea7076c2900a797ffa97",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0"
+            },
+            "suggest": {
+                "ext-curl": "For sending the usage stats to the server",
+                "ext-openssl": "Fallback when random_bytes is not available"
+            },
+            "time": "2024-07-08T16:07:49+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Akeeba\\UsageStats\\Collector\\": "src"
+                }
+            },
+            "archive": {
+                "exclude": [
+                    ".idea/**",
+                    ".gitignore",
+                    "composer.lock"
+                ]
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nicholas K. Dionysopoulos",
+                    "email": "nicholas_NO_SPAM@akeeba.com"
+                }
+            ],
+            "description": "Usage Statistic collector",
+            "support": {
+                "source": "https://github.com/akeeba/stats_collector/tree/main",
+                "issues": "https://github.com/akeeba/stats_collector/issues"
+            },
+            "install-path": "../akeeba/stats_collector"
+        },
+        {
+            "name": "akeeba/webpush",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:akeeba/webpush.git",
+                "reference": "3fa8a4890acdd29792f93f150d1c6394f0626a5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akeeba/webpush/zipball/3fa8a4890acdd29792f93f150d1c6394f0626a5a",
+                "reference": "3fa8a4890acdd29792f93f150d1c6394f0626a5a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "php": "^7.2|^8.0"
+            },
+            "suggest": {
+                "ext-gmp": "*"
+            },
+            "time": "2024-06-25T16:51:20+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Akeeba\\WebPush\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Nicholas K. Dionysopoulos",
+                    "email": "nicholas@akeeba.com"
+                }
+            ],
+            "description": "WebPush for Joomla components",
+            "homepage": "https://github.com/akeeba/webpush",
+            "keywords": [
+                "Joomla",
+                "Push API",
+                "WebPush",
+                "notifications",
+                "push",
+                "web"
+            ],
+            "support": {
+                "source": "https://github.com/akeeba/webpush/tree/main",
+                "issues": "https://github.com/akeeba/webpush/issues"
+            },
+            "install-path": "../akeeba/webpush"
+        },
+        {
+            "name": "composer/ca-bundle",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/ca-bundle.git",
+                "reference": "3b1fc3f0be055baa7c6258b1467849c3e8204eb2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/3b1fc3f0be055baa7c6258b1467849c3e8204eb2",
+                "reference": "3b1fc3f0be055baa7c6258b1467849c3e8204eb2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-pcre": "*",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^8 || ^9",
+                "psr/log": "^1.0 || ^2.0 || ^3.0",
+                "symfony/process": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "time": "2024-11-04T10:15:26+00:00",
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Composer\\CaBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be"
+                }
+            ],
+            "description": "Lets you find a path to the system CA bundle, and includes a fallback to the Mozilla CA bundle.",
+            "keywords": [
+                "cabundle",
+                "cacert",
+                "certificate",
+                "ssl",
+                "tls"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/ca-bundle/issues",
+                "source": "https://github.com/composer/ca-bundle/tree/1.5.3"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "./ca-bundle"
+        },
+        {
+            "name": "greenlion/php-sql-parser",
+            "version": "v4.6.0",
+            "version_normalized": "4.6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greenlion/PHP-SQL-Parser.git",
+                "reference": "f0e4645eb1612f0a295e3d35bda4c7740ae8c366"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greenlion/PHP-SQL-Parser/zipball/f0e4645eb1612f0a295e3d35bda4c7740ae8c366",
+                "reference": "f0e4645eb1612f0a295e3d35bda4c7740ae8c366",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "analog/analog": "^1.0.6",
+                "phpunit/phpunit": "^9.5.13",
+                "squizlabs/php_codesniffer": "^1.5.1"
+            },
+            "time": "2023-03-09T20:54:23+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "PHPSQLParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Justin Swanhart",
+                    "email": "greenlion@gmail.com",
+                    "homepage": "http://code.google.com/u/greenlion@gmail.com/",
+                    "role": "Owner"
+                },
+                {
+                    "name": "André Rothe",
+                    "email": "phosco@gmx.de",
+                    "homepage": "https://www.phosco.info",
+                    "role": "Committer"
+                }
+            ],
+            "description": "A pure PHP SQL (non validating) parser w/ focus on MySQL dialect of SQL",
+            "homepage": "https://github.com/greenlion/PHP-SQL-Parser",
+            "keywords": [
+                "creator",
+                "mysql",
+                "parser",
+                "sql"
+            ],
+            "support": {
+                "issues": "https://github.com/greenlion/PHP-SQL-Parser/issues",
+                "source": "https://github.com/greenlion/PHP-SQL-Parser"
+            },
+            "install-path": "../greenlion/php-sql-parser"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

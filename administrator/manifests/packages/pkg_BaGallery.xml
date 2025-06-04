@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<extension type="package" version="3.0" method="upgrade"> 
+    <name>BaGallery</name>
+    <creationDate>18 June 2015</creationDate>
+    <packagename>BaGallery</packagename>
+    <author>Balbooa</author>
+    <copyright>Balbooa 2017</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>support@balbooa.com</authorEmail>
+    <authorUrl>http://balbooa.com</authorUrl>
+    <version>2.4.0</version>
+    <packager>Balbooa</packager>
+    <packagerurl>support@balbooa.com</packagerurl>
+    <description>Gallery successfully installed and published.</description>
+    <updateservers>
+        <server type="extension" name="BaGallery">https://www.balbooa.com/updates/bagallery/joomla_gallery_update.xml</server>
+    </updateservers>
+    <files folder="packages">
+        <file type="component" id="com_bagallery">com_bagallery.zip</file>
+        <file type="plugin" id="bagallery" group="editors-xtd">plg_content_galleryshortcode.zip</file>
+        <file type="plugin" id="bagallery" group="system">plg_system_gallery.zip</file>
+    </files>
+    <scriptfile>script.php</scriptfile>
+</extension>

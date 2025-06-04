@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<form>
+    <fields>
+        <fieldset name="others" label="" addfieldpath="/media/zoo/applications/jbuniversal/joomla/fields">
+
+            <field name="default_shipping" type="jbshipping" default="" label="JBZOO_CART_CONFIG_SHIPPING"
+                   description="JBZOO_CART_CONFIG_SHIPPING_DESC"/>
+
+            <field name="default_shipping_status" type="jbstatus" default="new"
+                   label="JBZOO_CART_CONFIG_SHIPPING_STATUS"
+                   status_type="STATUS_SHIPPING" description="JBZOO_CART_CONFIG_SHIPPING_STATUS_DESC"/>
+
+            <field name="default_shipping_country" type="text" default="" label="JBZOO_CART_CONFIG_SHIPPING_COUNTRY"
+                   description="JBZOO_CART_CONFIG_SHIPPING_COUNTRY_DESC"/>
+
+            <field name="default_shipping_city" type="text" default="" label="JBZOO_CART_CONFIG_SHIPPING_CITY"
+                   description="JBZOO_CART_CONFIG_SHIPPING_CITY_DESC"/>
+
+            <field name="default_shipping_address" type="text" default="" label="JBZOO_CART_CONFIG_SHIPPING_ADDRESS"
+                   description="JBZOO_CART_CONFIG_SHIPPING_ADDRESS_DESC"/>
+
+            <field name="default_shipping_zip" type="text" default=""
+                   label="JBZOO_CART_CONFIG_SHIPPING_ZIP" description="JBZOO_CART_CONFIG_SHIPPING_ZIP_DESC"/>
+        </fieldset>
+    </fields>
+</form>

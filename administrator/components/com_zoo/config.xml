@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <fieldset name="general"
+    label="GENERAL"
+  >
+    <field name="cache_routes"
+      type="radio"
+      label="CONFIG_CACHE_ROUTES_LABEL"
+      description="CONFIG_CACHE_ROUTES_DESC"
+      class="btn-group btn-group-yesno"
+      default="0"
+      filter="integer"
+    >
+      <option value="1">JYES</option>
+      <option value="0">JNO</option>
+    </field>
+  </fieldset>
+
+  <fieldset name="permissions"
+    label="JCONFIG_PERMISSIONS_LABEL"
+    description="JCONFIG_PERMISSIONS_DESC"
+  >
+
+    <field name="rules"
+      type="rules"
+      label="JCONFIG_PERMISSIONS_LABEL"
+      validate="rules"
+      filter="rules"
+      component="com_zoo"
+      section="component" />
+  </fieldset>
+</config>

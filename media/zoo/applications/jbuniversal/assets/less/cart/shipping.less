@@ -1,0 +1,154 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+.jbzoo .jbcart {
+
+    // columns
+    &-shipping-full {
+
+        .jbcart-shipping-col,
+        .jbcart-shippingfield-col {
+            width: 48%;
+            float: left;
+            min-width: 300px;
+        }
+
+        .jbcart-shipping-col {
+            margin-right: 16px;
+            border-right: 1px dashed #ddd;
+        }
+    }
+
+    // services
+    &-shipping {
+
+        &-row {
+            width: 90%;
+            margin-bottom: 4px;
+            background: #e7edee;
+            border: 1px solid #eee;
+            &:hover,
+            &.active {
+                background: #f7fbfc;
+            }
+
+            &.active .jbcart-shipping-element {
+                display: block;
+            }
+
+        }
+
+        &-element {
+            display: none;
+            margin: 10px 0 0 0;
+            padding: 0 36px 0 36px;
+
+            .chosen-container {
+                margin-bottom: 12px;
+            }
+
+        }
+
+        &-name {
+            height: 26px;
+            line-height: 26px;
+            cursor: pointer;
+        }
+
+        &-wrapper {
+            padding: 10px 10px 10px 5px;
+        }
+
+        &-error {
+            color: #f24949;
+            font-style: italic;
+            margin: 4px 0 8px 0;
+            line-height: 16px;
+            font-size: 12px;
+        }
+
+        &-price {
+
+            padding-left: 12px;
+            font-size: 14px;
+
+            // forced size for price!
+            .jbcartvalue {
+                color: #666;
+            }
+        }
+
+        &-exception {
+            font-size: 0.8em;
+            line-height: 1em;
+            color: #a00;
+        }
+
+        select,
+        textarea,
+        input[type=text] {
+            min-width: 120px;
+            max-width: 100%;
+        }
+
+        textarea {
+            #box > .resize(vertical);
+            min-height: 100px;
+        }
+
+    }
+
+    // fields
+    &-shippingfield {
+
+        &-empty {
+            color: #aaa;
+            font-style: italic;
+            display: none;
+        }
+
+        &-label {
+            color: #505050;
+            padding: 6px 0;
+            font-size: 14px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        &-row {
+            padding: 12px;
+            margin: 0 0 12px 0;
+            background: #f7fbfc;
+            border: 1px solid #eee;
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+            }
+
+        }
+
+        &-error {
+            color: #f24949;
+            font-style: italic;
+            margin: 4px 0 8px 0;
+            line-height: 16px;
+            font-size: 12px;
+        }
+
+    }
+
+}

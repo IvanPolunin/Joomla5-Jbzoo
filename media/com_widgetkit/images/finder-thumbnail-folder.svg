@@ -1,0 +1,8 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <radialGradient id="gradient" cx="305.166" cy="-352.8335" r="66.4185" fx="296.0021" fy="-357.4933" gradientTransform="matrix(1 0 0 -1 -282.5 -324)" gradientUnits="userSpaceOnUse">
+        <stop offset="0.3111" style="stop-color:#489BE0;stop-opacity:0" />
+        <stop offset="1" style="stop-color:#489BE0;stop-opacity:0.3" />
+    </radialGradient>
+    <path fill="#FFFFFF" d="M73,22H38.919l-3.044-7.104C34.792,11.917,33.083,12,31,12H9c-2.209,0-4,1.791-4,4v9v4v36c0,1.657,1.343,3,3,3h65c1.657,0,3-1.343,3-3V25C76,23.343,74.657,22,73,22z" />
+    <path fill="url(#gradient)" fill-opacity="0" d="M73,22H38.919l-3.044-7.104C34.792,11.917,33.083,12,31,12H9c-2.209,0-4,1.791-4,4v9v4v36c0,1.657,1.343,3,3,3h65c1.657,0,3-1.343,3-3V25C76,23.343,74.657,22,73,22z" />
+</svg>

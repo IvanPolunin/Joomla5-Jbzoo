@@ -1,0 +1,147 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+.jbzoo .jbcart {
+
+    &-table {
+        width: 100%;
+        font-size: 1em;
+        border-spacing: 0;
+        border: none !important;
+        border-collapse: collapse;
+
+        tr,
+        td {
+            border: none;
+        }
+
+    }
+
+    &-col {
+
+        color: #999;
+        text-align: right;
+        font-weight: normal;
+        padding: 16px 0 24px 0;
+        border-bottom: 1px dashed #ccc;
+
+        &-name {
+            text-align: left;
+        }
+
+        &-price,
+        &-subtotal,
+        &-quantity {
+            width: 150px;
+        }
+
+        &-delete {
+            width: 50px;
+        }
+    }
+
+    &-row {
+
+        border-left: 1px solid #eaeaea;
+        border-right: 1px solid #eaeaea;
+
+        > td {
+            padding: 8px 0 8px 8px;
+        }
+
+        &:hover,
+        &:hover td {
+            background: lighten(#eaeaea, 5%);
+        }
+
+        &-empty td {
+            border: 0;
+            padding: 16px 0;
+        }
+
+        &-remove td {
+            text-align: right;
+            padding: 16px 0;
+        }
+
+        &-total td {
+            text-align: right;
+            vertical-align: middle;
+            padding: 16px 8px 16px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+    }
+
+    &-image {
+        vertical-align: top;
+    }
+
+    &-name {
+        padding-left: 12px;
+        vertical-align: top;
+    }
+
+    &-url {
+        font-weight: bold;
+    }
+
+    &-price,
+    &-subtotal {
+        text-align: right;
+        vertical-align: middle;
+    }
+
+    &-quantity {
+        text-align: right;
+        vertical-align: middle;
+        .quantity-wrapper {
+            float: right;
+        }
+    }
+
+    &-delete {
+        text-align: center;
+    }
+
+    &-value {
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+
+    &-label {
+        color: #999;
+    }
+
+    &-param-key {
+        font-weight: bold;
+    }
+
+    &-item-sku-key,
+    &-item-param-key,
+    &-item-itemid-key {
+        font-weight: bold;
+    }
+
+    &-item-sku,
+    &-item-name,
+    &-item-params {
+        #text > .truncate(200px);
+    }
+
+    &-item-sku,
+    &-item-params {
+        font-size: 0.8em;
+    }
+}

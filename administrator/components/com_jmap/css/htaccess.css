@@ -1,0 +1,72 @@
+label.hasHtaccessPopover {
+	font-size: 12px;
+    padding: 4px 6px;
+	cursor: pointer;
+}
+
+#htaccess_contents {
+	width: 100%;
+	min-height: 450px;
+	margin-top: 20px;
+	box-sizing: border-box;
+    font-size: 13px;
+}
+
+#htaccess_controls, div.paths {
+	margin: 12px 0 0 0;
+}
+
+div.paths input {
+	min-width: 260px;
+}
+
+#htaccess_adder {
+	margin: 0;
+}
+
+#htaccess_controls ul.errorlist {
+	float: none;
+	display: inline-block;
+	margin: 0 0 0 2px;
+	padding: 0 0 0 2px;
+}
+
+#htaccess_controls input.error {
+	border-color: #F00;
+}
+
+#htaccess_prev_versioning span.label {
+	margin: 0 0 0 3px;
+	font-size: 12px;
+}
+
+#htaccess_controls > label.badge {
+	min-width: 80px;
+	border-radius: 3px;
+}
+
+#htaccess_controls div.paths label {
+    padding: .5rem .3rem;
+    border-radius: 3px;
+}
+
+label.hasrightPopover {
+	padding: 6px;
+	display: inline-block;
+}
+
+#path1, #path2 {
+	margin-bottom: 0;
+}
+
+#htaccess_prev_versioning span.badge {
+	margin: 0 0 0 3px;
+	font-size: 12px;
+}
+
+#htaccess_directive {
+	margin-bottom: 0;
+    width: 300px;
+    height: 38px;
+    line-height: 16px;
+}

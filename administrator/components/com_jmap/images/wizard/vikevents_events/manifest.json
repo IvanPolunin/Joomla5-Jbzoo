@@ -1,0 +1,17 @@
+{
+	"postfields":{
+		"option":"com_vikevents",
+		"table_maintable":"#__vikevents_items",
+		"titlefield":"title",
+		"id":"id",
+		"idfield_as":"itid",
+		"orderby_maintable":"title",
+		"orderby_direction_maintable":"ASC",
+		"use_category_title_jointable1": "1"
+	},
+		
+	"querystringlinkparams":{
+		"view":"event",
+		"guess_sef_itemid":"1"
+	}
+}

@@ -1,0 +1,386 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+.jbzoo {
+
+    .clr {
+        clear: both;
+        overflow: hidden;
+        line-height: 0 !important;
+        height: 0 !important;
+        font-size: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .clearfix {
+        *zoom: 1;
+
+        &:before,
+        &:after {
+            display: table;
+            content: "";
+            line-height: 0;
+        }
+
+        &:after {
+            clear: both;
+        }
+
+    }
+
+    select {
+        display: inline-block;
+        padding: 4px 6px;
+        margin-bottom: 9px;
+        font-size: 13px;
+        line-height: 18px;
+        color: #555;
+        border-radius: 3px;
+        vertical-align: middle;
+    }
+
+    .uk-grid {
+        font-size: 13px;
+
+        h2 {
+            margin-bottom: 16px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 12px;
+        }
+
+        em {
+            color: #c51919;
+        }
+
+    }
+
+    .uk-table {
+
+        th, td {
+            padding: 8px;
+        }
+
+        tr {
+
+            &:hover,
+            &:hover td {
+                background: #f7f7f7;
+            }
+
+            &.uk-success td {
+                background-color: rgba(223, 240, 216, 0.5);
+            }
+
+            &.uk-error td {
+                background-color: rgba(242, 222, 222, 0.5);
+            }
+
+        }
+
+    }
+
+    .uk-nav.uk-nav-side {
+        padding-left: 0;
+    }
+
+    .uk-nav-side .uk-nav-header {
+        color: #a00;
+    }
+
+    .uk-form-horizontal {
+
+        .uk-form-label {
+            width: 350px !important;
+        }
+
+        .uk-form-controls {
+            margin-left: 365px !important;
+        }
+
+    }
+
+    .uk-button {
+        text-decoration: none;
+    }
+
+    .uk-button-danger,
+    .uk-button-success,
+    .uk-button-primary {
+        color: #fff;
+    }
+
+    .uk-form {
+
+        legend {
+            border: none;
+            width: 70%;
+        }
+
+        .checkbox-lbl,
+        .radio-lbl {
+            clear: none;
+            display: inline;
+            cursor: pointer;
+            vertical-align: baseline;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        input[type=checkbox],
+        input[type=radio] {
+            margin-right: 6px;
+            margin-left: 0;
+            vertical-align: baseline;
+        }
+
+        input[type=text],
+        input[type=password],
+        select {
+            width: 250px;
+        }
+
+    }
+
+    .jbprogressbar {
+        margin-bottom: 12px;
+    }
+
+    .statistic {
+        margin-top: 24px;
+    }
+
+    .uk-button-primary:hover,
+    .uk-button-primary:focus {
+        background-color: #00aff2;
+        color: #fff;
+        background-image: none;
+    }
+
+    .uk-button-success:hover,
+    .uk-button-success:focus {
+        background-color: #8fce48;
+        color: #fff;
+        background-image: none;
+    }
+
+    .uk-button-danger:hover,
+    .uk-button-danger:focus {
+        background-color: #e33551;
+        color: #fff;
+        background-image: none;
+    }
+
+    .filter {
+
+        li.filter-right {
+            margin-left: 25px;
+            margin-bottom: 8px;
+        }
+
+        li.filter-right.filter-total input {
+            width: 100px;
+        }
+
+        select {
+            height: 28px;
+        }
+
+    }
+
+    .select-list-form {
+        margin-right: 24px;
+        margin-bottom: 24px;
+        float: left;
+
+        select {
+            width: 220px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            height: 28px;
+            line-height: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+    }
+
+    .order-filter .zoo-calendar input {
+        width: 120px !important;
+    }
+
+    .pagination-list {
+        margin-top: 10px;
+    }
+
+    .jbdownload:hover .delete-file {
+        visibility: visible;
+    }
+
+    .email-preview {
+        position: relative;
+        display: inline-block;
+        top: 24px;
+    }
+
+    .paymenturl-area {
+        overflow-wrap: normal;
+        flex-direction: row;
+        display: block;
+        word-wrap: normal;
+        white-space: pre;
+        background: #f9f9b5;
+        border: solid 1px #808000;
+        padding: 4px 6px;
+        height: 42px;
+        width: 97%;
+        color: #333;
+        min-width: 250px;
+        max-width: 600px;
+        cursor: text;
+    }
+
+    .jbinfo {
+
+        &.uk-panel {
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+        }
+
+        &-header {
+            margin-top: 0;
+        }
+
+        &-block-top {
+            padding: 10px;
+            margin-bottom: 20px;
+            background: #eaf3ff;
+            border-left: 10px solid #a5e0ff;
+        }
+
+    }
+
+    #tab-comments {
+        margin-top: 24px;
+    }
+
+    .uk-form pre {
+        display: block;
+        padding: 8.5px;
+        margin: 0 0 9px;
+        font-size: 12px;
+        line-height: 18px;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        background-color: #f5f5f5;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+    }
+
+    .jbzoo-assign-elements {
+
+        .position-name {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .element-type,
+        .position-desc {
+            font-style: italic;
+            color: #aaa;
+            font-weight: normal;
+            font-size: 12px;
+        }
+
+        legend {
+            margin-bottom: 14px;
+            font-size: 20px;
+        }
+
+        .elements-group-name {
+            margin: 5px 0px 5px 0px;
+            padding: 5px;
+            background: #f6f6f6;
+            color: #666;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        #add-element div.groups {
+            width: 95%;
+            padding: 0;
+        }
+
+        ul.parameter-form li {
+
+            list-style: none;
+
+            .field {
+
+                input[type='text'],
+                input[type='password'] {
+                    padding: 3px;
+                    width: 150px;
+                }
+
+                input[type='text'],
+                input[type='password'],
+                select {
+                    font-size: 12px;
+                }
+
+                select {
+                    min-width: 150px;
+                    padding: 3px;
+                }
+
+            }
+
+            .label label {
+                font-size: 12px;
+            }
+
+        }
+
+        .element-list {
+            margin-bottom: 36px !important;
+        }
+    }
+
+    dl.param-list {
+        list-style: none;
+        margin: 0 0 12px 0;
+        padding: 0;
+        dt, dd {
+            margin: 0 0 8px 0;
+            list-style: none;
+        }
+    }
+
+    .jbzoo-submit {
+        margin-top: 12px;
+    }
+
+    .important-event {
+        background: data-uri('../../img/misc/important.png') no-repeat 0 0;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        margin-right: 2px;
+        line-height: 16px;
+    }
+}

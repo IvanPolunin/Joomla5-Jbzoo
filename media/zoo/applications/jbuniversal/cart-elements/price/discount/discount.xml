@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" hidden="false" core="true">
+    <name>JBZOO_ELEMENT_PRICE_DISCOUNT_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_PRICE_DISCOUNT_DESC</description>
+
+    <params group="render">
+        <param name="layout" type="list" default="icon-text" label="JBZOO_ELEMENT_PRICE_DISCOUNT_LAYOUT"
+               description="JBZOO_ELEMENT_PRICE_DISCOUNT_LAYOUT_DESC">
+            <option value="text">JBZOO_ELEMENT_PRICE_DISCOUNT_LAYOUT_TEXT</option>
+            <option value="icon">JBZOO_ELEMENT_PRICE_DISCOUNT_LAYOUT_ICON</option>
+            <option value="icon-text">JBZOO_ELEMENT_PRICE_DISCOUNT_LAYOUT_ICON_TEXT</option>
+        </param>
+
+        <param name="percent_show" type="jbbool" default="1" label="JBZOO_ELEMENT_PRICE_DISCOUNT_PERCENT_SHOW"
+               description="JBZOO_ELEMENT_PRICE_DISCOUNT_PERCENT_SHOW_DESC"/>
+
+        <param name="percent_round" type="jbbool" default="1" label="JBZOO_ELEMENT_PRICE_DISCOUNT_PERCENT_ROUND"
+               description="JBZOO_ELEMENT_PRICE_DISCOUNT_PERCENT_ROUND_DESC"/>
+
+        <param name="is_negative" type="jbbool" default="1" label="JBZOO_ELEMENT_PRICE_DISCOUNT_IS_NEGATIVE"
+               description="JBZOO_ELEMENT_PRICE_DISCOUNT_IS_NEGATIVE_DESC"/>
+
+        <param name="empty_show" type="jbbool" default="0" label="JBZOO_ELEMENT_PRICE_DISCOUNT_EMPTY_SHOW"
+               description="JBZOO_ELEMENT_PRICE_DISCOUNT_EMPTY_SHOW_DESC"/>
+
+        <param name="empty_text" type="text" default="" label="JBZOO_ELEMENT_PRICE_DISCOUNT_EMPTY_TEXT"
+               description="JBZOO_ELEMENT_PRICE_DISCOUNT_EMPTY_TEXT_DESC"/>
+    </params>
+
+    <params group="filter">
+        <param name="jbzoo_filter_render" type="list" label="JBZOO_ELEMENT_TEMPLATE"
+               description="JBZOO_ELEMENT_TEMPLATE_DESC" default="discount-jqueryui">
+            <option value="discount-jqueryui">JBZOO_ELEMENT_TEMPLATE_JQUERYUI</option>
+            <option value="discount-radio">JBZOO_ELEMENT_TEMPLATE_RADIO</option>
+            <option value="discount-select">JBZOO_ELEMENT_TEMPLATE_SELECT</option>
+            <option value="discount-chosen">JBZOO_ELEMENT_TEMPLATE_SELECT_CHOSEN</option>
+        </param>
+
+        <param name="jbzoo_filter_default" type="text" label="JBZOO_FILTER_DEFAULT"
+               description="JBZOO_FILTER_DEFAULT_DESC"/>
+    </params>
+
+</element>

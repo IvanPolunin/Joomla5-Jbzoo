@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.7" group="fields" method="upgrade">
+	<name>PLG_RADICAL_MULTI_FIELD</name>
+	<creationDate>18.08.2018</creationDate>
+	<author>Cymbal</author>
+	<authorEmail>cymbal@delo-design.ru</authorEmail>
+	<authorUrl>https://delo-design.ru</authorUrl>
+	<copyright>Copyright (C) 2018 "Delo Design". All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<version>3.2.0</version>
+	<description>PLG_RADICAL_MULTI_FIELD_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\Fields\RadicalMultiField</namespace>
+
+	<scriptfile>script.php</scriptfile>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_fields_radicalmultifield.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_fields_radicalmultifield.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_fields_radicalmultifield.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_fields_radicalmultifield.sys.ini</language>
+	</languages>
+
+	<updateservers>
+		<server type="extension" priority="1" name="Radical MultiField">https://hika.su/update/free/plg_radicalmultifield_3x.xml</server>
+	</updateservers>
+
+	<files>
+		<folder plugin="radicalmultifield">src</folder>
+		<folder>services</folder>
+		<folder>layouts</folder>
+		<folder>params</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+
+	<media folder="media" destination="plg_fields_radicalmultifield">
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>
+
+	<config>
+		<fields name="params" addfieldprefix="Joomla\Plugin\Fields\RadicalMultiField\Field">
+			<fieldset name="basic">
+				<field
+						name="extendfield"
+						type="textarea"
+						label="PLG_RADICAL_MULTI_FIELD_PARAMS_EXTEND_FIELDS_LABEL"
+						description="PLG_RADICAL_MULTI_FIELD_PARAMS_EXTEND_FIELDS_DESC"
+						required="false"
+						default=""
+						size="10"
+						class="input-xxlarge"
+						readonly="false"
+						disabled="false"
+						filter="">
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

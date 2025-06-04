@@ -1,0 +1,30 @@
+{
+	"postfields":{
+		"option":"com_solidres",
+		"table_maintable":"#__sr_experiences",
+		"titlefield":"name",
+		"id":"id",
+		"orderby_maintable":"name",
+		"orderby_direction_maintable":"ASC",
+		"table_joinfrom_jointable1":"#__sr_experiences",
+		"table_joinwith_jointable1":"#__sr_experience_category_xref",
+		"jointype_jointable1":"",
+		"field_joinfrom_jointable1":"id",
+		"field_joinwith_jointable1":"experience_id",
+		"table_joinfrom_jointable2":"#__sr_experience_category_xref",
+		"table_joinwith_jointable2":"#__sr_experience_categories",
+		"jointype_jointable2":"",
+		"field_joinfrom_jointable2":"category_id",
+		"field_joinwith_jointable2":"id",
+		"field_select_jointable2":"name",
+		"field_as_jointable2":"catname",
+		"use_category_title_jointable2":"1",
+		"orderby_jointable2":"name",
+		"orderby_direction_maintable":"ASC"
+	},
+		
+	"querystringlinkparams":{
+		"view":"experience",
+		"guess_sef_itemid":"1"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"postfields":{
+		"option":"com_easyblog",
+		"table_maintable":"#__easyblog_category",
+		"titlefield":"title",
+		"id":"id",
+		"orderby_maintable":"title",
+		"orderby_direction_maintable":"ASC"
+	},
+	
+	"substitutions":[
+		["`#__easyblog_category`.`language` = '*'","`#__easyblog_category`.`language` = '*' OR `#__easyblog_category`.`language` = '' OR ISNULL(`#__easyblog_category`.`language`)"]
+	],
+		
+	"querystringlinkparams":{
+		"view":"categories",
+		"additionalquerystring":"layout=listings"
+	}
+}

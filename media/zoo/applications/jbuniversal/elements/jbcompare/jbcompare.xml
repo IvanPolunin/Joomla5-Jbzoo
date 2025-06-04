@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="jbcompare" group="JBZoo">
+    <name>JBZoo Compare</name>
+    <description>JBZoo Compare</description>
+    <author>JBZoo.com</author>
+    <creationDate>2013 07</creationDate>
+    <copyright>Copyright (C) JBZoo.com, All rights reserved.</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+
+    <params>
+        <param name="menuitem" type="jbmenuitems" default="" label="JBZOO_COMPARE_MENUITEM"
+               description="JBZOO_COMPARE_MENUITEM_DESC"/>
+
+        <param name="limit" type="text" default="3" label="JBZOO_COMPARE_LIMIT" description="JBZOO_COMPARE_LIMIT_DESC"/>
+    </params>
+
+    <params group="render">
+        <param name="showlabel" type="radio" default="0" label="Show Label" description="Show/Hide element label">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </param>
+
+        <param name="altlabel" type="text" default="" label="Alternative Label" description="CUSTOM_LABEL"/>
+    </params>
+
+</element>

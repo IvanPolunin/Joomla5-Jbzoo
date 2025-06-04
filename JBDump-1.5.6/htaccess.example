@@ -1,0 +1,5 @@
+# example for windows (denwer)
+#php_value      auto_prepend_file   W:\home\adm\jbdump\public_html\init.php
+
+# example for linux
+#php_value      auto_prepend_file   /var/www/jdump/data/public_html/init.php

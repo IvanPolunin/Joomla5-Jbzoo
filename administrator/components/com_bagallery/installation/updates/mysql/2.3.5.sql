@@ -1,0 +1,1 @@
+ALTER TABLE `#__bagallery_galleries` ROW_FORMAT = DYNAMIC;

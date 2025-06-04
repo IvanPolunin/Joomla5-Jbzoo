@@ -1,0 +1,9 @@
+{
+	"categories_table":"#__virtuemart_categories",
+	"categories_table_id_field":"virtuemart_category_id",
+	"categories_parent_id":"category_parent_id",
+	"name_params":{"category":"virtuemart_category_id"},
+	"fallback_views":["virtuemart"],
+	"category_zero_as_home":true,
+	"additional_categories_needles":"virtuemart_category_id"
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" hidden="false">
+    <name>JBZOO_ELEMENT_PRICE_COLOR_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_PRICE_COLOR_DESC</description>
+
+    <params>
+        <param name="options" type="jbcolor" cols="20" label="JBZOO_ELEMENT_PRICE_COLOR_OPTIONS"
+               description="JBZOO_ELEMENT_PRICE_COLOR_OPTIONS_DESC"/>
+
+        <param name="path" type="text" default="images/jbcolor" label="JBZOO_ELEMENT_PRICE_COLOR_PATH"
+               description="JBZOO_ELEMENT_PRICE_COLOR_PATH_DESC"/>
+    </params>
+
+    <params group="render">
+        <param name="layout" type="list" label="JBZOO_ELEMENT_PRICE_OPTION_LAYOUT"
+               description="JBZOO_ELEMENT_PRICE_OPTION_LAYOUT_DESC" default="color">
+            <option value="color">JBZOO_ELEMENT_PRICE_OPTION_LAYOUT_COLOR</option>
+            <option value="text">JBZOO_ELEMENT_PRICE_OPTION_LAYOUT_TEXT</option>
+            <option value="radio">JBZOO_ELEMENT_PRICE_OPTION_LAYOUT_RADIO</option>
+            <option value="select">JBZOO_ELEMENT_PRICE_OPTION_LAYOUT_SELECT</option>
+            <option value="select-chosen">JBZOO_ELEMENT_PRICE_OPTION_LAYOUT_SELECT_CHOSEN</option>
+            <option value="buttons">JBZOO_ELEMENT_PRICE_OPTION_LAYOUT_BUTTONS</option>
+        </param>
+
+        <param name="label" type="jbtext" default="" label="JBZOO_ELEMENT_PRICE_OPTION_LABEL"
+               description="JBZOO_ELEMENT_PRICE_OPTION_LABEL_DESC"/>
+
+        <param name="width" type="text" default="26" label="JBZOO_ELEMENT_PRICE_COLOR_WIDTH"
+               description="JBZOO_ELEMENT_PRICE_COLOR_WIDTH_DESC"/>
+
+        <param name="height" type="text" default="26" label="JBZOO_ELEMENT_PRICE_COLOR_HEIGHT"
+               description="JBZOO_ELEMENT_PRICE_COLOR_HEIGHT_DESC"/>
+    </params>
+
+</element>

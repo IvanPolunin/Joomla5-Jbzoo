@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" method="upgrade" client="site">
+    <name>Widgetkit</name>
+    <version>3.1.27</version>
+    <description>A widget toolkit by YOOtheme.</description>
+    <creationDate>April 2024</creationDate>
+    <copyright>Copyright (C) YOOtheme GmbH</copyright>
+    <license>GNU General Public License v2 or later</license>
+    <author>YOOtheme</author>
+    <authorEmail>info@yootheme.com</authorEmail>
+    <authorUrl>https://yootheme.com</authorUrl>
+    <files>
+        <filename module="mod_widgetkit">mod_widgetkit.php</filename>
+        <folder>elements</folder>
+        <folder>tmpl</folder>
+    </files>
+    <config>
+        <fields name="params" >
+            <fieldset name="basic" addfieldpath="/modules/mod_widgetkit/elements">
+                <field name="widgetkit" type="widget" default="" label="Widget" description="Select a Widget to display" required="true" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

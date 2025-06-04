@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" method="upgrade" group="task">
+    <name>plg_task_selectcity_sitemap</name>
+    <author>Ivan Polunin</author>
+    <authorEmail>ipolynin@gmail.com</authorEmail>
+    <authorUrl>https://insib.su</authorUrl>
+    <creationDate>2024-06</creationDate>
+    <copyright>Ivan Polunin</copyright>
+    <license>GNU General Public License v3.0</license>
+    <version>1.0.0</version>
+    <description>Плагин для проверки наличия файла sitemap.xml</description>
+    <namespace path="src">Joomla\Plugin\Task\Selectcity_sitemap</namespace>
+    <files>
+        <folder>forms</folder>
+        <folder plugin="selectcity_sitemap">services</folder>
+        <folder>src</folder>
+        <filename>selectcity_sitemap.xml</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_task_selectcity_sitemap.ini</language>
+    </languages>
+</extension>

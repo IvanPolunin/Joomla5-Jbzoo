@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general">
+        <field name="operator" type="comparator">
+            <option value="returning">NR_VISITOR_IS_RETURNING</option>
+            <option value="new">NR_VISITOR_IS_NEW</option>
+		</field>
+        <!-- Required so the condition can pass -->
+        <field name="value" type="hidden" value="1" />
+    </fieldset>
+</form>

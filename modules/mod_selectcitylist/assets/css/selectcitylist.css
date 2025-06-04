@@ -1,0 +1,174 @@
+
+
+.modal-body {
+    max-height: 400px; /* Высота по вашему усмотрению */
+    overflow-y: none; 
+    padding: 0;
+}
+
+/* Стили для фона модального окна */
+.modal-selectcitylist {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Остается на месте при прокрутке страницы */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ширина на весь экран */
+    height: 100%; /* Высота на весь экран */
+    z-index: 1000; /* Выше других элементов на странице */
+    background-color: #eff7ffb5;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s; /* Анимация появления */
+}
+
+/* Стили для контента модального окна */
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    border: none;
+    margin-top: 5%;
+    padding: 20px;
+    width: 80%; /* Ширина содержимого */
+    max-width: 600px; /* Максимальная ширина */
+    animation: slideDown 0.5s; /* Анимация "выезда" сверху */
+    box-shadow: 5px 15px 60px -3px #b0c3d5;
+}
+
+.modal-selectcitylist .modal-header {
+    display: block;
+    margin: 0;
+    padding: 0 0 15px 0;
+    border: none;
+}
+
+/* Стили для кнопки закрытия */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 50%;
+    line-height: 1;
+    padding: 0px 6px;
+    margin: 0;
+    border: 1px solid #858282;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Анимация появления для фона */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Анимация "выезда" для содержимого */
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+#selectcitylistModal .modal-header h2 {
+    font-size: 1.5em;
+    min-width: 50%;
+    font-weight: 600;
+    color: #717070;
+}
+
+.city-list {
+/* стили для списка городов */
+}
+.city-groups {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.city-group {
+    flex: 0 0 22%; /* Размер каждой колонки примерно 22% от родителя, чтобы вместить 4 колонки с учетом отступов */
+    margin-bottom: 20px; /* Отступ между рядами */
+}
+
+.city-group h2 {
+    font-size: 1.4em;
+    margin: 0;
+    font-weight: 700;
+    color: #aaafb5;
+}
+
+.city-group ul {
+    list-style: none; /* Убирает маркеры списка */
+    padding: 0; /* Убирает отступы списка */
+}
+
+.city-group li {
+    line-height: 1.2;
+    padding-bottom: 0.6em;
+}
+
+.city-group li a {
+    color: #0345bf;
+    font-size: 1.2em;
+}
+
+.city-one {
+    text-decoration: none; /* Убирает подчеркивание ссылок */
+    color: #000; /* Цвет текста ссылок */
+}
+
+.city-one:hover {
+    text-decoration: underline; /* Добавляет подчеркивание при наведении на ссылку */
+}
+
+.city-list::-webkit-scrollbar {
+    width: 10px; /* ширина полосы прокрутки */
+}
+
+.city-list::-webkit-scrollbar-track {
+    background: #f1f1f1; /* цвет дорожки прокрутки */
+}
+
+.city-list::-webkit-scrollbar-thumb {
+    background: #888; /* цвет ползунка прокрутки */
+}
+
+.city-list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* цвет ползунка прокрутки при наведении */
+}
+
+/* Стилизация для Firefox */
+.city-list {
+    scrollbar-width: thin; /* 'thin' или 'auto' или 'none' */
+    scrollbar-color: #888 #f1f1f1; /* цвет ползунка и дорожки прокрутки */
+}
+
+/* Общие стили для блока с прокруткой */
+.city-list {
+    overflow-y: scroll; /* добавление вертикальной прокрутки, если содержимое выходит за границы */
+    max-height: 350px; /* максимальная высота блока, после которой появится прокрутка */
+}
+
+@media (max-width: 300px) { 
+    .city-group {
+      flex: 0 0 100%;
+      margin-bottom: 20px;
+    }
+}
+@media (max-width: 720px) { 
+    .city-group {
+      flex: 0 0 50%;
+      margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 992px) { 
+    .city-group {
+      flex: 0 0 33%;
+      margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="general">
+        <field name="ecomm_purchased_product_start" type="nr_inline"
+            class="tf-inline-fields tf-align-items-start"
+            label="NR_PURCHASED_PRODUCT"
+        />
+        <field name="operator" type="comparator" hiddenLabel="true" />
+        <field name="value" type="componentitems"
+            hiddenLabel="true"
+            multiple="true"
+            class="hasChosen"
+            table="hikashop_product"
+            column_id="product_id"
+            column_title="product_name"
+            column_state="product_published"
+            placeholder="NR_SELECT_PRODUCTS"
+        />
+        <field name="ecomm_purchased_product_end" type="nr_inline" end="1" />
+    </fieldset>
+</form>

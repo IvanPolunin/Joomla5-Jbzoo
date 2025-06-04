@@ -1,0 +1,98 @@
+<?php return array(
+    'root' => array(
+        'name' => 'akeeba/akeebabackup',
+        'pretty_version' => '9.3.x-dev',
+        'version' => '9.3.9999999.9999999-dev',
+        'reference' => '4057127d43529d35a06867f4a8f6187b8df71471',
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        'akeeba/akeebabackup' => array(
+            'pretty_version' => '9.3.x-dev',
+            'version' => '9.3.9999999.9999999-dev',
+            'reference' => '4057127d43529d35a06867f4a8f6187b8df71471',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'akeeba/engine' => array(
+            'pretty_version' => 'dev-development',
+            'version' => 'dev-development',
+            'reference' => '08a0fc090b0d881c0b90ab2f84ad4c91d9e19ac2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../akeeba/engine',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'akeeba/phpfinder' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '3170e283062275c7d1034214076043515db6305c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../akeeba/phpfinder',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'akeeba/s3' => array(
+            'pretty_version' => 'dev-development',
+            'version' => 'dev-development',
+            'reference' => 'c51238eb4b5a4c30e8afd52abd94f54590127d2b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../akeeba/s3',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'akeeba/stats_collector' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '22adf89ca92ab4fd4702ea7076c2900a797ffa97',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../akeeba/stats_collector',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'akeeba/webpush' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3fa8a4890acdd29792f93f150d1c6394f0626a5a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../akeeba/webpush',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'composer/ca-bundle' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3b1fc3f0be055baa7c6258b1467849c3e8204eb2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/./ca-bundle',
+            'aliases' => array(
+                0 => '1.x-dev',
+            ),
+            'dev_requirement' => false,
+        ),
+        'greenlion/php-sql-parser' => array(
+            'pretty_version' => 'v4.6.0',
+            'version' => '4.6.0.0',
+            'reference' => 'f0e4645eb1612f0a295e3d35bda4c7740ae8c366',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../greenlion/php-sql-parser',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

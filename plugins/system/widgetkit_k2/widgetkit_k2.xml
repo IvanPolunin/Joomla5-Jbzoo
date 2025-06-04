@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" version="3.1" group="system" method="upgrade">
+    <name>System - Widgetkit K2</name>
+    <version>3.1.27</version>
+    <description>A widget toolkit by YOOtheme.</description>
+    <creationDate>April 2024</creationDate>
+    <copyright>Copyright (C) YOOtheme GmbH</copyright>
+    <license>GNU General Public License v2 or later</license>
+    <author>YOOtheme</author>
+    <authorEmail>info@yootheme.com</authorEmail>
+    <authorUrl>https://yootheme.com</authorUrl>
+    <scriptfile>script.php</scriptfile>
+    <files>
+        <filename plugin="widgetkit_k2">widgetkit_k2.php</filename>
+        <filename>script.php</filename>
+        <folder>plugin</folder>
+    </files>
+</extension>

@@ -1,0 +1,71 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+.jbcart-module {
+
+    &.jbloading {
+        .opacity(.5);
+    }
+
+    &-item {
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid #cccccc;
+    }
+
+    &-gotocart {
+        float: right;
+    }
+
+    &-line {
+        margin-bottom: 12px;
+    }
+
+    &-total-value,
+    &-total-items {
+        font-weight: bold;
+    }
+
+    .jbcart-item {
+        .clearfix();
+
+        &-delete {
+            float: right;
+        }
+
+        &-image {
+            float: left;
+            margin: 0 12px 12px 0;
+        }
+
+        &-price {
+            .clear();
+            margin: 8px 0;
+        }
+
+        &-price-multiple {
+            font-size: 0.75em;
+        }
+
+        &-quantity,
+        &-param-key {
+            font-weight: bold;
+        }
+    }
+
+    .jbcart-module-items .jbcart-item-name {
+        white-space: normal;
+    }
+}

@@ -1,0 +1,28 @@
+/* Copyright (C) YOOtheme GmbH, https://www.gnu.org/licenses/gpl.html GNU/GPL */
+
+/*
+ * Item Order Parameter
+ */
+
+#item-order { float: left; }
+#item-order .type:first-child { padding-top: 0; }
+#item-order .type { padding: 3px 0; }
+#item-order label { float: none; }
+#item-order .chzn-container { margin-top: 5px; }
+
+#item-order label {
+    color: #666;
+	font-size: 11px;
+    font-weight: bold;
+	margin: 5px 5px 3px 5px;
+	display: inline-block;
+}
+
+#item-order select,
+#item-order input {
+	margin: 5px 5px 3px 0;
+}
+
+#item-order .select-message { display: none; }
+
+#item-order > div { clear: both; }

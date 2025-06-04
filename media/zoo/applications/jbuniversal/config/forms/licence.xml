@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<form>
+    <fields>
+        <fieldset name="licence" label="">
+            <field type="text"
+                   default=""
+                   size="60"
+                   name="JBZOO_USERNAME"
+                   label="JBZOO_FORM_LICENCE_LOGIN"
+                   description="JBZOO_FORM_LICENCE_LOGIN_DESCRIPTION"/>
+
+            <field type="password"
+                   default=""
+                   size="60"
+                   name="JBZOO_PASSWORD"
+                   label="JBZOO_FORM_LICENCE_PASSWORD"
+                   description="JBZOO_FORM_LICENCE_PASSWORD_DESCRIPTION"/>
+
+            <field type="hidden" name="component" default="tmpl"/>
+            <field type="hidden" name="option" default="com_zoo"/>
+            <field type="hidden" name="controller" default="jbtools"/>
+            <field type="hidden" name="task" default="saveLicence"/>
+            <field type="hidden" name="redirect" default=""/>
+        </fieldset>
+    </fields>
+</form>

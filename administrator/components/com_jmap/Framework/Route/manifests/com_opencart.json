@@ -1,0 +1,10 @@
+{
+	"categories_table":"oc_category",
+	"categories_table_id_field":"category_id",
+	"categories_parent_id":"parent_id",
+	"holdon_params":true,
+	"views_rescue":{"_route_":"categories"},
+	"name_params":{"categories":"category_path"},
+	"fallback_views":["home"],
+	"additional_categories_needles":"categories"
+}

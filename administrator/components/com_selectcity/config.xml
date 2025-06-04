@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset label="Настройки" name="selectcity">
+        <field name="regim_city" default="regim_read" type="radio" label="COM_SELECTCITY_FORM_LBL_REGIM_CITY" description="COM_SELECTCITY_FORM_DESC_REGIM_CITY" hint="COM_SELECTCITY_FORM_LBL_REGIM_CITY">
+          <option value="regim_poddomen">Поддомен</option>
+          <option value="regim_subdomen">Подпапки</option>
+          <option value="regim_read">Выбор городов без url</option>
+          <option value="regim_reading_substitution">Чтение и замена (Beta)</option>
+        </field>
+        
+        <field name="city_favorite" query="SELECT DISTINCT id, name_city FROM #__selectcity ORDER BY name_city ASC" key_field="id" value_field="name_city" header="Выберите город" type="sql" label="COM_SELECTCITY_FORM_LBL_CITY_FAVORITE" description="COM_SELECTCITY_FORM_DESC_CITY_FAVORITE" hint="COM_SELECTCITY_FORM_LBL_CITY_FAVORITE"/>
+
+    </fieldset>
+
+    <fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
+        <field name="rules" type="rules" component="com_selectcity" class="inputbox" filter="rules" validate="rules" label="JCONFIG_PERMISSIONS_LABEL" section="component" />
+	</fieldset>
+
+    
+</config>
+

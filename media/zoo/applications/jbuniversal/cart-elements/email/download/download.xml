@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" hidden="false">
+    <name>JBZOO_ELEMENT_EMAIL_DOWNLOAD_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_EMAIL_DOWNLOAD_DESC</description>
+
+    <params>
+
+        <param name="download_element" type="jbelementlist" types="download"
+               label="JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_ELEMENT"
+               empty="JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_ELEMENT_EMPTY"
+               description="JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_ELEMENT_DESC"/>
+
+        <param name="download_mode" type="list" default="link" label="JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_MODE"
+               description="JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_MODE_DESC">
+            <option value="link">JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_MODE_LINK</option>
+            <option value="element">JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_MODE_ELEMENT</option>
+            <option value="attach">JBZOO_ELEMENT_EMAIL_DOWNLOAD_DOWNLOAD_MODE_ATTACH</option>
+        </param>
+
+    </params>
+
+</element>

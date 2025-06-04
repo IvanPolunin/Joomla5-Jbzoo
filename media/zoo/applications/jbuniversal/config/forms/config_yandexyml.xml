@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<form>
+    <fields>
+        <fieldset name="configyml" label="" addfieldpath="/media/zoo/applications/jbuniversal/joomla/fields">
+
+            <field name="site_url" type="text" default="" label="JBZOO_CONFIG_YML_SITE_URL"
+                   description="JBZOO_CONFIG_YML_SITE_URL_DESC"/>
+
+            <field name="app_list" type="jbapplist" headhide="1" required="1" default="" multiple="1"
+                   label="JBZOO_CONFIG_YML_APP_LIST"
+                   description="JBZOO_CONFIG_YML_APP_LIST_DESC"/>
+
+            <field name="site_name" type="text" default="" label="JBZOO_CONFIG_YML_SITE_NAME"
+                   description="JBZOO_CONFIG_YML_SITE_NAME_DESC"/>
+
+            <field name="company_name" type="text" default="" label="JBZOO_CONFIG_YML_COMPANY_NAME"
+                   description="JBZOO_CONFIG_YML_COMPANY_NAME_DESC"/>
+
+            <field name="type_list" type="jbtype" headhide="1" required="1" multiple="1" default=""
+                   label="JBZOO_CONFIG_YML_TYPE"
+                   description="JBZOO_CONFIG_YML_TYPE_DESC"/>
+
+            <field name="currency_rate" type="list" default="" label="JBZOO_CONFIG_YML_CURRENCY_RATE"
+                   description="JBZOO_CONFIG_YML_CURRENCY_RATE_DESC">
+                <option value="default">JBZOO_CONFIG_YML_DEFAULT</option>
+                <option value="CBRF">JBZOO_CONFIG_YML_CBRF</option>
+                <option value="NBU">JBZOO_CONFIG_YML_NBU</option>
+                <option value="NBK">JBZOO_CONFIG_YML_NBK</option>
+                <option value="CB">JBZOO_CONFIG_YML_CB</option>
+            </field>
+
+            <field name="file_path" type="text" default="images" label="JBZOO_CONFIG_YML_FILE_PATH"
+                   description="JBZOO_CONFIG_YML_FILE_PATH_DESC"/>
+
+            <field name="file_name" type="text" default="yml" label="JBZOO_CONFIG_YML_FILE_NAME"
+                   description="JBZOO_CONFIG_YML_FILE_NAME_DESC"/>
+
+            <field name="spacer_rules" type="jbspacer" default="JBZOO_CONFIG_YML_CUSTOM_RULES_SEPARATOR"/>
+
+            <field name="enable_rules" type="jbbool" default="0" label="JBZOO_CONFIG_YML_CUSTOM_RULES"
+                   description="JBZOO_CONFIG_YML_CUSTOM_RULES_DESC"/>
+
+            <field name="include" type="textarea" default="" label="JBZOO_CONFIG_YML_CUSTOM_ITEMS"
+                   description="JBZOO_CONFIG_YML_CUSTOM_ITEMS_DESC"/>
+
+            <field name="condition" type="subform"
+                formsource="/media/zoo/applications/jbuniversal/config/forms/subforms/yandexyml.xml" multiple="true" layout="joomla.form.field.subform.repeatable"
+                label="JBZOO_CONFIG_YML_CUSTOM_CONDITIONS" description="JBZOO_CONFIG_YML_CUSTOM_CONDITIONS_DESC" />
+
+        </fieldset>
+    </fields>
+</form>

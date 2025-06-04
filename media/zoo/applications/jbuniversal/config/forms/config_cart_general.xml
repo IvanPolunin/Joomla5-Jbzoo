@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<form>
+    <fields>
+        <fieldset name="others" label="" addfieldpath="/media/zoo/applications/jbuniversal/joomla/fields">
+
+            <field name="enable" type="jbbool" default="1" label="JBZOO_CART_CONFIG_ENABLE"
+                   description="JBZOO_CART_CONFIG_ENABLE_DESC"/>
+
+            <field name="menuitem" type="menuitem" default="101" state="1" label="JBZOO_CART_CONFIG_MENUITEM"
+                   description="JBZOO_CART_CONFIG_MENUITEM_DESC"/>
+
+            <field name="access" type="accesslevel" default="1" label="JBZOO_CART_CONFIG_ACCESS"
+                   description="JBZOO_CART_CONFIG_ACCESS_DESC"/>
+
+            <field name="default_order_status" type="jbstatus" default="new" label="JBZOO_CART_CONFIG_ORDER_STATUS"
+                   status_type="STATUS_ORDER" description="JBZOO_CART_CONFIG_ORDER_STATUS_DESC"/>
+
+            <field name="freeorder" type="jbbool" default="0" label="JBZOO_CART_CONFIG_FREEORDER"
+                   description="JBZOO_CART_CONFIG_FREEORDER_DESC"/>
+
+            <field name="spacer_currency" type="jbspacer" default="JBZOO_CART_CONFIG_SPACER_CURRENCY"/>
+
+            <field name="default_currency" type="jbcurrency" defaultCode="0" default="EUR"
+                   label="JBZOO_CART_CONFIG_CURRENCY" description="JBZOO_CART_CONFIG_CURRENCY_DESC"/>
+
+            <field name="undefined_currency" type="list" default="default"
+                   label="JBZOO_CART_CONFIG_UNDEFINED_CURRENCY" description="JBZOO_CART_CONFIG_UNDEFINED_CURRENCY_DESC">
+                <option value="default">JBZOO_CART_CONFIG_UNDEFINED_CURRENCY_DEFAULT</option>
+                <option value="notice">JBZOO_CART_CONFIG_UNDEFINED_CURRENCY_NOTICE</option>
+                <option value="fatal">JBZOO_CART_CONFIG_UNDEFINED_CURRENCY_FATAL</option>
+            </field>
+
+            <field name="currency_ttl" type="list" default="1440"
+                   label="JBZOO_CART_CONFIG_CURRENCY_TTL" description="JBZOO_CART_CONFIG_CURRENCY_TTL_DESC">
+                <option value="1440">JBZOO_CART_CONFIG_CURRENCY_TTL_24HOUR</option>
+                <option value="1080">JBZOO_CART_CONFIG_CURRENCY_TTL_18HOUR</option>
+                <option value="720">JBZOO_CART_CONFIG_CURRENCY_TTL_12HOUR</option>
+                <option value="360">JBZOO_CART_CONFIG_CURRENCY_TTL_6HOUR</option>
+                <option value="60">JBZOO_CART_CONFIG_CURRENCY_TTL_1HOUR</option>
+                <option value="15">JBZOO_CART_CONFIG_CURRENCY_TTL_15MIN</option>
+            </field>
+
+        </fieldset>
+    </fields>
+</form>

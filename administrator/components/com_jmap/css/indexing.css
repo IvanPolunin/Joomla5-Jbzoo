@@ -1,0 +1,149 @@
+/* Google indexing styles */
+
+span.badge.label-icon span.badge.pull-right {
+	float: none !important;
+}
+
+span.input-minexpanded {
+    max-width: 350px;
+}
+
+span.input-expanded {
+	max-width: 400px;
+	margin: 0;
+}
+
+span.badge.active.white {
+	background-color: #FFF;
+	color: #1757a1;
+	margin-left: 10px;
+    font-size: 12px;
+    line-height: normal;
+}
+
+#adminForm table ul.pagination,
+span.input-group.input-expanded + button.btn {
+	margin: 5px 0;
+}
+
+span.input-group span.input-group-text, span.input-group-text {
+	line-height: 20px;
+}
+
+#adminForm nav[role=navigation] {
+	display: inline-flex;
+}
+
+#adminForm nav[role=navigation] div.pagination {
+	margin-left: 2px;
+}
+
+table.full.headerlist td select {
+	padding: 2px;
+	min-height: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	float: right;
+}
+
+table.selectinput tr td span.input-expanded {
+	margin-bottom: 10px;
+}
+
+table.headerlist.selectinput td select {
+    border-radius: 0 3px 3px 0 !important;
+    min-height: 0;
+    margin-bottom: 0;
+    height: 34px;
+    line-height: initial;
+    width: 150px;
+    padding: .4rem 4rem .4rem 1rem;
+}
+
+table.headerlist.selectinput td select:focus {
+	box-shadow: none;
+}
+
+h3.googletitle {
+	color: #1a0dab;
+	font-weight: normal;
+}
+
+a.googlelink {
+	color: #006621 !important;
+	max-width: 600px;
+	display: block;
+	word-wrap: break-word;
+}
+
+img.googlelogo {
+	position: absolute;
+	right: 50px;
+}
+
+#search {
+	width: 250px;
+}
+
+label#keywords_suggestion[data-role=keywords_suggestion] {
+    margin-top: 6px;
+    margin-left: 5px;
+	cursor: pointer;
+}
+
+div.popover.keywords_suggestion {
+	min-width: 64px;
+	max-width: 340px;
+	min-height: 54px;
+	max-height: 480px;
+}
+
+div.popover.keywords_suggestion div.popover-body {
+	max-height: 460px;
+    overflow-y: auto;
+	line-height: normal;
+}
+
+ul.keywords_results {
+	margin: 0;
+	padding: 0;
+	width: 300px;
+}
+
+ul.keywords_results li {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 4px;
+    padding: 4px;
+    float: left;
+    border-radius: 2px;
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border: 1px solid #6687AD;
+	list-style-type: none;
+}
+
+div.google_indexing_tester_btns {
+	margin-top: 10px;
+}
+
+span.googledesc svg {
+    display: none;
+}
+
+div.pagination {
+	margin: 1rem 0;
+}
+
+@media (max-width: 1200px) {
+	a.googlelink {
+		max-width: 400px;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	div.card-body {
+		background-color: #333;
+	}
+}

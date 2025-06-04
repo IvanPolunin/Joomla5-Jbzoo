@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" description="COM_SELECTCITY_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        <field name="state"
+               type="status"
+               label="COM_SELECTCITY_FILTER_STATE"
+               description="COM_SELECTCITY_FILTER_STATE_DESC"
+               onchange="this.form.submit();"
+        >
+            <option value="">JOPTION_SELECT_PUBLISHED</option>
+        </field>
+        
+        
+        
+        <field
+            name="name_country"
+            type="sql"
+            default="10"
+            label="Select an country"
+            query="SELECT DISTINCT name_country FROM #__selectcity ORDER BY name_country ASC"
+            key_field="name_country"
+            value_field="name_country"
+            onchange="this.form.submit();"
+        >
+            <option value="">Выберите страну</option>
+        </field>
+        
+        <field
+            name="name_region"
+            type="sql"
+            default="10"
+            label="Select an region"
+            query="SELECT DISTINCT name_region FROM #__selectcity ORDER BY name_region ASC"
+            key_field="name_region"
+            value_field="name_region"
+            onchange="this.form.submit();"
+        >
+            <option value="">Выберите регион</option>
+        </field>
+        
+
+    </fields>
+
+    <fields name="list">
+
+        <field name="fullordering"
+               type="list"
+               label="COM_SELECTCITY_LIST_FULL_ORDERING"
+               description="COM_SELECTCITY_LIST_FULL_ORDERING_DESC"
+               onchange="this.form.submit();"
+               default="a.id DESC"
+        >
+            <option value="">JGLOBAL_SORT_BY</option>
+            <option value="a.id ASC">COM_SELECTCITY_ID_ASC</option><option value="a.id DESC">COM_SELECTCITY_ID_DESC</option><option value="a.state ASC">COM_SELECTCITY_STATE_ASC</option><option value="a.state DESC">COM_SELECTCITY_STATE_DESC</option><option value="a.ordering ASC">COM_SELECTCITY_ORDERING_ASC</option><option value="a.ordering DESC">COM_SELECTCITY_ORDERING_DESC</option><option value="a.city_allias ASC">COM_SELECTCITY_CITY_ALLIAS_ASC</option><option value="a.city_allias DESC">COM_SELECTCITY_CITY_ALLIAS_DESC</option><option value="a.name_city ASC">COM_SELECTCITY_NAME_CITY_ASC</option><option value="a.name_city DESC">COM_SELECTCITY_NAME_CITY_DESC</option><option value="a.name_country ASC">COM_SELECTCITY_NAME_COUNTRY_ASC</option><option value="a.name_country DESC">COM_SELECTCITY_NAME_COUNTRY_DESC</option><option value="a.name_region ASC">COM_SELECTCITY_NAME_REGION_ASC</option><option value="a.name_region DESC">COM_SELECTCITY_NAME_REGION_DESC</option>
+
+        </field>
+
+       <field name="limit"
+               type="limitbox"
+               label="COM_SELECTCITY_LIST_LIMIT"
+               description="COM_SELECTCITY_LIST_LIMIT_DESC"
+               class="input-mini"
+               default="25"
+               onchange="this.form.submit();"
+        />
+
+    </fields>
+
+</form>

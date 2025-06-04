@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+	<name>JSitemap module</name>
+	<author>Joomla! Extensions Store</author>
+	<creationDate>2024-07-31</creationDate>
+	<copyright>Copyright (C) 2016 - Joomla! Extensions Store. All Rights Reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@storejextensions.org</authorEmail>
+	<authorUrl>http://storejextensions.org</authorUrl>
+	<version>4.18.6</version>
+	<description>JSitemap Module</description>
+	<namespace>JExtStore\Module\Jmap</namespace>
+	
+	<files>
+		<filename module="mod_jmap">mod_jmap.php</filename>
+		<folder>Helper</folder>
+		<folder>tmpl</folder>
+		<folder>fields</folder>
+		<filename>index.html</filename>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldprefix="JExtstore\Component\JMap\Administrator\Field" addfieldpath="/modules/mod_jmap/fields">
+				<field name="scrolling" type="list" default="auto" label="COM_JMAP_FIELD_SCROLL_LABEL" description="COM_JMAP_FIELD_SCROLL_DESC">
+					<option value="auto">COM_JMAP_FIELD_VALUE_AUTO</option>
+					<option value="no">JNO</option>
+					<option value="yes">JYES</option>
+				</field>
+				<field name="width" type="text" size="5" default="100%" label="COM_JMAP_FIELD_WIDTH_LABEL" description="COM_JMAP_FIELD_WIDTH_DESC" />
+				<field name="height" type="text" size="5" default="200" label="COM_JMAP_FIELD_HEIGHT_LABEL" description="COM_JMAP_FIELD_HEIGHT_DESC" />
+				<field name="height_auto" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="COM_JMAP_FIELD_AUTOHEIGHT_LABEL" description="COM_JMAP_FIELD_AUTOHEIGHT_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			
+				<field name="dataset" type="Datasets" label="COM_JMAP_FILTERBY_DATASET" description="COM_JMAP_FILTERBY_DATASET_DESC"/>
+				
+				<!-- Model merge params override instead of view params -->
+				<field name="datasource_filter" type="datasources" label="COM_JMAP_FILTERBY_DATASOURCE" description="COM_JMAP_FILTERBY_DATASOURCE_DESC"/>
+				<field name="sitemap_html_template" type="list" default="" label="COM_JMAP_HTML_TEMPLATE" description="COM_JMAP_HTML_TEMPLATE_DESC">
+					<option value="">COM_JMAP_TMPL_DEFAULT</option>
+					<option value="mindmap">COM_JMAP_TMPL_MINDMAP</option>
+					<option value="modern">COM_JMAP_TMPL_MODERN</option>
+					<option value="gojs">COM_JMAP_TMPL_GOJS</option>
+					<option value="dynamic">COM_JMAP_TMPL_DYNAMIC</option>
+					<option value="led">COM_JMAP_TMPL_LED</option>             
+					<option value="large">COM_JMAP_TMPL_LARGE</option>
+					<option value="basic">COM_JMAP_TMPL_BASIC</option>
+					<option value="silver">COM_JMAP_TMPL_SILVER</option>
+					<option value="black">COM_JMAP_TMPL_BLACK</option>
+					<option value="light">COM_JMAP_TMPL_LIGHT</option>
+				</field>
+				<field name="show_sitemap_icons" type="list" default="" label="COM_JMAP_SHOW_ICONS_SHORT" description="COM_JMAP_SHOW_ICONS_DESC">
+					<option value="">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="show_expanded" type="list" default="" label="COM_JMAP_SHOW_EXPANDED" description="COM_JMAP_SHOW_EXPANDED_DESC">
+					<option value="">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="expand_location" type="list" default="" label="COM_JMAP_EXPAND_CURRENT_MENU_FOLDER_SHORT" description="COM_JMAP_EXPAND_CURRENT_MENU_FOLDER_DESC">
+					<option value="">JGLOBAL_USE_GLOBAL</option>
+					<option value="none">COM_JMAP_JMAPCOLLAPSE</option>
+					<option value="location">COM_JMAP_JMAPEXPAND</option>
+				</field>
+				<field name="column_sitemap" type="list" default="" label="COM_JMAP_COLUMN_SITEMAP_SHORT" description="COM_JMAP_COLUMN_SITEMAP_DESC">
+					<option value="">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="column_maxnum" type="list" default="" label="COM_JMAP_COLUMN_SITEMAP_MAXNUM" description="COM_JMAP_COLUMN_SITEMAP_MAXNUM_DESC">
+					<option value="">JGLOBAL_USE_GLOBAL</option>
+					<option value="2">COM_JMAP_2_COLUMNS</option>
+					<option value="3">COM_JMAP_3_COLUMNS</option>
+					<option value="4">COM_JMAP_4_COLUMNS</option>
+					<option value="5">COM_JMAP_5_COLUMNS</option>
+					<option value="6">COM_JMAP_6_COLUMNS</option>
+				</field>
+				<field name="multilevel_categories" type="list" default="" label="COM_JMAP_MULTILEVEL_CATEGORIES_SHORT" description="COM_JMAP_MULTILEVEL_CATEGORIES_DESC">
+					<option value="">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="custom_css_styles" type="textarea" default="" rows="10" label="COM_JMAP_CUSTOM_CSS_STYLES" description="COM_JMAP_CUSTOM_CSS_STYLES_DESC"/>
+				<field name="module_rendering_mode" type="list" default="iframe" label="COM_JMAP_MODULE_RENDERING_MODE" description="COM_JMAP_MODULE_RENDERING_MODE_DESC">
+					<option value="iframe">COM_JMAP_MODULE_RENDERING_MODE_IFRAME</option>
+					<option value="fetchrender">COM_JMAP_MODULE_RENDERING_MODE_FETCHRENDER</option>
+				</field>
+				<field name="iframe_loading_mode" type="list" default="lazy" label="COM_JMAP_IFRAME_LOADING_MODE" description="COM_JMAP_IFRAME_LOADING_MODE_DESC">
+					<option value="lazy">COM_JMAP_IFRAME_LOADING_MODE_LAZY</option>
+					<option value="eager">COM_JMAP_IFRAME_LOADING_MODE_EAGER</option>
+				</field>
+				<field name="legacy_routing" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="COM_JMAP_FIELD_LEGACYROUTING_LABEL" description="COM_JMAP_FIELD_LEGACYROUTING_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"/>
+				<field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL"/>
+				<field name="cachemode" type="hidden" default="static">
+					<option value="static"></option>
+				</field>
+				<field name="css" type="cssfield"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

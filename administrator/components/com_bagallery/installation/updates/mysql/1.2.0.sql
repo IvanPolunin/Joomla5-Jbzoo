@@ -1,0 +1,1 @@
+ALTER TABLE `#__bagallery_category` MODIFY `settings` MEDIUMTEXT NOT NULL

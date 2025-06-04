@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <fieldset
+        name="general"
+        label="GENERAL"
+        >
+        <field
+            name="spacer1" 
+            type="spacer" 
+            label="COMPRESS_IMAGES_ON_UPLOAD"
+            class="text"
+        />
+        <field
+            name="compress_images"
+            type="radio"
+            label="ENABLE"
+            class="btn-group btn-group-yesno"
+            default="0"
+            >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+            name="compress_size"
+            type="number"
+            label="MAX_SIZE"
+            default="1920"
+            showon="compress_images:1"
+        />
+        <field
+            name="compress_quality"
+            type="number"
+            label="QUALITY"
+            description="QUALITY_DESCRIPTION" 
+            min="0"
+            max="100"
+            default="60"
+            showon="compress_images:1"
+        />
+        <field
+            name="compress_to_webp"
+            type="radio"
+            label="CONVERT_TO_WEBP"
+            class="btn-group btn-group-yesno"
+            default="0"
+            showon="compress_images:1"
+            >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field
+            name="spacer2" 
+            type="spacer" 
+            label="FOLDERS_PATH_WARNING"
+            class="text"
+        />
+        <field
+            name="file_path"
+            type="text"
+            label="PATH_FILE_FOLDER"
+            description="PATH_FILE_FOLDER_DESC"
+            size="50"
+            default="images"
+        />
+        <field
+            name="image_path"
+            type="text"
+            label="PATH_IMAGE_FOLDER"
+            description="PATH_IMAGE_FOLDER_DESC"
+            size="50"
+            default="images"
+        />
+    </fieldset>
+    <fieldset
+        name="permissions"
+        label="JCONFIG_PERMISSIONS_LABEL"
+        description="JCONFIG_PERMISSIONS_DESC"
+        >
+        <field
+            name="rules"
+            type="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            validate="rules"
+            filter="rules"
+            component="com_bagallery"
+            section="component" />
+    </fieldset>
+</config>

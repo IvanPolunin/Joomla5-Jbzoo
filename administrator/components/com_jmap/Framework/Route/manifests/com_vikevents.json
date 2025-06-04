@@ -1,0 +1,5 @@
+{
+	"categories_table":"#__vikevents_items",
+	"categories_table_id_field":"idcats",
+	"name_params":{"category":"category_id"}
+}

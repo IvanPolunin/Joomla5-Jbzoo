@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.2" type="plugin" group="finder" method="upgrade">
+	<name>Smart Search - ZOO</name>
+	<author>YOOtheme</author>
+	<creationDate>March 2024</creationDate>
+	<copyright>Copyright (C) YOOtheme GmbH</copyright>
+	<license>https://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only</license>
+	<assetsLicense>YOOtheme Proprietary Use License (https://yootheme.com/license)</assetsLicense>
+	<authorEmail>info@yootheme.com</authorEmail>
+	<authorUrl>https://yootheme.com</authorUrl>
+	<version>4.1.45</version>
+	<description>Smart Search plugin for ZOO developed by YOOtheme (https://yootheme.com)</description>
+	<files>
+		<filename plugin="zoosmartsearch">zoosmartsearch.php</filename>
+		<filename>file.script.php</filename>
+		<filename>plugin.joomla3.php</filename>
+		<filename>plugin.php</filename>
+		<folder>renderer</folder>
+	</files>
+	<scriptfile>file.script.php</scriptfile>
+</extension>

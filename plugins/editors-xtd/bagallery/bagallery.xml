@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="editors-xtd" method="upgrade">
+    <name>BaGallery - Shortcode</name>
+    <creationDate>18 June 2015</creationDate>
+    <author>Balbooa</author>
+    <copyright>Balbooa 2016</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>support@balbooa.com</authorEmail>
+    <authorUrl>http://balbooa.com</authorUrl>
+    <version>2.3.6</version>
+    <description>Displays a button to make it possible to insert Gallery into an Article or Custom HTML module</description>
+    <namespace path="src">Balbooa\Plugin\EditorsXtd\Gallery</namespace>
+    <files>
+        <folder>assets</folder>
+		<folder plugin="bagallery">services</folder>
+		<folder>src</folder>
+        <filename>index.html</filename>
+    </files>
+</extension>

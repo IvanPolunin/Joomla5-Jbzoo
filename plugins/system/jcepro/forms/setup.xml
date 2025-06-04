@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="setup">
+        <fieldset name="assignment" addfieldpath="/administrator/components/com_categories/models/fields">
+
+            <field name="custom" type="keyvalue" default="" label="WF_PROFILES_CUSTOM" description="WF_PROFILES_CUSTOM_DESC">
+                <field type="text" name="name" label="WF_PROFILES_CUSTOM_KEY" />
+                <field type="text" name="value" label="WF_PROFILES_CUSTOM_VALUE" />
+            </field>
+
+        </fieldset>
+    </fields>
+</form>

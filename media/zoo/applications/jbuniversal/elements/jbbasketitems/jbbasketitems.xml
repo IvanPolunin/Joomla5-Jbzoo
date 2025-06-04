@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="jbbasketitems" group="JBZoo Deprecated" orderable="true">
+    <name>Cart Items</name>
+    <description>JBZoo Cart Items</description>
+    <author>JBZoo.com</author>
+    <creationDate>2013 07</creationDate>
+    <copyright>Copyright (C) JBZoo.com, All rights reserved.</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+
+    <params group="render">
+
+        <param name="template" type="list" default="default" label="JBZOO_JBBASKETITEMS_TEMPLATE"
+               description="JBZOO_JBBASKETITEMS_TEMPLATE_DESC">
+            <option value="default">JBZOO_JBBASKETITEMS_DEFAULT</option>
+            <option value="table">JBZOO_JBBASKETITEMS_TABLE</option>
+            <option value="totalprice">JBZOO_JBBASKETITEMS_TOTALPRICE</option>
+            <option value="method">JBZOO_JBBASKETITEMS_METHOD</option>
+            <option value="status">JBZOO_JBBASKETITEMS_STATUS</option>
+            <option value="paymentlink">JBZOO_JBBASKETITEMS_PAYMENTLINK</option>
+        </param>
+
+        <param name="basket-menuitem" type="jbmenuitems" default="" label="JBZOO_CART_MENUITEM"
+               description="JBZOO_CART_MENUITEM_DESC"/>
+    </params>
+
+</element>

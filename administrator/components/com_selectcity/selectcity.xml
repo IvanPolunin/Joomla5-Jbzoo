@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+    <name>com_selectcity</name>
+    <creationDate>2024-03</creationDate>
+    <copyright>2024 Ivan Polunin</copyright>
+    <license>GNU General Public License версии 2 или более поздней;</license>
+    <author>Ivan Polynin</author>
+    <authorEmail>ipolynin@gmail.com</authorEmail>
+    <authorUrl>http://insib.su</authorUrl>
+    <version>1.1.19</version>
+    <description>Компонент Selectcity установлен. Документация на сайте https://insib.su</description>
+    <namespace path="src">Selectcity\Component\Selectcity</namespace>
+    
+    
+    
+    <install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <update> <!-- Runs on update -->
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <uninstall> <!-- Runs on uninstall -->
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    
+
+    <files folder="site">
+        <folder>src</folder>
+        <folder>forms</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media destination="com_selectcity" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+    <languages folder="site/languages">
+        
+			<language tag="ru-RU">ru-RU/com_selectcity.ini</language>
+    </languages>
+    <administration>
+        <menu>Выбор Города</menu>
+        <submenu>
+			<menu link="option=com_selectcity&amp;view=selectcitys" view="selectcitys" alt="Selectcity/Selectcitys">
+                Список Городов
+            </menu>
+            <menu link="option=com_config&amp;view=component&amp;component=com_selectcity">
+				Настройки
+			</menu>
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>forms</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
+            <folder>sql</folder>
+            <folder>uploads</folder>
+        </files>
+        <languages folder="administrator/languages">
+            
+			<language tag="ru-RU">ru-RU/com_selectcity.ini</language>
+			<language tag="ru-RU">ru-RU/com_selectcity.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

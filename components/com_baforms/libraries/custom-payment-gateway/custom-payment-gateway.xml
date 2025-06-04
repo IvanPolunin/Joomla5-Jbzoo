@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<payments>
+  <payment>
+    <label>Example Payment</label>
+    <path>media/example/example.php</path>
+    <class>example</class>
+  </payment>
+</payments>

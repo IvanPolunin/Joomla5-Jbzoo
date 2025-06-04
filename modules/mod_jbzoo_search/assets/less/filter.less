@@ -1,0 +1,155 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+@inputWidth: 99%;
+
+.jbzoo .jbfilter {
+
+    font-size: 12px;
+
+    label,
+    &-label {
+        cursor: pointer;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    &-label {
+        padding: 2px 4px;
+        font-weight: bold;
+        color: #fff;
+        vertical-align: baseline;
+        white-space: nowrap;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        background: #00a8e6;
+        display: block;
+        cursor: pointer;
+        margin-bottom: 1em;
+        .border-radius(3px);
+    }
+
+    &-row {
+        margin-bottom: 1em;
+
+        // uikit styles for filter inputs
+        select,
+        input[type="text"],
+        input[type="number"],
+        input[type="time"],
+        input[type="date"],
+        input[type="search"],
+        input[type="datetime"] {
+            font: inherit;
+            color: #444;
+
+            box-sizing: border-box;
+            height: 30px;
+            width: @inputWidth;
+            max-width: 100%;
+
+            padding: 4px 6px;
+            margin: 0;
+
+            border: 1px solid #ddd;
+            .border-radius(4px);
+
+            // Focus state
+            &:focus {
+                border-color: #99baca;
+                outline: 0;
+                background: #f5fbfe;
+                color: #444;
+            }
+
+            // Disabled state
+            &:disabled {
+                border-color: #ddd;
+                background-color: #f5f5f5;
+                color: #999;
+            }
+        }
+
+        select {
+            height: auto;
+            padding: 4px 6px;
+            width: @inputWidth;
+            vertical-align: middle;
+        }
+
+        input:not([type="radio"]):not([type="checkbox"]) {
+            vertical-align: middle;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            padding: 0;
+        }
+
+        input[type="radio"]:not(:disabled),
+        input[type="checkbox"]:not(:disabled) {
+            cursor: pointer;
+        }
+    }
+
+    .radio-lbl,
+    .checkbox-lbl {
+        font-weight: normal;
+        margin-bottom: 0.5em;
+    }
+
+    .ui-widget {
+        font-size: 12px !important;
+    }
+
+    .ui-slider,
+    .jbzootabs-accordion-content input[type=text] {
+        width: @inputWidth;
+    }
+
+    .ui-buttonset label {
+        display: block;
+        float: left;
+        margin-right: 0.5em;
+        width: auto;
+    }
+
+    .ui-autocomplete {
+        text-align: left;
+
+        &-loading {
+            background: data-uri('../img/loader.gif') 98% 50% no-repeat !important;
+            background-color: inherit;
+        }
+
+    }
+
+    .element-datepicker,
+    &-date input,
+    &-date-range input {
+        background: data-uri('../img/calendar.png') 98% 50% no-repeat !important;
+        background-color: inherit;
+    }
+
+    &-order select {
+        margin-bottom: 1em;
+    }
+
+}
+
+// hacks
+.ui-widget {
+    font-size: 12px !important;
+    text-align: left;
+}

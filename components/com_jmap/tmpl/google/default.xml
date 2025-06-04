@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_JMAP_GOOGLE_VIEW_DEFAULT_TITLE">
+		<message><![CDATA[COM_JMAP_GOOGLE_VIEW_DEFAULT_MSG]]></message>
+	</layout>
+	<state>
+		<name>COM_JMAP_GOOGLE_VIEW_DEFAULT_TITLE</name>
+	</state>
+	
+	<!-- Add parameters for webservice choice -->
+	<fields name="params">
+		<fieldset name="webservice" label="COM_JMAP_ANALYTICS_SERVICE">
+			<field name="analytics_service" type="list" default="" label="COM_JMAP_ANALYTICS_SERVICE" description="COM_JMAP_ANALYTICS_SERVICE_DESC">
+				<option value="">COM_JMAP_USE_GLOBAL</option>
+				<option value="google">COM_JMAP_ANALYTICS_SERVICE_GOOGLE</option>
+				<option value="statscrop">COM_JMAP_ANALYTICS_SERVICE_STATSCROP</option>
+				<option value="hypestat">COM_JMAP_ANALYTICS_SERVICE_HYPESTAT</option>
+				<option value="searchmetrics">COM_JMAP_ANALYTICS_SERVICE_SEARCHMETRICS</option>
+			</field>
+		</fieldset>
+	</fields>
+</metadata>

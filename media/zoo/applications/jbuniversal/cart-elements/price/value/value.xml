@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="value" group="Core" core="true">
+    <name>JBZOO_ELEMENT_PRICE_VALUE_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_PRICE_VALUE_DESC</description>
+
+    <params group="render">
+        <param name="layout" type="list" default="full-div" label="JBZOO_ELEMENT_PRICE_VALUE_LAYOUT"
+               description="JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_DESC">
+            <option value="full-div">JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_FULL_DIV</option>
+            <option value="full-dl">JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_FULL_DL</option>
+            <option value="full-table">JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_FULL_TABLE</option>
+            <option value="price">JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_PRICE</option>
+            <option value="total">JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_TOTAL</option>
+            <option value="discount">JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_DISCOUNT</option>
+            <option value="save">JBZOO_ELEMENT_PRICE_VALUE_LAYOUT_SAVE</option>
+        </param>
+
+        <param name="empty_show" type="jbbool" default="0" label="JBZOO_ELEMENT_PRICE_VALUE_EMPTY_SHOW"
+               description="JBZOO_ELEMENT_PRICE_VALUE_EMPTY_SHOW_DESC"/>
+
+        <param name="empty_text" type="text" label="JBZOO_ELEMENT_PRICE_VALUE_EMPTY_TEXT"
+               description="JBZOO_ELEMENT_PRICE_VALUE_EMPTY_TEXT_DESC"/>
+    </params>
+
+    <params group="filter">
+        <param name="jbzoo_filter_render" type="list" label="JBZOO_FILTER_JBPRICE_TEMPLATE_VALUE"
+               description="JBZOO_FILTER_JBPRICE_TEMPLATE_VALUE_DESC" default="value-slider-input">
+            <option value="value-slider-input">JBZOO_FILTER_JBPRICE_TEMPLATE_SLIDER_INPUT</option>
+            <option value="value-slider">JBZOO_FILTER_JBPRICE_TEMPLATE_SLIDER</option>
+            <option value="value-range">JBZOO_FILTER_JBPRICE_TEMPLATE_RANGE</option>
+            <option value="value">JBZOO_FILTER_JBPRICE_TEMPLATE_SIMPLE</option>
+            <option value="hidden">JBZOO_FILTER_JBPRICE_TEMPLATE_HIDDEN</option>
+        </param>
+
+        <param name="jbzoo_filter_currency_default" type="jbcurrency"
+               label="JBZOO_FILTER_JBPRICE_CURRENCY_DEFAULT"
+               description="JBZOO_FILTER_JBPRICE_CURRENCY_DEFAULT_DESC" multiple="0"/>
+
+        <param name="jbzoo_filter_slider_auto" type="jbbool" default="0" label="JBZOO_FILTER_SLIDER_AUTO"
+               description="JBZOO_FILTER_SLIDER_AUTO_DESC"/>
+
+        <param name="jbzoo_filter_slider_min" type="text" default="0" label="JBZOO_FILTER_SLIDER_MIN"
+               description="JBZOO_FILTER_SLIDER_MIN_DESC"/>
+
+        <param name="jbzoo_filter_slider_max" type="text" default="10000" label="JBZOO_FILTER_SLIDER_MAX"
+               description="JBZOO_FILTER_SLIDER_MAX_DESC"/>
+
+        <param name="jbzoo_filter_slider_step" type="text" default="100" label="JBZOO_FILTER_SLIDER_STEP"
+               description="JBZOO_FILTER_SLIDER_STEP_DESC"/>
+
+        <param name="jbzoo_filter_default" type="text" label="JBZOO_FILTER_DEFAULT"
+               description="JBZOO_FILTER_DEFAULT_DESC"/>
+
+        <param name="jbzoo_filter_placeholder" type="text" label="JBZOO_FILTER_PLACEHOLDER"
+               description="JBZOO_FILTER_PLACEHOLDER_DESC"/>
+    </params>
+
+</element>

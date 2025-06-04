@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+  <name>plg_system_jcepro</name>
+  <version>2.9.81</version>
+  <creationDate>24-09-2024</creationDate>
+  <author>Ryan Demmer</author>
+  <authorEmail>info@joomlacontenteditor.net</authorEmail>
+  <authorUrl>https://www.joomlacontenteditor.net</authorUrl>
+  <copyright>Copyright (C) 2006 - 2024 Ryan Demmer. All rights reserved</copyright>
+  <license>GNU/GPL Version 2 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+  <description>PLG_SYSTEM_JCEPRO_XML_DESCRIPTION</description>
+
+  <namespace path="src">Joomla\Plugin\System\JcePro</namespace>
+
+  <files folder="plugins/system/jcepro">
+    <file plugin="jcepro">jcepro.php</file>
+    <folder>editor</folder>
+    <folder>fields</folder>
+    <folder>forms</folder>
+    <folder>services</folder>
+    <folder>src</folder>
+  </files>
+
+  <media folder="media/plg_system_jcepro" destination="plg_system_jcepro">
+    	<folder>editor</folder>
+      <folder>site</folder>
+  </media>
+
+  <languages folder="administrator/language/en-GB">
+    <language tag="en-GB">en-GB.plg_system_jcepro.ini</language>
+    <language tag="en-GB">en-GB.plg_system_jcepro.sys.ini</language>
+  </languages>
+
+</extension>

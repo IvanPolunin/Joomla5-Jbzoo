@@ -1,0 +1,300 @@
+#adminForm {
+	min-width: 640px;
+}
+
+
+@media (max-width : 1400px) {
+	table.admintable {
+		width: 100%;
+	}
+}
+
+@media (max-width : 1280px) {
+	table.admintable td select {
+		width: auto;
+	}
+
+	table.admintable td.right_details {
+		height: 95px;
+	}
+	
+	#datasource_sqlquery fieldset.btn-group.radio {
+	    margin-top: 5px;
+	}
+}
+
+@media (max-width : 768px) {
+	table.admintable td.right_details {
+		height: 115px;
+	}
+}
+
+.sqlquerier {
+	position: relative;
+}
+
+.sqlquerier .card-header {
+	padding: 3px 8px;
+}
+
+#accordion_datasource_sqlquery div.controls label {
+	padding: 4px 6px;
+}
+
+#accordion_datasource_sqlquery td.right_details input[type=text]{
+	min-width: 160px !important;
+}
+
+
+#accordion_datasource_sqlquery fieldset.radio.btn-group label {
+	margin-top: -4px !important;
+}
+
+.sqlquerier label.order {
+	padding: .3em .5em .3em;
+}
+
+.sqlquerier select:not(.inputbox) {
+	color: #266FAF;
+    display: inline-block;
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.25;
+    vertical-align: middle;
+	background: #fefefe url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
+    background-size: 8px 10px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.sqlquerier select.right_select {
+	float: none;
+	margin-left: 0;
+	display: inline-block;
+}
+
+.sqlquerier select[size] {
+	background: none;
+}
+
+.sqlquerier label.largealignment {
+	margin-left: 35px;
+	margin-right: 35px;
+	display: inline-block;
+    width: 30px;
+    height: 24px;
+    line-height: initial;
+}
+
+.sqlquerier select.intermediate {
+	width: 141px;
+}
+
+.sqlquerier select.intermediate_small {
+	width: 110px;
+}
+
+.sqlquerier select.table_joinfrom,.sqlquerier select.field_joinfrom {
+	color: #B68023 !important;
+}
+
+.sqlquerier label.badge {
+    color: #FFF;
+    font-size: .9rem;
+    font-weight: normal;
+    border-radius: 3px;
+    margin: 0 2px 0 5px;
+	line-height: .9rem;
+}
+
+.sqlquerier label.badge span.fas {
+	-webkit-margin-end: unset;
+    margin-inline-end: unset;
+}
+
+#datasource_sqlquery fieldset.btn-group.radio {
+	vertical-align: middle;
+}
+
+span.jointable_resetter {
+	float: right;
+	font-size: 180%;
+	cursor: pointer;
+	color: #3a87ad;
+}
+
+#dialog_trigger {
+	cursor: pointer;
+	color: #3a87ad;
+}
+
+div.modal-body {
+	padding: 0;
+	min-height: 500px;
+}
+
+#sqlquery_rawparams {
+	width: 300px !important;
+}
+
+textarea#sqlquery {
+	width: 100% !important;
+	height: 300px;
+	font-size: 11px;
+	border: 1px solid silver;
+	line-height: 1.4em;
+}
+
+#backtop {
+	font-size: 11px;
+	position: fixed;
+	bottom: 55px;
+	right: 40px;
+	cursor: pointer;
+	width: 100px;
+	padding: 4px 5px;
+    border-radius: 3px;
+    z-index: 9999;
+}
+
+#gobottom {
+	font-size: 11px;
+	position: fixed;
+	bottom: 30px;
+	right: 40px;
+	cursor: pointer;
+	width: 100px;
+	padding: 4px 5px;
+    border-radius: 3px;
+    z-index: 9999;
+}
+
+table.admintable td select.where_condition_operator {
+	background: #1a466b url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23FFF' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
+    background-size: 8px 10px;
+	color: #FFF !important;
+	width: 66px;
+	font-weight: bold;
+}
+
+table.admintable td select.where_condition_operator option {
+	background-color: #1a466b !important;
+}
+
+#controls_grouper {
+	float: left;
+}
+
+div.alert-priority {
+	margin: 10px 0 0 0;
+}
+
+option.haspriority {
+	background-color: #BBB;
+	font-weight: bold;
+	color: #333;
+}
+
+table.admintable.rawlinks_table {
+	width: 100%;
+}
+
+table.admintable.rawlinks_table ul.errorlist {
+	padding: 0;
+}
+
+table.admintable.rawlinks_table td.left_title {
+	width: 15% !important;
+}
+
+table.admintable.rawlinks_table td.right_details {
+	width: 85% !important;
+}
+
+table.admintable input.sitemap_rawtitle {
+	width: 25% !important;
+}
+
+table.admintable input.sitemap_rawlink {
+	width: 55% !important;
+}
+
+div#rawlink_controls_grouper {
+	float: right;
+}
+
+table.admintable.rawlinks_table {
+	clear: both;
+}
+
+table.admintable.rawlinks_table td input[type=checkbox] {
+	min-width: 0 !important;
+	margin: 0 10px 0 0;
+}
+
+table.admintable.rawlinks_table td label.title_label {
+	margin: 0 10px 0 0;
+}
+
+table.admintable.rawlinks_table td ul.errorlist {
+	float: none;
+	display: inline-block;
+}
+
+table.admintable td.paramlist_value input[type=text] {
+	padding: 6px 8px;
+    border-radius: 2px;
+}
+
+table.admintable td.paramlist_value label.btn,
+table.admintable td.right_details label.btn,
+table.admintable td fieldset.btn-group.radio label.btn {
+	padding: .4rem .7rem;
+	font-size: 14px;
+}
+
+table.admintable td fieldset.btn-group.radio label.btn:not(:first-child):not(:last-child) {
+	border-radius: 0;
+}
+
+#language_flag_image {
+    margin-top: 8px;
+}
+
+div.alert-priority.alert-success label.fas {
+	color: #457d54;
+}
+
+div.alert-priority.alert-warning label.fas {
+	color: #996900;
+}
+
+div.alert-priority.alert-error label.fas {
+	color: #c52827;
+}
+
+select.custom-form-select {
+    -moz-padding-start: calc(1rem - 3px);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #cdcdcd;
+    border-radius: 0.25rem;
+    color: #212529;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 100%;
+    background-color: var(--template-bg-light);
+    border: 1px solid var(--template-bg-dark-20);
+    cursor: pointer;
+    max-width: 100%;
+}
+
+select.custom-form-select option {
+	color: #495057
+}

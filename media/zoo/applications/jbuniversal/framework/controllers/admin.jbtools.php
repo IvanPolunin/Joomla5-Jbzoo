@@ -1,0 +1,259 @@
+<?php
+/**
+ * JBZoo Application
+ *
+ * This file is part of the JBZoo CCK package.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @package    Application
+ * @license    GPL-2.0
+ * @copyright  Copyright (C) JBZoo.com, All rights reserved.
+ * @link       https://github.com/JBZoo/JBZoo
+ * @author     Denis Smetannikov <denis@jbzoo.com>
+ */
+
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
+/**
+ * Class JBToolsJBUniversalController
+ * JBZoo tools controller for back-end
+ */
+class JBToolsJBUniversalController extends JBUniversalController
+{
+    const INDEX_STEP = 100;
+
+    /**
+     * Index page
+     */
+    public function index()
+    {
+        $this->renderView();
+    }
+
+    /**
+     * Database reindex page
+     */
+    public function reindex()
+    {
+        $this->indexStep = self::INDEX_STEP;
+        $this->total     = JBModelSearchindex::model()->getTotal();
+
+        $this->renderView();
+    }
+
+    /**
+     * Index DB by ajax call
+     */
+    public function reindexStep()
+    {
+        $limit  = self::INDEX_STEP;
+        $page   = (int)$this->zoo->jbrequest->get('page', 0);
+        $offset = $limit * $page;
+
+        $modelIndex = JBModelSearchindex::model();
+
+        $lines = $modelIndex->reIndex($limit, $offset);
+        $total = $modelIndex->getTotal();
+
+        $current = $limit * ($page + 1);
+        if ($current > $total) {
+            $current = $total;
+        }
+
+        $progress = round($current * 100 / $total, 2);
+
+        $this->zoo->jbajax->send(array(
+            'progress' => $progress,
+            'current'  => $current,
+            'total'    => $total,
+            'lines'    => $lines,
+            'step'     => $page + 1,
+            'stepsize' => $limit,
+        ));
+    }
+
+    /**
+     * Clean database from Zoo tools
+     */
+    public function cleandb()
+    {
+        if (!$this->_jbrequest->isPost()) {
+            $this->renderView();
+        } else {
+
+            $this->item_count = $this->zoo->table->item->count();
+            $this->steps      = (int)(11 + ($this->item_count / 10));
+
+            $this->renderView('process');
+        }
+    }
+
+    /**
+     * Check files action
+     */
+    public function checkFiles()
+    {
+        if (!$this->_jbrequest->isAjax()) {
+            $this->renderView();
+
+        } else {
+
+            $this->zoo->jbdoc->disableTmpl();
+
+            try {
+                $this->results = $this->zoo->jbcheckfiles->check();
+                $this->renderView('result');
+                jexit();
+
+            } catch (JBCheckFilterException $e) {
+                echo $e->getMessage();
+            }
+
+        }
+    }
+
+    /**
+     * Check files action
+     */
+    public function removeUnversionFiles()
+    {
+        $files = $this->zoo->jbcheckfiles->check();
+
+        $fileCount = 0;
+        if (isset($files['unknown']) && !empty($files['unknown'])) {
+            foreach ($files['unknown'] as $file) {
+                $filepath = JPATH_ROOT . '/' . $file;
+                if (JFile::exists($filepath) && JFile::delete($filepath)) {
+                    $fileCount++;
+                }
+            }
+        }
+
+        jexit('<pre>Files deleted = ' . $fileCount . '</pre>');
+    }
+
+    /**
+     * Check Zoo filesystem
+     */
+    public function checkFilesZoo()
+    {
+        if (!$this->_jbrequest->isAjax()) {
+            $this->renderView();
+        } else {
+
+            $this->zoo->jbdoc->disableTmpl();
+
+            try {
+                $this->results = $this->zoo->modification->check();
+                $this->renderView('result');
+                jexit();
+
+            } catch (AppModificationException $e) {
+                echo $e->getMessage();
+            }
+
+        }
+    }
+
+    /**
+     * Migrate page
+     */
+    public function migrate()
+    {
+        $this->renderView();
+    }
+
+    /**
+     * Migrate steps page
+     */
+    public function migrateSteps()
+    {
+        $formData = $this->zoo->data->create($this->zoo->jbrequest->getAdminForm());
+        $this->zoo->jbmigrate->prepare($formData);
+
+        $this->renderView();
+    }
+
+    /**
+     * Migrate steps page
+     */
+    public function migrateAjax()
+    {
+        /**
+         * @var JBMigrateHelper      $migrate
+         * @var JBMigrateOrderHelper $migrateorder
+         * @var JBMigrateCartHelper  $migratecart
+         * @var JBMigratePriceHelper $migrateprice
+         */
+        $migrate      = $this->zoo->jbmigrate;
+        $migrateorder = $this->zoo->jbmigrateorder;
+        $migratecart  = $this->zoo->jbmigratecart;
+        $migrateprice = $this->zoo->jbmigrateprice;
+
+        $isPost  = $this->zoo->jbrequest->isPost();
+        $curStep = $this->zoo->jbrequest->get('page', 0) + 1;
+        $params  = $migrate->getParams();
+
+        $progress = $curStep / $params->find('steps.steps', 1) * 100;
+        $progress = $progress > 100 ? 100 : round($progress, 1);
+
+        if ($isPost) {
+
+            if ($curStep == 1) {
+                if ($params->get('cart_basic', 0)) {
+                    $migratecart->basic();
+                }
+
+                if ($params->get('cart_form', 0)) {
+                    $migratecart->formFields();
+                }
+
+                if ($params->get('cart_notificaction', 0)) {
+                    $migratecart->notificaction();
+                }
+
+                if ($params->get('cart_minimalsum', 0)) {
+                    $migratecart->minimalsum();
+                }
+
+                if ($params->get('cart_payments', 0)) {
+                    $migratecart->payments();
+                }
+
+                $this->zoo->jbajax->send(array('nextStep' => '2', 'progress' => $progress));
+            }
+
+            if ($params->get('prices_enable') && $curStep == 2) {
+                $prices       = $migrateprice->getPriceList($params->get('prices_types'));
+                $priceConfigs = $migrateprice->extractPriceData($prices);
+
+                $price = $migrateprice->createPrice($priceConfigs->get('price', array()));
+                $priceConfigs->set('price', $price);
+
+                $priceElements = $migrateprice->createPriceElements($priceConfigs->get('price', array()));
+                $migrate->setParams('elements', $priceElements);
+
+                $this->zoo->jbajax->send(array('nextStep' => '4', 'progress' => $progress));
+            }
+
+            if ($params->get('orders_enable') && $params->find('steps.orders_steps')) {
+                if ($newStep = $migrateorder->convertItems($curStep)) {
+                    $this->zoo->jbajax->send(array('nextStep' => $newStep, 'progress' => $progress));
+                }
+            }
+
+            if ($params->get('prices_enable') && $params->find('steps.items_steps')) {
+                if ($newStep = $migrateprice->convertItems($curStep)) {
+                    $this->zoo->jbajax->send(array('nextStep' => $newStep, 'progress' => $progress));
+                }
+            }
+
+            $this->zoo->jbajax->send(array('nextStep' => 'stop', 'progress' => 100));
+        }
+
+        $this->zoo->jbajax->send(array('nextStep' => 'stop', 'progress' => 100));
+    }
+
+}

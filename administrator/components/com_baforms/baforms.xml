@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0.0" method="upgrade">
+    <name>BaForms</name>
+    <creationDate>06 April 2015</creationDate>
+    <author>Balbooa</author>
+    <copyright>Balbooa 2016</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>support@balbooa.com</authorEmail>
+    <authorUrl>http://balbooa.com</authorUrl>
+    <version>2.3.0.2</version>
+    <namespace path="src/">Balbooa\Component\Forms</namespace>
+    <description>BAFORMS_DESCRIPTION</description>
+    <tag>pro</tag>
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">installation/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">installation/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update>
+        <schemas>
+            <schemapath type="mysql">installation/updates/mysql</schemapath>
+        </schemas>
+    </update>
+    <files folder="site">
+        <folder>assets</folder>
+        <folder>libraries</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <filename>index.html</filename>		
+    </files>
+	<administration>
+        <menu>forms</menu>
+        <languages folder="admin/language">
+            <language tag="en-GB">en-GB/en-GB.com_baforms.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_baforms.sys.ini</language>
+        </languages>
+        <files folder="admin">
+            <folder>assets</folder>
+			<folder>installation</folder>
+            <folder>language</folder>
+            <folder>forms</folder>
+            <folder>services</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>index.html</filename>
+            
+		</files>
+	</administration>
+</extension>

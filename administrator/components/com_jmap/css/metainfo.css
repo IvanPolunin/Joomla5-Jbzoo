@@ -1,0 +1,260 @@
+/* Admin generic styles */
+
+table.admintable {
+	width: 100%;
+}
+
+table.adminlist th, table.adminlist td {
+	padding: 8px 6px;
+}
+
+joomla-field-media.field-media-wrapper {
+	min-width: 100%;
+}
+
+table.admintable td.left_title {
+	width: 20% !important;
+}
+
+table.admintable td.right_details {
+	width: 80% !important;
+}
+
+table.admintable input, table.admintable textarea {
+	width: 50% !important;
+	min-width: 250px !important;
+}
+
+table.adminlist td {
+	position: relative;
+}
+
+table.adminlist td button.btn[data-action=savemeta],
+table.adminlist td button.btn[data-action=deletemeta] {
+	line-height: 16px;
+	margin-bottom: 6px;
+}
+
+table.adminlist thead th {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px;
+	white-space: initial;
+}
+
+table.adminlist thead th a {
+	font-size: 14px;
+    font-weight: bold;
+}
+
+table.adminlist td label.label-sources {
+	margin-right: 5px;
+}
+
+table.adminlist td textarea.metainfo {
+	width: 100%;
+	height: 80px;
+}
+
+table.adminlist td select.robots_directive {
+	background-position: 100% 50%;
+	background-size: 90rem 90rem;
+    width: 100%;
+    min-width: 0;
+    height: 30px;
+    padding: 2px 48px 2px 8px;
+}
+
+table.adminlist td.link_loc {
+	word-break: break-word;
+	min-width: 120px;
+}
+
+table.adminlist td.link_loc a {
+	min-width: 100px;
+}
+
+table.adminlist tr.subtitles td {
+	font-size: 12px;
+}
+
+table.adminlist img.metainfo-waiter {
+	width: 22px;
+	height: 22px;
+	margin: 5px 5px 0 5px;
+}
+
+table.adminlist span.labelmetainfo {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0 5px 4px 0;
+    padding: .4em .6em .3em;
+    border-radius: 5px;
+}
+
+table.adminlist span.labelmetainfo span.jmapmetainfo_chars_count,
+table.adminlist span.labelmetainfo span.jmapmetainfo_pixel_count {
+	display: inline-block;
+	margin-right: 4px;
+}
+
+table.adminlist fieldset.btn-group[data-action=statemeta],
+table.adminlist fieldset.btn-group[data-action=excludedmeta] {
+	min-width: 120px;
+    margin-top: 4px;
+}
+
+table.adminlist fieldset.btn-group[data-action=statemeta] label.radio.btn,
+table.adminlist fieldset.btn-group[data-action=excludedmeta]  label.radio.btn {
+	padding: 4px 8px;
+}
+
+table.adminlist td.metaimage div.input-group {
+	flex-wrap: nowrap;
+}
+
+table.adminlist td.metaimage a.btn, 
+table.adminlist td.metaimage button.btn {
+	padding-left: 4px;
+	padding-right: 4px;
+    height: 28px;
+    line-height: 0;
+}
+
+table.adminlist td.metaimage a.btn.button-clear,
+table.adminlist td.metaimage button.btn.button-clear {
+	padding: 5px 8px;
+	height: 28px;
+}
+
+table.adminlist td.metaimage button.btn.button-clear span.fas {
+    line-height: 5px;
+    margin-right: 0;
+    color: #FFF;
+}
+
+table.adminlist td.metaimage div.control-group {
+	margin-top: 0;
+}
+
+table.adminlist button.btn[disabled=disabled] {
+	opacity: 0.3;
+}
+
+table.adminlist td.metaimage div.field-media-preview {
+    max-height: 48px;
+    max-width: fit-content;
+}
+
+table.adminlist td.metaimage div.field-media-preview img {
+	cursor: pointer;
+}
+
+table.adminlist td.metaimage div.field-media-preview span.field-media-preview-icon {
+	font-size: 2rem;
+	width: 3rem;
+    background-size: 3rem;
+    height: 3rem;
+}
+
+table.adminlist td.metaimage div.field-media-preview span.field-media-preview-icon::before {
+	content: '';
+}
+
+div.field-media-preview img[src=""],
+div.field-media-preview div.hidden,
+div.field-media-preview img.media-preview {
+	display: none;
+}
+
+table.adminlist td button[data-action*=meta] {
+    padding: 6px 8px;
+}
+
+#jmap_alert_message {
+	position: fixed;
+	top: 57px;
+	right: 1%;
+	z-index: 99999;
+	max-width: 500px;
+}
+
+#alert_append .input-group {
+	margin: 10px 0 10px 0;
+}
+
+span.input-group {
+	max-width: 380px;
+}
+
+label.jmap_inactive {
+	background: #e6e6e6 !important;
+	color: #333 !important;
+	border: 1px solid #CCC !important;
+}
+
+span.jmapmetainfo_fake_element {
+	display: none;
+	max-width: none;
+    position: fixed;
+    left: -5000px;
+    top: -5000px;
+    white-space: nowrap;
+}
+
+label[for=exactsearchpage] {
+	width: auto;
+}
+
+table.adminlist input[type=text].field-media-input.mediaimagefield {
+	max-width: 170px;
+    font-size: 12px;
+    padding: 3px;
+}
+
+div[data-url*=com_jce] div.modal-footer {
+	display: none;
+}
+
+@media (max-width: 1220px) {
+	table.adminlist th, table.adminlist td {
+		padding: 4px;
+	}
+}
+
+@media (max-width: 1180px) {
+	body.admin.com_jmap {
+		min-width: 1180px;
+	}
+}
+
+@media (max-width: 1099px) {
+	table.adminlist span.labelmetainfo {
+		font-size: 10px;
+		margin: 5px 2px 0 2px;
+	}
+}
+
+table.adminlist td.metaimage div.control-label {
+	display: none;
+}
+
+joomla-field-media button.button-clear {
+	border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+
+button.jmap-chatgpt-metagenerator {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+button.jmap-chatgpt-metagenerator img {
+    width: 24px;
+    height: 24px;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" hidden="false">
+    <name>JBZOO_ELEMENT_ORDER_UPLOAD_NAME</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZOO_ELEMENT_ORDER_UPLOAD_DESC</description>
+
+    <params>
+
+        <param name="upload_extensions" type="text" default="png,jpg,doc,mp3,mov,avi,mpg,zip,rar,gz"
+               label="JBZOO_ELEMENT_ORDER_UPLOAD_UPLOAD_EXTENSIONS"
+               description="JBZOO_ELEMENT_ORDER_UPLOAD_UPLOAD_EXTENSIONS_DESC"/>
+
+        <param name="upload_directory" type="text" default="images/jbzoo/uploads/"
+               label="JBZOO_ELEMENT_ORDER_UPLOAD_UPLOAD_DIRECTORY"
+               description="JBZOO_ELEMENT_ORDER_UPLOAD_UPLOAD_DIRECTORY_DESC"/>
+
+        <param name="max_upload_size" type="text" default="512"
+               label="JBZOO_ELEMENT_ORDER_UPLOAD_MAX_UPLOAD_SIZE"
+               description="JBZOO_ELEMENT_ORDER_UPLOAD_MAX_UPLOAD_SIZE_DESC"/>
+
+    </params>
+
+</element>

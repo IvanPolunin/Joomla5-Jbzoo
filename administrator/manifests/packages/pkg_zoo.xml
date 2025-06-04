@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<extension type="package" version="3.2" method="upgrade">
+    <name>ZOO Package</name>
+    <author>YOOtheme</author>
+    <creationDate>March 2024</creationDate>
+    <packagename>zoo</packagename>
+    <version>4.1.45</version>
+    <updateUrl>https://yootheme.com/updates</updateUrl>
+    <copyright>Copyright (C) YOOtheme GmbH</copyright>
+    <license>https://www.gnu.org/licenses/gpl.html GNU/GPL</license>
+    <assetsLicense>YOOtheme Proprietary Use License (https://yootheme.com/license)</assetsLicense>
+    <authorEmail>info@yootheme.com</authorEmail>
+    <authorUrl>https://yootheme.com</authorUrl>
+    <description>ZOO component and extensions for Joomla developed by YOOtheme (https://yootheme.com)</description>
+    <scriptfile>file.script.php</scriptfile>
+    <dlid prefix="key="/>
+    <files folder="packages">
+        <file type="component" id="com_zoo">com_zoo</file>
+        <file type="module" id="mod_zoocategory" client="site">mod_zoocategory</file>
+        <file type="module" id="mod_zoocomment" client="site">mod_zoocomment</file>
+        <file type="module" id="mod_zooitem" client="site">mod_zooitem</file>
+        <file type="module" id="mod_zooquickicon" client="administrator">mod_zooquickicon</file>
+        <file type="module" id="mod_zootag" client="site">mod_zootag</file>
+        <file type="plugin" id="zooshortcode" group="content">plg_content_zooshortcode</file>
+        <file type="plugin" id="zoosmartsearch" group="finder">plg_finder_zoosmartsearch</file>
+        <file type="plugin" id="zoosearch" group="search">plg_search_zoosearch</file>
+        <file type="plugin" id="zooevent" group="system">plg_sys_zooevent</file>
+        <file type="plugin" id="zoopro" group="system">plg_sys_zoopro</file>
+    </files>
+    <updateservers>
+        <server name="YOOtheme - ZOO" type="extension" priority="1">https://api.yootheme.com/v1/package/zoo_full_j33.xml?v=4.1.44</server>
+    </updateservers>
+</extension>

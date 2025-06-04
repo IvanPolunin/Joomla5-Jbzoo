@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="jbpriceplain" group="JBZoo" orderable="true">
+    <name>JBZoo Price Plain</name>
+    <description>Price element for catalog</description>
+    <author>JBZoo.com</author>
+    <creationDate>2013 07</creationDate>
+    <copyright>Copyright (C) JBZoo.com, All rights reserved.</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>2.0</version>
+    <params>
+        <param name="only_selected" type="jbbool" default="1" label="JBZOO_JBPRICE_PLAIN_ONLYSELECTED"
+               description="JBZOO_JBPRICE_PLAIN_ONLYSELECTED_DESC"/>
+
+        <param name="cache" type="jbbool" default="0" label="JBZOO_JBPRICE_ELEMENT_CACHE"
+               description="JBZOO_JBPRICE_ELEMENT_CACHE_DESC"/>
+
+    </params>
+
+    <params group="render">
+        <param name="template" type="jbpricetemplates" default="default" label="JBZOO_JBPRICE_TEMPLATE"
+               description="JBZOO_JBPRICE_TEMPLATE_DESC"/>
+    </params>
+</element>

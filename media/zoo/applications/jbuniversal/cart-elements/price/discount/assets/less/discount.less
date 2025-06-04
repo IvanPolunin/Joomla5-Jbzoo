@@ -1,0 +1,44 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo";
+
+@iconSize: 64px;
+@fontSize: 16px;
+
+.jbzoo .jbprice-discount {
+
+    &-icon,
+    &-icon-text {
+        .square(@iconSize);
+        clear: both;
+    }
+
+    &-icon {
+        background: data-uri("../img/icon.png") no-repeat;
+    }
+
+    &-icon-text {
+        background: data-uri("../img/icon-text.png") no-repeat;
+        text-align: center;
+
+        .jbcartvalue {
+            #rotate > .simple(20deg);
+            #font > .serif(bold, @fontSize, (@iconSize - ( @fontSize / 2 )));
+            .square(@iconSize);
+            color: #fff;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.31);
+        }
+    }
+
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="task_params">
+            <field name="dummy" type="text" default="" label="DUMMY_LABEL" description="DUMMY_DESC" />
+        </fieldset>
+    </fields>
+</form>

@@ -1,0 +1,1 @@
+ALTER TABLE `#__bagallery_galleries` ADD `auto_resize` tinyint(1) NOT NULL;

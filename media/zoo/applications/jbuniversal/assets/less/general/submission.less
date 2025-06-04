@@ -1,0 +1,112 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+@import "jbzoo.less";
+
+// ***************************************** Submission vars ***********************************************************
+@jbprice-row-margin:        240px;
+@jbprice-row-var-margin:    140px;
+
+
+// ***************************************** Submission styles *********************************************************
+.jbzoo {
+
+    .submission {
+
+        fieldset {
+            margin-bottom: 10px;
+            border: 1px solid #EDEDED;
+            border-radius: 4px;
+            background: #FDFDFD;
+            .box-shadow(0 0 40px rgba(215, 215, 215, 0.63));
+
+            .element {
+                padding: 10px;
+                position: relative;
+            }
+
+        }
+
+        legend {
+            color: #5A5A5A;
+            font-size: 28px;
+            line-height: 50px;
+            padding-bottom: 0;
+            margin-left: 10px;
+            width: inherit;
+        }
+
+        .jbzoo-price {
+
+            .default_variant {
+                position: static;
+                margin-left: @jbprice-row-margin;
+                margin-bottom: 10px;
+            }
+
+            .variations {
+                margin-top: 20px;
+
+                .default_variant {
+                    margin-left: @jbprice-row-var-margin;
+                }
+
+            }
+
+            .variations-list {
+
+                .jbprice-variation-row {
+                    padding: 10px;
+                    margin-bottom: 30px;
+
+                    .row-field {
+                        width: @jbprice-row-var-margin;
+                    }
+
+                    .balance {
+                        margin-left: @jbprice-row-var-margin;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .creation-form {
+
+        .jbzoo-price {
+
+            .default_variant {
+                position: absolute !important;
+            }
+
+        }
+
+        .upload {
+
+            .button-container {
+                width: 90px;
+            }
+
+        }
+
+    }
+
+}

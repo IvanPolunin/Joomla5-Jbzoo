@@ -1,0 +1,56 @@
+<?php 
+namespace JExtstore\Component\JMap\Administrator\Controller;
+/** 
+ * @package JMAP::AJAXSERVER::components::com_jmap 
+ * @subpackage controllers
+ * @author Joomla! Extensions Store
+ * @copyright (C) 2021 Joomla! Extensions Store
+ * @license GNU/GPLv2 http://www.gnu.org/licenses/gpl-2.0.html  
+ */
+defined ( '_JEXEC' ) or die ( 'Restricted access' );
+use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+use JExtstore\Component\JMap\Administrator\Framework\Controller as JMapController;
+
+/** 
+ * Controller for tasks logic API ENDPOINT purpouse
+ * @package JMAP::AJAXSERVER::components::com_jmap  
+ * @subpackage controllers
+ * @since 1.0
+ */  
+class AjaxserverController extends JMapController { 
+	/**
+	 * AS SMVC entity here we treat HTTP request and identifier map
+	 * @access public
+	 * @param $cachable string
+	 *       	 the view output will be cached
+	 * @return void
+	 */
+	function display($cachable = false, $urlparams = false) {
+		// Id entità risposta ajax che identifica il subtask da eseguire in questo caso
+		$params = json_decode($this->app->getInput()->getString('data', null));
+		
+		// Load additional models and make Dependency Injection thanks to JS controls
+		$DIModels = @$params->DIModels;
+		$models = array();
+		if(!empty($DIModels)) {
+			foreach ($DIModels as $DIModel) {
+				if($DIModel->modelside != $this->app->getClientId()) {
+					// Add extra include paths
+					BaseDatabaseModel::addIncludePath(JPATH_COMPONENT_SITE . 'Model/');
+				}
+				$models[$DIModel->modelname] = $this->getModel ($DIModel->modelname);
+			} 
+		}
+		// This model maps Remote Procedure Call
+		$model = $this->getModel ();
+		$userData = $model->loadAjaxEntity ($params->idtask, $params->param, $models);
+		
+	 	// Format response for JS client as requested
+		$document = $this->app->getDocument();
+		$viewType = $document->getType ();
+		$coreName = $this->getName ();
+		
+		$view =  $this->getView ( $coreName, $viewType, '', array ('base_path' => $this->basePath ) );
+		$view->display ($userData);
+	} 
+}

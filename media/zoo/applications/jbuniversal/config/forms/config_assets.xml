@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<form>
+    <fields>
+        <fieldset name="others" label="" addfieldpath="/media/zoo/applications/jbuniversal/joomla/fields">
+
+            <field name="split_mode" type="list" default="group" label="JBZOO_CONFIG_ASSETS_SPLIT_MODE"
+                   description="JBZOO_CONFIG_ASSETS_SPLIT_MODE_DESC">
+                <option value="none">JBZOO_CONFIG_ASSETS_SPLIT_MODE_NONE</option>
+                <option value="group">JBZOO_CONFIG_ASSETS_SPLIT_MODE_GROUP</option>
+                <option value="all">JBZOO_CONFIG_ASSETS_SPLIT_MODE_ALL</option>
+            </field>
+
+            <field name="minifier_css" type="jbbool" default="1" label="JBZOO_CONFIG_ASSETS_MINIFIER_CSS"
+                   description="JBZOO_CONFIG_ASSETS_MINIFIER_CSS_DESC"/>
+
+            <field name="minifier_js" type="list" default="0" label="JBZOO_CONFIG_ASSETS_MINIFIER_JS"
+                   description="JBZOO_CONFIG_ASSETS_MINIFIER_JS_DESC">
+                <option value="none">JBZOO_CONFIG_ASSETS_MINIFIER_JS_NONE</option>
+                <option value="simple">JBZOO_CONFIG_ASSETS_MINIFIER_JS_SIMPLE</option>
+                <option value="google">JBZOO_CONFIG_ASSETS_MINIFIER_JS_GOOGLE</option>
+            </field>
+
+            <field name="less_mode" type="list" default="0" label="JBZOO_CONFIG_ASSETS_LESS_MODE"
+                   description="JBZOO_CONFIG_ASSETS_LESS_MODE_DESC">
+                <option value="0">JBZOO_CONFIG_ASSETS_LESS_MODE_ONCE</option>
+                <option value="1">JBZOO_CONFIG_ASSETS_LESS_MODE_ALWAYS</option>
+            </field>
+
+            <field name="styles_include" type="list" default="2" label="JBZOO_CONFIG_ASSETS_STYLE_INCLUDE"
+                   description="JBZOO_CONFIG_ASSETS_STYLE_INCLUDE_DESC">
+                <option value="0">JBZOO_CONFIG_ASSETS_STYLE_INCLUDE_NONE</option>
+                <option value="1">JBZOO_CONFIG_ASSETS_STYLE_INCLUDE_LIBS</option>
+                <option value="2">JBZOO_CONFIG_ASSETS_STYLE_INCLUDE_ALL</option>
+            </field>
+
+        </fieldset>
+    </fields>
+</form>

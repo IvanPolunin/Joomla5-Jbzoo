@@ -1,0 +1,9 @@
+/* Copyright (C) YOOtheme GmbH, https://www.gnu.org/licenses/gpl.html GNU/GPL */
+
+/*
+ * Element config types select
+ */
+
+div.types div:first-child {
+	margin-bottom: 3px;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    JBZoo Application
+
+    This file is part of the JBZoo CCK package.
+    For the full copyright and license information, please view the LICENSE
+    file that was distributed with this source code.
+
+    @package    Application
+    @license    GPL-2.0
+    @copyright  Copyright (C) JBZoo.com, All rights reserved.
+    @link       https://github.com/JBZoo/JBZoo
+-->
+<element type="element" group="Core" hidden="true">
+    <name>JBCart Element - Shipping Core</name>
+    <author>JBZoo.com</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (C) JBZoo.com</copyright>
+    <authorEmail>admin@jbzoo.com</authorEmail>
+    <authorUrl>http://jbzoo.com</authorUrl>
+    <version>1.0</version>
+    <description>JBZoo Cart Element Core System</description>
+
+    <params>
+
+        <param name="name" type="text" default="" label="JBZOO_ELEMENT_NAME" description="JBZOO_ELEMENT_NAME_DESC"/>
+
+        <param name="description" type="text" default="" label="JBZOO_ELEMENT_DESCRIPTION"
+               description="JBZOO_ELEMENT_DESCRIPTION_DESC"/>
+
+        <param name="access" type="zooaccesslevel" default="" label="JBZOO_ELEMENT_ACCESS"
+               description="JBZOO_ELEMENT_ACCESS_DESC"/>
+
+        <param name="modifytotal" type="jbbool" default="0" label="JBZOO_ELEMENT_SHIPPING_MODIFYTOTAL"
+               description="JBZOO_ELEMENT_SHIPPING_MODIFYTOTAL_DESC"/>
+
+        <param name="limit_for_free" type="text" default="" label="JBZOO_ELEMENT_SHIPPING_LIMIT_FOR_FREE"
+               description="JBZOO_ELEMENT_SHIPPING_LIMIT_FOR_FREE_DESC"/>
+
+        <param name="shippingfields" type="jbcartfields" group="CONFIG_SHIPPINGFIELDS" position="DEFAULT_POSITION"
+               multiple="true" label="JBZOO_ELEMENT_SHIPPING_SHIPPINGFIELDS_LABEL"
+               emptytext="JBZOO_ELEMENT_SHIPPING_SHIPPINGFIELDS_EMPTYTEXT"
+               desc="JBZOO_ELEMENT_SHIPPING_SHIPPINGFIELDS_DESC"/>
+
+    </params>
+
+</element>

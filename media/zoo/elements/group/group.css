@@ -1,0 +1,68 @@
+/* Copyright (C) YOOtheme GmbH, https://www.gnu.org/licenses/gpl.html GNU/GPL */
+
+/*
+ * elements
+ */
+
+div.elements { overflow: hidden; }
+
+div.elements ul {
+	margin: 0px 0px 10px 0px;
+	padding: 0;
+	list-style-type: none;
+	position: relative;
+}
+
+div.elements li {
+	padding: 10px 5px;
+	overflow: hidden;
+	border-top: 1px dotted #CCC;
+	position: relative;
+}
+div.elements li:first-child,
+div.elements li[style*="absolute"]:first-child + li { border-top: none; }
+
+div.elements li:hover { background: #F0F0F0; }
+
+div.elements li:hover label { color: #0B55C4; }
+
+div.elements div.name-input,
+div.elements div.type-input {
+	margin: 0px 5px;
+	float: left;
+}
+
+div.elements div.add {
+	margin: 0px 0px 0px 10px;
+	padding: 5px;
+	border: 1px solid #CCCCCC;
+	background: url(../../assets/images/add.png) 5px 4px no-repeat;
+	text-indent: 20px;
+	cursor: pointer;
+	float: left;
+}
+
+div.elements div.add:hover { background-color: #F0F0F0; }
+
+div.elements div.sort-handle,
+div.elements div.delete { display: none; }
+
+div.elements li:hover div.sort-handle,
+div.elements li:hover div.delete {
+	display: inline-block;
+	margin: 12px 5px 0px 5px;
+	cursor: pointer;
+}
+div.elements li:hover div.sort-handle { cursor: move; }
+
+ul.element-list div.elements li.dragging  { border: none; }
+
+div.elements label {
+	display: block;
+	color: #666666;
+	font-weight: bold;
+	float: none;
+	margin-bottom: 0px;
+}
+
+div.elements li.hidden { display: none; }

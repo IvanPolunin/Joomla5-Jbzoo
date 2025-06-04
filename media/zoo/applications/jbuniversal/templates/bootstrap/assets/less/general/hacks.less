@@ -1,0 +1,91 @@
+//
+// JBZoo Application
+//
+// This file is part of the JBZoo CCK package.
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @package    Application
+// @license    GPL-2.0
+// @copyright  Copyright (C) JBZoo.com, All rights reserved.
+// @link       https://github.com/JBZoo/JBZoo
+//
+
+.jbzoo {
+
+    .btn {
+        color: #333;
+        text-decoration: none;
+
+        &-default {
+            color: #333;
+        }
+
+        &-primary,
+        &-danger,
+        &-success {
+            color: #fff;
+        }
+
+        &:hover {
+            background-position: 0;
+        }
+
+    }
+
+    [class^="icon-"],
+    [class*=" icon-"] {
+        display: inline-block;
+    }
+
+    .list-unstyled {
+        margin: 0;
+    }
+
+    &-no-border {
+
+        .well {
+            background: transparent;
+            border: none;
+            .box-shadow(none);
+            .border-radius(0);
+        }
+
+    }
+
+    .well {
+        background-color: transparent;
+        border: 1px solid #e3e3e3;
+        .box-shadow(inset 0 1px 1px rgba(0,0,0,0.05));
+    }
+
+    .item-body {
+        padding: 19px;
+    }
+
+    .row,
+    .row-fluid {
+        margin-bottom: 15px;
+
+        .well {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+    }
+
+    .table {
+
+        .jbtooltip {
+            margin-left: 0;
+        }
+
+    }
+
+    .jbtooltip,
+    [data-toggle="tooltip"] {
+        display: inline-block !important;
+    }
+
+}

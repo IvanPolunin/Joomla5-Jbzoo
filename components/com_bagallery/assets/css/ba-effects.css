@@ -1,0 +1,652 @@
+/* Copyright @ Balbooa, http://www.gnu.org/licenses/gpl.html GNU/GPL */
+
+/*
+/* General styles
+*/
+
+.ba-caption-content h3 {
+    line-height: normal;
+    margin: 12px 0;
+    padding: 0;
+}
+
+.ba-caption-content p {
+    line-height: normal;
+    margin: 15px;
+}
+
+.ba-caption .ba-caption-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.ba-caption .ba-caption-content h3,
+.ba-caption .ba-caption-content .image-category,
+.ba-caption .ba-caption-content .short-description {
+    margin: 15px;
+}
+
+.ba-caption {
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+}
+
+@keyframes ba-image-fade {
+    from { opacity: 0; }
+    to { opacity: 1;}
+}
+
+.ba-gallery-items,
+.ba-album-items {
+    animation: ba-image-fade .8s linear both;
+}
+
+/*
+/* Style 1 - Default
+*/
+
+.ba-album.css-style-1 .ba-caption,
+.ba-gallery-grid.css-style-1 .ba-caption {
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: all .6s 0s cubic-bezier(0.6, -0.02, 0.6, 0.95);
+    width: 100%;
+    z-index: 1;
+}
+
+.ba-album.css-style-1 .ba-album-items:hover .ba-caption,
+.ba-gallery-grid.css-style-1 .ba-caption:hover {
+    opacity: 1;
+}
+
+.ba-album.css-style-1 .ba-caption h3,
+.ba-album.css-style-1 .ba-caption p,
+.ba-gallery-grid.css-style-1 .ba-caption h3,
+.ba-gallery-grid.css-style-1 .ba-caption p.image-category,
+.ba-gallery-grid.css-style-1 .ba-caption p.short-description {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all .4s ease-in-out;
+}
+
+.ba-album.css-style-1 .ba-album-items:hover .ba-caption h3,
+.ba-album.css-style-1 .ba-album-items:hover .ba-caption p,
+.ba-gallery-grid.css-style-1 .ba-caption:hover h3,
+.ba-gallery-grid.css-style-1 .ba-caption:hover p.image-category,
+.ba-gallery-grid.css-style-1 .ba-caption:hover p.short-description {
+    opacity: 1;
+    transform: none;
+}
+
+/* Image Rotate */
+.ba-album.css-style-1 .ba-image,
+.ba-gallery-grid.css-style-1 .ba-image {
+    overflow: hidden;
+}
+
+.ba-album.css-style-1 .ba-image img,
+.ba-gallery-grid.css-style-1 .ba-image img {
+    transition: transform .6s 0s cubic-bezier(0.6, -0.02, 0.6, 0.95);
+}
+
+.ba-album.css-style-1 .ba-album-items:hover .ba-image img,
+.ba-gallery-grid.css-style-1 .ba-image:hover img {
+    transform: scale(1.2);
+}
+
+/*
+/* Style 2
+*/
+
+.ba-album.css-style-2 .ba-caption,
+.ba-gallery-grid.css-style-2 .ba-caption {
+    bottom: 0;
+    height: 100px;
+    max-height: 100%;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    width: 100%;
+    z-index: -1;
+}
+
+.ba-album.css-style-2 .ba-image img,
+.ba-gallery-grid.css-style-2 .ba-image img {
+    transition: transform .4s 0s ease-in-out;
+    z-index: 1;
+}
+
+.ba-album.css-style-2 .ba-album-items:hover .ba-image img,
+.ba-gallery-grid.css-style-2 .ba-image:hover img {
+    transform: translateY(-100px);
+}
+
+/*
+/* Style 3
+*/
+
+.ba-album.css-style-3 .ba-album-items,
+.ba-gallery-grid.css-style-3 .ba-gallery-items {
+    overflow: hidden;
+}
+
+.ba-album.css-style-3 .ba-image img,
+.ba-gallery-grid.css-style-3 .ba-image img {
+    transition: transform .4s 0s ease-in-out;
+}
+
+.ba-album.css-style-3 .ba-album-items:hover .ba-image img,
+.ba-gallery-grid.css-style-3 .ba-image:hover img {
+    transform: translateY(-100px);
+}
+
+.ba-album.css-style-3 .ba-caption,
+.ba-gallery-grid.css-style-3 .ba-caption {
+    bottom: 0;
+    height: 100px;
+    opacity: 0;
+    position: absolute;
+    top: auto;
+    width: 100%;
+    transform: translateY(100%);
+    transition: all .4s 0s ease-in-out, opacity 0.1s 0.3s;
+}
+
+.ba-album.css-style-3 .ba-album-items:hover .ba-image + .ba-caption,
+.ba-gallery-grid.css-style-3 .ba-image:hover .ba-caption {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all .4s 0s ease-in-out, opacity 0.1s;
+}
+
+
+.ba-album.css-style-2 .ba-caption h3,
+.ba-album.css-style-2 .ba-caption p,
+.ba-gallery-grid.css-style-2 .ba-caption h3,
+.ba-gallery-grid.css-style-2 .ba-caption p,
+.ba-album.css-style-3 .ba-caption h3,
+.ba-album.css-style-3 .ba-caption p,
+.ba-gallery-grid.css-style-3 .ba-caption h3,
+.ba-gallery-grid.css-style-3 .ba-caption p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*
+/* Style 4
+*/
+
+.ba-album.css-style-4 .ba-album-items,
+.ba-gallery-grid.css-style-4 .ba-gallery-items {
+    overflow: hidden;
+}
+
+.ba-album.css-style-4 .ba-image img,
+.ba-gallery-grid.css-style-4 .ba-image img {
+    transition: margin-left .4s 0s ease-in-out;
+    z-index: 9;
+}
+
+.ba-album.css-style-4 .ba-album-items:hover .ba-image img,
+.ba-gallery-grid.css-style-4 .ba-image:hover img {
+    margin-left: 50%; 
+}
+
+.ba-album.css-style-4 .ba-caption,
+.ba-gallery-grid.css-style-4 .ba-caption {
+    bottom: 0;
+    height: 100%;
+    opacity: 1;
+    top: auto;
+    width: 50%;
+    margin-left: -50%;
+    transition: all .4s 0s ease-in-out, opacity 0.3s 0.1s;
+    position: absolute;
+}
+
+.ba-album.css-style-4 .ba-album-items:hover .ba-image+.ba-caption,
+.ba-gallery-grid.css-style-4 .ba-image:hover .ba-caption {
+    margin-left: 0;
+    transition: all .4s 0s ease-in-out;
+}
+
+/*
+/* Style 6
+*/
+
+.ba-album.css-style-6 .ba-caption,
+.ba-gallery-grid.css-style-6 .ba-caption {
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: all .4s 0s ease-in-out, opacity 0.4s;
+    width: 100%;
+    z-index: 1;
+}
+
+.ba-album.css-style-6 .ba-album-items:hover .ba-caption,
+.ba-gallery-grid.css-style-6 .ba-image:hover .ba-caption {
+    opacity: 1;
+    transform: translate(15px, 15px);
+}
+
+.ba-album.css-style-6 .ba-album-items:hover,
+.ba-gallery-grid.css-style-6 .ba-gallery-items:hover {
+    z-index: 1;
+}
+
+/*
+/* Style 7
+*/
+
+.ba-album.css-style-7 .ba-caption,
+.ba-gallery-grid.css-style-7 .ba-caption {
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: all .6s 0s cubic-bezier(0.6, -0.02, 0.6, 0.95);
+    width: 100%;
+    z-index: 1;
+}
+
+.ba-album.css-style-7 .ba-album-items:hover .ba-caption,
+.ba-gallery-grid.css-style-7 .ba-caption:hover {
+    opacity: 1;
+}
+
+.ba-album.css-style-7 .ba-caption h3,
+.ba-album.css-style-7 .ba-caption p,
+.ba-gallery-grid.css-style-7 .ba-caption h3,
+.ba-gallery-grid.css-style-7 .ba-caption p.image-category,
+.ba-gallery-grid.css-style-7 .ba-caption p.short-description {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all .4s ease-in-out;
+}
+
+.ba-album.css-style-7 .ba-album-items:hover .ba-caption h3,
+.ba-album.css-style-7 .ba-album-items:hover .ba-caption p,
+.ba-gallery-grid.css-style-7 .ba-caption:hover h3,
+.ba-gallery-grid.css-style-7 .ba-caption:hover p.image-category,
+.ba-gallery-grid.css-style-7 .ba-caption:hover p.short-description {
+    opacity: 1;
+    transform: none;
+}
+
+/* Image zoom */
+.ba-album.css-style-13 .ba-image,
+.ba-gallery-grid.css-style-13 .ba-image,
+.ba-album.css-style-7 .ba-image,
+.ba-gallery-grid.css-style-7 .ba-image,
+.ba-album.css-style-8 .ba-image,
+.ba-gallery-grid.css-style-8 .ba-image {
+    overflow: hidden;
+}
+
+.ba-album.css-style-13 .ba-image img,
+.ba-gallery-grid.css-style-13 .ba-image img,
+.ba-album.css-style-7 .ba-image img,
+.ba-gallery-grid.css-style-7 .ba-image img,
+.ba-album.css-style-8 .ba-image img,
+.ba-gallery-grid.css-style-8 .ba-image img {
+    transition: transform .6s 0s cubic-bezier(0.6, -0.02, 0.6, 0.95);
+}
+
+.ba-album.css-style-13 .ba-album-items:hover .ba-image img,
+.ba-gallery-grid.css-style-13 .ba-gallery-items:hover .ba-image img,
+.ba-album.css-style-7 .ba-album-items:hover .ba-image img,
+.ba-gallery-grid.css-style-7 .ba-image:hover img,
+.ba-album.css-style-8 .ba-album-items:hover .ba-image img,
+.ba-gallery-grid.css-style-8 .ba-image:hover img  {
+    transform: scale(1.2);
+}
+
+/*
+/* Style 8
+*/
+
+.ba-album.css-style-8 .ba-caption,
+.ba-gallery-grid.css-style-8 .ba-caption {
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: all .6s 0s cubic-bezier(0.6, -0.02, 0.6, 0.95);
+    width: 100%;
+    z-index: 1;
+}
+
+.ba-album.css-style-8 .ba-album-items:hover .ba-caption,
+.ba-gallery-grid.css-style-8 .ba-caption:hover {
+    opacity: 1;
+}
+
+.ba-album.css-style-8 .ba-caption h3,
+.ba-album.css-style-8 .ba-caption p,
+.ba-gallery-grid.css-style-8 .ba-caption h3,
+.ba-gallery-grid.css-style-8 .ba-caption p.image-category,
+.ba-gallery-grid.css-style-8 .ba-caption p.short-description {
+    opacity: 0;
+    transform: translateY(300%);
+    transition: all .4s ease-in-out;
+}
+
+.ba-album.css-style-8 .ba-album-items:hover .ba-caption h3,
+.ba-album.css-style-8 .ba-album-items:hover .ba-caption p,
+.ba-gallery-grid.css-style-8 .ba-caption:hover h3,
+.ba-gallery-grid.css-style-8 .ba-caption:hover p.image-category,
+.ba-gallery-grid.css-style-8 .ba-caption:hover p.short-description {
+    opacity: 1;
+    transform: none;
+}
+
+.ba-album.css-style-8 .ba-caption .ba-caption-content,
+.ba-gallery-grid.css-style-8 .ba-caption .ba-caption-content {
+    transition: all .4s 0s ease-in-out;
+}
+
+/*
+/* Style 10
+*/
+
+/* Caption */
+.ba-album.css-style-10 .ba-caption,
+.ba-gallery-grid.css-style-10 .ba-caption {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+/* Image Scale */
+.ba-album.css-style-10 .ba-image,
+.ba-gallery-grid.css-style-10 .ba-image {
+    overflow: hidden;
+}
+
+.ba-album.css-style-10 .ba-image img,
+.ba-gallery-grid.css-style-10 .ba-image img {
+    transition: transform .4s 0s ease-in-out;
+}
+
+.ba-album.css-style-10 .ba-album-items .ba-caption p,
+.ba-gallery-grid.css-style-10 .ba-gallery-items .ba-caption .short-description {
+    white-space: pre-wrap;
+    line-height: 180%;
+}
+
+/*
+/* Style 11
+*/
+
+/* Caption */
+.ba-gallery-grid.css-style-14 .ba-image .ba-gallery-items,
+.ba-gallery-grid.css-style-14 .ba-image .ba-image,
+.ba-album.css-style-14 .ba-album-items,
+.ba-album.css-style-14 .ba-image,
+.ba-album.css-style-13 .ba-album-items,
+.ba-album.css-style-13 .ba-image,
+.ba-gallery-grid.css-style-13 .ba-gallery-items,
+.ba-gallery-grid.css-style-13 .ba-image,
+.ba-album.css-style-11 .ba-album-items,
+.ba-album.css-style-11 .ba-image,
+.ba-gallery-grid.css-style-11 .ba-gallery-items,
+.ba-gallery-grid.css-style-11 .ba-image {
+    overflow: hidden;
+}
+
+.ba-album.css-style-14 .ba-caption,
+.ba-gallery-grid.css-style-14 .ba-image .ba-caption,
+.ba-album.css-style-13 .ba-caption,
+.ba-gallery-grid.css-style-13 .ba-caption,
+.ba-album.css-style-11 .ba-caption,
+.ba-gallery-grid.css-style-11 .ba-caption {
+    bottom: -20px;
+    background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0,0,0,0.6)))!important;
+    background: -webkit-linear-gradient(top, transparent 10%, rgba(0,0,0,0.6) 150%)!important;
+    background: -moz-linear-gradient(top, transparent 10%, rgba(0,0,0,0.6) 150%)!important;
+    background: linear-gradient(to bottom, transparent 10%, rgba(0,0,0,0.6) 150%)!important;
+    opacity: 0;
+    padding-top: 45px; 
+    position: absolute;
+    transition: all .4s 0s ease-in-out;
+    width: 100%;
+}
+
+.ba-album.css-style-14 .ba-image +.ba-caption,
+.ba-gallery-grid.css-style-14 .ba-image .ba-caption + .image-likes,
+.ba-gallery-grid.css-style-14 .ba-image .ba-caption,
+.ba-album.css-style-13 .ba-image +.ba-caption,
+.ba-gallery-grid.css-style-13 .ba-image .ba-caption,
+.ba-album.css-style-11 .ba-album-items:hover .ba-image+.ba-caption,
+.ba-gallery-grid.css-style-11 .ba-image:hover .ba-caption {
+    bottom: 0;
+    opacity: 1;
+}
+
+.ba-album.css-style-14 .ba-caption h3,
+.ba-album.css-style-14 .ba-caption p,
+.ba-gallery-grid.css-style-14 .ba-caption h3,
+.ba-gallery-grid.css-style-14 .ba-caption p,
+.ba-album.css-style-13 .ba-caption h3,
+.ba-album.css-style-13 .ba-caption p,
+.ba-gallery-grid.css-style-13 .ba-caption h3,
+.ba-gallery-grid.css-style-13 .ba-caption p,
+.ba-album.css-style-11 .ba-caption h3,
+.ba-album.css-style-11 .ba-caption p,
+.ba-gallery-grid.css-style-11 .ba-caption h3,
+.ba-gallery-grid.css-style-11 .ba-caption p {
+    color: #fff!important;
+    line-height: normal !important;
+    margin: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    width: calc(100% - 30px);
+}
+
+/*
+/* Style 12 (Direction Aware Hover Effects)
+*/
+
+.ba-album.css-style-12 .ba-caption,
+.ba-gallery-grid.css-style-12 .ba-caption {
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 1;
+}
+
+.ba-album.css-style-12 .ba-album-items,
+.ba-gallery-grid.css-style-12 .ba-gallery-items {
+    overflow: hidden;
+}
+
+.ba-album.css-style-12 .ba-album-items:hover .ba-caption,
+.ba-album.css-style-12 .ba-album-items:hover .ba-image +.ba-caption,
+.ba-gallery-grid.css-style-12 .ba-image:hover .ba-caption {
+    visibility: visible;
+}
+
+.ba-gallery-grid.css-style-14 .ba-image {
+    transform: translate(0);
+}
+
+.ba-gallery-grid.css-style-14 .ba-caption .ba-caption-content .image-likes {
+    position: fixed;
+}
+
+/* From top */
+@keyframes from-top {
+    from { transform: translateY(-100%); visibility: visible; }
+    to { transform: translateY(0); visibility: visible; }
+}
+
+.ba-album.css-style-12 .from-top,
+.ba-gallery-grid.css-style-12 .from-top {
+    animation: from-top .3s ease-in-out both;
+}
+
+/* From bottom */
+@keyframes from-bottom {
+    from { transform: translateY(100%); visibility: visible; }
+    to { transform: translateY(0); visibility: visible; }
+}
+
+.ba-album.css-style-12 .from-bottom,
+.ba-gallery-grid.css-style-12 .from-bottom {
+    animation: from-bottom .3s ease-in-out both;
+}
+
+/* From right */
+@keyframes from-right {
+    from { transform: translateX(100%); visibility: visible; }
+    to { transform: translateY(0); visibility: visible; }
+}
+
+
+.ba-album.css-style-12 .from-right,
+.ba-gallery-grid.css-style-12 .from-right {
+    animation: from-right .3s ease-in-out both;
+}
+
+/* From left */
+@keyframes from-left {
+    from { transform: translateX(-100%); visibility: visible; }
+    to { transform: translateY(0); visibility: visible; }
+}
+
+.ba-album.css-style-12 .from-left,
+.ba-gallery-grid.css-style-12 .from-left {
+    animation: from-left .3s ease-in-out both;
+}
+
+/* To top */
+@keyframes to-top {
+    from { transform: translateY(0); visibility: visible; }
+    to { transform: translateY(-100%); visibility: visible; }
+}
+
+.ba-album.css-style-12 .to-top,
+.ba-gallery-grid.css-style-12 .to-top {
+    animation: to-top .3s ease-in-out both;
+}
+
+/* To top */
+@keyframes to-bottom {
+    from { transform: translateY(0); visibility: visible; }
+    to { transform: translateY(100%); visibility: visible; }
+}
+
+.ba-album.css-style-12 .to-bottom,
+.ba-gallery-grid.css-style-12 .to-bottom {
+    animation: to-bottom .3s ease-in-out both;
+}
+
+/* To right */
+@keyframes to-right {
+    from { transform: translateX(0); visibility: visible; }
+    to { transform: translateX(100%); visibility: visible; }
+}
+
+.ba-album.css-style-12 .to-right,
+.ba-gallery-grid.css-style-12 .to-right {
+    animation: to-right .3s ease-in-out both;
+}
+
+/* To right */
+@keyframes to-left {
+    from { transform: translateX(0); visibility: visible; }
+    to { transform: translateX(-100%); visibility: visible; }
+}
+
+.ba-album.css-style-12 .to-left,
+.ba-gallery-grid.css-style-12 .to-left {
+    animation: to-left .3s ease-in-out both;
+}
+
+/*
+/* Style None
+*/
+
+.disable-caption .ba-caption {
+    display: none;
+}
+
+/* Transition Delay */
+.ba-album .ba-album-items:hover .ba-caption h3,
+.ba-album .ba-album-items:hover .ba-caption p,
+.ba-caption:hover .ba-caption-content h3,
+.ba-caption:hover p.image-category,
+.ba-caption:hover p.short-description {
+    transition-delay:  0s !important;
+}
+
+.ba-album .ba-album-items:hover .ba-caption h3 + p,
+.ba-caption:hover p.image-category + p.short-description,
+.ba-caption:hover h3 +  p.image-category {
+    transition-delay: .2s !important;
+}
+
+.ba-caption:hover h3 +  p.image-category + p.short-description {
+    transition-delay: .4s !important;
+}
+
+/* ========================================================================
+    Modal Window Effects
+ ========================================================================== */
+
+.modal-open .ba-scrollable {
+     animation: type .5s ;
+}
+
+@keyframes type {
+    0% { opacity: 0; }
+    100% { opacity: inherit;}
+}
+
+/* Close Modal Animation */
+.hide-animation.ba-scrollable.modal-scrollable {
+    animation: hide-modal  .3s linear both;
+}
+
+@keyframes hide-modal {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.hide-animation .gallery-modal {
+    animation: hide-gallery  .2s linear both;
+}
+
+@keyframes hide-gallery {
+    from {transform: scale(1);}
+    to {transform: scale(.5);}
+}
+
+/* Auto Resize Image Animation */
+
+.ba-resize.ba-modal .modal-image img {
+    animation: image-fade 1s linear ;
+}
+
+@keyframes image-fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
