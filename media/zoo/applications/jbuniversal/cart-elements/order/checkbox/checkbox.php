@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -59,7 +60,7 @@ class JBCartElementOrderCheckbox extends JBCartElementOrderOption
             return implode(PHP_EOL, $html);
         }
 
-        return JText::_("There are no options to choose from.");
+        return Text::_("There are no options to choose from.");
     }
 
 }

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -255,37 +256,37 @@ class JBCSVMapperHelper extends AppHelper
     {
         return array(
             'core'     => array(
-                'id'        => JText::_('JBZOO_CATEGORY_ID'),
-                'name'      => JText::_('JBZOO_CATEGORY_NAME'),
-                'alias'     => JText::_('JBZOO_CATEGORY_ALIAS'),
-                'parent'    => JText::_('JBZOO_CATEGORY_PARENT'),
-                'ordering'  => JText::_('JBZOO_CATEGORY_ORDERING'),
-                'published' => JText::_('JBZOO_CATEGORY_PUBLISHED'),
+                'id'        => Text::_('JBZOO_CATEGORY_ID'),
+                'name'      => Text::_('JBZOO_CATEGORY_NAME'),
+                'alias'     => Text::_('JBZOO_CATEGORY_ALIAS'),
+                'parent'    => Text::_('JBZOO_CATEGORY_PARENT'),
+                'ordering'  => Text::_('JBZOO_CATEGORY_ORDERING'),
+                'published' => Text::_('JBZOO_CATEGORY_PUBLISHED'),
             ),
             'content'  => array(
-                'title'        => JText::_('JBZOO_CATEGORY_TITLE'),
-                'description'  => JText::_('JBZOO_CATEGORY_DESCRIPTION'),
-                'subtitle'     => JText::_('JBZOO_CATEGORY_SUBTITLE'),
-                'image'        => JText::_('JBZOO_CATEGORY_IMAGE'),
-                'teaser_text'  => JText::_('JBZOO_CATEGORY_TEASER_TEXT'),
-                'teaser_image' => JText::_('JBZOO_CATEGORY_TEASER_IMAGE'),
+                'title'        => Text::_('JBZOO_CATEGORY_TITLE'),
+                'description'  => Text::_('JBZOO_CATEGORY_DESCRIPTION'),
+                'subtitle'     => Text::_('JBZOO_CATEGORY_SUBTITLE'),
+                'image'        => Text::_('JBZOO_CATEGORY_IMAGE'),
+                'teaser_text'  => Text::_('JBZOO_CATEGORY_TEASER_TEXT'),
+                'teaser_image' => Text::_('JBZOO_CATEGORY_TEASER_IMAGE'),
             ),
             'meta'     => array(
-                'metadata_title'       => JText::_('JBZOO_CATEGORY_METADATA_TITLE'),
-                'metadata_description' => JText::_('JBZOO_CATEGORY_METADATA_DESCRIPTION'),
-                'metadata_keywords'    => JText::_('JBZOO_CATEGORY_METADATA_KEYWORDS'),
-                'metadata_robots'      => JText::_('JBZOO_CATEGORY_METADATA_ROBOTS'),
-                'metadata_author'      => JText::_('JBZOO_CATEGORY_METADATA_AUTHOR'),
+                'metadata_title'       => Text::_('JBZOO_CATEGORY_METADATA_TITLE'),
+                'metadata_description' => Text::_('JBZOO_CATEGORY_METADATA_DESCRIPTION'),
+                'metadata_keywords'    => Text::_('JBZOO_CATEGORY_METADATA_KEYWORDS'),
+                'metadata_robots'      => Text::_('JBZOO_CATEGORY_METADATA_ROBOTS'),
+                'metadata_author'      => Text::_('JBZOO_CATEGORY_METADATA_AUTHOR'),
             ),
             'template' => array(
-                'tmpl_category'      => JText::_('JBZOO_CATEGORY_TMPL_CATEGORY'),
-                'tmpl_subcategory'   => JText::_('JBZOO_CATEGORY_TMPL_SUBCATEGORY'),
-                'tmpl_item'          => JText::_('JBZOO_CATEGORY_TMPL_ITEM'),
-                'config_category'    => JText::_('JBZOO_CATEGORY_CONFIG_CATEGORY'),
-                'config_items'       => JText::_('JBZOO_CATEGORY_CONFIG_ITEMS'),
-                'config_layouts'     => JText::_('JBZOO_CATEGORY_CONFIG_LAYOUTS'),
-                'config_others'      => JText::_('JBZOO_CATEGORY_CONFIG_OTHERS'),
-                'config_items_order' => JText::_('JBZOO_CATEGORY_CONFIG_ITEMS_ORDER')
+                'tmpl_category'      => Text::_('JBZOO_CATEGORY_TMPL_CATEGORY'),
+                'tmpl_subcategory'   => Text::_('JBZOO_CATEGORY_TMPL_SUBCATEGORY'),
+                'tmpl_item'          => Text::_('JBZOO_CATEGORY_TMPL_ITEM'),
+                'config_category'    => Text::_('JBZOO_CATEGORY_CONFIG_CATEGORY'),
+                'config_items'       => Text::_('JBZOO_CATEGORY_CONFIG_ITEMS'),
+                'config_layouts'     => Text::_('JBZOO_CATEGORY_CONFIG_LAYOUTS'),
+                'config_others'      => Text::_('JBZOO_CATEGORY_CONFIG_OTHERS'),
+                'config_items_order' => Text::_('JBZOO_CATEGORY_CONFIG_ITEMS_ORDER')
             )
         );
     }
@@ -300,39 +301,39 @@ class JBCSVMapperHelper extends AppHelper
     {
         $result = array(
             'basic'  => array(
-                'id'    => JText::_('JBZOO_ITEM_ID'),
-                //'sku'   => JText::_('JBZOO_ITEM_SKU'), // TODO replace to price.price_id value
-                'name'  => JText::_('JBZOO_ITEM_NAME'),
-                'alias' => JText::_('JBZOO_ITEM_ALIAS'),
+                'id'    => Text::_('JBZOO_ITEM_ID'),
+                //'sku'   => Text::_('JBZOO_ITEM_SKU'), // TODO replace to price.price_id value
+                'name'  => Text::_('JBZOO_ITEM_NAME'),
+                'alias' => Text::_('JBZOO_ITEM_ALIAS'),
             ),
             'core'   => array(
-                'author'   => JText::_('JBZOO_ITEM_AUTHOR'),
-                'created'  => JText::_('JBZOO_ITEM_CREATED'),
-                'category' => JText::_('JBZOO_ITEM_CATEGORY'),
-                'tags'     => JText::_('JBZOO_ITEM_TAGS'),
+                'author'   => Text::_('JBZOO_ITEM_AUTHOR'),
+                'created'  => Text::_('JBZOO_ITEM_CREATED'),
+                'category' => Text::_('JBZOO_ITEM_CATEGORY'),
+                'tags'     => Text::_('JBZOO_ITEM_TAGS'),
             ),
             'config' => array(
-                'state'                   => JText::_('JBZOO_ITEM_STATE'),
-                'priority'                => JText::_('JBZOO_ITEM_PRIORITY'),
-                'access'                  => JText::_('JBZOO_ITEM_ACCESS'),
-                'searchable'              => JText::_('JBZOO_ITEM_SEARCHABLE'),
-                'publish_up'              => JText::_('JBZOO_ITEM_PUBLISH_UP'),
-                'publish_down'            => JText::_('JBZOO_ITEM_PUBLISH_DOWN'),
-                'comments'                => JText::_('JBZOO_ITEM_COMMENTS'),
-                'frontpage'               => JText::_('JBZOO_ITEM_FRONTPAGE'),
-                'category_primary'        => JText::_('JBZOO_ITEM_CATEGORY_PRIMARY'),
-                'teaser_image_align'      => JText::_('JBZOO_ITEM_CONFIG_TEASER_IMAGE_ALIGN'),
-                'full_image_align'        => JText::_('JBZOO_ITEM_CONFIG_FULL_IMAGE_ALIGN'),
-                'related_image_align'     => JText::_('JBZOO_ITEM_CONFIG_RELATED_IMAGE_ALIGN'),
-                'subcategory_image_align' => JText::_('JBZOO_ITEM_CONFIG_SUBCATEGORY_ALIGN')
+                'state'                   => Text::_('JBZOO_ITEM_STATE'),
+                'priority'                => Text::_('JBZOO_ITEM_PRIORITY'),
+                'access'                  => Text::_('JBZOO_ITEM_ACCESS'),
+                'searchable'              => Text::_('JBZOO_ITEM_SEARCHABLE'),
+                'publish_up'              => Text::_('JBZOO_ITEM_PUBLISH_UP'),
+                'publish_down'            => Text::_('JBZOO_ITEM_PUBLISH_DOWN'),
+                'comments'                => Text::_('JBZOO_ITEM_COMMENTS'),
+                'frontpage'               => Text::_('JBZOO_ITEM_FRONTPAGE'),
+                'category_primary'        => Text::_('JBZOO_ITEM_CATEGORY_PRIMARY'),
+                'teaser_image_align'      => Text::_('JBZOO_ITEM_CONFIG_TEASER_IMAGE_ALIGN'),
+                'full_image_align'        => Text::_('JBZOO_ITEM_CONFIG_FULL_IMAGE_ALIGN'),
+                'related_image_align'     => Text::_('JBZOO_ITEM_CONFIG_RELATED_IMAGE_ALIGN'),
+                'subcategory_image_align' => Text::_('JBZOO_ITEM_CONFIG_SUBCATEGORY_ALIGN')
             ),
             'meta'   => array(
-                'hits'                 => JText::_('JBZOO_ITEM_METADATA_HITS'),
-                'metadata_title'       => JText::_('JBZOO_ITEM_METADATA_TITLE'),
-                'metadata_description' => JText::_('JBZOO_ITEM_METADATA_DESCRIPTION'),
-                'metadata_keywords'    => JText::_('JBZOO_ITEM_METADATA_KEYWORDS'),
-                'metadata_robots'      => JText::_('JBZOO_ITEM_METADATA_ROBOTS'),
-                'metadata_author'      => JText::_('JBZOO_ITEM_METADATA_AUTHOR'),
+                'hits'                 => Text::_('JBZOO_ITEM_METADATA_HITS'),
+                'metadata_title'       => Text::_('JBZOO_ITEM_METADATA_TITLE'),
+                'metadata_description' => Text::_('JBZOO_ITEM_METADATA_DESCRIPTION'),
+                'metadata_keywords'    => Text::_('JBZOO_ITEM_METADATA_KEYWORDS'),
+                'metadata_robots'      => Text::_('JBZOO_ITEM_METADATA_ROBOTS'),
+                'metadata_author'      => Text::_('JBZOO_ITEM_METADATA_AUTHOR'),
             ),
             'user'   => array(),
         );

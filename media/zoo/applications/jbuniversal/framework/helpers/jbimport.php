@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -49,7 +50,8 @@ class JBImportHelper extends AppHelper
 
         // make sure the line endings are recognized irrespective of the OS
         $this->app->jbenv->maxPerformance();
-        ini_set('auto_detect_line_endings', true);
+        // Deprecated in PHP 8.2, but still functional. Use with error suppression.
+        @ini_set('auto_detect_line_endings', true);
     }
 
     /**
@@ -94,7 +96,7 @@ class JBImportHelper extends AppHelper
         $info['columns']    = array();
 
         // get params
-        $separator       = $options->get('separator', ',') ? $options->get('separator', ',') : ',';
+        $separator       = $options->get('separator', ',') ? $options->get('separator', ',') : ';';
         $enclosure       = $options->get('enclosure', '"') ? $options->get('enclosure', '"') : '"';
         $containsHeaders = (int)$options->get('header', 1);
 
@@ -131,11 +133,11 @@ class JBImportHelper extends AppHelper
         $html       = array();
         $htmlHelper = $this->app->html;
 
-        $options = array($htmlHelper->_('select.option', '', '- ' . JText::_('JBZOO_SELECT_APP') . ' -'));
+        $options = array($htmlHelper->_('select.option', '', '- ' . Text::_('JBZOO_SELECT_APP') . ' -'));
         $options += $info['applist'];
         $html['apps'] = $htmlHelper->_('select.genericlist', $options, 'appid');
 
-        $options       = array($htmlHelper->_('select.option', '', '- ' . JText::_('JBZOO_SELECT_TYPE') . ' -'));
+        $options       = array($htmlHelper->_('select.option', '', '- ' . Text::_('JBZOO_SELECT_TYPE') . ' -'));
         $html['types'] = $htmlHelper->_('zoo.typelist', $info['app'], $options, 'typeid', null, 'value', 'text');
 
         $html['fields_types'] = array();
@@ -145,46 +147,46 @@ class JBImportHelper extends AppHelper
 
         // lose control
         $loseOptions  = array(
-            $htmlHelper->_('select.option', self::LOSE_NONE, JText::_('JBZOO_IMPORT_LOSE_NONE')),
-            $htmlHelper->_('select.option', self::LOSE_DISABLE, JText::_('JBZOO_IMPORT_LOSE_DISABLE')),
-            $htmlHelper->_('select.option', self::LOSE_REMOVE, JText::_('JBZOO_IMPORT_LOSE_REMOVE')),
+            $htmlHelper->_('select.option', self::LOSE_NONE, Text::_('JBZOO_IMPORT_LOSE_NONE')),
+            $htmlHelper->_('select.option', self::LOSE_DISABLE, Text::_('JBZOO_IMPORT_LOSE_DISABLE')),
+            $htmlHelper->_('select.option', self::LOSE_REMOVE, Text::_('JBZOO_IMPORT_LOSE_REMOVE')),
         );
         $html['lose'] = $htmlHelper->_('select.genericlist', $loseOptions, 'lose');
 
         // what field is key
         $keyOptions  = array(
-            $htmlHelper->_('select.option', self::KEY_NONE, JText::_('JBZOO_IMPORT_KEY_NONE')),
-            $htmlHelper->_('select.option', self::KEY_ID, JText::_('JBZOO_IMPORT_KEY_ID')),
-            $htmlHelper->_('select.option', self::KEY_NAME, JText::_('JBZOO_IMPORT_KEY_NAME')),
-            $htmlHelper->_('select.option', self::KEY_ALIAS, JText::_('JBZOO_IMPORT_KEY_ALIAS')),
-            $htmlHelper->_('select.option', self::KEY_SKU, JText::_('JBZOO_IMPORT_KEY_SKU')),
+            $htmlHelper->_('select.option', self::KEY_NONE, Text::_('JBZOO_IMPORT_KEY_NONE')),
+            $htmlHelper->_('select.option', self::KEY_ID, Text::_('JBZOO_IMPORT_KEY_ID')),
+            $htmlHelper->_('select.option', self::KEY_NAME, Text::_('JBZOO_IMPORT_KEY_NAME')),
+            $htmlHelper->_('select.option', self::KEY_ALIAS, Text::_('JBZOO_IMPORT_KEY_ALIAS')),
+            $htmlHelper->_('select.option', self::KEY_SKU, Text::_('JBZOO_IMPORT_KEY_SKU')),
         );
         $html['key'] = $htmlHelper->_('select.genericlist', $keyOptions, 'key');
 
         $createOptions  = array(
-            $htmlHelper->_('select.option', self::OPTIONS_NO, JText::_('JBZOO_NO')),
-            $htmlHelper->_('select.option', self::OPTIONS_YES, JText::_('JBZOO_YES')),
+            $htmlHelper->_('select.option', self::OPTIONS_NO, Text::_('JBZOO_NO')),
+            $htmlHelper->_('select.option', self::OPTIONS_YES, Text::_('JBZOO_YES')),
         );
         $html['create'] = $htmlHelper->_('select.genericlist', $createOptions, 'create');
 
         // check options config
         $checkOptions         = array(
-            $htmlHelper->_('select.option', self::OPTIONS_NO, JText::_('JBZOO_IMPORT_CHECK_OPTION_NO')),
-            $htmlHelper->_('select.option', self::OPTIONS_YES, JText::_('JBZOO_IMPORT_CHECK_OPTION_YES')),
+            $htmlHelper->_('select.option', self::OPTIONS_NO, Text::_('JBZOO_IMPORT_CHECK_OPTION_NO')),
+            $htmlHelper->_('select.option', self::OPTIONS_YES, Text::_('JBZOO_IMPORT_CHECK_OPTION_YES')),
         );
         $html['checkOptions'] = $htmlHelper->_('select.genericlist', $checkOptions, 'checkOptions');
 
         // create alias option
         $createAliasOptions  = array(
-            $htmlHelper->_('select.option', self::OPTIONS_NO, JText::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_NO')),
-            $htmlHelper->_('select.option', self::OPTIONS_YES, JText::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_YES')),
+            $htmlHelper->_('select.option', self::OPTIONS_NO, Text::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_NO')),
+            $htmlHelper->_('select.option', self::OPTIONS_YES, Text::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_YES')),
         );
         $html['createAlias'] = $htmlHelper->_('select.genericlist', $createAliasOptions, 'createAlias');
 
         // clean price variations
         $cleanPriceOptions  = array(
-            $htmlHelper->_('select.option', self::OPTIONS_NO, JText::_('JBZOO_IMPORT_CLEAN_PRICE_OPTION_NO')),
-            $htmlHelper->_('select.option', self::OPTIONS_YES, JText::_('JBZOO_IMPORT_CLEAN_PRICE_OPTION_YES')),
+            $htmlHelper->_('select.option', self::OPTIONS_NO, Text::_('JBZOO_IMPORT_CLEAN_PRICE_OPTION_NO')),
+            $htmlHelper->_('select.option', self::OPTIONS_YES, Text::_('JBZOO_IMPORT_CLEAN_PRICE_OPTION_YES')),
         );
         $html['cleanPrice'] = $htmlHelper->_('select.genericlist', $cleanPriceOptions, 'cleanPrice');
 
@@ -200,7 +202,7 @@ class JBImportHelper extends AppHelper
         $html       = array();
         $htmlHelper = $this->app->html;
 
-        $options = array($htmlHelper->_('select.option', '', '- ' . JText::_('JBZOO_SELECT_APP') . ' -'));
+        $options = array($htmlHelper->_('select.option', '', '- ' . Text::_('JBZOO_SELECT_APP') . ' -'));
         $options += $info['applist'];
         $html['apps'] = $htmlHelper->_('select.genericlist', $options, 'appid');
 
@@ -208,31 +210,31 @@ class JBImportHelper extends AppHelper
 
         // lose control
         $loseOptions  = array(
-            $htmlHelper->_('select.option', self::LOSE_NONE, JText::_('JBZOO_IMPORT_LOSE_NONE')),
-            $htmlHelper->_('select.option', self::LOSE_DISABLE, JText::_('JBZOO_IMPORT_LOSE_DISABLE')),
-            $htmlHelper->_('select.option', self::LOSE_REMOVE, JText::_('JBZOO_IMPORT_LOSE_REMOVE')),
+            $htmlHelper->_('select.option', self::LOSE_NONE, Text::_('JBZOO_IMPORT_LOSE_NONE')),
+            $htmlHelper->_('select.option', self::LOSE_DISABLE, Text::_('JBZOO_IMPORT_LOSE_DISABLE')),
+            $htmlHelper->_('select.option', self::LOSE_REMOVE, Text::_('JBZOO_IMPORT_LOSE_REMOVE')),
         );
         $html['lose'] = $htmlHelper->_('select.genericlist', $loseOptions, 'lose');
 
         // what field is key
         $keyOptions  = array(
-            $htmlHelper->_('select.option', self::KEY_NONE, JText::_('JBZOO_IMPORT_KEY_NONE')),
-            $htmlHelper->_('select.option', self::KEY_ID, JText::_('JBZOO_IMPORT_KEY_ID')),
-            $htmlHelper->_('select.option', self::KEY_NAME, JText::_('JBZOO_IMPORT_KEY_NAME')),
-            $htmlHelper->_('select.option', self::KEY_ALIAS, JText::_('JBZOO_IMPORT_KEY_ALIAS')),
+            $htmlHelper->_('select.option', self::KEY_NONE, Text::_('JBZOO_IMPORT_KEY_NONE')),
+            $htmlHelper->_('select.option', self::KEY_ID, Text::_('JBZOO_IMPORT_KEY_ID')),
+            $htmlHelper->_('select.option', self::KEY_NAME, Text::_('JBZOO_IMPORT_KEY_NAME')),
+            $htmlHelper->_('select.option', self::KEY_ALIAS, Text::_('JBZOO_IMPORT_KEY_ALIAS')),
         );
         $html['key'] = $htmlHelper->_('select.genericlist', $keyOptions, 'key');
 
         $createOptions  = array(
-            $htmlHelper->_('select.option', self::OPTIONS_NO, JText::_('JBZOO_NO')),
-            $htmlHelper->_('select.option', self::OPTIONS_YES, JText::_('JBZOO_YES')),
+            $htmlHelper->_('select.option', self::OPTIONS_NO, Text::_('JBZOO_NO')),
+            $htmlHelper->_('select.option', self::OPTIONS_YES, Text::_('JBZOO_YES')),
         );
         $html['create'] = $htmlHelper->_('select.genericlist', $createOptions, 'create');
 
         // create alias option
         $createAliasOptions = array(
-            $htmlHelper->_('select.option', self::OPTIONS_NO, JText::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_NO')),
-            $htmlHelper->_('select.option', self::OPTIONS_YES, JText::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_YES')),
+            $htmlHelper->_('select.option', self::OPTIONS_NO, Text::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_NO')),
+            $htmlHelper->_('select.option', self::OPTIONS_YES, Text::_('JBZOO_IMPORT_CREATE_ALIAS_OPTION_YES')),
         );
 
         $html['createAlias'] = $htmlHelper->_('select.genericlist', $createAliasOptions, 'createAlias');
@@ -255,10 +257,10 @@ class JBImportHelper extends AppHelper
         foreach ($fields as $groupKey => $group) {
 
             if (strpos($groupKey, '__') === false) {
-                $options[] = $htmlHelper->_('select.option', '<OPTGROUP>', JText::_('JBZOO_ITEM_GROUP_' . $groupKey));
+                $options[] = $htmlHelper->_('select.option', '<OPTGROUP>', Text::_('JBZOO_ITEM_GROUP_' . $groupKey));
             } else {
                 list($groupName, $name) = explode('__', $groupKey);
-                $options[] = $htmlHelper->_('select.option', '<OPTGROUP>', JText::_('JBZOO_ITEM_GROUP_' . $groupName) . ' - ' . $name);
+                $options[] = $htmlHelper->_('select.option', '<OPTGROUP>', Text::_('JBZOO_ITEM_GROUP_' . $groupName) . ' - ' . $name);
             }
 
             foreach ($group as $fieldKey => $field) {
@@ -289,7 +291,7 @@ class JBImportHelper extends AppHelper
 
         foreach ($fields as $groupKey => $group) {
 
-            $options[] = $htmlHelper->_('select.option', '<OPTGROUP>', JText::_('JBZOO_ITEM_GROUP_' . strtoupper($groupKey)));
+            $options[] = $htmlHelper->_('select.option', '<OPTGROUP>', Text::_('JBZOO_ITEM_GROUP_' . strtoupper($groupKey)));
 
             foreach ($group as $fieldKey => $field) {
                 $options[] = $htmlHelper->_('select.option', $fieldKey, $field);

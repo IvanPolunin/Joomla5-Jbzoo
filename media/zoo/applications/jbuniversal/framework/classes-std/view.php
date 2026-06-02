@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Filesystem\Path;
 /**
  * JBZoo Application
  *
@@ -18,7 +19,6 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\MVC\View\HtmlView;
-use Joomla\Filesystem\Path;
 
 /**
  * Base View class
@@ -89,7 +89,7 @@ class AppView extends HtmlView
 
         // load the partial
         $__file    = $this->_createFileName('template', array('name' => $file));
-        $__partial = JPath::find($path, $__file);
+        $__partial = Path::find($path, $__file);
 
         // render the partial
         if ($__partial != false) {

@@ -1,4 +1,7 @@
 <?php
+if (!class_exists('Text')) {
+    class_alias(Joomla\CMS\Language\Text::class, 'Text');
+}
 /**
  * JBZoo Application
  *
@@ -24,7 +27,7 @@ if (defined('JBZOO_DISPATCHED')) {
 
     // create jbzoo order list tab
     if ((int)JBModelConfig::model()->get('enable', 1, 'cart.config')) {
-        $tab = $jbmenu->addTab('jborders', 'jborder', 'jbzoo-orders', JText::_('JBZOO_ADMIN_ORDER_TAB'));
+        $tab = $jbmenu->addTab('jborders', 'jborder', 'jbzoo-orders', Joomla\CMS\Language\Text::_('JBZOO_ADMIN_ORDER_TAB'));
         $jbmenu->addItem($tab, array('controller' => 'jborder'));
     }
 

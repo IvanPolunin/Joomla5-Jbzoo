@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -17,6 +18,6 @@
 defined('_JEXEC') or die('Restricted access');
 
 echo $this->_jbhtml->text($this->getControlName('value'), $value, array(
-    'placeholder' => JText::_('JBZOO_ELEMENT_PRICE_VALUE_NAME')
+    'placeholder' => Text::_('JBZOO_ELEMENT_PRICE_VALUE_NAME')
 ));
 

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Filesystem\Path;
 /**
  * JBZoo Application
  *
@@ -104,7 +105,7 @@ class JBPathHelper extends AppHelper
             $result = $result . DS . $addRelpath;
         }
 
-        $result = JPath::clean($result);
+        $result = Path::clean($result);
 
         return $result;
     }

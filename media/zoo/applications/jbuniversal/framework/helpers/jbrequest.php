@@ -1,5 +1,6 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -32,6 +33,11 @@ class JBRequestHelper extends AppHelper
     protected $_request = null;
 
     /**
+     * @var array
+     */
+    protected $_elements = array();
+
+    /**
      * @param App $app
      */
     public function __construct($app)
@@ -51,11 +57,12 @@ class JBRequestHelper extends AppHelper
     {
         if (!is_array($value)) {
 
-            if ($value !== null) {
-                $value = strip_tags($value);
-                $value = StringHelper::trim($value);
+            if ($value === null) {
+                return null;
             }
-           
+
+            $value = strip_tags($value);
+            $value = StringHelper::trim($value);
 
             // force clean input vars
             //$value = str_replace(array('"', "'", ';', '--', '`', '.', ','), ' ', $value);
@@ -84,7 +91,7 @@ class JBRequestHelper extends AppHelper
      */
     public function get($valueName, $default = null)
     {
-        $jInput = JFactory::getApplication()->input;
+        $jInput = Factory::getApplication()->input;
         $value  = $jInput->get($valueName, $default, false);
         $value  = $this->clear($value);
 
@@ -102,7 +109,7 @@ class JBRequestHelper extends AppHelper
      */
     public function take($key, $request, $default = null, $type = 'none')
     {
-        return JFactory::getApplication()->getUserStateFromRequest($key, $request, $default, $type);
+        return Factory::getApplication()->getUserStateFromRequest($key, $request, $default, $type);
     }
 
     /**
@@ -164,7 +171,7 @@ class JBRequestHelper extends AppHelper
      */
     public function isPost()
     {
-        return 'POST' == strtoupper(JFactory::getApplication()->input->getMethod(false, false));
+        return 'POST' == strtoupper(Factory::getApplication()->input->getMethod(false, false));
     }
 
     /**
@@ -365,7 +372,7 @@ class JBRequestHelper extends AppHelper
             return $varId;
         }
 
-        $activeMenu = JFactory::getApplication()->getMenu()->getActive();
+        $activeMenu = Factory::getApplication()->getMenu()->getActive();
         $result     = 0;
 
         // if ($activeMenu && $activeMenu->params) {

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -231,6 +232,6 @@ class JBCartElementPriceOption extends JBCartElementPrice
             $label = '- ' . $this->getName() . ' -';
         }
 
-        return JText::_($label);
+        return Text::_($label);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -315,7 +316,7 @@ class JBModelSearchindex extends JBModel
      */
     public function _valuesByTypes($data, $elementId)
     {
-        $value = StringHelper::trim($data);
+        $value = StringHelper::trim($data ?? '');
         /** @type JBVarsHelper $jbvars */
         $jbvars = $this->app->jbvars;
 
@@ -521,7 +522,7 @@ class JBModelSearchindex extends JBModel
                 $country = $this->app->country->isoToName($countryISO);
 
                 if (strpos($value, $country) !== false) {
-                    $result[] = JText::_($country);
+                    $result[] = Text::_($country);
                 }
 
             }

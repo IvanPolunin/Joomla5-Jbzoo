@@ -33,6 +33,14 @@
                 this.image = $('.jbimage' + related + ':first', $jbzoo);
                 this.link = $('.jbimage-link' + related + ':first', $jbzoo);
 
+                // Fallback for layouts where image class and related option differ (e.g. module vs component)
+                if (!this.image.length) {
+                    this.image = $('.jbimage:first', $jbzoo);
+                }
+                if (!this.link.length) {
+                    this.link = $('.jbimage-link:first', $jbzoo);
+                }
+
                 this.options.default = {
                     'image': this.image.attr('src'),
                     'popup': this.link.attr('href')

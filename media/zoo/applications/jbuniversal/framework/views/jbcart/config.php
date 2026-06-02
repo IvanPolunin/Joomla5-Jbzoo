@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -32,18 +33,18 @@ $this->app->jbtoolbar->save();
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_CART_CONFIG_TITLE'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_CART_CONFIG_TITLE'); ?></h2>
 
         <?php echo $this->partial('cartdesc'); ?>
 
         <ul class="uk-tab" data-uk-tab="{connect:'#tab-comments'}">
             <li class="uk-active">
-                <a href="javascript:void(0);"><?php echo JText::_('JBZOO_CART_CONFIG_CART_GENERAL'); ?></a>
+                <a href="javascript:void(0);"><?php echo Text::_('JBZOO_CART_CONFIG_CART_GENERAL'); ?></a>
             </li>
-            <li><a href="javascript:void(0);"><?php echo JText::_('JBZOO_CART_CONFIG_CART_TEMPLATE'); ?></a></li>
-            <li><a href="javascript:void(0);"><?php echo JText::_('JBZOO_CART_CONFIG_SHOP_ABOUT'); ?></a></li>
-            <li><a href="javascript:void(0);"><?php echo JText::_('JBZOO_CART_CONFIG_SHOP_SHIPPING'); ?></a></li>
-            <li><a href="javascript:void(0);"><?php echo JText::_('JBZOO_CART_CONFIG_SHOP_PAYMENT'); ?></a></li>
+            <li><a href="javascript:void(0);"><?php echo Text::_('JBZOO_CART_CONFIG_CART_TEMPLATE'); ?></a></li>
+            <li><a href="javascript:void(0);"><?php echo Text::_('JBZOO_CART_CONFIG_SHOP_ABOUT'); ?></a></li>
+            <li><a href="javascript:void(0);"><?php echo Text::_('JBZOO_CART_CONFIG_SHOP_SHIPPING'); ?></a></li>
+            <li><a href="javascript:void(0);"><?php echo Text::_('JBZOO_CART_CONFIG_SHOP_PAYMENT'); ?></a></li>
         </ul>
 
         <form <?php echo $this->app->jbhtml->buildAttrs($formAttrs);?>>

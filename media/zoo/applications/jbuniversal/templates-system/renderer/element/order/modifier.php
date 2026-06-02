@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -57,7 +58,7 @@ $uniqId = $element->htmlId();
     <td colspan="2" class="jbcart-modifier-label">
         <label for="<?php echo $uniqId; ?>"><?php echo $label; ?></label>
         <?php if ($description = $element->config->get('description')) : ?>
-            <p class="jbcart-modifier-desc"><?php echo JText::_($description); ?> </p>
+            <p class="jbcart-modifier-desc"><?php echo Text::_($description); ?> </p>
         <?php endif; ?>
     </td>
 

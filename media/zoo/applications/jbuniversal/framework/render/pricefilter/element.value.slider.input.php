@@ -56,7 +56,6 @@ class JBPriceFilterElementValueSliderInput extends JBPriceFilterElementValueSlid
                 $categoryId
             );
 
-
             $cur = JBModelConfig::model()->getCurrency();
 
             $params['min'] = JBCart::val($rangesData['total_min'] ? $rangesData['total_min'] . $cur : $params['min'])->val($to);

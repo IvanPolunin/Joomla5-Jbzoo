@@ -16,7 +16,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -24,7 +24,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBBasketApp
  */
-class JFormFieldJBBasketApp extends JFormField
+class JFormFieldJBBasketApp extends FormField
 {
 
     protected $type = 'jbbasketapp';

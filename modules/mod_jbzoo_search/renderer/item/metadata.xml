@@ -16,6 +16,16 @@
         <name>Default</name>
         <description>This is the default layout to render an item in the module themes</description>
     </layout>
+    
+    <layout name="catalog">
+        <name>Catalog</name>
+        <description>This is the catalog layout to render an item in the module themes</description>
+    </layout>
+    
+    <layout name="tomflon">
+        <name>Tomflon</name>
+        <description>This is the tomflon layout to render an item in the module themes</description>
+    </layout>
 
     <layout name="2colomns">
         <name>2colomns</name>

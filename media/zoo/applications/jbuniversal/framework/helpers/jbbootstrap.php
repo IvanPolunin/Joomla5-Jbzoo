@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -144,7 +145,7 @@ class JBBootstrapHelper extends AppHelper
 
             if ($pagination->current() > 1) {
                 $link = $url;
-                $html .= '<li><a href="' . JRoute::_($link) . '">' . JText::_('JBZOO_BOOTSTRAP_PAGINATE_FIRST') . '</a></li>';
+                $html .= '<li><a href="' . JRoute::_($link) . '">' . Text::_('JBZOO_BOOTSTRAP_PAGINATE_FIRST') . '</a></li>';
                 $link = $pagination->current() - 1 == 1 ? $url : $pagination->link($url, $pagination->name() . '=' . ($pagination->current() - 1));
                 $html .= '<li><a href="' . JRoute::_($link) . '">&laquo;</a></li>';
             }
@@ -162,7 +163,7 @@ class JBBootstrapHelper extends AppHelper
                 $link = $pagination->link($url, $pagination->name() . '=' . ($pagination->current() + 1));
                 $html .= '<li><a href="' . JRoute::_($link) . '">&raquo;</a></li>';
                 $link = $pagination->link($url, $pagination->name() . '=' . ($pagination->pages()));
-                $html .= '<li><a href="' . JRoute::_($link) . '">' . JText::_('JBZOO_BOOTSTRAP_PAGINATE_LAST') . '</a></li>';
+                $html .= '<li><a href="' . JRoute::_($link) . '">' . Text::_('JBZOO_BOOTSTRAP_PAGINATE_LAST') . '</a></li>';
             }
 
         }

@@ -170,7 +170,6 @@ class JBFilterElement
             $categoryId = $this->app->jbrequest->getSystem('category');
             if ($categoryId > 0) {
                 $elements['_itemcategory'] = $categoryId;
-                
             }
         }
 

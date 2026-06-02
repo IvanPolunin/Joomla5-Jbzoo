@@ -1,5 +1,6 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -156,9 +157,9 @@ class JBStringHelper extends AppHelper
     public function _($key, $default = null)
     {
         $key    = trim(strtoupper($key));
-        $result = JText::_($key);
+        $result = Joomla\CMS\Language\Text::_($key);
 
-        if (!JFactory::getLanguage()->hasKey($key) || !$result) {
+        if (!Factory::getLanguage()->hasKey($key) || !$result) {
             $result = $key;
 
             if ($default) {

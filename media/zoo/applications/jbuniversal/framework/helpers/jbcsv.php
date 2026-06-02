@@ -16,6 +16,9 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\Filesystem\Folder;
+use Joomla\Filesystem\File;
+
 /**
  * Class JBCSVHelper
  */
@@ -158,11 +161,11 @@ class JBCSVHelper extends AppHelper
         $config  = $this->_config->getGroup('export');
         $dirName = dirname($file);
 
-        if (!JFolder::exists($dirName)) {
-            JFolder::create($dirName);
+        if (!Folder::exists($dirName)) {
+            Folder::create($dirName);
         }
 
-        if (!JFile::exists($file) && $addHeader) {
+        if (!File::exists($file) && $addHeader) {
             $data = $this->_addHeader($data);
         }
 

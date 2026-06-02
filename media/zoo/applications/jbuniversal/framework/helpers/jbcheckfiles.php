@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -97,7 +98,7 @@ class JBCheckFilesHelper extends AppHelper
     {
         if (!$checksum = $this->app->path->path('jbapp:checksums')) {
             $path = $this->app->path->path('jbapp:');
-            throw new JBCheckFilterException(JText::_('Unable to locate checksums file in ' . $path));
+            throw new JBCheckFilterException(Text::_('Unable to locate checksums file in ' . $path));
         }
 
         $result = [];

@@ -1,9 +1,7 @@
 <?php
-use Joomla\CMS\Factory;
-use Joomla\CMS\Application\SiteApplication;
-use Joomla\String\StringHelper;
-use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -39,6 +37,16 @@ class JBRouterHelper extends AppHelper
     protected $_jbmenu_items;
 
     /**
+     * @var mixed
+     */
+    protected $_config;
+
+    /**
+     * @var bool
+     */
+    protected $_sefEnable;
+
+    /**
      * @param App $app
      */
     public function __construct($app)
@@ -68,7 +76,7 @@ class JBRouterHelper extends AppHelper
                 $link = $menu_item->link;
                 $itemid = $menu_item->id;
 
-                return JRoute::_($link.'&Itemid='.$itemid);
+                return \Joomla\CMS\Router\Route::_($link.'&Itemid='.$itemid);
             }
         }
 
@@ -124,7 +132,7 @@ class JBRouterHelper extends AppHelper
 
         $urlParams = array_merge($urlParams, $params);
 
-        return JURI::root() . 'index.php?' . $this->query($urlParams);
+        return Uri::root() . 'index.php?' . $this->query($urlParams);
     }
 
     /**
@@ -151,7 +159,7 @@ class JBRouterHelper extends AppHelper
             $linkParams['args'] = $params;
         }
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -178,7 +186,7 @@ class JBRouterHelper extends AppHelper
             $linkParams['args'] = $params;
         }
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -249,19 +257,7 @@ class JBRouterHelper extends AppHelper
      */
     public function compare($menuItemid, $layout = 'v', $itemType = null, $appId = null)
     {
-        // Priority 1: direct link to compare
-
-        if ($this->_sefEnable) {
-            if ($menu_item = $this->_find('compare', $appId.'-'.$itemType)) {
-                $link = $menu_item->link;
-                $itemid = $menu_item->id;
-
-                return JRoute::_($link.'&Itemid='.$itemid);
-            }
-        }
-
-        // Priority 2: direct params link
-
+        // Always build a clean compare link (avoid wrong stored menu params)
         $itemType = ($itemType) ? $itemType : $this->_jbrequest->get('type');
         $appId    = ($appId) ? $appId : (int)$this->_jbrequest->get('app_id');
 
@@ -269,13 +265,14 @@ class JBRouterHelper extends AppHelper
             'option'     => 'com_zoo',
             'controller' => 'compare',
             'task'       => 'compare',
+            'view'       => 'compare',
             'app_id'     => (int)$appId,
             'type'       => $itemType,
             'layout'     => $layout,
             'Itemid'     => (int)$menuItemid,
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -293,7 +290,7 @@ class JBRouterHelper extends AppHelper
                 $link = $menu_item->link;
                 $itemid = $menu_item->id;
 
-                return JRoute::_($link.'&Itemid='.$itemid);
+                return \Joomla\CMS\Router\Route::_($link.'&Itemid='.$itemid);
             }
         }
 
@@ -309,7 +306,7 @@ class JBRouterHelper extends AppHelper
             'Itemid'     => (int)$menuItemid,
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -329,7 +326,7 @@ class JBRouterHelper extends AppHelper
             'Itemid'     => (int)$Itemid,
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -350,7 +347,7 @@ class JBRouterHelper extends AppHelper
             'item_id'    => (int)$itemId,
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -375,7 +372,7 @@ class JBRouterHelper extends AppHelper
             'back_itemid' => (int)$menuItemid,
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -392,7 +389,7 @@ class JBRouterHelper extends AppHelper
                 $link = $menu_item->link;
                 $itemid = $menu_item->id;
 
-                return JRoute::_($link.'&Itemid='.$itemid.'&nc='.rand(1000, 9999));
+                return \Joomla\CMS\Router\Route::_($link.'&Itemid='.$itemid.'&nc='.rand(1000, 9999));
             }
         }
 
@@ -410,7 +407,7 @@ class JBRouterHelper extends AppHelper
             'nc'         => rand(1000, 9999), // forced browser no cache
         );
 
-        return JURI::root().'index.php?'.$this->query($linkParams);
+        return Uri::root().'index.php?'.$this->query($linkParams);
     }
 
     /**
@@ -425,7 +422,7 @@ class JBRouterHelper extends AppHelper
             'task'       => 'clear',
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -441,7 +438,7 @@ class JBRouterHelper extends AppHelper
             'moduleId'   => $moduleId,
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -462,7 +459,7 @@ class JBRouterHelper extends AppHelper
             'Itemid'     => (int)$menuItemid,
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -502,7 +499,7 @@ class JBRouterHelper extends AppHelper
             'task'       => 'delete',
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -517,7 +514,7 @@ class JBRouterHelper extends AppHelper
             'task'       => 'clear',
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -532,7 +529,7 @@ class JBRouterHelper extends AppHelper
             'task'       => 'quantity',
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -547,7 +544,7 @@ class JBRouterHelper extends AppHelper
             'task'       => 'shipping',
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -569,7 +566,7 @@ class JBRouterHelper extends AppHelper
             'cid[]'      => $item->id,
         );
 
-        return $this->_url($linkParams, true, JURI::root() . 'administrator/index.php');
+        return $this->_url($linkParams, true, Uri::root() . 'administrator/index.php');
     }
 
     /**
@@ -608,7 +605,7 @@ class JBRouterHelper extends AppHelper
             $params['option'] = 'com_zoo';
         }
 
-        return $this->_url($params, true, JURI::root() . 'administrator/index.php');
+        return $this->_url($params, true, Uri::root() . 'administrator/index.php');
     }
 
     /**
@@ -624,7 +621,7 @@ class JBRouterHelper extends AppHelper
             'task'       => 'payment' . ucfirst($type),
         );
 
-        return JURI::root() . 'index.php?' . $this->query($params);
+        return Uri::root() . 'index.php?' . $this->query($params);
     }
 
     /**
@@ -645,7 +642,7 @@ class JBRouterHelper extends AppHelper
             'order_id'   => $orderId
         );
 
-        return JURI::root() . 'index.php?' . $this->query($params);
+        return Uri::root() . 'index.php?' . $this->query($params);
     }
 
     /**
@@ -661,7 +658,7 @@ class JBRouterHelper extends AppHelper
                 $link = $menu_item->link;
                 $itemid = $menu_item->id;
 
-                return JRoute::_($link.'&Itemid='.$itemid);
+                return \Joomla\CMS\Router\Route::_($link.'&Itemid='.$itemid);
             }
         }
 
@@ -674,7 +671,7 @@ class JBRouterHelper extends AppHelper
             'Itemid'     => $Itemid,
         );
 
-        return JURI::root() . 'index.php?' . $this->query($params);
+        return Uri::root() . 'index.php?' . $this->query($params);
     }
 
     /**
@@ -691,7 +688,7 @@ class JBRouterHelper extends AppHelper
             'Itemid'     => $this->app->jbrequest->get('Itemid'),
         );
 
-        return JRoute::_('index.php?' . $this->query($params));
+        return \Joomla\CMS\Router\Route::_('index.php?' . $this->query($params));
     }
 
     /**
@@ -720,7 +717,7 @@ class JBRouterHelper extends AppHelper
                 $link = $menu_item->link;
                 $itemid = $menu_item->id;
 
-                return JRoute::_($link.'&Itemid='.$itemid);
+                return \Joomla\CMS\Router\Route::_($link.'&Itemid='.$itemid);
             }
         }
 
@@ -733,7 +730,7 @@ class JBRouterHelper extends AppHelper
             'Itemid'     => $menuItemid,
         );
 
-        return JURI::root() . 'index.php?' . $this->query($params);
+        return Uri::root() . 'index.php?' . $this->query($params);
     }
 
     /**
@@ -749,7 +746,7 @@ class JBRouterHelper extends AppHelper
             'app_id'     => $this->app->zoo->getApplication()->id,
         );
 
-        return JURI::root() . 'index.php?' . $this->query($params);
+        return Uri::root() . 'index.php?' . $this->query($params);
     }
 
     /**
@@ -770,7 +767,30 @@ class JBRouterHelper extends AppHelper
         if ($zooRoute) {
             return $this->app->link($params, false);
         } else {
-            return JRoute::_($base . '?' . $this->query($params), true);
+            return \Joomla\CMS\Router\Route::_($base . '?' . $this->query($params), true);
+        }
+    }
+
+    /**
+     * Clean URL for compare links - removes unwanted parameters
+     */
+    private function _urlClean(array $params = array(), $zooRoute = false, $base = 'index.php')
+    {
+        foreach ($params as $key => $param) {
+            if (is_null($param)) {
+                unset($params[$key]);
+            }
+        }
+
+        if ($zooRoute) {
+            return $this->app->link($params, false);
+        } else {
+            $url = $base . '?' . $this->query($params);
+            // Clean final URL from unwanted parameters only
+            $url = preg_replace('/[?&]controller=favorite/', '', $url);
+            $url = preg_replace('/[?&]task=favorite/', '', $url);
+            
+            return \Joomla\CMS\Router\Route::_($url, true);
         }
     }
 
@@ -780,39 +800,23 @@ class JBRouterHelper extends AppHelper
      */
     public function externalItem(Item $item)
     {
-        // Оригинальная логика
         if ($this->app->jbenv->isSite()) {
-            $ssl = (JFactory::getConfig()->get('force_ssl', 0) == 2) ? 1 : 0;
-            $url = JRoute::_($this->app->route->item($item, false), false, $ssl);
-            
-            // Проверяем, остался ли URL техническим
-            if (strpos($url, 'option=com_zoo') !== false) {
-                return $this->generateManualSefUrl($item);
-            }
-            return $url;
+            $ssl = (Factory::getConfig()->get('force_ssl', 0) == 2) ? 1 : 0;
+
+            return \Joomla\CMS\Router\Route::_($this->app->route->item($item, false), false, $ssl);
+
         } else {
-            $root = JUri::root();
-            $link = $this->app->route->item($item, false);
-    
+            $root        = Uri::root();
+            $application = Factory::getApplication('site');
+            $router      = $application->getRouter();
+            $link        = $router->build($this->app->route->item($item, false));
+
             if (JBModelConfig::model()->getGroup('config')->get('sef.fix_item')) {
-                $link = preg_replace('#\/item\/#', '/', $link, 1);
+                $link = preg_replace('#\/item\/#', '/', '' . $link, 1);
             }
-    
-            $url = $root . preg_replace('/^.*administrator\//', '', $link, 1);
-            
-            // Проверяем результат
-            if (strpos($url, 'option=com_zoo') !== false || strpos($url, '&amp;')) {
-                return $this->generateManualSefUrl($item);
-            }
-            return $url;
+
+            return $root . preg_replace('/^.*administrator\//', '', $link, 1);
         }
-    }
-    
-    protected function generateManualSefUrl(Item $item)
-    {
-        $category = $item->getPrimaryCategory();
-        $categoryAlias = $category ? $category->alias : 'products';
-        return JUri::root() . $categoryAlias . '/' . $item->alias;
     }
 
     /**
@@ -847,7 +851,7 @@ class JBRouterHelper extends AppHelper
      */
     public function getHostUrl()
     {
-        return JUri::getInstance()->toString(array('scheme', 'user', 'pass', 'host', 'port'));
+        return Uri::getInstance()->toString(array('scheme', 'user', 'pass', 'host', 'port'));
     }
 
     /**
@@ -862,7 +866,7 @@ class JBRouterHelper extends AppHelper
             'task'       => 'upload',
         );
 
-        return $this->_url($linkParams, false, JURI::root());
+        return $this->_url($linkParams, false, Uri::root());
     }
 
     /**
@@ -896,6 +900,17 @@ class JBRouterHelper extends AppHelper
                         $type   = @$menu_item->query['type'];
                         $key    = $appId.'-'.$type;
 
+                        // Force correct parameters even if menu was saved with favorite
+                        $menu_item->query['option']     = 'com_zoo';
+                        $menu_item->query['controller'] = 'compare';
+                        $menu_item->query['task']       = 'compare';
+                        $menu_item->query['view']       = 'compare';
+                        $menu_item->query['layout']     = @$menu_item->query['layout'] ?: 'compare';
+                        $menu_item->query['app_id']     = (int)$appId;
+                        $menu_item->query['type']       = $type;
+                        // Rebuild the link with corrected parameters
+                        $menu_item->link = 'index.php?' . http_build_query($menu_item->query);
+
                         $this->_jbmenu_items['compare'][$key] = $menu_item;
                         break;
                     case 'filter':
@@ -912,17 +927,16 @@ class JBRouterHelper extends AppHelper
                         {
                             $key = implode(', ', array_map(
                                 function ($v, $k) {
-                                    // if (is_array($v)) {
-                                    //     $v = implode('||', $v);
-                                    // }
-                                    // return sprintf("%s:%s", $k, $v);
-
+                                    // Рекурсивная обработка массивов
                                     if (is_array($v)) {
+                                        $v = array_map(function ($item) {
+                                            return is_array($item) ? json_encode($item) : $item;
+                                        }, $v);
                                         $v = implode('||', $v);
-                                      } else {
-                                        $v = ''; // или выполнить другую обработку, если $v не является массивом
-                                      }
-                                      return sprintf("%s:%s", $k, $v);
+                                    } else {
+                                        $v = (string) $v; // На всякий случай приводим к строке
+                                    }
+                                    return sprintf("%s:%s", $k, $v);
                                 },
                                 $elements,
                                 array_keys($elements)

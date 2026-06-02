@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -243,7 +244,7 @@ class JBModelCategory extends JBModel
         // create empty category
         $category                 = $this->app->object->create('Category');
         $category->application_id = (int)$appId;
-        $category->name           = JText::_('JBZOO_NEW_CATEGORY_NAME') . (($nameSuf) ? ' #' . $nameSuf : '');
+        $category->name           = Text::_('JBZOO_NEW_CATEGORY_NAME') . (($nameSuf) ? ' #' . $nameSuf : '');
         $category->parent         = 0;
         $category->ordering       = 0;
         $category->published      = 0;

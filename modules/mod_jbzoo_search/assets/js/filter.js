@@ -69,11 +69,11 @@
                     return false;
                 }
 
-                $this.on('change', $fields, function () {
+                $fields.on('change', function () {
                     $this._submitForm();
                 });
 
-                $this.on('change.JBZooSlider', $fields, function () {
+                $fields.on('change.JBZooSlider', function () {
                     $this._delay(function () {
                         $this._submitForm();
                     }, 1000, 'submitForm');

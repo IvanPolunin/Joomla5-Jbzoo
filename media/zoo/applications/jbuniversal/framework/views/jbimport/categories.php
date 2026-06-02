@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -25,21 +26,21 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_IMPORT_CATEGORIES'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_IMPORT_CATEGORIES'); ?></h2>
 
-        <h4><?php echo JText::_('JBZOO_IMPORT_NOTICE_TITLE'); ?></h4>
+        <h4><?php echo Text::_('JBZOO_IMPORT_NOTICE_TITLE'); ?></h4>
         <ul>
-            <li><?php echo JText::_('JBZOO_IMPORT_NOTICE_1'); ?></li>
-            <li><?php echo JText::_('JBZOO_IMPORT_NOTICE_2'); ?></li>
-            <li><?php echo JText::_('JBZOO_IMPORT_NOTICE_3'); ?></li>
-            <li><?php echo JText::_('JBZOO_IMPORT_NOTICE_4'); ?></li>
+            <li><?php echo Text::_('JBZOO_IMPORT_NOTICE_1'); ?></li>
+            <li><?php echo Text::_('JBZOO_IMPORT_NOTICE_2'); ?></li>
+            <li><?php echo Text::_('JBZOO_IMPORT_NOTICE_3'); ?></li>
+            <li><?php echo Text::_('JBZOO_IMPORT_NOTICE_4'); ?></li>
         </ul>
 
         <?php
         echo $this->app->jbform->render('import_categories', array(
             'action'     => $this->app->jbrouter->admin(array('task' => 'assign')),
             'showSubmit' => true,
-            'submit'     => JText::_('JBZOO_FORM_NEXT')
+            'submit'     => Text::_('JBZOO_FORM_NEXT')
         ), $this->importParams);
         ?>
 

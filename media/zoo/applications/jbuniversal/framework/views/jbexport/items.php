@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -25,14 +26,14 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_EXPORT_ITEMS'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_EXPORT_ITEMS'); ?></h2>
 
-        <p><?php echo JText::_('JBZOO_ADMIN_PAGE_EXPORT_DESC'); ?></p>
+        <p><?php echo Text::_('JBZOO_ADMIN_PAGE_EXPORT_DESC'); ?></p>
 
         <?php echo $this->app->jbform->render('export_items', array(
             'action'     => $this->app->jbrouter->admin(array('task' => 'itemsSteps', 'page' => -1)),
             'showSubmit' => true,
-            'submit'     => JText::_('JBZOO_ADMIN_PAGE_EXPORT_RUN'),
+            'submit'     => Text::_('JBZOO_ADMIN_PAGE_EXPORT_RUN'),
         ), $this->exportParams);
         ?>
 

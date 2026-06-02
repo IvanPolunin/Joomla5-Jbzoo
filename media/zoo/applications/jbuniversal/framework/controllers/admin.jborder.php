@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -56,8 +57,8 @@ class JBOrderJBuniversalController extends JBUniversalController
 
         $this->pagination = $this->zoo->pagination->create($this->orderCount, $this->filter['offset'], $this->filter['limit']);
 
-        $this->statusList = array('' => JText::_('JBZOO_ADMIN_STATUS_SELECT')) + $this->zoo->jbcartstatus->getExistsList();
-        $this->userList   = array(0 => JText::_('JBZOO_ADMIN_USER_SELECT')) + $this->zoo->jbcartorder->getExistsUsers();
+        $this->statusList = array('' => Text::_('JBZOO_ADMIN_STATUS_SELECT')) + $this->zoo->jbcartstatus->getExistsList();
+        $this->userList   = array(0 => Text::_('JBZOO_ADMIN_USER_SELECT')) + $this->zoo->jbcartorder->getExistsUsers();
 
         $this->renderView();
     }
@@ -79,7 +80,7 @@ class JBOrderJBuniversalController extends JBUniversalController
             $orderModel->save($this->order);
 
             $editUrl = $this->zoo->jbrouter->admin(array('cid' => array($this->order->id)));
-            $this->setRedirect($editUrl, JText::_('JBZOO_ADMIN_MESSAGE_SAVED'));
+            $this->setRedirect($editUrl, Text::_('JBZOO_ADMIN_MESSAGE_SAVED'));
         }
 
         $this->shipRender       = $this->zoo->jbrenderer->create('Shipping');
@@ -88,7 +89,7 @@ class JBOrderJBuniversalController extends JBUniversalController
         $this->orderFieldRender = $this->zoo->jbrenderer->create('order');
 
         if ($this->order->id == 0) {
-            $this->zoo->error->raiseError(500, JText::sprintf('Unable to access item with id %s', $orderId));
+            $this->zoo->error->raiseError(500, Text::sprintf('Unable to access item with id %s', $orderId));
             return;
         }
 
@@ -115,12 +116,12 @@ class JBOrderJBuniversalController extends JBUniversalController
                 JBModelOrder::model()->removeById($id);
             }
 
-            $msg = JText::_('JBZOO_ADMIN_ORDER_REMOVED');
+            $msg = Text::_('JBZOO_ADMIN_ORDER_REMOVED');
 
         } catch (AppException $e) {
 
             // raise notice on exception
-            $this->zoo->jbnotify->warning(JText::_('JBZOO_ADMIN_ORDER_DELET_ERROR') . ' (' . $e . ')');
+            $this->zoo->jbnotify->warning(Text::_('JBZOO_ADMIN_ORDER_DELET_ERROR') . ' (' . $e . ')');
             $msg = null;
         }
 

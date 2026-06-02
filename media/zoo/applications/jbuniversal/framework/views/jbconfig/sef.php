@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,14 +25,14 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_CONFIG_SEF'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_CONFIG_SEF'); ?></h2>
 
-        <p><?php echo JText::_('JBZOO_SEF_DESCRIPTION'); ?></p>
+        <p><?php echo Text::_('JBZOO_SEF_DESCRIPTION'); ?></p>
 
-        <p><strong><?php echo JText::_('JBZOO_SEF_ATTENTION'); ?></strong></p>
+        <p><strong><?php echo Text::_('JBZOO_SEF_ATTENTION'); ?></strong></p>
         <ul>
-            <li><?php echo JText::_('JBZOO_SEF_ATTENTION_1'); ?></li>
-            <li><?php echo JText::_('JBZOO_SEF_ATTENTION_2'); ?></li>
+            <li><?php echo Text::_('JBZOO_SEF_ATTENTION_1'); ?></li>
+            <li><?php echo Text::_('JBZOO_SEF_ATTENTION_2'); ?></li>
         </ul>
         <p>&nbsp;</p>
 

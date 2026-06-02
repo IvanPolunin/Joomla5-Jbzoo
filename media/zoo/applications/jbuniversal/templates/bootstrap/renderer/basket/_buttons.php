@@ -25,12 +25,12 @@ $isPayment = (int)$view->config->get('tmpl_button_payment', 1) && $view->payment
 
     <?php if ($isCreate) : ?>
         <input type="submit" name="create" value="<?php echo JText::_('JBZOO_CART_SUBMIT'); ?>"
-               class="knopka2" />
+               class="btn btn-lg" />
     <?php endif; ?>
 
     <?php if ($isPayment) : ?>
         <input type="submit" name="create-pay" value="<?php echo JText::_('JBZOO_CART_SUBMIT_AND_PAY'); ?>"
-               class="knopka2" />
+               class="btn btn-success btn-lg" />
     <?php endif; ?>
 
 </div>

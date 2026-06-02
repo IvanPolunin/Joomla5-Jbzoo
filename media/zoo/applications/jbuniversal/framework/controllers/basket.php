@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -81,7 +82,7 @@ class BasketJBUniversalController extends JBUniversalController
             $user = JFactory::getUser();
             if (empty($user->id)) {
                 $url = 'index.php?option=com_users&view=login&return=' . base64_encode($this->zoo->jbenv->getCurrentUrl());
-                $this->setRedirect($url, JText::_('JBZOO_CART_NEED_LOGIN'));
+                $this->setRedirect($url, Text::_('JBZOO_CART_NEED_LOGIN'));
             } else {
                 $this->zoo->jbnotify->error('JBZOO_CART_UNABLE_ACCESS');
             }
@@ -116,7 +117,7 @@ class BasketJBUniversalController extends JBUniversalController
             'item_link'    => $this->_config->get('tmpl_item_link', 1),
             'edit'         => true,
         ));
-        $this->title    = JText::_('JBZOO_CART_ITEMS');
+        $this->title    = Text::_('JBZOO_CART_ITEMS');
 
         $jbnotify = $this->zoo->jbnotify;
 
@@ -161,17 +162,17 @@ class BasketJBUniversalController extends JBUniversalController
                             $message = 'JBZOO_CART_PAYMENT_REDIRECT';
                         }
 
-                        $this->setRedirect($paymentUrl, JText::_($message));
+                        $this->setRedirect($paymentUrl, Text::_($message));
                     } else {
                         $jbnotify->notice('JBZOO_CART_ORDER_SUCCESS_CREATED');
                     }
                 }
 
             } catch (JBCartOrderException $e) {
-                $jbnotify->warning(JText::_($e->getMessage()));
+                $jbnotify->warning(Text::_($e->getMessage()));
 
             } catch (AppException $e) {
-                $jbnotify->warning(JText::_($e->getMessage()));
+                $jbnotify->warning(Text::_($e->getMessage()));
             }
         }
 
@@ -276,12 +277,12 @@ class BasketJBUniversalController extends JBUniversalController
                                 $message = 'JBZOO_CART_PAYMENT_REDIRECT';
                             }
 
-                            $this->setRedirect($paymentAction, JText::_($message));
+                            $this->setRedirect($paymentAction, Text::_($message));
                         }
                     }
 
                 } catch (AppValidatorException $e) {
-                    $this->zoo->jbnotify->warning(JText::_($e->getMessage()));
+                    $this->zoo->jbnotify->warning(Text::_($e->getMessage()));
                 }
             }
         }
@@ -313,7 +314,7 @@ class BasketJBUniversalController extends JBUniversalController
         $item    = $cart->getItem($key);
         $variant = isset($item['variant']) ? $item['variant'] : 0;
         $this->zoo->jbajax->send(array(
-            'message'  => JText::_('JBZOO_JBPRICE_NOT_AVAILABLE_MESSAGE'),
+            'message'  => Text::_('JBZOO_JBPRICE_NOT_AVAILABLE_MESSAGE'),
             'quantity' => (float)$cart->getItemElement($item)->getBalance($variant)
         ), false);
     }
@@ -360,7 +361,7 @@ class BasketJBUniversalController extends JBUniversalController
         }
 
         if (empty($order)) {
-            return $this->zoo->error->raiseError(404, JText::_('Order not found'));
+            return $this->zoo->error->raiseError(404, Text::_('Order not found'));
         }
 
         // get element
@@ -373,11 +374,11 @@ class BasketJBUniversalController extends JBUniversalController
         }
 
         if (empty($element)) {
-            return $this->zoo->error->raiseError(404, JText::_('Element not forund'));
+            return $this->zoo->error->raiseError(404, Text::_('Element not forund'));
         }
 
         if (!$element->canAccess($this->zoo->user->get())) {
-            return $this->zoo->error->raiseError(403, JText::_('Unable to access item'));
+            return $this->zoo->error->raiseError(403, Text::_('Unable to access item'));
         }
 
         $element->callback($method, $args);

@@ -536,9 +536,6 @@ abstract class JBCartElementPrice extends JBCartElement
             'price' => $price,
             'save'  => $total->minus($price, true)
         );
-        
-        //include $_SERVER['DOCUMENT_ROOT'] .'/JBDump-1.5.6/class.jbdump.php';
-        //jbdump($price->data());
 
         return $this->prices;
     }

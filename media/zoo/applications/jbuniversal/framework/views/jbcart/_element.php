@@ -23,7 +23,7 @@ $positionKey   = isset($positionKey) ? $positionKey : JBCart::DEFAULT_POSITION;
 
 // get elements meta data
 $form = $element->getConfigForm($elementGroup);
-$name = JText::_($element->config->get('name', 'JBZOO_ADMIN_ELEMENT_NEW'));
+$name = Joomla\CMS\Language\Text::_($element->config->get('name', 'JBZOO_ADMIN_ELEMENT_NEW'));
 
 // uniqid vs radio input "checked" bug
 $varName = 'tmp[' . $positionKey . '][' . $this->app->jbstring->getId($element->identifier . '--') . ']';
@@ -32,17 +32,17 @@ $varName = 'tmp[' . $positionKey . '][' . $this->app->jbstring->getId($element->
 
 <li class="element hideconfig jsElement" data-element="<?php echo $element->identifier; ?>">
 
-    <div class="element-icon edit-element jsEdit" title="<?php echo JText::_('JBZOO_ADMIN_ELEMENT_EDIT'); ?>"></div>
+    <div class="element-icon edit-element jsEdit" title="<?php echo Joomla\CMS\Language\Text::_('JBZOO_ADMIN_ELEMENT_EDIT'); ?>"></div>
 
     <div class="element-icon delete-element jsDelete"
-         title="<?php echo JText::_('JBZOO_ADMIN_ELEMENT_DELETE'); ?>"></div>
+         title="<?php echo Joomla\CMS\Language\Text::_('JBZOO_ADMIN_ELEMENT_DELETE'); ?>"></div>
 
-    <div class="name jsSort" title="<?php echo JText::_('JBZOO_ADMIN_ELEMENT_SORT'); ?>">
+    <div class="name jsSort" title="<?php echo Joomla\CMS\Language\Text::_('JBZOO_ADMIN_ELEMENT_SORT'); ?>">
         <?php echo $name; ?>
         <span>
             <i><?php
                 echo $element->getMetaData('name')
-                    . ($element->isCore() ? ' <em>(' . JText::_('JBZOO_ELEMENT_CORE') . ')</em>' : '')
+                    . ($element->isCore() ? ' <em>(' . Joomla\CMS\Language\Text::_('JBZOO_ELEMENT_CORE') . ')</em>' : '')
                 ?></i>
         </span>
     </div>

@@ -1,5 +1,6 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\Filesystem\Folder;
 /**
  * JBZoo Application
  *
@@ -32,7 +33,7 @@ class JBTypeHelper extends AppHelper
         $types = array();
 
         $typePath  = $this->app->path->path('jbtypes:');
-        $typeFiles = JFolder::files($typePath, '\.config');
+        $typeFiles = Folder::files($typePath, '\.config');
 
         if (!empty($typeFiles)) {
             foreach ($typeFiles as $file) {

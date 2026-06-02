@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -404,6 +405,7 @@ class JBModelItem extends JBModel
         // some vars
         $now    = $this->app->date->create()->toSQL();
         $userId = $this->app->user->get()->get('id');
+        $publish_down_date = $this->app->date->create('1970-01-01 00:00:00')->toSQL();
 
         // create empty item
         $item = $this->app->object->create('Item');
@@ -418,7 +420,8 @@ class JBModelItem extends JBModel
         $item->created        = $now;
         $item->modified       = $now;
         $item->publish_up     = $now;
-        $item->name           = JText::_('JBZOO_NEW_ITEM_NAME') . (($nameSuf) ? ' #' . $nameSuf : '');
+        $item->publish_down   = $publish_down_date; // J5 FIX
+        $item->name           = Text::_('JBZOO_NEW_ITEM_NAME') . (($nameSuf) ? ' #' . $nameSuf : '');
         $item->alias          = uniqid('item-uid-'); // hack for speed
 
         // set default params

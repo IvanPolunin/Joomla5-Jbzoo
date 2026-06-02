@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -70,7 +71,7 @@ class JBOrderMacrosHelper extends AppHelper
 
         foreach ($this->_list as $macros) {
             $key   = '{' . $macros . '}';
-            $value = JText::_('JBZOO_ORDER_MACROS_' . strtoupper($macros));
+            $value = Text::_('JBZOO_ORDER_MACROS_' . strtoupper($macros));
 
             $result[$key] = $value;
         }
@@ -104,7 +105,7 @@ class JBOrderMacrosHelper extends AppHelper
     private function _replaceMacros($text, $macros, JBCartOrder $order = null)
     {
         if ($macros == 'date') {
-            $replace = $this->app->html->_('date', 'now', JText::_('DATE_FORMAT_LC3'), $this->app->date->getOffset());
+            $replace = $this->app->html->_('date', 'now', Text::_('DATE_FORMAT_LC3'), $this->app->date->getOffset());
 
         } else if ($macros == 'time') {
             $replace = $this->app->html->_('date', 'now', 'H:i', $this->app->date->getOffset());
@@ -125,7 +126,7 @@ class JBOrderMacrosHelper extends AppHelper
             $replace = $order->getTotalSum()->text();
 
         } else if ($macros == 'order_payment_name' && $order) {
-            $replace = JText::_('JBZOO_UNDEFINED');
+            $replace = Text::_('JBZOO_UNDEFINED');
             if ($payment = $order->getPayment()) {
                 $replace = $payment->getName();
             }
@@ -134,7 +135,7 @@ class JBOrderMacrosHelper extends AppHelper
             $replace = $order->getPaymentStatus()->getName();
 
         } else if ($macros == 'order_shipping_name' && $order) {
-            $replace = JText::_('JBZOO_UNDEFINED');
+            $replace = Text::_('JBZOO_UNDEFINED');
             if ($shipping = $order->getShipping()) {
                 $replace = $shipping->getName();
             }
@@ -147,14 +148,14 @@ class JBOrderMacrosHelper extends AppHelper
 
         } else if ($macros == 'user_name') {
             $juser   = JFactory::getUser();
-            $replace = ($juser->id > 0) ? $juser->get('name') : JText::_('JBZOO_UNDEFINED');
+            $replace = ($juser->id > 0) ? $juser->get('name') : Text::_('JBZOO_UNDEFINED');
 
         } else if ($macros == 'order_created_id') {
             $replace = $order->created_by;
 
         } else if ($macros == 'order_created_name') {
             $juser   = JFactory::getUser($order->created_by);
-            $replace = ($juser->id > 0) ? $juser->name : JText::_('JBZOO_UNDEFINED');
+            $replace = ($juser->id > 0) ? $juser->name : Text::_('JBZOO_UNDEFINED');
 
         } else if ($macros == 'site_name') {
             $replace = JFactory::getConfig()->get('sitename', '');
@@ -192,7 +193,7 @@ class JBOrderMacrosHelper extends AppHelper
             if ($payment = $order->getPayment()) {
                 if (!$payment->isPaid() && ($checkoutUrl = $payment->getRedirectUrl())) {
                     $replace = '<a target="_blank" class="jbbutton green" href="' . $checkoutUrl . '">'
-                        . JText::_('JBZOO_CLIENTAREA_PAYMENT_GOTO_CHECKOUT') . '</a>';
+                        . Text::_('JBZOO_CLIENTAREA_PAYMENT_GOTO_CHECKOUT') . '</a>';
                 }
             }
 

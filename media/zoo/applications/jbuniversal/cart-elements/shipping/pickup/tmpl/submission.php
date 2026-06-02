@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -18,6 +19,6 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 <p>
-    <strong><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_PICKUP_ADDRESS_TMPL'); ?>:</strong>
+    <strong><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_PICKUP_ADDRESS_TMPL'); ?>:</strong>
     <?php echo $address; ?>
 </p>

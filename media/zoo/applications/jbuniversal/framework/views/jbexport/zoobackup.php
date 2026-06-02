@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,11 +25,11 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_EXPORT_ZOOBACKUP'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_EXPORT_ZOOBACKUP'); ?></h2>
 
-        <p><?php echo JText::_('JBZOO_ADMIN_PAGE_EXPORT_ZOOBACKUP_1'); ?></p>
+        <p><?php echo Text::_('JBZOO_ADMIN_PAGE_EXPORT_ZOOBACKUP_1'); ?></p>
 
-        <p><em><?php echo JText::_('JBZOO_ADMIN_PAGE_EXPORT_ZOOBACKUP_2'); ?></em></p>
+        <p><em><?php echo Text::_('JBZOO_ADMIN_PAGE_EXPORT_ZOOBACKUP_2'); ?></em></p>
 
         <?php echo $this->app->jbform->render('export_zoobackup', array(
             'action'     => $this->app->jbrouter->admin(array(
@@ -36,7 +37,7 @@ defined('_JEXEC') or die('Restricted access');
                 'task'       => 'dobackup'
             )),
             'showSubmit' => true,
-            'submit'     => JText::_('JBZOO_FORM_DOWNLOAD')
+            'submit'     => Text::_('JBZOO_FORM_DOWNLOAD')
         ));
         ?>
 

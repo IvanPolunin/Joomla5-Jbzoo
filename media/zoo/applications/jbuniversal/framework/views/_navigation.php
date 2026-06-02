@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -133,7 +134,7 @@ if (isset($allItems[$curMenu])) {
         foreach ($headItems as $headItem => $items) {
 
             $html[] = '<li class="uk-nav-divider"></li>';
-            $html[] = '<li class="uk-nav-header">' . JText::_('JBZOO_NAV_' . $curMenu . '_' . $headItem) . '</li>';
+            $html[] = '<li class="uk-nav-header">' . Text::_('JBZOO_NAV_' . $curMenu . '_' . $headItem) . '</li>';
 
             foreach ($items as $itemName => $urlParams) {
 
@@ -145,7 +146,7 @@ if (isset($allItems[$curMenu])) {
 
                 $url = $jbrouter->admin(['controller' => $curMenu, 'task' => $urlParams[0]]);
                 $labelKey = strtoupper('JBZOO_NAV_' . $curMenu . '_' . $headItem . '_' . $itemName);
-                $name = JText::_($labelKey);
+                $name = Text::_($labelKey);
 
                 $classes = [$headItem, $itemName];
                 if (strtolower($curUrl) == strtolower($url)) {

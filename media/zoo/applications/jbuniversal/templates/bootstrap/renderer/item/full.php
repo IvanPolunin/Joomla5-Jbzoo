@@ -15,244 +15,163 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+$document = JFactory::getDocument();
+//$document->setMetadata('description', strip_tags(trim($this->renderPosition('title')." в Санкт-Петербурге с доставкой по России от официального дистрибьютора с гарантией качества. Масла и смазки в наличии на складе и под заказ по отличным ценам с качественным сервисом.")));
 
 
-$title = 'Купить ' . trim(strip_tags($this->renderPosition('title'))) . ' — ООО ПК «Провоздух»';
-$description = 'Комплексные приточно-вытяжные вентиляционные системы - '. trim(strip_tags($this->renderPosition('title'))) . ' с доставкой по Свердловской области и всей России. Звоните +7 (932) 609-10-99 ' ;
-JFactory::getDocument()->setTitle($title); 
-JFactory::getDocument()->setDescription($description); 
+
+
+$align      = $this->app->jbitem->getMediaAlign($item, $layout);
+$tabsId     = $this->app->jbstring->getId('tabs');
+$bootstrap = $this->app->jbbootstrap;
+$rowClass   = $bootstrap->getRowClass();
 ?>
 
-<div  class="containerr">
- <?php if ($this->checkPosition('title')) : ?>
-    <h1 class="h2title matit"><?php echo $this->renderPosition('title'); ?></h1>
+<?php if ($this->checkPosition('title')) : ?>
+    <h1 class="item-title"><?php echo $this->renderPosition('title'); ?></h1>
 <?php endif; ?>
-       <div class="bc">{module 17}</div>
 
-      
+<div class="clearfix">
+   <div class="<?php echo $rowClass; ?>">
+      <div class="<?php echo $bootstrap->gridClass(3); ?>">
+         <div class="item-image">
+            <!--<img src="<?php echo JURI::base().'/images/smazka.png'; ?>" width="400" height="219" alt="Смазка" />-->
+            <?php echo $this->renderPosition('image', array('style' => 'block')); ?>
+         </div>
+      </div>
+      <div class="<?php echo $bootstrap->gridClass(9); ?>">
+         <?php if ($this->checkPosition('manufacturer')) : ?>
+            <div class="item-manufacturer">
+               <?php echo $this->renderPosition('manufacturer', array(
+                  'style' => 'jbblock',
+                  'wrapperTag' => 'span'
+               )); ?>
+            </div>
+         <?php endif; ?>
+         <?php if ($this->checkPosition('tare')) : ?>
+            <div class="item-tare">
+               <?php echo $this->renderPosition('tare', array(
+                  'style' => 'jbblock',
+                  'wrapperTag' => 'span'
+               )); ?>
+            </div>
+         <?php endif; ?>
+         <?php if ($this->checkPosition('type-application')) : ?>
+            <div class="item-type-application">
+               <?php echo $this->renderPosition('type-application', array(
+                  'style' => 'jbblock',
+                  'wrapperTag' => 'span'
+               )); ?>
+            </div>
+         <?php endif; ?>
+         <?php if ($this->checkPosition('properties')) : ?>
+            <div class="item-properties">
+               <?php echo $this->renderPosition('properties', array(
+                  'style' => 'jbblock',
+                  'wrapperTag' => 'span'
+               )); ?>
+            </div>
+         <?php endif; ?>
+         <?php if ($this->checkPosition('analogues')) : ?>
+            <div class="item-analogues">
+               <?php echo $this->renderPosition('analogues', array(
+                  'style' => 'jbblock',
+                  'wrapperTag' => 'span'
+               )); ?>
+            </div>
+         <?php endif; ?>
+      </div>
+   </div>
 
-
-<div class="row">
-<div class="col-xxl-8 col-xl-12">
-
-
-<div class="row">
-<div class="col-lg-6">
-  <?php if ($this->checkPosition('image')) : ?>
- <div class="styck">
-             
-				 <div id="sync1" class="owl-carousel owl-theme">
-    <?php echo $this->renderPosition('image'); ?>
+   <?php if ($this->checkPosition('description')) : ?>
+      <div class="<?php echo $rowClass; ?>">
+         <div class="<?php echo $bootstrap->gridClass(12); ?>">
+            <div class="item-description">
+               <?php echo $this->renderPosition('description', array('style' => 'block')); ?>
+            </div>
+         </div>
+      </div>
+   <?php endif; ?>
 </div>
 
-<div id="sync2" class="owl-carousel owl-theme">
-   <?php echo $this->renderPosition('image'); ?>
-</div>
-</div>
-<?php endif; ?>
-</div>
-
-<div class="col-lg-6 ">
-<div class="wh">
-
- <?php if ($this->checkPosition('price')) : ?>
-                <div class="full-item-price">
-				<h4>Цена</h4>
-                     <?php echo $this->renderPosition('price'); ?>
-                </div>
+<div class="item-tabs">
+    <ul id="<?php echo $tabsId; ?>" class="nav nav-tabs">
+        <?php if ($this->checkPosition('price')) : ?>
+            <li class="active">
+                <a href="#item-price" id="price-tab" data-toggle="tab" class="active">
+                    <?php echo JText::_('JBZOO_ITEM_TAB_PRICE'); ?>
+                </a>
+            </li>
         <?php endif; ?>
-<?php if ($this->checkPosition('buttons')) : ?>
-<div class="harbl"><h4 style="margin-bottom:20px;">Параметры</h4><?php echo $this->renderPosition('buttons' , array('style' => 'list')); ?></div>
-<?php endif; ?>
 
-<div class="harbl"><h4>Купить в один клик</h4>[forms ID=5]</div>
-		<hr>
-	
-		<div class="disc z9">Указанные на сайте цены не являются публичной офертой (ст. 435 ГК РФ), носят ознакомительный характер и могут быть изменены в зависимости от объема закупаемой продукции и индивидуальных условий работы.</div>
-	
-</div></div>
+        <?php if ($this->checkPosition('adaptation')) : ?>
+            <li>
+                <a href="#item-adaptation" id="adaptation-tab" data-toggle="tab">
+                    <?php echo JText::_('JBZOO_ITEM_TAB_ADAPTATION'); ?>
+                </a>
+            </li>
+        <?php endif; ?>
 
-<div class="col-lg-12"><div class="fulltab">
+        <?php if ($this->checkPosition('specifications')) : ?>
+            <li>
+                <a href="#item-specifications" id="specifications-tab" data-toggle="tab">
+                    <?php echo JText::_('JBZOO_ITEM_TAB_SPECIFICATIONS'); ?>
+                </a>
+            </li>
+        <?php endif; ?>
+    </ul>
+    <div id="<?php echo $tabsId; ?>Content" class="tab-content">
+        <?php if ($this->checkPosition('price')) : ?>
+            <div class="tab-pane fade active in" id="item-price">
+                <div class="item-price">
+                    <?php echo $this->renderPosition('price', array('style' => 'block')); ?>
+                </div>
+            </div>
+        <?php endif; ?>
 
+        <?php if ($this->checkPosition('adaptation')) : ?>
+            <div class="tab-pane fade" id="item-adaptation">
+                <div class="item-adaptation">
+                    <?php echo $this->renderPosition('adaptation', array('style' => 'block')); ?>
+                </div>
+            </div>
+        <?php endif; ?>
 
-<ul class="nav nav-tabs z9" id="myTab" role="tablist">
-<?php if ($this->checkPosition('text')) : ?>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Описание</button>
-  </li>
-   <?php endif; ?>
-   <?php if ($this->checkPosition('properties')) : ?>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Характеристики</button>
-  </li>
- <?php endif; ?>
-   <?php if ($this->checkPosition('comments')) : ?>
-   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="kompl-tab" data-bs-toggle="tab" data-bs-target="#kompl" type="button" role="tab" aria-controls="kompl" aria-selected="false">Комплектация</button>
-  </li>
- <?php endif; ?>
- 
-   <?php if ($this->checkPosition('transport')) : ?>
-   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="transport-tab" data-bs-toggle="tab" data-bs-target="#transport" type="button" role="tab" aria-controls="transport" aria-selected="false">Транспортные данные</button>
-  </li>
- <?php endif; ?>
- 
-
-
-</ul>
-<div class="tab-content" id="myTabContent">
-
-<?php if ($this->checkPosition('text')) : ?>
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><?php echo $this->renderPosition('text'); ?></div>
-  <?php endif; ?>
-   <?php if ($this->checkPosition('properties')) : ?>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><div class="responsive"><?php echo $this->renderPosition('properties'); ?></div></div>
-   <?php endif; ?>
-     <?php if ($this->checkPosition('comments')) : ?>
-  <div class="tab-pane fade" id="kompl" role="tabpanel" aria-labelledby="kompl-tab"><div class="responsive"><?php echo $this->renderPosition('comments'); ?></div></div>
-   <?php endif; ?>
-   
-        <?php if ($this->checkPosition('transport')) : ?>
-  <div class="tab-pane fade" id="transport" role="tabpanel" aria-labelledby="transport-tab"><div class="responsive"><?php echo $this->renderPosition('transport'); ?></div></div>
-   <?php endif; ?>
-
+        <?php if ($this->checkPosition('specifications')) : ?>
+            <div class="tab-pane fade" id="item-specifications">
+                <div class="item-specifications">
+                    <?php echo $this->renderPosition('specifications', array('style' => 'block')); ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
 </div>
-
-</div></div>
-</div>
-</div>
-
-
-<div class="col-xxl-4 col-xl-12"><?php if ($this->checkPosition('related')) : ?>
-
-<h3 class="h2title mb-20">Возможно вас заинтересует:</h3>
-
-<div class="mb-40">
-<div class="row">
-<?php echo $this->renderPosition('related'); ?>
-</div>
-</div>
-<?php endif; ?>
-
-<img class="fulllogo"src="/images/logo.svg" />
-<div class="fbtnbl z9">
-	
-	
-	
-		<div class="fccon">
-		<a class="toptel z9" href="tel:+79326091099 ">+7 (932) 609-10-99  </a>
-		<div class="hmail z9"><a href="mailto:info@провоздух.рф">info@провоздух.рф</a></div>
-		</div>
-	<a class="knopka2 ba-click-lightbox-form-3" href="#">Задать вопрос</a>
-	</div>
-	
-		
-
-</div>
-</div>
-
-
-
-		
-
-</div>
-
-
-
-
+<style>
+    .delivery { margin-top: 40px; border-top: 1px solid #000; padding-top: 15px;}
+    .master h3{ font-size: 18px; }
+    .master:hover{ cursor: pointer; }
+    .deliverycity { padding-top: 20px; }
+    .deliverycity p { display: inline-block;
+        margin-right: 10px; }
+    .slave{ display: none; }
+    .open { display: block;  }
+</style>
 <script>
-jQuery(function ($) {
-  $(".fulltab table").addClass("table table-striped");
-  $('.fulltab table').wrap('<div class="responsive"></div>');
-    if ($('#sync2 img').length == 1) {
-        $('#sync2').hide();
-    }
-
-});
+    let delivery = document.querySelector('.delivery');
+    let master = delivery.querySelector('.master');
+    let slave = delivery.querySelector('.slave');
+    master.addEventListener('click', function (event) {
+        slave.classList.toggle('open');
+    })
 </script>
-<script>
-
-jQuery(document).ready(function($){
-
-
-    var sync1 = $("#sync1");
-    var sync2 = $("#sync2");
-    var slidesPerPage = 4; //globaly define number of elements per page
-    var syncedSecondary = true;
-
-    sync1.owlCarousel({
-        items: 1,
-        slideSpeed: 2000,
-        nav: true,
-        autoplay: false, 
-        dots: false,
-        loop: true,
-        responsiveRefreshRate: 200,
-        navText: ['<svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 1px;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"/></svg>', '<svg width="100%" height="100%" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 1px;stroke: #000;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"/></svg>'],
-    }).on('changed.owl.carousel', syncPosition);
-
-    sync2
-        .on('initialized.owl.carousel', function() {
-            sync2.find(".owl-item").eq(0).addClass("current");
-        })
-        .owlCarousel({
-            items: slidesPerPage,
-            dots: false,
-            nav: false,
-            smartSpeed: 200,
-            slideSpeed: 500,
-            slideBy: slidesPerPage, //alternatively you can slide by 1, this way the active slide will stick to the first item in the second carousel
-            responsiveRefreshRate: 100
-        }).on('changed.owl.carousel', syncPosition2);
-
-    function syncPosition(el) {
-        //if you set loop to false, you have to restore this next line
-        //var current = el.item.index;
-
-        //if you disable loop you have to comment this block
-        var count = el.item.count - 1;
-        var current = Math.round(el.item.index - (el.item.count / 2) - .5);
-
-        if (current < 0) {
-            current = count;
-        }
-        if (current > count) {
-            current = 0;
-        }
-
-        //end block
-
-        sync2
-            .find(".owl-item")
-            .removeClass("current")
-            .eq(current)
-            .addClass("current");
-        var onscreen = sync2.find('.owl-item.active').length - 1;
-        var start = sync2.find('.owl-item.active').first().index();
-        var end = sync2.find('.owl-item.active').last().index();
-
-        if (current > end) {
-            sync2.data('owl.carousel').to(current, 100, true);
-        }
-        if (current < start) {
-            sync2.data('owl.carousel').to(current - onscreen, 100, true);
-        }
-    }
-
-    function syncPosition2(el) {
-        if (syncedSecondary) {
-            var number = el.item.index;
-            sync1.data('owl.carousel').to(number, 100, true);
-        }
-    }
-
-    sync2.on("click", ".owl-item", function(e) {
-        e.preventDefault();
-        var number = $(this).index();
-        sync1.data('owl.carousel').to(number, 300, true);
-    });
-});
-
-
-</script>
+<div class="delivery">
+    <div style="" class="master" id="m2">
+        <h3>Куда мы доставляем масла и смазки</h3></div>
+    <div class="slave" id="">
+        <div class="slavecontent">
+            <div class="deliverycity">
+                <p>Москва</p><p>Санкт-Петербург</p><p>Новосибирск</p><p>Екатеринбург</p><p>Нижний Новгород</p><p>Казань</p><p>Самара</p><p>Омск</p><p>Челябинск</p><p>Ростов-на-Дону</p><p>Уфа</p><p>Волгоград</p><p>Красноярск</p><p>Пермь</p><p>Воронеж</p><p>Саратов</p><p>Краснодар</p><p>Тольятти</p><p>Тюмень</p><p>Ижевск</p><p>Барнаул</p><p>Ульяновск</p><p>Иркутск</p><p>Владивосток</p><p>Ярославль</p><p>Хабаровск</p><p>Махачкала</p><p>Оренбург</p><p>Новокузнецк</p><p>Томск</p><p>Кемерово</p><p>Рязань</p><p>Астрахань</p><p>Пенза</p><p>Набережные Челны</p><p>Липецк</p><p>Тула</p><p>Киров</p><p>Чебоксары</p><p>Калининград</p><p>Курск</p><p>Улан-Удэ</p><p>Магнитогорск</p><p>Ставрополь</p><p>Брянск</p><p>Иваново</p><p>Тверь</p><p>Белгород</p><p>Сочи</p><p>Нижний Тагил</p><p>Архангельск</p><p>Владимир</p><p>Калуга</p><p>Смоленск</p><p>Чита</p><p>Волжский</p><p>Курган</p><p>Сургут</p><p>Орел</p><p>Череповец</p><p>Владикавказ</p><p>Вологда</p><p>Мурманск</p><p>Саранск</p><p>Якутск</p><p>Тамбов</p><p>Грозный</p><p>Стерлитамак</p><p>Кострома</p><p>Петрозаводск</p><p>Нижневартовск</p><p>Комсомольск-на-Амуре</p><p>Йошкар-Ола</p><p>Таганрог</p><p>Новороссийск</p><p>Братск</p><p>Сыктывкар</p><p>Нальчик</p><p>Дзержинск</p><p>Шахты</p><p>Орск</p><p>Балашиха</p><p>Нижнекамск</p><p>Ангарск</p><p>Старый Оскол</p><p>Химки</p><p>Великий Новгород</p><p>Благовещенск</p><p>Энгельс</p><p>Подольск</p><p>Псков</p><p>Бийск</p><p>Прокопьевск</p><p>Рыбинск</p><p>Балаково</p><p>Армавир</p><p>Южно-Сахалинск</p><p>Северодвинск</p><p>Королев</p><p>Петропавловск-Камчатский</p><p>Люберцы</p><p>Мытищи</p><p>Норильск</p><p>Сызрань</p><p>Новочеркасск</p><p>Златоуст</p><p>Каменск-Уральский</p><p>Абакан</p><p>Волгодонск</p><p>Уссурийск</p><p>Находка</p><p>Электросталь</p><p>Салават</p><p>Березники</p><p>Миасс</p><p>Альметьевск</p><p>Рубцовск</p><p>Коломна</p><p>Майкоп</p><p>Пятигорск</p><p>Железнодорожный</p><p>Ковров</p><p>Копейск</p><p>Одинцово</p><p>Хасавюрт</p><p>Кисловодск</p><p>Новомосковск</p><p>Красногорск</p><p>Серпухов</p><p>Нефтеюганск</p><p>Черкесск</p><p>Первоуральск</p><p>Нефтекамск</p><p>Новочебоксарск</p><p>Орехово-Зуево</p><p>Дербент</p><p>Димитровград</p><p>Невинномысск</p><p>Камышин</p><p>Батайск</p><p>Новый Уренгой</p><p>Кызыл</p><p>Муром</p><p>Щелково</p><p>Октябрьский</p><p>Новошахтинск</p><p>Северск</p><p>Ачинск</p><p>Ноябрьск</p><p>Сергиев Посад</p><p>Елец</p><p>Жуковский</p><p>Новокуйбышевск</p><p>Обнинск</p><p>Арзамас</p><p>Домодедово</p><p>Пушкино</p><p>Элиста</p><p>Каспийск</p><p>Артем</p><p>Ессентуки</p><p>Назрань</p><p>Ногинск</p><p>Раменское</p><p>Бердск</p><p>Сарапул</p>
+            </div>
+        </div>
+    </div>
+</div>

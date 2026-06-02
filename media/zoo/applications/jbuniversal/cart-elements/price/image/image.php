@@ -1,5 +1,6 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\CMS\Filesystem\File;
 /**
  * JBZoo Application
  *
@@ -63,8 +64,8 @@ class JBCartElementPriceImage extends JBCartElementPrice
      */
     public function getSearchData()
     {
-        $value    = StringHelper::trim($this->getValue());
-        $isExists = !empty($value) && JFile::exists(JPATH_ROOT . '/' . $value);
+        $value    = StringHelper::trim($this->getValue() ?? '');
+        $isExists = !empty($value) && File::exists(JPATH_ROOT . '/' . $value);
 
         if ($isExists) {
             return self::IMAGE_EXISTS;
@@ -113,6 +114,12 @@ class JBCartElementPriceImage extends JBCartElementPrice
     {
         $image  = $this->config->get('image');
         $unique = $this->layout . '_' . $this->item_id;
+
+        // Include variant ID to ensure unique elements per variation
+        $variantId = $this->getVariantId();
+        if ($variantId) {
+            $unique .= '_v' . $variantId;
+        }
 
         if (empty($image)) {
             return $unique;
@@ -185,7 +192,6 @@ class JBCartElementPriceImage extends JBCartElementPrice
     public function renderAjax($params = array())
     {
         $path = $this->getValue();
-
         return $this->getImage($path, $params);
     }
 
@@ -214,7 +220,6 @@ class JBCartElementPriceImage extends JBCartElementPrice
     public function loadAssets()
     {
         $this->js(array(
-            'cart-elements:price/image/assets/js/image.js',
             'jbassets:js/widget/media.js'
         ));
 
@@ -228,6 +233,9 @@ class JBCartElementPriceImage extends JBCartElementPrice
     public function loadEditAssets()
     {
         $this->app->jbassets->js('jbassets:js/widget/media.js');
+        // Add SqueezeBox for media manager
+        $this->app->jbassets->js('media://js/squeezebox.min.js');
+        $this->app->jbassets->css('media://css/squeezebox.min.css');
 
         return parent::loadEditAssets();
     }
@@ -244,6 +252,31 @@ class JBCartElementPriceImage extends JBCartElementPrice
         }
 
         return false;
+    }
+
+    /**
+     * Get current variant ID
+     * @return int|null
+     */
+    protected function getVariantId()
+    {
+        if ($this->getJBPrice()) {
+            $jbPrice = $this->getJBPrice();
+            // Try different methods to get variant ID
+            if (method_exists($jbPrice, 'getVariantId')) {
+                return $jbPrice->getVariantId();
+            } elseif (method_exists($jbPrice, 'getCurrentVariant')) {
+                $variant = $jbPrice->getCurrentVariant();
+                return $variant ? $variant->getId() : null;
+            } elseif (isset($jbPrice->variant_id)) {
+                return $jbPrice->variant_id;
+            } elseif (method_exists($jbPrice, 'getVariant')) {
+                $variant = $jbPrice->getVariant();
+                return $variant ? $variant->getId() : null;
+            }
+        }
+
+        return null;
     }
 
 }

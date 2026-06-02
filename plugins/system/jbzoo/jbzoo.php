@@ -16,8 +16,68 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.plugin.plugin');
-jimport('joomla.filesystem.file');
+require_once __DIR__ . '/compat.php';
+
+use Joomla\CMS\Component\ComponentHelper;
+use Joomla\CMS\Factory;
+use Joomla\CMS\Filesystem\Folder;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Plugin\CMSPlugin;
+
+if (!class_exists('JPlugin')) {
+    class_alias(CMSPlugin::class, 'JPlugin');
+}
+if (!class_exists('JFactory') && class_exists(Factory::class)) {
+    class_alias(Factory::class, 'JFactory');
+}
+if (!class_exists('JFile')) {
+    if (!class_exists(File::class)) {
+        $fileFile = JPATH_LIBRARIES . '/src/Filesystem/File.php';
+        if (is_file($fileFile)) {
+            require_once $fileFile;
+        }
+    }
+    if (class_exists(File::class)) {
+        class_alias(File::class, 'JFile');
+    }
+}
+if (!class_exists('JFolder')) {
+    if (!class_exists(Folder::class)) {
+        $folderFile = JPATH_LIBRARIES . '/src/Filesystem/Folder.php';
+        if (is_file($folderFile)) {
+            require_once $folderFile;
+        }
+    }
+    if (class_exists(Folder::class)) {
+        class_alias(Folder::class, 'JFolder');
+    }
+}
+if (!class_exists('JPath')) {
+    if (!class_exists(Path::class)) {
+        $pathFile = JPATH_LIBRARIES . '/src/Filesystem/Path.php';
+        if (is_file($pathFile)) {
+            require_once $pathFile;
+        }
+    }
+    if (class_exists(Path::class)) {
+        class_alias(Path::class, 'JPath');
+    }
+}
+if (!class_exists('JUri') && class_exists(Uri::class)) {
+    class_alias(Uri::class, 'JUri');
+}
+if (!class_exists('JText') && class_exists(Text::class)) {
+    class_alias(Text::class, 'JText');
+}
+if (!class_exists('JString') && class_exists(\Joomla\String\StringHelper::class)) {
+    class_alias(\Joomla\String\StringHelper::class, 'JString');
+}
+if (!class_exists('JComponentHelper') && class_exists(ComponentHelper::class)) {
+    class_alias(ComponentHelper::class, 'JComponentHelper');
+}
 
 !defined('JBZOO_APP_GROUP') && define('JBZOO_APP_GROUP', 'jbuniversal');
 !defined('DIRECTORY_SEPERATOR') && define('DIRECTORY_SEPERATOR', '/');
@@ -27,7 +87,7 @@ jimport('joomla.filesystem.file');
 /**
  * Class plgSystemJBZoo
  */
-class plgSystemJBZoo extends JPlugin
+class plgSystemJBZoo extends CMSPlugin
 {
     /**
      * When these components use, JBZoo doesn't init (backend only)
@@ -72,7 +132,7 @@ class plgSystemJBZoo extends JPlugin
         }
 
         $mainConfig = JPATH_ADMINISTRATOR . '/components/com_zoo/config.php';
-        if (!JFile::exists($mainConfig)) {
+        if (!File::exists($mainConfig)) {
             return null;
         }
 
@@ -89,7 +149,7 @@ class plgSystemJBZoo extends JPlugin
         }
 
         $jbzooBootstrap = JPATH_ROOT . '/media/zoo/applications/' . JBZOO_APP_GROUP . '/framework/jbzoo.php';
-        if (JFile::exists($jbzooBootstrap)) {
+        if (File::exists($jbzooBootstrap)) {
             require_once($jbzooBootstrap);
             JBZoo::init();
 

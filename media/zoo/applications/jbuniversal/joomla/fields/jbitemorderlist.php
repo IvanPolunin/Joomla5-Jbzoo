@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\HTML\HTMLHelper;
 /**
  * JBZoo Application
  *
@@ -16,7 +18,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -24,7 +26,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBItemOrder
  */
-class JFormFieldJBItemOrderList extends JFormField
+class JFormFieldJBItemOrderList extends FormField
 {
 
     protected $type = 'jbitemorderlist';
@@ -38,9 +40,9 @@ class JFormFieldJBItemOrderList extends JFormField
         $app  = App::getInstance('zoo');
         $list = $app->jborder->getListAdv(true);
 
-        unset($list[JText::_('JBZOO_FIELDS_CORE')]['_none']);
+        unset($list[Text::_('JBZOO_FIELDS_CORE')]['_none']);
 
-        return JHtml::_('select.groupedlist', $list, $this->getName($this->fieldname) . '[]', array(
+        return HTMLHelper::_('select.groupedlist', $list, $this->getName($this->fieldname) . '[]', array(
             'list.attr'   => $app->jbhtml->buildAttrs(array(
                 'multiple' => 'multiple',
                 'size'     => 10,

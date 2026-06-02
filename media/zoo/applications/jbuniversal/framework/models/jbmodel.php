@@ -1,5 +1,6 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -53,13 +54,18 @@ Class JBModel
     protected $_jbcache = null;
 
     /**
+     * @var App
+     */
+    protected $app = null;
+
+    /**
      * Constructor
      */
     protected function __construct()
     {
         $this->app = App::getInstance('zoo');
 
-        $this->_db       = JFactory::getDbo();
+        $this->_db       = Factory::getDbo();
         $this->_dbHelper = $this->app->database;
         $this->_jbtables = $this->app->jbtables;
         $this->_jbcache  = $this->app->jbcache;

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -30,6 +31,11 @@ class JBCartElementPaymentYooKassa extends JBCartElementPayment
     protected $_apiUrl = 'https://api.yookassa.ru/v3/payments';
 
     /**
+     * @var mixed
+     */
+    private $_session;
+
+    /**
      * @param App    $app
      * @param string $type
      * @param string $group
@@ -38,9 +44,9 @@ class JBCartElementPaymentYooKassa extends JBCartElementPayment
     {
         parent::__construct($app, $type, $group);
 
-        $this->_session  = JFactory::getSession();
+        $this->_session  = Factory::getSession();
 
-        JFactory::getLanguage()->load('com_jbzoo_cart_elements_payment_yookassa', $this->app->path->path('jbapp:cart-elements').'/payment/yookassa', null, true);
+        Factory::getLanguage()->load('com_jbzoo_cart_elements_payment_yookassa', $this->app->path->path('jbapp:cart-elements').'/payment/yookassa', null, true);
     }
 
     /**

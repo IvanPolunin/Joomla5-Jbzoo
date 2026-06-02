@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -102,8 +103,8 @@ class JBHtmlHelper extends AppHelper
     )
     {
         $type         = $this->app->jbvars->lower($type);
-        $dataRadio    = array(0 => JText::_('JBZOO_NO'), 1 => JText::_('JBZOO_YES'));
-        $dataCheckbox = array(1 => JText::_('JBZOO_YES'));
+        $dataRadio    = array(0 => Text::_('JBZOO_NO'), 1 => Text::_('JBZOO_YES'));
+        $dataCheckbox = array(1 => Text::_('JBZOO_YES'));
 
         if ($type == 'radio') {
             return $this->_list('radio', $dataRadio, $name, $attribs, $selected, $idtag, $isLabelWrap);
@@ -264,13 +265,20 @@ class JBHtmlHelper extends AppHelper
         if ($idtag && is_array($attribs)) {
             $attribs['id'] = $idtag;
         }
-
+    
+        // Проверяем, что значение является строкой или приводится к строке
+        if (is_array($value)) {
+            $value = ''; // или можно использовать implode(', ', $value) если нужно сохранить данные
+        } elseif ($value === null) {
+            $value = '';
+        }
+    
         $attribs = $this->_buildAttrs($attribs);
         if (strpos($attribs, 'jsAutocomplete') !== false) {
             $this->_assets->jqueryui();
             $this->_assets->initAutocomplete();
         }
-
+    
         return $this->app->html->_('control.text', $name, $value, $attribs);
     }
 
@@ -327,18 +335,19 @@ class JBHtmlHelper extends AppHelper
         $html = array(
             '<table cellpadding="0" cellspacing="0" border="0" class="quantity-wrapper jsQuantity" id="' . $id . '">',
             '  <tr>',
-            '    <td class="minuss"><span class="jsRemove"><i class="fas fa-minus"></i></span></td>',
-           '    <td>',
+            '    <td rowspan="2">',
             '      <div class="jsCountBox item-count-wrapper">',
             '        <div class="item-count">',
             '          <dl class="item-count-digits">' . str_repeat('<dd></dd>', 5) . '</dl>',
             '          <input type="text" class="input-quantity jsInput" maxlength="6" name="' . $name . '" value="' . $default . '">',
             '        </div>',
             '      </div>',
-            '    </td>',    
-            '    <td class="pluss"><span class="jsAdd"><i class="fas fa-plus"></i></span></td>',
+            '    </td>',
+            '    <td class="plus"><span class="jsAdd jbbutton micro">+</span></td>',
             '  </tr>',
-            
+            '  <tr>',
+            '    <td class="minus"><span class="jsRemove jbbutton micro">-</span></td>',
+            '  </tr>',
             '</table>',
         );
 
@@ -360,9 +369,9 @@ class JBHtmlHelper extends AppHelper
      * @return string
      */
     public function colors(
-        $inputType = 'checkbox',
         $data,
         $name,
+        $inputType = 'checkbox',
         $selected = null,
         $attrs = array(),
         $width = '26px',
@@ -460,7 +469,7 @@ class JBHtmlHelper extends AppHelper
         foreach ($rates as $code => $currency) {
             $i++;
             $id    = $this->_jbstring->getId('unique-');
-            $title = JText::_('JBZOO_JBCURRENCY_' . $code);
+            $title = Text::_('JBZOO_JBCURRENCY_' . $code);
 
             $moneyVal = JBCart::val('1000 ' . $code, $rates); // for calculating
 
@@ -550,7 +559,7 @@ class JBHtmlHelper extends AppHelper
             $html[] = '<dl class="uk-description-list-horizontal param-list">';
 
             foreach ($data as $label => $text) {
-                $label  = JText::_($label);
+                $label  = Text::_($label);
                 $html[] = '<dt title="' . $this->cleanAttrValue($label) . '">' . $label . '</dt>';
                 $html[] = '<dd>' . $text . '</dd>';
             }
@@ -815,8 +824,8 @@ class JBHtmlHelper extends AppHelper
 
         $idtag = $this->_jbstring->getId('chosen-');
 
-        $attribs['data-no_results_text'] = JText::_('JBZOO_CHOSEN_NORESULT');
-        $attribs['data-placeholder']     = (isset($params['placeholder'])) ? $params['placeholder'] : JText::_('JBZOO_CHOSEN_SELECT');
+        $attribs['data-no_results_text'] = Text::_('JBZOO_CHOSEN_NORESULT');
+        $attribs['data-placeholder']     = (isset($params['placeholder'])) ? $params['placeholder'] : Text::_('JBZOO_CHOSEN_SELECT');
 
         $html   = array();
         $html[] = $this->select($data, $name, $attribs, $selected, $idtag, $translate);
@@ -848,7 +857,7 @@ class JBHtmlHelper extends AppHelper
 
         $itemList = $selectInfo['items'];
         $lvlCheck = $curLvl = 0;
-        $allText  = ' - ' . JText::_('JBZOO_ALL') . ' - ';
+        $allText  = ' - ' . Text::_('JBZOO_ALL') . ' - ';
 
         $html = array();
         for ($i = 0; $i <= $selectInfo['maxLevel']; $i++) {
@@ -949,10 +958,10 @@ class JBHtmlHelper extends AppHelper
 
             if (is_object($obj)) {
                 $value = $obj->value;
-                $text  = $translate ? JText::_($obj->text) : $obj->text;
+                $text  = $translate ? Text::_($obj->text) : $obj->text;
             } else {
                 $value = $keyObj;
-                $text  = $translate ? JText::_($obj) : $obj;
+                $text  = $translate ? Text::_($obj) : $obj;
             }
 
             $valueSlug = $this->_string->sluggify($value);

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -166,9 +167,9 @@ class JBCartElementPriceBalance extends JBCartElementPrice
     protected function _getList()
     {
         return array(
-            self::COUNT_AVAILABLE_NO  => JText::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_AVAILABLE_NO'),
-            self::COUNT_AVAILABLE_YES => JText::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_UNLIMITED'),
-            self::COUNT_REQUEST       => JText::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_REQUEST'),
+            self::COUNT_AVAILABLE_NO  => Text::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_AVAILABLE_NO'),
+            self::COUNT_AVAILABLE_YES => Text::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_UNLIMITED'),
+            self::COUNT_REQUEST       => Text::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_REQUEST'),
         );
     }
 }

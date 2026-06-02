@@ -29,7 +29,7 @@ class JBCartElementPriceDiscount extends JBCartElementPrice
      */
     public function hasValue($params = array())
     {
-        return (!$this->isEmpty() || (int)$params->get('empty_show', 0));
+        return true; // Force discount to always render in AJAX
     }
 
     /**
@@ -50,7 +50,7 @@ class JBCartElementPriceDiscount extends JBCartElementPrice
         if ($layout = $this->getLayout('edit.php')) {
             return self::renderEditLayout($layout, array(
                 'value'   => $this->get('value', ''),
-                'message' => JText::sprintf('JBZOO_JBPRICE_CALC_PARAM_CANT_USE', '<strong>' . $this->getElementType() . '</strong>')
+                'message' => Text::sprintf('JBZOO_JBPRICE_CALC_PARAM_CANT_USE', '<strong>' . $this->getElementType() . '</strong>')
             ));
         }
 
@@ -69,21 +69,18 @@ class JBCartElementPriceDiscount extends JBCartElementPrice
             return $this->renderWrapper();
         }
 
-        $prices = $this->getPrices();
-        //include $_SERVER['DOCUMENT_ROOT'] .'/JBDump-1.5.6/class.jbdump.php';
-        //jbdump();
+        // Get discount value directly from element data
+        $discountValue = $this->getValue(true, 'value', 0);
+        $discount = JBCart::val($discountValue);
 
-        
+        $prices = $this->getPrices();
         $message = StringHelper::trim($params->get('empty_text', ''));
         $layout  = $params->get('layout', 'icon-text');
-        if ((int)$params->get('percent_show', 1)) {
-            $price    = $prices['price'];
-            $save     = $prices['save']->abs();
-            $discount = $save->percent($price);
-        //include $_SERVER['DOCUMENT_ROOT'] .'/JBDump-1.5.6/class.jbdump.php';
-        //jbdump($discount->html());
-        } else {
-            $discount = $prices['save'];
+        
+        // Use element's own value instead of calculated save
+        if ((int)$params->get('percent_show', 1) && !$discount->isEmpty()) {
+            $price = $prices['price'];
+            $discount = $discount->percent($price);
         }
 
         if ((int)$params->get('percent_round', 1)) {

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -16,7 +17,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-$value = trim($value);
+$value = trim($value ?? '');
 if ($value) {
-    echo JText::sprintf('JBZOO_ELEMENT_PRICE_WEIGHT_UNIT', $value);
+    echo Text::sprintf('JBZOO_ELEMENT_PRICE_WEIGHT_UNIT', $value);
 }

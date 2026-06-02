@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -41,10 +43,10 @@ class JBCartElementShippingSdek extends JBCartElementShipping
         $this->registerCallback('sdekService');
         $this->registerCallback('sdekTemplate');
 
-        JFactory::getLanguage()->load('com_jbzoo_cart_elements_shipping_sdek', $this->app->path->path('jbapp:cart-elements').'/shipping/sdek', null, true);
+        Factory::getLanguage()->load('com_jbzoo_cart_elements_shipping_sdek', $this->app->path->path('jbapp:cart-elements').'/shipping/sdek', null, true);
 
-        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_SDEK_CHANGE', JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_CHANGE'));
-        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_SDEK_SELECT', JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_SELECT'));
+        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_SDEK_CHANGE', Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_CHANGE'));
+        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_SDEK_SELECT', Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_SELECT'));
     }
 
     /**
@@ -142,7 +144,7 @@ class JBCartElementShippingSdek extends JBCartElementShipping
         $tariff     = $value->get('tariff');
         
         if (empty($city) || empty($address) || empty($price) || empty($tariff)) {
-            throw new JBCartElementShippingException(JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_EXCEPTION'));
+            throw new JBCartElementShippingException(Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_EXCEPTION'));
         }
 
         // for calculate rate
@@ -684,36 +686,36 @@ class ISDEKservice
     protected static function getLangArray()
     {
         $tanslate = array(
-            'YOURCITY'          => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_YOURCITY'),
-            'COURIER'           => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_COURIER'),
-            'PICKUP'            => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_PICKUP'),
-            'TERM'              => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_TERM'),
-            'PRICE'             => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_PRICE'),
-            'DAY'               => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_DAY'),
-            'RUB'               => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_RUB'),
-            'NODELIV'           => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_NODELIV'),
-            'CITYSEARCH'        => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_CITYSEARCH'),
-            'ALL'               => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_ALL'),
-            'PVZ'               => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_PVZ'),
-            'MOSCOW'            => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_MOSCOW'),
-            'RUSSIA'            => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_RUSSIA'),
-            'COUNTING'          => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_COUNTING'),
+            'YOURCITY'          => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_YOURCITY'),
+            'COURIER'           => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_COURIER'),
+            'PICKUP'            => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_PICKUP'),
+            'TERM'              => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_TERM'),
+            'PRICE'             => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_PRICE'),
+            'DAY'               => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_DAY'),
+            'RUB'               => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_RUB'),
+            'NODELIV'           => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_NODELIV'),
+            'CITYSEARCH'        => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_CITYSEARCH'),
+            'ALL'               => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_ALL'),
+            'PVZ'               => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_PVZ'),
+            'MOSCOW'            => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_MOSCOW'),
+            'RUSSIA'            => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_RUSSIA'),
+            'COUNTING'          => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_COUNTING'),
 
-            'NO_AVAIL'          => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_NO_AVAIL'),
-            'CHOOSE_TYPE_AVAIL' => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_CHOOSE_TYPE_AVAIL'),
-            'CHOOSE_OTHER_CITY' => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_CHOOSE_OTHER_CITY'),
+            'NO_AVAIL'          => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_NO_AVAIL'),
+            'CHOOSE_TYPE_AVAIL' => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_CHOOSE_TYPE_AVAIL'),
+            'CHOOSE_OTHER_CITY' => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_CHOOSE_OTHER_CITY'),
 
-            'L_ADDRESS'         => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_ADDRESS'),
-            'L_TIME'            => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_TIME'),
-            'L_WAY'             => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_WAY'),
-            'L_CHOOSE'          => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_CHOOSE'),
+            'L_ADDRESS'         => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_ADDRESS'),
+            'L_TIME'            => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_TIME'),
+            'L_WAY'             => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_WAY'),
+            'L_CHOOSE'          => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_L_CHOOSE'),
 
-            'H_LIST'            => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_LIST'),
-            'H_PROFILE'         => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_PROFILE'),
-            'H_CASH'            => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_CASH'),
-            'H_DRESS'           => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_DRESS'),
-            'H_SUPPORT'         => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_SUPPORT'),
-            'H_QUESTIONS'       => JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_QUESTIONS'),
+            'H_LIST'            => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_LIST'),
+            'H_PROFILE'         => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_PROFILE'),
+            'H_CASH'            => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_CASH'),
+            'H_DRESS'           => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_DRESS'),
+            'H_SUPPORT'         => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_SUPPORT'),
+            'H_QUESTIONS'       => Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_WIDGET_H_QUESTIONS'),
         );
 
         return $tanslate;

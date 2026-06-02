@@ -25,11 +25,11 @@ class JBCartValidatorHelper extends AppHelper
     const EVENT_BEFORE_CREATE = 'before-create';
 
     /**
-     * @param string $eventType
      * @param JBCartOrder $order
+     * @param string $eventType
      * @return array
      */
-    public function getByEvent($eventType = null, $order)
+    public function getByEvent($order, $eventType = null)
     {
         $result = array();
 

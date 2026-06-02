@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
 /**
  * JBZoo Application
  *
@@ -26,23 +28,26 @@ class JBCartElementOrderPrivacy extends JBCartElementOrder
      */
     public function renderSubmission($params = array())
     {   
-        $privacyText    = JText::_('JBZOO_ELEMENT_ORDER_PRIVACY_LINK_PRIVACY_TEXT_SIMPLE');
-        $policyText     = JText::_('JBZOO_ELEMENT_ORDER_PRIVACY_LINK_POLICY_TEXT_SIMPLE');
+        $privacyText    = Text::_('JBZOO_ELEMENT_ORDER_PRIVACY_LINK_PRIVACY_TEXT_SIMPLE');
+        $policyText     = Text::_('JBZOO_ELEMENT_ORDER_PRIVACY_LINK_POLICY_TEXT_SIMPLE');
 
         if ($this->config->get('privacy')) {
-            $privacyLink = JRoute::_('index.php?Itemid='.$this->config->get('privacy'));
-            $privacyText = JText::sprintf('JBZOO_ELEMENT_ORDER_PRIVACY_LINK_PRIVACY_TEXT_FULL', $privacyLink);
+            $privacyLink = Route::_('index.php?Itemid='.$this->config->get('privacy'));
+            $privacyText = Text::sprintf('JBZOO_ELEMENT_ORDER_PRIVACY_LINK_PRIVACY_TEXT_FULL', $privacyLink);
         }
 
-     
+        if ($this->config->get('policy')) {
+            $policyLink = Route::_('index.php?Itemid='.$this->config->get('policy'));
+            $policyText = Text::sprintf('JBZOO_ELEMENT_ORDER_PRIVACY_LINK_POLICY_TEXT_FULL', $policyLink);
+        }
 
-        $text    = JText::sprintf('JBZOO_ELEMENT_ORDER_PRIVACY_TEXT_FULL', $privacyText, $policyText);
+        $text    = Text::sprintf('JBZOO_ELEMENT_ORDER_PRIVACY_TEXT_FULL', $privacyText, $policyText);
 
         $name    = $this->getControlName('option', true);
         $checked = in_array('agree', $this->get('option', array())) ? ' checked="checked"' : null;
 
         $html    = array('<div>');
-        $html[]  = '<div class="chpr"><input id="'.$name.'" type="checkbox" checked name="' . $name . '" value="agree"'.$checked.' /><label for="'.$name.'">'.$text.'</label></div>';
+        $html[]  = '<div><input id="'.$name.'" type="checkbox" name="' . $name . '" value="agree"'.$checked.' /><label for="'.$name.'">'.$text.'</label></div>';
 
         // workaround: if nothing is selected, the element is still being transfered
         $html[] = '<input type="hidden" name="' . $this->getControlName('check') . '" value="1" />';

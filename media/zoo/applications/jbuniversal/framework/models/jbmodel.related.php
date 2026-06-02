@@ -251,7 +251,7 @@ class JBModelRelated extends JBModel
             // dd($fixphp8);
 
             // clean query for optimization
-            $db = JFactory::getDbo();
+            $db = \Joomla\CMS\Factory::getDbo();
             $db->setQuery($fixphp8);
             $rows = (array)$db->loadAssocList();
 

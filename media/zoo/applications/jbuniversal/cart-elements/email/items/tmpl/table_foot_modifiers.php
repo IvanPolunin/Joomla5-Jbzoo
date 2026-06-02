@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -46,7 +47,7 @@ if (!empty($modifiers)) {
             <tr>
                 <td rowspan="<?php echo $count; ?>" colspan="2" style="border-bottom: none;"></td>
                 <td rowspan="<?php echo $count; ?>" <?php echo $this->getStyles(); ?>>
-                    <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_OTHER'); ?></strong>
+                    <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_OTHER'); ?></strong>
                 </td>
                 <td <?php echo $this->getStyles(); ?> colspan="2">
                     <?php echo $name; ?>

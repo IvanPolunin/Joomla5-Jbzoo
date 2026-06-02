@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -29,8 +30,8 @@ if (!empty($modifiers)) {
                 <tr>
                     <td <?php echo (count($modifiers) > 1) ? 'rowspan="'.(count($modifiers) - 1).'"' : '' ; ?> class="noborder-btm"></td>
                     <td <?php echo (count($modifiers) > 1) ? 'rowspan="'.(count($modifiers) - 1).'"' : '' ; ?>>
-                        <strong><?php echo JText::_('JBZOO_ORDER_MODIFIERS_OTHER'); ?></strong><br>
-                        <i>(<?php echo JText::_('JBZOO_ORDER_MODIFIERS_OTHER_ELEMENTS'); ?>)</i>
+                        <strong><?php echo Text::_('JBZOO_ORDER_MODIFIERS_OTHER'); ?></strong><br>
+                        <i>(<?php echo Text::_('JBZOO_ORDER_MODIFIERS_OTHER_ELEMENTS'); ?>)</i>
                     </td>
                     <td><?php echo $modifier->getName(); ?></td>
                     <td class="align-right"><?php echo $modifier->edit(); ?></td>

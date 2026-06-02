@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -91,7 +92,7 @@ class JBMigrateCartHelper extends AppHelper
 
             $validator = $this->_element->create('minsum', JBCart::ELEMENT_TYPE_VALIDATOR, array(
                 'value' => $config->get('minimal-summa') . ' ' . $this->_migrate->getCurrency(),
-                'name'  => JText::_('JBZOO_MIGRATE_MINIMAL_NAME'),
+                'name'  => Text::_('JBZOO_MIGRATE_MINIMAL_NAME'),
             ));
 
             $validator->saveConfig();
@@ -169,9 +170,9 @@ class JBMigrateCartHelper extends AppHelper
 
         if ($config->get('notificaction-create')) {
             $emailCreate = $this->_element->create('sendemail', JBCart::ELEMENT_TYPE_NOTIFICATION, array(
-                "name"         => JText::_('JBZOO_MIGRATE_NOTIFICATION_CREATE_NAME'),
+                "name"         => Text::_('JBZOO_MIGRATE_NOTIFICATION_CREATE_NAME'),
                 "layout_email" => "default",
-                "subject"      => JText::_('JBZOO_MIGRATE_NOTIFICATION_CREATE_NAME'),
+                "subject"      => Text::_('JBZOO_MIGRATE_NOTIFICATION_CREATE_NAME'),
                 "recipients"   => array(
                     "custom" => $config->get('admin-email'),
                 ),
@@ -184,9 +185,9 @@ class JBMigrateCartHelper extends AppHelper
 
         if ($config->get('notificaction-payment')) {
             $emailCreated = $this->_element->create('sendemail', JBCart::ELEMENT_TYPE_NOTIFICATION, array(
-                "name"         => JText::_('JBZOO_MIGRATE_NOTIFICATION_PAYMENT_NAME'),
+                "name"         => Text::_('JBZOO_MIGRATE_NOTIFICATION_PAYMENT_NAME'),
                 "layout_email" => "default",
-                "subject"      => JText::_('JBZOO_MIGRATE_NOTIFICATION_PAYMENT_NAME'),
+                "subject"      => Text::_('JBZOO_MIGRATE_NOTIFICATION_PAYMENT_NAME'),
                 "recipients"   => array(
                     "custom" => $config->get('admin-email'),
                 ),
@@ -209,7 +210,7 @@ class JBMigrateCartHelper extends AppHelper
                 ),
                 'body'  => array(
                     $this->_element->create('items', JBCart::ELEMENT_TYPE_EMAIL, array(
-                        'name'              => JText::_('JBZOO_MIGRATE_EMAIL_ITEMS_NAME'),
+                        'name'              => Text::_('JBZOO_MIGRATE_EMAIL_ITEMS_NAME'),
                         'currency'          => $this->_migrate->getCurrency(),
                         'showlabel'         => '1',
                         'subtotal'          => '0',

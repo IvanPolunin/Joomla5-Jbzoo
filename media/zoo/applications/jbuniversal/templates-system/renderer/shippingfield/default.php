@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -17,7 +18,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 if ($this->checkPosition(JBCart::DEFAULT_POSITION)) {
-    echo '<p class="jbcart-title">' . JText::_('JBZOO_CART_SHIPPINGFIELDS_TITLE') . '</p>';
+    echo '<p class="jbcart-title">' . Text::_('JBZOO_CART_SHIPPINGFIELDS_TITLE') . '</p>';
 
     echo '<div class="jbcart-shippingfield-row-content">' .
              $this->renderPosition(JBCart::DEFAULT_POSITION, array('style' => 'order.shippingfield')) .

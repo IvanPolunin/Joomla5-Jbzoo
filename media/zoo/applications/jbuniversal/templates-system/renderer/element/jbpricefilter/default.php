@@ -31,7 +31,7 @@ $attrs = array(
         'jbfilter-row',
         'jbfilter-jbprice',
         'jbfilter-jbprice-' . ($element->isCore() ? 'core' : 'simple'),
-        'jbfilter-' . trim($params->get('jbzoo_filter_render', 'default'), '_'),
+        'jbfilter-' . trim($params->get('jbzoo_filter_render', 'default') ?? '', '_'),
     ));
 
 echo '<div ' . $this->app->jbhtml->buildAttrs($attrs) . '>'

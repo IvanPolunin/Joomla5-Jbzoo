@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -26,7 +27,7 @@ $elementGroup = isset($elementGroup) ? $elementGroup : JBCartElement::DEFAULT_GR
 
     <fieldset>
 
-        <legend><?php echo JText::_('JBZOO_ADMIN_POSITIONS_AVAILABLE_ELEMENTS'); ?></legend>
+        <legend><?php echo Text::_('JBZOO_ADMIN_POSITIONS_AVAILABLE_ELEMENTS'); ?></legend>
 
         <ul class="element-list jsElementList unassigned" data-position="unassigned">
 

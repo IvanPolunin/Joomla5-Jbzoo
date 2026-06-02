@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -39,7 +40,7 @@ class JBCartElementHookBoxberryOrder extends JBCartElementHook
     {
         parent::__construct($app, $type, $group);
 
-        JFactory::getLanguage()->load('com_jbzoo_cart_elements_hook_boxberryorder', $this->app->path->path('jbapp:cart-elements').'/hook/boxberryorder', null, true);
+        Factory::getLanguage()->load('com_jbzoo_cart_elements_hook_boxberryorder', $this->app->path->path('jbapp:cart-elements').'/hook/boxberryorder', null, true);
     }
 
     /**

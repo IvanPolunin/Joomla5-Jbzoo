@@ -642,17 +642,21 @@ class JBTablesHelper extends AppHelper
         static $result;
 
         if (!isset($result)) {
-            $indexes = $this->app->database->queryAssocList('SHOW INDEX FROM ' . $table);
-
             $result = array();
-            foreach ($indexes as $index) {
-                $result[] = $index['Key_name'];
-            }
-
-            $result = array_unique($result);
         }
 
-        return $result;
+        if (!isset($result[$table])) {
+            $indexes = $this->app->database->queryAssocList('SHOW INDEX FROM ' . $table);
+
+            $result[$table] = array();
+            foreach ($indexes as $index) {
+                $result[$table][] = $index['Key_name'];
+            }
+
+            $result[$table] = array_unique($result[$table]);
+        }
+
+        return $result[$table];
     }
 
     /**
@@ -671,7 +675,7 @@ class JBTablesHelper extends AppHelper
             unset($result[$table]);
         }
 
-        if (!isset($result[$table]) && $this->isTableExists($table, true)) {
+        if (!isset($result[$table]) && $this->isTableExists($table, $noCache)) {
             $indexes = $this->app->database->queryAssocList('DESCRIBE ' . $table);
 
             $result[$table] = array();
@@ -682,7 +686,7 @@ class JBTablesHelper extends AppHelper
             }
         }
 
-        return $result[$table];
+        return isset($result[$table]) ? $result[$table] : array();
     }
 
     /**
@@ -718,8 +722,9 @@ class JBTablesHelper extends AppHelper
      */
     public function getTableInfo($table)
     {
+        static $result = array();
 
-        if ($this->isTableExists($table, true)) {
+        if (!array_key_exists($table, $result) && $this->isTableExists($table)) {
             if ($fields = $this->app->database->queryAssocList('DESCRIBE ' . $table)) {
 
                 $retult = array();
@@ -727,11 +732,13 @@ class JBTablesHelper extends AppHelper
                     $retult[$field['Field']] = $field;
                 }
 
-                return $retult;
+                $result[$table] = $retult;
+            } else {
+                $result[$table] = null;
             }
         }
 
-        return null;
+        return array_key_exists($table, $result) ? $result[$table] : null;
     }
 
     /**

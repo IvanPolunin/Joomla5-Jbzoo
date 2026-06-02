@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -27,24 +28,24 @@ $urlAjax = $this->app->jbrouter->admin(array('controller' => 'manager', 'format'
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_TOOLS_CLEANDB_PROCESS'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_TOOLS_CLEANDB_PROCESS'); ?></h2>
 
         <p style="color:#a00;">
-            <strong><?php echo JText::_('JBZOO_CLEANDB_NO_CLOSE'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_CLEANDB_NO_CLOSE'); ?></strong>
         </p>
 
         <div class="uk-progress uk-progress-striped uk-active">
             <div class="uk-progress-bar jsProgressBar"
-                 style="width:0"><?php echo JText::_('JBZOO_PROGRESSBAR_READY'); ?></div>
+                 style="width:0"><?php echo Text::_('JBZOO_PROGRESSBAR_READY'); ?></div>
         </div>
 
         <p>
-            <em><?php echo JText::_('JBZOO_CLEANDB_LAST_ACTION'); ?>:</em> <span class="jsCurrentAction">-</span>
+            <em><?php echo Text::_('JBZOO_CLEANDB_LAST_ACTION'); ?>:</em> <span class="jsCurrentAction">-</span>
         </p>
 
         <div class="error-block jsErrorBlockWrapper" style="display: none;">
             <hr />
-            <h3><em><?php echo JText::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
+            <h3><em><?php echo Text::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
 
             <div class="jsErrorBlock"></div>
         </div>
@@ -80,7 +81,7 @@ $urlAjax = $this->app->jbrouter->admin(array('controller' => 'manager', 'format'
                     }
 
                     if (data.step >= steps || data.forward) {
-                        $progressbar.html('<?php echo JText::_('JBZOO_PROGRESSBAR_COMPLETE');?>');
+                        $progressbar.html('<?php echo Text::_('JBZOO_PROGRESSBAR_COMPLETE');?>');
                         $progressWrp.removeClass('uk-progress-striped uk-active');
                         $progressbar.css('width', '100%');
                     } else {

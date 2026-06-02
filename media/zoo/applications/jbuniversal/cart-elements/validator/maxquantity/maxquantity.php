@@ -33,7 +33,7 @@ class JBCartElementValidatorMaxQuantity extends JBCartElementValidator
         foreach ($items as $item) {
 
             if ($value > 0 && $item->get('quantity') > $value) {
-                $message = JText::sprintf('JBZOO_ELEMENT_VALIDATOR_MAXQUANTITY_ERROR', $value);
+                $message = Text::sprintf('JBZOO_ELEMENT_VALIDATOR_MAXQUANTITY_ERROR', $value);
                 throw new JBCartElementValidatorException($message);
             }
 
@@ -46,7 +46,7 @@ class JBCartElementValidatorMaxQuantity extends JBCartElementValidator
      */
     public function render($params = array())
     {
-        $message = JText::sprintf('JBZOO_ELEMENT_VALIDATOR_MAXQUANTITY_MESSAGE', $this->_getValue());
+        $message = Text::sprintf('JBZOO_ELEMENT_VALIDATOR_MAXQUANTITY_MESSAGE', $this->_getValue());
         return $message;
     }
 

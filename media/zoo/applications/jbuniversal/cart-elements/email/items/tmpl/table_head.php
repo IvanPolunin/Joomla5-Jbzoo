@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -21,34 +22,34 @@ $config = $this->config;
 <thead>
 <tr>
     <th <?php echo $this->getAttrs(array('align' => 'left')); ?>>
-        <?php echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_ID');?>
+        <?php echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_ID');?>
     </th>
 
     <th <?php echo $this->getAttrs(array('align' => 'left')); ?>>
         <?php if ($config->get('tmpl_image_show', 1)) {
-            echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_IMAGE');
+            echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_IMAGE');
         } ?>
     </th>
 
     <th <?php echo $this->getAttrs(array('align' => 'left')); ?>>
-        <?php echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_ITEMNAME'); ?>
+        <?php echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_ITEMNAME'); ?>
     </th>
 
     <th <?php echo $this->getAttrs(array('align' => 'left')); ?>>
         <?php if ($config->get('tmpl_price4one', 1)) {
-            echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_PRICE');
+            echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_PRICE');
         } ?>
     </th>
 
     <th <?php echo $this->getAttrs(array('align' => 'left')); ?>>
         <?php if ($config->get('tmpl_quntity', 1)) {
-            echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_QUANTITY');
+            echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_QUANTITY');
         } ?>
     </th>
 
     <th <?php echo $this->getAttrs(array('align' => 'left')); ?>>
         <?php if ($config->get('tmpl_subtotal', 1)) {
-            echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_ITEMTOTAL');
+            echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_ITEMTOTAL');
         } ?>
     </th>
 

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -38,7 +39,7 @@ class JBUserHelper extends AppHelper
     {
         parent::__construct($app);
 
-        $this->_user  = JFactory::getUser();
+        $this->_user  = Factory::getUser();
         $this->_table = $this->_user->getTable();
     }
 

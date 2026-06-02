@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -29,13 +30,13 @@ $jbform = $this->app->jbform;
         <form class="jbzoo-import-fields jbadminform uk-form uk-form-horizontal" id="jbzooimport"
               action="<?php echo $actionUrl; ?>" name="jbzooimport" method="post" enctype="multipart/form-data">
 
-            <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_IMPORT_ITEMS_FIELDS'); ?></h2>
+            <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_IMPORT_ITEMS_FIELDS'); ?></h2>
 
             <fieldset class="items">
 
                 <div class="assign-group">
                     <div class="uk-form-row">
-                        <input type="submit" name="send" value="<?php echo JText::_('JBZOO_FORM_IMPORT'); ?>"
+                        <input type="submit" name="send" value="<?php echo Text::_('JBZOO_FORM_IMPORT'); ?>"
                                class="uk-button uk-button-primary" style="float: right;" />
                     </div>
 
@@ -56,7 +57,7 @@ $jbform = $this->app->jbform;
                             <li class="assign">
                                 <?php echo $this->controls['fields_types']; ?>
                                 <span class="name">
-                                <?php echo JText::_('JBZOO_COLUMN'); ?> #<?php echo($key + 1); ?>
+                                <?php echo Text::_('JBZOO_COLUMN'); ?> #<?php echo($key + 1); ?>
                                     <?php echo !empty($column) ? ' - ' . $column : ''; ?>
                             </span>
                             </li>
@@ -64,7 +65,7 @@ $jbform = $this->app->jbform;
                     </ul>
 
                     <div class="uk-form-row">
-                        <input type="submit" name="send" value="<?php echo JText::_('JBZOO_FORM_IMPORT'); ?>"
+                        <input type="submit" name="send" value="<?php echo Text::_('JBZOO_FORM_IMPORT'); ?>"
                                class="uk-button uk-button-primary" style="float: right;" />
                     </div>
                 </div>
@@ -105,7 +106,7 @@ $jbform = $this->app->jbform;
         $form.submit(function () {
             // TODO validate categoryKey
             if (!$('#appid', $form).val()) {
-                alert('<?php echo JText::_('JBZOO_IMPORT_NO_APP');?>');
+                alert('<?php echo Text::_('JBZOO_IMPORT_NO_APP');?>');
                 return false;
             }
 

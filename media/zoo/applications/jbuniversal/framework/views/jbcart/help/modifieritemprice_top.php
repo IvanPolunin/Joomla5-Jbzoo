@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -16,4 +17,4 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-echo JText::_('JBZOO_CART_HELP_MODIFIER_ITEM_PRICE_TOP');
+echo Text::_('JBZOO_CART_HELP_MODIFIER_ITEM_PRICE_TOP');

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -30,7 +31,7 @@ class JBConfigJBuniversalController extends JBUniversalController
     {
         if ($this->zoo->jbrequest->isPost()) {
             $this->_config->setGroup('config.custom', $this->zoo->jbrequest->getAdminForm());
-            $this->setRedirect($this->zoo->jbrouter->admin(), JText::_('JBZOO_CONFIG_SAVED'));
+            $this->setRedirect($this->zoo->jbrouter->admin(), Text::_('JBZOO_CONFIG_SAVED'));
         }
 
         $this->configData = $this->_config->getGroup('config.custom', $this->zoo->jbconfig->getList());
@@ -45,7 +46,7 @@ class JBConfigJBuniversalController extends JBUniversalController
     {
         if ($this->zoo->jbrequest->isPost()) {
             $this->_config->setGroup('config.yml', $this->zoo->jbrequest->getAdminForm());
-            $this->setRedirect($this->zoo->jbrouter->admin(), JText::_('JBZOO_CONFIG_SAVED'));
+            $this->setRedirect($this->zoo->jbrouter->admin(), Text::_('JBZOO_CONFIG_SAVED'));
         }
 
         $this->configData = $this->_config->getGroup('config.yml', $this->zoo->jbconfig->getList());
@@ -60,7 +61,7 @@ class JBConfigJBuniversalController extends JBUniversalController
     {
         if ($this->zoo->jbrequest->isPost()) {
             $this->_config->setGroup('config.zoohack', $this->zoo->jbrequest->getAdminForm());
-            $this->setRedirect($this->zoo->jbrouter->admin(), JText::_('JBZOO_CONFIG_SAVED'));
+            $this->setRedirect($this->zoo->jbrouter->admin(), Text::_('JBZOO_CONFIG_SAVED'));
         }
 
         $this->configData = $this->_config->getGroup('config.zoohack', $this->zoo->jbconfig->getList());
@@ -75,7 +76,7 @@ class JBConfigJBuniversalController extends JBUniversalController
     {
         if ($this->zoo->jbrequest->isPost()) {
             $this->_config->setGroup('config.assets', $this->zoo->jbrequest->getAdminForm());
-            $this->setRedirect($this->zoo->jbrouter->admin(), JText::_('JBZOO_CONFIG_SAVED'));
+            $this->setRedirect($this->zoo->jbrouter->admin(), Text::_('JBZOO_CONFIG_SAVED'));
         }
 
         $this->configData = $this->_config->getGroup('config.assets', $this->zoo->jbconfig->getList());
@@ -102,7 +103,7 @@ class JBConfigJBuniversalController extends JBUniversalController
             //WTF (убрана функция старого кеширования ссылок)
 
             // redirect after submit
-            $this->setRedirect($this->zoo->jbrouter->admin(), JText::_('JBZOO_CONFIG_SAVED'));
+            $this->setRedirect($this->zoo->jbrouter->admin(), Text::_('JBZOO_CONFIG_SAVED'));
         }
 
         $this->configData = $this->_config->getGroup('config.sef');

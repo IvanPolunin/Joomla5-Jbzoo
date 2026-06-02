@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -31,6 +33,11 @@ class JBCartElementPaymentSberbank extends JBCartElementPayment
     private $_prodUrl = 'https://securepayments.sberbank.ru/payment/rest/';
 
     /**
+     * @var mixed
+     */
+    private $_session;
+
+    /**
      * @var string
      */
     private $_testUrl = 'https://3dsec.sberbank.ru/payment/rest/';
@@ -44,9 +51,9 @@ class JBCartElementPaymentSberbank extends JBCartElementPayment
     {
         parent::__construct($app, $type, $group);
 
-        $this->_session  = JFactory::getSession();
+        $this->_session  = Factory::getSession();
 
-        JFactory::getLanguage()->load('com_jbzoo_cart_elements_payment_sberbank', $this->app->path->path('jbapp:cart-elements').'/payment/sberbank', null, true);
+        Factory::getLanguage()->load('com_jbzoo_cart_elements_payment_sberbank', $this->app->path->path('jbapp:cart-elements').'/payment/sberbank', null, true);
     }
 
     /**
@@ -205,7 +212,7 @@ class JBCartElementPaymentSberbank extends JBCartElementPayment
                 'name'          => $item['item_name'],
                 'quantity'      => array(
                     'value'     => $item['quantity'],
-                    'measure'   => JText::_('JBZOO_ELEMENT_PAYMENT_SBERBANK_ITEM_MEASURE')
+                    'measure'   => Text::_('JBZOO_ELEMENT_PAYMENT_SBERBANK_ITEM_MEASURE')
                 ),
                 'itemPrice'     => $itemPrice->val() * 100,
                 'itemCode'      => $i.'-'.$item['item_id'],
@@ -237,10 +244,10 @@ class JBCartElementPaymentSberbank extends JBCartElementPayment
                 if ($rate->val()) {
                     $items[] = array(
                         'positionId'    => $i + 1,
-                        'name'          => JText::_('JBZOO_ELEMENT_PAYMENT_SBERBANK_ITEM_SHIPPING').' '.$title,
+                        'name'          => Text::_('JBZOO_ELEMENT_PAYMENT_SBERBANK_ITEM_SHIPPING').' '.$title,
                         'quantity'      => array(
                             'value'     => 1,
-                            'measure'   => JText::_('JBZOO_ELEMENT_PAYMENT_SBERBANK_ITEM_MEASURE')
+                            'measure'   => Text::_('JBZOO_ELEMENT_PAYMENT_SBERBANK_ITEM_MEASURE')
                         ),
                         'itemPrice'     => $rate->val() * 100,
                         'itemCode'      => $shipping->identifier,

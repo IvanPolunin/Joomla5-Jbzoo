@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -188,7 +189,7 @@ class JBMigrateOrderHelper extends AppHelper
     {
         /** @var JBCartElementPaymentMigration $paymentElement */
         $paymentElement = $this->app->jbcartelement->create('migration', JBCart::ELEMENT_TYPE_PAYMENT, array(
-            'name'       => JText::_('JBZOO_MIGRATE_PAYMENT_NAME'),
+            'name'       => Text::_('JBZOO_MIGRATE_PAYMENT_NAME'),
             'identifier' => $this->app->utility->generateUUID(),
         ));
 
@@ -206,7 +207,7 @@ class JBMigrateOrderHelper extends AppHelper
     {
         /** @var JBCartElementOrderMigration $orderElement */
         $orderElement = $this->app->jbcartelement->create('migration', JBCart::ELEMENT_TYPE_ORDER, array(
-            'name'       => JText::_('JBZOO_MIGRATE_FIELDS_NAME'),
+            'name'       => Text::_('JBZOO_MIGRATE_FIELDS_NAME'),
             'identifier' => $this->app->utility->generateUUID(),
         ));
 
@@ -246,7 +247,7 @@ class JBMigrateOrderHelper extends AppHelper
                 /** @var JBCartElementStatusCustom $status */
                 $status = $this->app->jbcartelement->create('custom', JBCart::ELEMENT_TYPE_STATUS, array(
                     'code'       => $code,
-                    'name'       => JText::_('JBZOO_PAYMENT_STATUS_' . $code),
+                    'name'       => Text::_('JBZOO_PAYMENT_STATUS_' . $code),
                     'identifier' => $code,
                 ));
 

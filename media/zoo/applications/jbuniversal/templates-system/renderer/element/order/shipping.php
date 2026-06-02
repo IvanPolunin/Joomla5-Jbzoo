@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -95,7 +96,7 @@ try {
             $html[] = '<div class="jbcart-shipping-element jsShippingElement jsShippingAjax-' . $element->identifier . '">';
 
             if ($description) {
-                $html[] = '<p class="jbcart-shipping-desc">' . JText::_($description) . '</p>';
+                $html[] = '<p class="jbcart-shipping-desc">' . Text::_($description) . '</p>';
             }
 
             $html[] = $elementSubmission;

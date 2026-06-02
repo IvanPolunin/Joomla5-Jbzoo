@@ -21,11 +21,11 @@ $this->app->jbdebug->mark('template::category::start');
 $this->app->jblayout->setView($this);
 $currentView = $this->app->jbrequest->get('view', 'category');
 $currentTask = $this->app->jbrequest->get('task', 'category');
+$page = $this->app->request->getInt('page', 0);
+// jimport('joomla.application.module.helper');
+$module = JModuleHelper::getModules('catalogmenu');
+$attribs['style'] = 'html5';
 
-
-?>
-
-<?php
 if (isset($this->category)) {
     if ($currentView == 'frontpage' || $currentTask == 'frontpage') {
         $category = $this->application;
@@ -38,52 +38,57 @@ if (!$this->app->jbcache->start($this->params->get('config.lastmodified'))) {
     $this->app->jbwrapper->start();
 
     // category render
-    if (isset($category)) {
-        echo $this->app->jblayout->render($currentView, $category);
+    //if (isset($category)) {
+    //    echo $this->app->jblayout->render($currentView, $category);
+    //}
+
+	$page = $this->app->request->getInt('page', 1);
+
+	$h1 = $category->name;
+
+	if($page > 1) {
+
+		$h1 .= ' ' . JText::_('COM_ZOO_PAGE_WORD') . ' ' . $page;
+	}
+
+   echo '<div class="category">';
+   echo '<h1 class="title">'.$h1.'</h1>';
+   if ($this->app->request->getCmd('Itemid') == '106' || $this->app->request->getCmd('Itemid') == '169') {
+      echo JModuleHelper::renderModule($module[0], $attribs);
+   }
+   if ($page == 0 || $page == 1) {
+//echo '<div class="description-full">'.$category->description.'</div>';
+        //$str = $category->description;
+       // $str = strip_tags($str);
+        //if (strlen($str) > 500) {
+	 //  $textPrev = substr($str, 0, 500);
+	  // $textPrev = rtrim($textPrev, "!,.-");
+	   //$textPrev = substr($textPrev, 0, strrpos($textPrev, ' '));
+	   //$textNext = substr($str, strlen($textPrev));
+	   //echo '<div class="description-full">';
+           //echo '<span class="text-prev">'.$textPrev.'</span><span class="text-next">'.$textNext.'</span>';
+	   //echo '<a href="#" class="text-more">.���������</a>';
+           //echo '</div>';
+	//} else {
+	//  echo '<div class="description-full">'.$category->description.'</div>';
+	//}
+        
+   }
+   echo '</div>';
+
+    // alphaindex render
+    if ($this->params->get('template.show_alpha_index', 0)) {
+        echo $this->app->jblayout->render('alphaindex', $this->alpha_index);
     }
 
- 
-?>
-
-
-<div class="containerr">
-
-
-
-<?php
     // subcategories render
-    if (isset($category)) {
-        $categories = $this->category->getChildren();
-        if ($this->params->get('template.subcategory_show', 1) && count($categories)) {
-            echo $this->app->jblayout->render('subcategories', $categories);
-        }
-    }
-?>
-<div class="row ">
-<?php // category items render
-    if ($this->params->get('config.items_show', 1) && count($this->items)) { ?>
-		<div class="col-xxl-2  col-xl-3 col-lg-4 ">
-		
+    //if (isset($category)) {
+    //    $categories = $this->category->getChildren();
+    //    if ($this->params->get('template.subcategory_show', 1) && count($categories)) {
+    //        echo $this->app->jblayout->render('subcategories', $categories);
+    //    }
+    //}
 
-		<div class="styck "> 	<div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
- 
-      <a class="accordion-button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-       <i class="fa-solid fa-sliders"></i> Фильтр
-      </a>
-   
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-	{module 132}
-    </div>
-  </div>
-  
-</div></div>
-	
-		
-		</div>
-		<?php } ?>
-<div class="col-xxl-10 col-xl-9 col-lg-8">
-<?php
     // category items render
     if ($this->params->get('config.items_show', 1) && count($this->items)) {
 
@@ -105,41 +110,22 @@ if (!$this->app->jbcache->start($this->params->get('config.lastmodified'))) {
     } else {
         echo $this->app->jblayout->render('items_empty', $category);
     }
-?>
-</div>
-</div>
-</div>
-</div>
-<?php
+
     // pagination render
     if ($this->params->get('template.item_pagination', 1)) {
         echo $this->app->jblayout->render('pagination', $this->pagination, array('link' => $this->pagination_link));
     }
+ 
 
     $this->app->jbwrapper->end();
     $this->app->jbcache->stop();
+
+    
+    if ($page == 0 || $page == 1) {
+        echo '<div class="description-full">'.$category->description.'</div>';
+               
+           }
+
 }
-?>
-  <?php if (!$this->app->jbrequest->get('page') and $category->description) : ?>
-    <div id="sp-cattext" class="catdescr"> 
 
-<div class="containerr">
-<?php echo $category->description; ?>
-
-</div>
-</div>
-
-    <?php endif; ?>
- <script>
-$( "table" ).addClass( "table table-striped" );
-$( ".catdescr h2" ).addClass( "h2title" );
-
-if (screen.width > 768) {
-    $('#flush-collapseOne').attr('class', 'show collapse');
-} else {
-    $('.accordion-button').attr('class', 'accordion-button collapsed');
-}
-  
-  </script>
-<?php
 $this->app->jbdebug->mark('template::category::finish');

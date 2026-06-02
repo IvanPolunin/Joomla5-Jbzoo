@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\HTML\HTMLHelper;
 /**
  * JBZoo Application
  *
@@ -16,15 +18,15 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 
 /**
- * Class JFormFieldJBKeyvalue
+ * Class JFormFieldJBKeyValue
  */
-class JFormFieldJBKeyvalue extends JFormField
+class JFormFieldJBKeyValue extends \Joomla\CMS\Form\FormField
 {
 
     /**
@@ -46,9 +48,9 @@ class JFormFieldJBKeyvalue extends JFormField
         $elementsList = $app->jbentity->getItemTypesData(1);
         $typesList    = $app->jbtype->getSimpleList();
         $exclude      = JBModelSearchindex::model()->getExcludeTypes();
-        $textHeadType = JText::_('JBZOO_FIELDS_CORE');
+        $textHeadType = Text::_('JBZOO_FIELDS_CORE');
         $stdFields    = array(
-            ''                  => JText::_('JBZOO_MODITEM_SELECT_OPTION'),
+            ''                  => Text::_('JBZOO_MODITEM_SELECT_OPTION'),
             '_itemauthor'       => 'Item Author',
             '_itemcategory'     => 'Item Category',
             '_itemcreated'      => 'Item Created',
@@ -126,12 +128,12 @@ class JFormFieldJBKeyvalue extends JFormField
             }
 
             $html[] = '<div class="jbjkeyvalue-row">';
-            $html[] = JHtml::_('select.groupedlist', $elements, $this->getName($this->fieldname) . '[' . $i . '][key]', array(
+            $html[] = HTMLHelper::_('select.groupedlist', $elements, $this->getName($this->fieldname) . '[' . $i . '][key]', array(
                 'list.select' => isset($value['key']) ? $value['key'] : '',
             ));
 
             $html[] = '<input ' . $app->jbhtml->buildAttrs(array(
-                    'placeholder' => JText::_('JBZOO_JBKEYVALUE_VALUE'),
+                    'placeholder' => Text::_('JBZOO_JBKEYVALUE_VALUE'),
                     'type'        => 'text',
                     'name'        => $this->getName($this->fieldname) . '[' . $i . '][value]',
                     'value'       => isset($value['value']) ? $value['value'] : '',
@@ -139,7 +141,7 @@ class JFormFieldJBKeyvalue extends JFormField
                 )) . ' />';
 
             if ($i !== 0) {
-                $html[] = '<a href="#jbjkeyvalue-rem" class="jsJKeyValueRemove" title="' . JText::_('JBZOO_JBKEYVALUE_ADD') . '"></a>';
+                $html[] = '<a href="#jbjkeyvalue-rem" class="jsJKeyValueRemove" title="' . Text::_('JBZOO_JBKEYVALUE_ADD') . '"></a>';
             }
 
             $html[] = JBZOO_CLR;
@@ -149,7 +151,7 @@ class JFormFieldJBKeyvalue extends JFormField
         }
 
         $html[] = JBZOO_CLR;
-        $html[] = '<a href="#jbjkeyvalue-add" class="jsJKeyValueAdd">' . JText::_('JBZOO_JBKEYVALUE_ADD') . '</a>';
+        $html[] = '<a href="#jbjkeyvalue-add" class="jsJKeyValueAdd">' . Text::_('JBZOO_JBKEYVALUE_ADD') . '</a>';
         $html[] = JBZOO_CLR;
 
         return '<div class="jsJKeyValue">' . implode(PHP_EOL, $html) . '</div>' . JBZOO_CLR;

@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -24,7 +26,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBItemOrder
  */
-class JFormFieldJBItemOrder extends JFormField
+class JFormFieldJBItemOrder extends FormField
 {
 
     protected $type = 'jbitemorder';
@@ -85,13 +87,13 @@ class JFormFieldJBItemOrder extends JFormField
 
         if ($isReverse) {
             $html[] = '<label class="order-reverse-wrap"><input class="order-reverse" type="checkbox">'
-                . JText::_('JBZOO_ORDER_REVERSE') . '</label> ';
+                . Text::_('JBZOO_ORDER_REVERSE') . '</label> ';
         }
 
 
         if ($isRandom) {
             $html[] = '<label class="order-random-wrap"><input class="order-random" type="checkbox">'
-                . JText::_('JBZOO_ORDER_RANDOM') . '</label>';
+                . Text::_('JBZOO_ORDER_RANDOM') . '</label>';
         }
 
 

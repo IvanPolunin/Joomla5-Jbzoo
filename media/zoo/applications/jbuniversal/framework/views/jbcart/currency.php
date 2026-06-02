@@ -23,7 +23,7 @@ defined('_JEXEC') or die('Restricted access');
     </div>
 
     <div class="uk-width-4-6">
-        <h2><?php echo JText::_('JBZOO_ADMIN_CURRENCY_LIST'); ?></h2>
+        <h2><?php echo Joomla\CMS\Language\Text::_('JBZOO_ADMIN_CURRENCY_LIST'); ?></h2>
 
         <?php echo $this->partial('cartdesc'); ?>
 

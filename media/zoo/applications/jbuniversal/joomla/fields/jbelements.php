@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
+use Joomla\CMS\HTML\HTMLHelper;
 /**
  * JBZoo Application
  *
@@ -25,7 +28,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
  * Class JFormFieldJBSpacer
  */
 
-class JFormFieldJBElements extends JFormField {
+class JFormFieldJBElements extends FormField {
      
      /**
      * @var string
@@ -49,7 +52,7 @@ class JFormFieldJBElements extends JFormField {
 
             // add core elements
             $core = $zoo->object->create('Type', array('_core', $application));
-            $core->name = JText::_('Core');
+            $core->name = Text::_('Core');
             array_unshift($types, $core);
 
             $options = array();
@@ -78,7 +81,7 @@ class JFormFieldJBElements extends JFormField {
             break;
         }
 
-        return JHtml::_('select.groupedlist',  $options, $this->name, array(
+        return HTMLHelper::_('select.groupedlist',  $options, $this->name, array(
                 'list.select' => $this->value,
                 'group.items' => null,
             ));

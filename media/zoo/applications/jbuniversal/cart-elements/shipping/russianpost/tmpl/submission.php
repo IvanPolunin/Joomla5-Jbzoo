@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -48,7 +49,7 @@ $uiqueId = $this->app->jbstring->getId('emspost-');
         <?php echo $jbhtml->text(
             $this->getControlName('postOfficeId'),
             $this->get('postOfficeId'), array(
-                'placeholder' => JText::_('JBZOO_ELEMENT_SHIPPING_RUSSIANPOST_ZIP'),
+                'placeholder' => Text::_('JBZOO_ELEMENT_SHIPPING_RUSSIANPOST_ZIP'),
             )
         ); ?>
     </div>

@@ -14,11 +14,12 @@
  */
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
-
 class JBUpload
 {
     protected $options;
+    protected $app;
+    protected $request;
+    protected $response;
 
     // PHP File Upload error message codes:
     // http://php.net/manual/en/features.file-upload.errors.php
@@ -182,24 +183,24 @@ class JBUpload
         );
 
         $this->error_messages = array(
-            1                     => Text::_('JBZOO_UPLOAD_ERROR_1'),
-            2                     => Text::_('JBZOO_UPLOAD_ERROR_2'),
-            3                     => Text::_('JBZOO_UPLOAD_ERROR_3'),
-            4                     => Text::_('JBZOO_UPLOAD_ERROR_4'),
-            6                     => Text::_('JBZOO_UPLOAD_ERROR_5'),
-            7                     => Text::_('JBZOO_UPLOAD_ERROR_6'),
-            8                     => Text::_('JBZOO_UPLOAD_ERROR_7'),
-            'post_max_size'       => Text::_('JBZOO_UPLOAD_ERROR_8'),
-            'max_file_size'       => Text::_('JBZOO_UPLOAD_ERROR_9'),
-            'min_file_size'       => Text::_('JBZOO_UPLOAD_ERROR_10'),
-            'accept_file_types'   => Text::_('JBZOO_UPLOAD_ERROR_11'),
-            'max_number_of_files' => Text::_('JBZOO_UPLOAD_ERROR_12'),
-            'max_width'           => Text::_('JBZOO_UPLOAD_ERROR_13'),
-            'min_width'           => Text::_('JBZOO_UPLOAD_ERROR_14'),
-            'max_height'          => Text::_('JBZOO_UPLOAD_ERROR_15'),
-            'min_height'          => Text::_('JBZOO_UPLOAD_ERROR_16'),
-            'abort'               => Text::_('JBZOO_UPLOAD_ERROR_17'),
-            'image_resize'        => Text::_('JBZOO_UPLOAD_ERROR_18'),
+            1                     => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_1'),
+            2                     => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_2'),
+            3                     => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_3'),
+            4                     => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_4'),
+            6                     => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_5'),
+            7                     => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_6'),
+            8                     => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_7'),
+            'post_max_size'       => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_8'),
+            'max_file_size'       => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_9'),
+            'min_file_size'       => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_10'),
+            'accept_file_types'   => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_11'),
+            'max_number_of_files' => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_12'),
+            'max_width'           => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_13'),
+            'min_width'           => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_14'),
+            'max_height'          => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_15'),
+            'min_height'          => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_16'),
+            'abort'               => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_17'),
+            'image_resize'        => Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_18'),
         );
 
         if ($options)
@@ -662,7 +663,7 @@ class JBUpload
         // into different directories or replacing hidden system files.
         // Also remove control characters and spaces (\x00..\x20) around the filename:
         $name = $this->app->string->sluggify(pathinfo($name, PATHINFO_FILENAME));
-        $name = strtolower(trim(basename(stripslashes($name)), ".\x00..\x20"));
+        $name = strtolower(trim(basename(stripslashes($name ?? '')), ".\x00..\x20"));
 
         // Use a timestamp for empty filenames:
         if (!$name)
@@ -1585,7 +1586,7 @@ class JBUpload
 
     protected function get_version_param()
     {
-        return $this->basename(stripslashes($this->get_query_param('version')));
+        return $this->basename(stripslashes($this->get_query_param('version') ?? ''));
     }
 
     protected function get_singular_param_name()
@@ -1597,7 +1598,7 @@ class JBUpload
     {
         $name = $this->get_singular_param_name();
 
-        return $this->basename(stripslashes($this->get_query_param($name)));
+        return $this->basename(stripslashes($this->get_query_param($name) ?? ''));
     }
 
     protected function get_file_names_params()
@@ -1609,7 +1610,7 @@ class JBUpload
         }
         foreach ($params as $key => $value)
         {
-            $params[$key] = $this->basename(stripslashes($value));
+            $params[$key] = $this->basename(stripslashes($value ?? ''));
         }
 
         return $params;
@@ -1710,7 +1711,7 @@ class JBUpload
         if ($print_response)
         {
             $json     = json_encode($content);
-            $redirect = stripslashes($this->get_post_param('redirect'));
+            $redirect = stripslashes($this->get_post_param('redirect') ?? '');
             if ($redirect && preg_match($this->options['redirect_allow_target'], $redirect))
             {
                 $this->header('Location: ' . sprintf($redirect, rawurlencode($json)));
@@ -1880,6 +1881,6 @@ class JBUpload
     {
         $splited = preg_split('/\//', rtrim($filepath, '/ '));
 
-        return substr(basename('X' . $splited[count($splited) - 1], $suffix), 1);
+        return substr(basename('X' . $splited[count($splited) - 1], $suffix ?? ''), 1);
     }
 }

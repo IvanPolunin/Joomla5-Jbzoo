@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,17 +25,17 @@ $currency    = $this->sum->cur();
 ?>
 
 <h2>
-    <?php echo JText::_('JBZOO_ORDER_ITEMS_LIST'); ?>
+    <?php echo Text::_('JBZOO_ORDER_ITEMS_LIST'); ?>
 </h2>
 
 <table class="uk-table uk-table-condensed jborder-details-table">
     <thead>
     <tr>
-        <th class="col-image"><?php echo JText::_('JBZOO_ORDER_ITEM_IMAGE'); ?></th>
-        <th class="col-name"><?php echo JText::_('JBZOO_ORDER_ITEM_NAME'); ?></th>
-        <th class="col-item"><?php echo JText::_('JBZOO_ORDER_PRICE_PER_ITEM'); ?></th>
-        <th class="col-quantity"><?php echo JText::_('JBZOO_ORDER_ITEM_QUANTITY'); ?></th>
-        <th class="col-total"><?php echo JText::_('JBZOO_ORDER_ITEM_TOTAL'); ?></th>
+        <th class="col-image"><?php echo Text::_('JBZOO_ORDER_ITEM_IMAGE'); ?></th>
+        <th class="col-name"><?php echo Text::_('JBZOO_ORDER_ITEM_NAME'); ?></th>
+        <th class="col-item"><?php echo Text::_('JBZOO_ORDER_PRICE_PER_ITEM'); ?></th>
+        <th class="col-quantity"><?php echo Text::_('JBZOO_ORDER_ITEM_QUANTITY'); ?></th>
+        <th class="col-total"><?php echo Text::_('JBZOO_ORDER_ITEM_TOTAL'); ?></th>
     </tr>
     </thead>
 
@@ -54,7 +55,7 @@ $currency    = $this->sum->cur();
 
     <tr>
         <td class="noborder-btm"></td>
-        <td colspan="2"><p><?php echo JText::_('JBZOO_ORDER_SUBTOTAL'); ?></p></td>
+        <td colspan="2"><p><?php echo Text::_('JBZOO_ORDER_SUBTOTAL'); ?></p></td>
         <td class="align-right"><p><?php echo $this->count; ?></p></td>
         <td class="align-right subtotal-money"><?php echo $this->sum->html(); ?></td>
     </tr>
@@ -68,7 +69,7 @@ $currency    = $this->sum->cur();
     <?php if ($shipping || $payment || $modifiers) : ?>
         <tr>
             <td class="noborder-btm"></td>
-            <td colspan="3"><p><?php echo JText::_('JBZOO_ORDER_SUBTOTAL'); ?></p></td>
+            <td colspan="3"><p><?php echo Text::_('JBZOO_ORDER_SUBTOTAL'); ?></p></td>
             <td class="align-right subtotal-money"><?php echo $this->sum->html(); ?></td>
         </tr>
         <?php echo $emptyRow; ?>
@@ -89,7 +90,7 @@ $currency    = $this->sum->cur();
     <?php if ($shipping || $payment) : ?>
         <tr>
             <td class="noborder-btm"></td>
-            <td colspan="3"><p><?php echo JText::_('JBZOO_ORDER_SUBTOTAL'); ?></p></td>
+            <td colspan="3"><p><?php echo Text::_('JBZOO_ORDER_SUBTOTAL'); ?></p></td>
             <td class="align-right subtotal-money"><?php echo $this->sum->html(); ?></td>
         </tr>
         <?php echo $emptyRow; ?>
@@ -97,7 +98,7 @@ $currency    = $this->sum->cur();
 
     <tr>
         <td colspan="2" class="noborder-btm"></td>
-        <td class="total-name" colspan="2"><?php echo JText::_('JBZOO_ORDER_TOTALPRICE'); ?></td>
+        <td class="total-name" colspan="2"><?php echo Text::_('JBZOO_ORDER_TOTALPRICE'); ?></td>
         <td class="total-value"><?php echo $this->sum->html(); ?></td>
     </tr>
     </tfoot>

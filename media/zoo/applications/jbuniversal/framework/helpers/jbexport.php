@@ -16,6 +16,9 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Filesystem\Path;
+use Joomla\Filesystem\Folder;
+
 /**
  * Class JBExportHelper
  */
@@ -220,11 +223,11 @@ class JBExportHelper extends AppHelper
     {
         $folder = $this->app->jbpath->sysPath('tmp', '/' . JBExportHelper::EXPORT_PATH . '/');
 
-        if (JFolder::exists($folder)) {
-            JFolder::delete($folder);
+        if (Folder::exists($folder)) {
+            Folder::delete($folder);
         }
 
-        JFolder::create($folder);
+        Folder::create($folder);
     }
 
     /**
@@ -235,7 +238,7 @@ class JBExportHelper extends AppHelper
         /** @var JBFileHelper $jfile */
         $jfile      = $this->app->jbfile;
         $exportPath = $this->app->jbpath->sysPath('tmp', '/' . self::EXPORT_PATH);
-        $files      = JFolder::files($exportPath, '\.csv$');
+        $files      = Folder::files($exportPath, '\.csv$');
 
         $filesGroup = array();
         foreach ($files as $file) {
@@ -260,7 +263,7 @@ class JBExportHelper extends AppHelper
                 }
             }
 
-            $resultCsv = JPath::clean($exportPath . '/' . $itemType . '.csv');
+            $resultCsv = Path::clean($exportPath . '/' . $itemType . '.csv');
             $jfile->save($resultCsv, implode("", $content));
 
             $itemTypesList[] = $resultCsv;

@@ -13,6 +13,8 @@
  * @author     Denis Smetannikov <denis@jbzoo.com>
  */
 
+use Joomla\CMS\Factory;
+
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
@@ -31,7 +33,7 @@ class JBFavoriteHelper extends AppHelper
      */
     public function isAuth()
     {
-        return (bool)JFactory::getUser()->id;
+        return (bool)Factory::getUser()->id;
     }
 
     /**
@@ -117,7 +119,7 @@ class JBFavoriteHelper extends AppHelper
             $items[$item->id] = array(
                 'id'      => null,
                 'item_id' => $item->id,
-                'user_id' => JFactory::getUser()->id,
+                'user_id' => \Joomla\CMS\Factory::getUser()->id,
                 'date'    => $this->app->jbdate->toMysql(time()),
             );
         }

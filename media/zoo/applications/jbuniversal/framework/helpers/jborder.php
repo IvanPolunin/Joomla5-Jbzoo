@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -140,7 +141,7 @@ class JBOrderHelper extends AppHelper
                 continue;
             }
 
-            $result[$key] = JText::_('JBZOO_ORDER_' . trim(preg_replace('#[^a-z]#ius', '_', $order), '_'));
+            $result[$key] = Text::_('JBZOO_ORDER_' . trim(preg_replace('#[^a-z]#ius', '_', $order), '_'));
         }
 
         return $result;
@@ -160,7 +161,7 @@ class JBOrderHelper extends AppHelper
                 continue;
             }
 
-            $result[$key] = JText::_('JBZOO_ORDER_' . trim(preg_replace('#[^a-z]#ius', '_', $order), '_'));
+            $result[$key] = Text::_('JBZOO_ORDER_' . trim(preg_replace('#[^a-z]#ius', '_', $order), '_'));
 
         }
 

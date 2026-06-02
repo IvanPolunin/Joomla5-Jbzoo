@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -26,7 +27,7 @@ $shipping = $this->getOrder()->getShipping();
 
     <tr>
         <td align="left" style="width: 30%;">
-            <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_SHIPPING_METHOD'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_SHIPPING_METHOD'); ?></strong>
         </td>
 
         <td align="left">
@@ -36,7 +37,7 @@ $shipping = $this->getOrder()->getShipping();
 
     <tr>
         <td align="left">
-            <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_SHIPPING_PRICE'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_SHIPPING_PRICE'); ?></strong>
         </td>
 
         <td align="left">
@@ -46,7 +47,7 @@ $shipping = $this->getOrder()->getShipping();
 
     <tr>
         <td align="left">
-            <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_SHIPPING_STATUS'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_SHIPPING_STATUS'); ?></strong>
         </td>
 
         <td align="left">
@@ -56,7 +57,7 @@ $shipping = $this->getOrder()->getShipping();
 
     <tr>
         <td align="left" valign="top">
-            <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_SHIPPING_INFO'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_SHIPPING_INFO'); ?></strong>
         </td>
 
         <td align="left">

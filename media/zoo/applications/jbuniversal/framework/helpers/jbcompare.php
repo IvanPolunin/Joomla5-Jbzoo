@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -121,7 +122,7 @@ class JBCompareHelper extends AppHelper
      */
     protected function _getSession()
     {
-        $session   = JFactory::getSession();
+        $session   = Factory::getSession();
         $jbcompare = $session->get($this->_namespaceHelper, array(), $this->_namespace);
         $result    = $this->app->data->create($jbcompare);
 
@@ -135,7 +136,7 @@ class JBCompareHelper extends AppHelper
      */
     protected function _setSession($key, $value)
     {
-        $session   = JFactory::getSession();
+        $session   = Factory::getSession();
         $jbcompare = $session->get($this->_namespaceHelper, array(), $this->_namespace);
 
         $jbcompare[$key] = $value;

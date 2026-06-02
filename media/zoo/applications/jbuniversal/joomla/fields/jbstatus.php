@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -16,15 +18,13 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
-
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 
 /**
  * Class JFormFieldJBStatus
  */
-class JFormFieldJBStatus extends JFormField
+class JFormFieldJBStatus extends FormField
 {
 
     protected $type = 'jbstatus';
@@ -47,11 +47,11 @@ class JFormFieldJBStatus extends JFormField
 
         // create select
         $options = array(
-            '' => JText::_('JBZOO_NONE'),
+            '' => Text::_('JBZOO_NONE'),
         );
 
         foreach ($elements as $key => $element) {
-            $options[] = $app->html->_('select.option', $element->getCode(), JText::_($element->getName()));
+            $options[] = $app->html->_('select.option', $element->getCode(), Text::_($element->getName()));
         }
 
         return $app->html->_(
@@ -61,7 +61,7 @@ class JFormFieldJBStatus extends JFormField
             '',
             'value',
             'text',
-            $this->value
+            $this->value ?? ''
         );
     }
 

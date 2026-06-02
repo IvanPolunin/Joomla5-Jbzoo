@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -55,7 +56,7 @@ class CompareJBUniversalController extends JBUniversalController
         $this->itemId     = $itemId;
 
         if (!$this->template = $this->application->getTemplate()) {
-            $this->zoo->jbnotify->error(JText::_('No template selected'));
+            $this->zoo->jbnotify->error(Text::_('No template selected'));
             return;
         }
 
@@ -88,7 +89,7 @@ class CompareJBUniversalController extends JBUniversalController
 
         $compareUrl = $this->zoo->jbrouter->compare($itemId, 'v', $type, $appId);
 
-        JFactory::getApplication()->redirect($compareUrl, JText::_('JBZOO_COMPARE_CLEAR'));
+        JFactory::getApplication()->redirect($compareUrl, Text::_('JBZOO_COMPARE_CLEAR'));
     }
 
 }

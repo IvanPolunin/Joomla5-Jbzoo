@@ -16,7 +16,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -25,7 +25,7 @@ require_once(JPATH_ROOT . '/media/zoo/applications/jbuniversal/framework/jbzoo.p
 /**
  * Class JFormFieldJBZooInit
  */
-class JFormFieldJBZooInit extends JFormField
+class JFormFieldJBZooInit extends FormField
 {
 
     protected $type = 'jbzooinit';

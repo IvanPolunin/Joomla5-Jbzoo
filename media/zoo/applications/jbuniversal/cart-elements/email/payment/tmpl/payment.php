@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -27,7 +28,7 @@ $payment = $order->getPayment();
 
     <tr>
         <td style="width:30%;">
-            <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_PAYMENT_METHOD'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_PAYMENT_METHOD'); ?></strong>
         </td>
 
         <td><?php echo $payment->getName(); ?></td>
@@ -35,7 +36,7 @@ $payment = $order->getPayment();
 
     <tr>
         <td align="left">
-            <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_PAYMENT_COMMISSION'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_PAYMENT_COMMISSION'); ?></strong>
         </td>
         <td align="left">
             <?php echo $payment->getRate()->html(); ?>
@@ -44,7 +45,7 @@ $payment = $order->getPayment();
 
     <tr>
         <td align="left">
-            <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_PAYMENT_STATUS'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_PAYMENT_STATUS'); ?></strong>
         </td>
         <td align="left">
             <?php echo $payment->getStatus()->getName(); ?>

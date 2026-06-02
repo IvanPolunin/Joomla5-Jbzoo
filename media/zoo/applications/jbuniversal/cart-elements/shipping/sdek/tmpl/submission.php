@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,29 +25,29 @@ $isEmpty    = (empty($tariff)) ? true : false;
 
 <div id="<?php echo $uiqueId; ?>" class="sdek">
     <div class="sdek__sender">
-        <p><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_FROM'); ?>: <?php echo $this->config->get('from')['city-name']; ?></p>
+        <p><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_FROM'); ?>: <?php echo $this->config->get('from')['city-name']; ?></p>
     </div>
 
     <div class="sdek__result">
         <div class="sdek__result-city" style="display: <?php echo $isEmpty ? 'none' : 'block'; ?>">
-            <p><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_TO'); ?>: <span class="sdek__result-address jsSdekResultCity"><?php echo $this->get('to')['city-name']; ?></span></p>
+            <p><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_TO'); ?>: <span class="sdek__result-address jsSdekResultCity"><?php echo $this->get('to')['city-name']; ?></span></p>
         </div>
 
         <div class="sdek__result-pvz" style="display: <?php echo (!$isPvz || $isEmpty) ? 'none' : 'block'; ?>">
-            <p><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_TYPE_1'); ?>: <span class="sdek__result-address jsSdekPvzAddress"><?php echo $address; ?></span></p>
+            <p><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_TYPE_1'); ?>: <span class="sdek__result-address jsSdekPvzAddress"><?php echo $address; ?></span></p>
         </div>
 
         <div class="sdek__result-courier" style="display: <?php echo ($isPvz || $isEmpty) ? 'none' : 'block'; ?>">
-            <p><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_TYPE_2'); ?></p>
+            <p><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_TYPE_2'); ?></p>
             <p class="sdek__result-address">
-                <?php echo $this->app->html->_('control.text', $this->getControlName('address'), $address, 'class="jsSdekAddress" placeholder="'.JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_INPUT_PLACEHOLDER').'" autocomplete="off"'); ?>
+                <?php echo $this->app->html->_('control.text', $this->getControlName('address'), $address, 'class="jsSdekAddress" placeholder="'.Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_INPUT_PLACEHOLDER').'" autocomplete="off"'); ?>
             </p>
         </div>
     </div>
 
     <div class="sdek__client">
         <p>
-            <a href="#sdek-map" class="jsGetSdek"><?php echo $isEmpty ? JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_SELECT') : JText::_('JBZOO_ELEMENT_SHIPPING_SDEK_CHANGE'); ?></a>
+            <a href="#sdek-map" class="jsGetSdek"><?php echo $isEmpty ? Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_SELECT') : Text::_('JBZOO_ELEMENT_SHIPPING_SDEK_CHANGE'); ?></a>
         </p>   
     </div>
 

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Uri\Uri;
 /**
  * JBZoo Application
  *
@@ -46,7 +47,7 @@ class ElementsJBUniversalController extends JBUniversalController
         }
 
         $upload_dir = JPATH_ROOT . '/' . $upload . '/';
-        $upload_url = JURI::base() . $upload . '/';
+        $upload_url = Uri::base() . $upload . '/';
 
         $options = array(
             'upload_dir'        => $upload_dir,

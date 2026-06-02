@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -51,13 +52,13 @@ class JBCartElementEmailUser extends JBCartElementEmail
         $result = null;
 
         if ($infotype == 'username') {
-            $result = JText::_('JBZOO_ELEMENT_EMAIL_USER_GUEST');
+            $result = Text::_('JBZOO_ELEMENT_EMAIL_USER_GUEST');
             if (!empty($juser->username)) {
                 $result = $juser->username;
             }
 
         } else if ($infotype == 'name') {
-            $result = JText::_('JBZOO_ELEMENT_EMAIL_USER_GUEST');
+            $result = Text::_('JBZOO_ELEMENT_EMAIL_USER_GUEST');
             if (!empty($juser->name)) {
                 $result = $juser->name;
             }

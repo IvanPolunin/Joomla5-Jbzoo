@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -53,7 +54,7 @@ class JBCartElementOrderRadio extends JBCartElementOrderOption
             return $this->app->html->_('select.radiolist', $options, $this->getControlName('option', true), null, 'value', 'text', (isset($option[0]) ? $option[0] : null));
         }
 
-        return JText::_("There are no options to choose from.");
+        return Text::_("There are no options to choose from.");
     }
 
 }

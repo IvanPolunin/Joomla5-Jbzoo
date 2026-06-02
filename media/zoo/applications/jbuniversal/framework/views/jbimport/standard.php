@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -25,9 +26,9 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_IMPORT_STANDARD'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_IMPORT_STANDARD'); ?></h2>
 
-        <p><?php echo JText::_('JBZOO_ADMIN_PAGE_IMPORT_STANDARD'); ?></p>
+        <p><?php echo Text::_('JBZOO_ADMIN_PAGE_IMPORT_STANDARD'); ?></p>
 
         <?php echo $this->partial('icons', array('items' => $this->appList)); ?>
 

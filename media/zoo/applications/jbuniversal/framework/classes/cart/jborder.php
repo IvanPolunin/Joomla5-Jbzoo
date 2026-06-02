@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -128,7 +130,7 @@ class JBCartOrder
         } else if ($format == 'full') {
 
             $created = $this->app->jbdate->toHuman($this->created);
-            $name    = JText::sprintf('JBZOO_ORDER_NAME_DATE', $this->getName('short'), $created);
+            $name    = Text::sprintf('JBZOO_ORDER_NAME_DATE', $this->getName('short'), $created);
 
             return $name;
         }
@@ -157,7 +159,7 @@ class JBCartOrder
         $author = $this->getAuthor();
 
         if (!$author) {
-            $author = JFactory::getUser(0);
+            $author = Factory::getUser(0);
         }
 
         return $author;
@@ -335,7 +337,7 @@ class JBCartOrder
      */
     public function setStatus($statusCode, $type = JBCart::STATUS_ORDER)
     {
-        $statusCode = StringHelper::trim($statusCode);
+        $statusCode = StringHelper::trim((string)$statusCode);
         $newStatus  = $this->app->jbcartstatus->getByCode($statusCode, $type, $this);
 
         if (!$statusCode || !$newStatus) {
@@ -640,7 +642,7 @@ class JBCartOrder
     {
         $errorMessages = array();
 
-        $validators = $this->app->jbcartvalidator->getByEvent(JBCartValidatorHelper::EVENT_BEFORE_CREATE, $this);
+        $validators = $this->app->jbcartvalidator->getByEvent($this, JBCartValidatorHelper::EVENT_BEFORE_CREATE);
 
         if (empty($validators)) {
             return $errorMessages;
@@ -889,13 +891,13 @@ class JBCartOrder
                     . $this->val($cartItem->total)->multiply($quantity)->convert($currency)->html() . '</span>',
 
                 'quantity'     => '<span class="jbcart-item-quantity ' . $params->find('class.quantity') . '">'
-                    . $quantity . ' ' . JText::_('JBZOO_CART_COUNT_ABR') . '</span>',
+                    . $quantity . ' ' . Text::_('JBZOO_CART_COUNT_ABR') . '</span>',
 
                 'quantityEdit' => '',
 
                 'itemid'       => implode(PHP_EOL, array(
                     '<div class="jbcart-item-itemid ' . $params->find('class.itemid') . '">',
-                    '<span class="jbcart-item-itemid-key ' . $params->find('class.itemid-key') . '">' . JText::_('JBZOO_ORDER_ITEM_ID') . ':</span>',
+                    '<span class="jbcart-item-itemid-key ' . $params->find('class.itemid-key') . '">' . Text::_('JBZOO_ORDER_ITEM_ID') . ':</span>',
                     '<span class="jbcart-item-itemid-value ' . $params->find('class.itemid-value') . '">' . $cartItem->find('item_id') . '</span>',
                     '</div>',
                 )),
@@ -913,7 +915,7 @@ class JBCartOrder
             if ($sku = $cartItem->find('elements._sku', $cartItem->get('item_id'))) {
                 $itemHtml['sku'] = implode(PHP_EOL, array(
                     '<div class="jbcart-item-sku ' . $params->find('class.sku') . '">',
-                    '<span class="jbcart-item-sku-key ' . $params->find('class.sku-key') . '">' . JText::_('JBZOO_CART_ITEM_SKU') . ':</span>',
+                    '<span class="jbcart-item-sku-key ' . $params->find('class.sku-key') . '">' . Text::_('JBZOO_CART_ITEM_SKU') . ':</span>',
                     '<span class="jbcart-item-sku-value ' . $params->find('class.sku-value') . '" title="' . $jbhtml->cleanAttrValue($sku) . '">' . $sku . '</span>',
                     '</div>',
                 ));
@@ -1124,7 +1126,7 @@ class JBCartOrder
      */
     public function setItemsData($items)
     {
-        $this->_items = json_decode($items, true);
+        $this->_items = json_decode((string)$items, true);
     }
 
     /**

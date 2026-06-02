@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -25,7 +26,7 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_CONFIG_MAIN'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_CONFIG_MAIN'); ?></h2>
 
         <?php echo $this->app->jbform->render('config_zoohack', array(), $this->configData); ?>
 

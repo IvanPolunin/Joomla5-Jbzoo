@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -30,7 +31,7 @@ if (!$this->config->get('shipping', 1)) {
         <td colspan="2" style="border-bottom: none;"></td>
 
         <td <?php echo $this->getStyles(); ?>>
-            <p><strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_SHIPPING_RATE'); ?></strong></p>
+            <p><strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_SHIPPING_RATE'); ?></strong></p>
         </td>
 
         <td colspan="2" <?php echo $this->getStyles(); ?>>
@@ -38,9 +39,9 @@ if (!$this->config->get('shipping', 1)) {
             <em>(
                 <?php
                 if ($shipping->isModify()) {
-                    echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_SHIPPING_RATE_INCLUDED');
+                    echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_SHIPPING_RATE_INCLUDED');
                 } else {
-                    echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_SHIPPING_RATE_NOT_INCLUDED');
+                    echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_SHIPPING_RATE_NOT_INCLUDED');
                 }
                 ?>
             )</em>

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -19,20 +20,20 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 <div class="creation-form">
 
-    <h3><em><?php echo JText::_('JBZOO_MODIFICATIONS'); ?></em></h3>
+    <h3><em><?php echo Text::_('JBZOO_MODIFICATIONS'); ?></em></h3>
 
     <?php if (empty($this->results)) : ?>
 
-        <div class="infobox"><?php echo JText::_('JBZOO_MODIFICATIONS_NOT_FOUND'); ?></div>
+        <div class="infobox"><?php echo Text::_('JBZOO_MODIFICATIONS_NOT_FOUND'); ?></div>
 
     <?php else: ?>
 
-        <div class="infobox"><?php echo JText::_('JBZOO_MODIFICATIONS_DESCRIPTIONS'); ?></div>
+        <div class="infobox"><?php echo Text::_('JBZOO_MODIFICATIONS_DESCRIPTIONS'); ?></div>
 
         <?php foreach ($this->results as $type => $result) : ?>
             <div class="importbox">
                 <div>
-                    <h3><em><?php echo JText::_('JBZOO_MODIFICATIONS_' . $type); ?>:</em></h3>
+                    <h3><em><?php echo Text::_('JBZOO_MODIFICATIONS_' . $type); ?>:</em></h3>
                     <ul class="<?php echo $type; ?>">
                         <?php foreach ($result as $file) : ?>
                             <li><?php echo $file; ?></li>

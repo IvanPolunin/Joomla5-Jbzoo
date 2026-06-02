@@ -26,6 +26,11 @@ require_once(JPATH_ROOT . '/media/zoo/applications/jbuniversal/framework/classes
 class JBConditionsHelper extends AppHelper
 {   
     /**
+     * @var array
+     */
+    private $_elements;
+
+    /**
      * @param App $app
      */
     public function __construct($app)

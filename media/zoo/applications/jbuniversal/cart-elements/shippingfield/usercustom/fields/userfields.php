@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -22,13 +23,13 @@ $jWhiteList       = array('name', 'username', 'email', 'registerDate', 'lastvisi
 $jProperties      = array_keys($this->app->jbuser->getFields());
 $jUserFieldList   = (array)array_intersect($jWhiteList, $jProperties);
 $jUserFieldList   = array_combine($jUserFieldList, $jUserFieldList);
-$jUserFieldLabel  = JText::_('User main fields');
-$customFieldLabel = JText::_('User custom fields');
+$jUserFieldLabel  = Text::_('User main fields');
+$customFieldLabel = Text::_('User custom fields');
 
 $userFields = array($jUserFieldLabel => $jUserFieldList);
 
 foreach ($jCustom as $field) {
-    $userFields[$customFieldLabel][$field] = JText::_($field);
+    $userFields[$customFieldLabel][$field] = Text::_($field);
 }
 
 echo $this->app->jbhtml->selectGrouped($userFields, $control_name . '[user_field]', null, $value);

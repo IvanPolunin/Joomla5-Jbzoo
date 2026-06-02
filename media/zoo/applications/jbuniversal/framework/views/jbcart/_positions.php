@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,7 +25,7 @@ $jbstring = $this->app->jbstring;
 ?>
 <fieldset>
 
-    <legend><?php echo JText::_('JBZOO_ADMIN_POSITIONS_' . $this->task); ?></legend>
+    <legend><?php echo Text::_('JBZOO_ADMIN_POSITIONS_' . $this->task); ?></legend>
 
     <?php if (!empty($positions)) : ?>
 
@@ -37,11 +38,11 @@ $jbstring = $this->app->jbstring;
 
                 // get position description
                 $positionDesc = 'JBZOO_ADMIN_POSITION_' . $postFix . '_DESC';
-                $positionDesc = $jbstring->_($positionDesc, JText::_('JBZOO_ADMIN_POSITION') . ': <em>' . $positionKey . '</em>');
+                $positionDesc = $jbstring->_($positionDesc, Text::_('JBZOO_ADMIN_POSITION') . ': <em>' . $positionKey . '</em>');
 
                 // get position name
                 $positionName = 'JBZOO_ADMIN_POSITION_' . $postFix;
-                if ($this->app->jbrequest->is('task', 'statusevents')) {
+                if ($this->app->jbrequest->is('task', 'statusEvents')) {
 
                     list($statusType, $statusCode) = explode('__', $positionKey);
                     $statusElement = $this->app->jbcartstatus->getByCode($statusCode, $statusType);
@@ -49,7 +50,7 @@ $jbstring = $this->app->jbstring;
 
                     $positionDesc = $statusElement ? $statusElement->getDescription() : '';
                     if (!$positionDesc) {
-                        $positionDesc = JText::_('JBZOO_ADMIN_POSITION_EVENTCODE') . ': <em>' . $positionKey . '</em>';
+                        $positionDesc = Text::_('JBZOO_ADMIN_POSITION_EVENTCODE') . ': <em>' . $positionKey . '</em>';
                     }
 
                 } else {
@@ -87,7 +88,7 @@ $jbstring = $this->app->jbstring;
         <p class="positions-empty">
             <?php
             $emptyText = 'JBZOO_ADMIN_EVENT_POSITIONS_EMPTY_' . $this->task;
-            echo $jbstring->_($emptyText, JText::_('JBZOO_ADMIN_EVENT_POSITIONS_EMPTY'));
+            echo $jbstring->_($emptyText, Text::_('JBZOO_ADMIN_EVENT_POSITIONS_EMPTY'));
             ?>
         </p>
 

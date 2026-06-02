@@ -1,5 +1,7 @@
 <?php
-use Joomla\String\StringHelper;
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Uri\Uri;
+use Joomla\String\StringHelper as StringHelper;
 /**
  * JBZoo Application
  *
@@ -45,6 +47,11 @@ class JBMinifierHelper extends AppHelper
     protected $_cachePath = '';
 
     /**
+     * @var string
+     */
+    protected $_repoPath = '';
+
+    /**
      * @type JBFileHelper
      */
     protected $_jbfile = null;
@@ -72,7 +79,7 @@ class JBMinifierHelper extends AppHelper
     {
         parent::__construct($app);
 
-        $this->_cachePath = JPath::clean($this->app->path->path('root:') . '/cache/jbzoo_assets');
+        $this->_cachePath = Path::clean($this->app->path->path('root:') . '/cache/jbzoo_assets');
         $this->_config    = JBModelConfig::model()->getGroup('config.assets');
 
         $this->_jbfile  = $this->app->jbfile;
@@ -81,7 +88,7 @@ class JBMinifierHelper extends AppHelper
         // for developers
         if ($this->_repoPath = realpath($this->app->path->path('jbapp:') . '/../../../')) {
             foreach ($this->_simlinks as $locPath => $repoPath) {
-                $this->_simlinks[$locPath] = JPath::clean($this->_repoPath . '/' . $repoPath);
+                $this->_simlinks[$locPath] = Path::clean($this->_repoPath . '/' . $repoPath);
             }
         } else {
             $this->_simlinks = array();
@@ -456,7 +463,7 @@ class JBMinifierCssRewriter
         // fix to root-relative URI
         $uri = strtr($path, '/\\', '//');
         $uri = self::removeDots($uri);
-        $uri = rtrim(JUri::root(), '/') . '/' . ltrim($uri, '/'); // Hack for Joomla for JBlank
+        $uri = rtrim(Uri::root(), '/') . '/' . ltrim($uri, '/'); // Hack for Joomla for JBlank
 
         self::$debugText .= "traversals removed : {$uri}\n\n";
 

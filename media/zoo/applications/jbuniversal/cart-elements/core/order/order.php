@@ -16,6 +16,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Factory;
+
 /**
  * Class JBCartElementOrder
  */
@@ -67,7 +69,7 @@ abstract class JBCartElementOrder extends JBCartElement
     {
         JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php'); 
         
-        $user = JFactory::getUser();
+        $user = Factory::getUser();
 
         $context = 'com_users.user';
         $fieldsarr = array();

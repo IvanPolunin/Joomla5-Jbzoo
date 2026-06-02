@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -30,10 +31,10 @@ $orderDir = $this->filter->get('order_dir', 'desc');
         <th style="width: 120px;"><?php echo $this->app->html->_('grid.sort', 'JBZOO_ADMIN_CREATED', 'created', $orderDir, $order); ?></th>
         <th style="width: 120px;"><?php echo $this->app->html->_('grid.sort', 'JBZOO_ADMIN_MODIFIED', 'modified', $orderDir, $order); ?></th>
         <th style="width: 180px;"><?php echo $this->app->html->_('grid.sort', 'JBZOO_ADMIN_STATUS', 'status', $orderDir, $order); ?></th>
-        <th style="width: 150px;"><?php echo JText::_('JBZOO_ADMIN_PAYMENT'); ?></th>
-        <th style="width: 150px;"><?php echo JText::_('JBZOO_ADMIN_SHIPPING'); ?></th>
+        <th style="width: 150px;"><?php echo Text::_('JBZOO_ADMIN_PAYMENT'); ?></th>
+        <th style="width: 150px;"><?php echo Text::_('JBZOO_ADMIN_SHIPPING'); ?></th>
         <th style="width: 120px;"><?php echo $this->app->html->_('grid.sort', 'JBZOO_ADMIN_TOTAL', 'total', $orderDir, $order); ?></th>
-        <th style="width: 20%;"><?php echo JText::_('JBZOO_ADMIN_ORDER_COMMENT'); ?></th>
+        <th style="width: 20%;"><?php echo Text::_('JBZOO_ADMIN_ORDER_COMMENT'); ?></th>
     </tr>
     </thead>
 
@@ -57,12 +58,12 @@ $orderDir = $this->filter->get('order_dir', 'desc');
             <td>
                 <a href="<?php echo $order->getUrl(); ?>">№<?php echo $order->getName(); ?></a>
                 <?php
-                echo JText::_('JBZOO_BY') . ' ';
+                echo Text::_('JBZOO_BY') . ' ';
                 if ($user = $order->getAuthor()) {
                     $href = $this->app->component->users->link(array('task' => 'user.edit', 'layout' => 'edit', 'view' => 'user', 'id' => $user->id));
                     echo '<i><a href="' . $href . '">' . $user->name . '</a></i>';
                 } else {
-                    echo '<i>' . JText::_('JBZOO_ANONYM') . '</i>';
+                    echo '<i>' . Text::_('JBZOO_ANONYM') . '</i>';
                 }
                 ?>
             </td>

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -20,7 +21,7 @@ if ($this->checkPosition(JBCart::DEFAULT_POSITION)) : ?>
 
     <div class="jbcart-payment clearfix">
 
-        <p class="jbcart-title"><?php echo JText::_('JBZOO_CART_PAYPMENT_TITLE'); ?></p>
+        <p class="jbcart-title"><?php echo Text::_('JBZOO_CART_PAYPMENT_TITLE'); ?></p>
 
         <?php echo $this->renderPosition(JBCart::DEFAULT_POSITION, array('style' => 'order.payment')); ?>
 

@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -34,10 +36,10 @@ class JBCartElementShippingBoxberry extends JBCartElementShipping
     {
         parent::__construct($app, $type, $group);
 
-        JFactory::getLanguage()->load('com_jbzoo_cart_elements_shipping_boxberry', $this->app->path->path('jbapp:cart-elements').'/shipping/boxberry', null, true);
+        Factory::getLanguage()->load('com_jbzoo_cart_elements_shipping_boxberry', $this->app->path->path('jbapp:cart-elements').'/shipping/boxberry', null, true);
 
-        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_BOXBERRY_CHANGE', JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_CHANGE'));
-        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_BOXBERRY_SELECT', JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_SELECT'));
+        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_BOXBERRY_CHANGE', Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_CHANGE'));
+        $this->app->jbassets->addVar('JBZOO_ELEMENT_SHIPPING_BOXBERRY_SELECT', Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_SELECT'));
     }
 
     /**
@@ -118,7 +120,7 @@ class JBCartElementShippingBoxberry extends JBCartElementShipping
         $price      = $value->get('value', '');
 
         if (empty($pvz) || empty($address) || empty($price)) {
-            throw new JBCartElementShippingException(JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_EXCEPTION'));
+            throw new JBCartElementShippingException(Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_EXCEPTION'));
         }
 
         // for calculate rate

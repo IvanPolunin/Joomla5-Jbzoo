@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -37,7 +38,7 @@ $i  = 0;
         ?>
         <li class="hidden"><?php echo $element->editOption($control_name, '0', '', ''); ?></li>
     </ul>
-    <div class="add"><?php echo JText::_('Add Option'); ?></div>
+    <div class="add"><?php echo Text::_('Add Option'); ?></div>
 </div>
 
 <?php echo $this->app->jbassets->widget('#' . $id, 'JBZooElementSelect', array(

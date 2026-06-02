@@ -16,6 +16,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Factory;
+
 /**
  * Class JBDocHelper
  */
@@ -27,7 +29,7 @@ class JBDocHelper extends AppHelper
      */
     public function noindex()
     {
-        $doc = JFactory::getDocument();
+        $doc = Factory::getDocument();
 
         // set meta
         $doc->setMetadata('robots', 'noindex, nofollow');

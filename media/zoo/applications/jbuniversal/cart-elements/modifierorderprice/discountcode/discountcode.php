@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -42,7 +43,12 @@ class JBCartElementModifierOrderPriceDiscountCode extends JBCartElementModifierO
             return $this->_order->val(0);
         }
         
-        if ($this->_isInList()) {
+        $inList = $this->_isInList();
+        
+        // Debug - можно временно раскомментировать для проверки
+        // error_log("getRate debug: inList=" . var_export($inList, true));
+        
+        if ($inList) {
             $rate = $this->_order->val($this->config->get('rate'));
             $rate->negative();
             return $rate;
@@ -79,7 +85,7 @@ class JBCartElementModifierOrderPriceDiscountCode extends JBCartElementModifierO
         );
 
         if (!$inList) {
-            $result['message'] = JText::_('JBZOO_ELEMENT_MODIFIERORDERPRICE_DISCOUNTCODE_NOTFOUND');
+            $result['message'] = Text::_('JBZOO_ELEMENT_MODIFIERORDERPRICE_DISCOUNTCODE_NOTFOUND');
             $this->bindData(array('code' => ''));
         }
 
@@ -94,7 +100,7 @@ class JBCartElementModifierOrderPriceDiscountCode extends JBCartElementModifierO
         $list = $this->config->get('codelist');
         $list = $this->app->jbstring->parseLines($list);
 
-        $code = StringHelper::trim($this->get('code'));
+        $code = StringHelper::trim((string)$this->get('code'));
 
         return in_array($code, $list);
     }

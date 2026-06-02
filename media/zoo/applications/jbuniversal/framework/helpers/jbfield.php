@@ -1,7 +1,20 @@
 <?php
 use Joomla\String\StringHelper;
-use Joomla\CMS\Filesystem\Path;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Path;
+use Joomla\Filesystem\Folder;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Factory;
+
+// Provide backwards-compatible alias for legacy Text calls
+if (!class_exists('Text')) {
+    class_alias(Joomla\CMS\Language\Text::class, 'Text');
+}
+
+// Provide backwards-compatible alias for legacy JHtml calls
+if (!class_exists('JHtml')) {
+    class_alias(HTMLHelper::class, 'JHtml');
+}
 
 /**
  * JBZoo Application
@@ -66,7 +79,7 @@ class JBFieldHelper extends AppHelper
         unset($currencyList['%']);
 
         if ((int)$this->_getAttr($node, 'showall', 0)) {
-            $currencyList = $this->app->jbarray->unshiftAssoc($currencyList, 'all', JText::_('JBZOO_ALL'));
+            $currencyList = $this->app->jbarray->unshiftAssoc($currencyList, 'all', Joomla\CMS\Language\Text::_('JBZOO_ALL'));
         }
 
         return $this->_renderList($currencyList, $value, $this->_getName($controlName, $name), $node);
@@ -120,41 +133,41 @@ class JBFieldHelper extends AppHelper
         $modes = [];
         $common_name = $this->_getName($control_name, $name);
         if ((int)$this->_getAttr($node, 'allitems', 0)) {
-            $modes[] = $this->app->html->_('select.option', 'all', JText::_('All Items'));
+            $modes[] = $this->app->html->_('select.option', 'all', Joomla\CMS\Language\Text::_('All Items'));
         }
 
         if ((int)$this->_getAttr($node, 'categories', 0)) {
-            $modes[] = $this->app->html->_('select.option', 'categories', JText::_('Categories'));
+            $modes[] = $this->app->html->_('select.option', 'categories', Joomla\CMS\Language\Text::_('Categories'));
         }
 
         if ((int)$this->_getAttr($node, 'types', 0)) {
-            $modes[] = $this->app->html->_('select.option', 'types', JText::_('Types'));
+            $modes[] = $this->app->html->_('select.option', 'types', Joomla\CMS\Language\Text::_('Types'));
         }
 
         if ((int)$this->_getAttr($node, 'items', 0)) {
-            $modes[] = $this->app->html->_('select.option', 'item', JText::_('Item'));
+            $modes[] = $this->app->html->_('select.option', 'item', Joomla\CMS\Language\Text::_('Item'));
         }
 
         // create application/category select
         $cats = [];
         $types = [];
-        $options = [$this->app->html->_('select.option', '', '- ' . JText::_('Select Application') . ' -')];
+        $options = [$this->app->html->_('select.option', '', '- ' . Joomla\CMS\Language\Text::_('Select Application') . ' -')];
 
         $unique_id = $this->app->jbstring->getId('jbapplication-');
         foreach ($table->all(['order' => 'name']) as $application) {
 
-            $app_value = isset($value['app']) ? $value['app'] : null;
+            $app_value = isset($value['app']) ? (string)$value['app'] : '';
             // application option
             $options[] = $this->app->html->_('select.option', $application->id, $application->name);
 
             // create category select
             if ((int)$this->_getAttr($node, 'categories', 0)) {
 
-                $cat_value = isset($value['category']) && StringHelper::strlen($value['category']) > 0 ? $value['category'] : null;
-                $attribs = 'class="category app-' . $application->id . ($app_value != $application->id ? ' hidden' : null) . '" data-category="' . $common_name . '[category]"';
+                $cat_value = isset($value['category']) && StringHelper::strlen($value['category'] ?? '') > 0 ? (string)$value['category'] : '';
+                $attribs = 'class="category app-' . $application->id . ($app_value != $application->id ? ' hidden' : '') . '" data-category="' . $common_name . '[category]"';
                 $opts = [];
                 if ((int)$this->_getAttr($node, 'frontpage', 0)) {
-                    $opts[] = $this->app->html->_('select.option', '', '&#8226;' . JText::_('Frontpage'));
+                    $opts[] = $this->app->html->_('select.option', '', '&#8226;' . Joomla\CMS\Language\Text::_('Frontpage'));
                 }
                 $cats[] = $this->app->html->_('zoo.categorylist', $application, $opts,
                     ($app_value == $application->id ? $common_name . '[category]' : null), $attribs, 'value', 'text',
@@ -169,8 +182,8 @@ class JBFieldHelper extends AppHelper
                     $opts[] = $this->app->html->_('select.option', $type->id, $type->name);
                 }
 
-                $type_value = isset($value['type']) ? $value['type'] : null;
-                $attribs = 'class="type app-' . $application->id . ($app_value != $application->id ? ' hidden' : null) . '" data-type="' . $common_name . '[type]"';
+                $type_value = isset($value['type']) ? (string)$value['type'] : '';
+                $attribs = 'class="type app-' . $application->id . ($app_value != $application->id ? ' hidden' : '') . '" data-type="' . $common_name . '[type]"';
                 $types[] = $this->app->html->_('select.genericlist', $opts, $common_name . '[type]', $attribs, 'value',
                     'text', $type_value, 'application-type-' . $application->id);
             }
@@ -181,7 +194,7 @@ class JBFieldHelper extends AppHelper
         $html[] = $this->app->html->_('select.genericlist', $options, $common_name . '[app]', 'class="application"',
             'value', 'text', $app_value);
 
-        $mode_value = isset($value['mode']) ? $value['mode'] : null;
+        $mode_value = isset($value['mode']) ? (string)$value['mode'] : '';
         // create mode select
         if (count($modes) > 1) {
             $html[] = $this->app->html->_('select.genericlist', $modes, $common_name . '[mode]', 'class="mode"',
@@ -202,7 +215,7 @@ class JBFieldHelper extends AppHelper
         $link = '';
         if ((int)$this->_getAttr($node, 'items', 0)) {
             $field_name = $common_name . '[item_id]';
-            $item_name = JText::_('Select Item');
+            $item_name = Joomla\CMS\Language\Text::_('Select Item');
             $item_id = isset($value['item_id']) ? $value['item_id'] : null;
 
             if ($item_id > 0) {
@@ -221,7 +234,7 @@ class JBFieldHelper extends AppHelper
             $html[] = '<div class="item">';
             $html[] = '<input type="text" id="' . $unique_id . '_name" value="' . htmlspecialchars($item_name,
                     ENT_QUOTES, 'UTF-8') . '" disabled="disabled" />';
-            $html[] = '<a class="modal" title="' . JText::_('Select Item') . '"  href="#" rel="{handler: \'iframe\', size: {x: 850, y: 500}}">' . JText::_('Select') . '</a>';
+            $html[] = '<a class="modal" title="' . Joomla\CMS\Language\Text::_('Select Item') . '"  href="#" rel="{handler: \'iframe\', size: {x: 850, y: 500}}">' . Joomla\CMS\Language\Text::_('Select') . '</a>';
             $html[] = '<input type="hidden" id="' . $unique_id . '_id" name="' . $field_name . '" value="' . (int)$item_id . '" />';
             $html[] = '</div>';
 
@@ -232,7 +245,7 @@ class JBFieldHelper extends AppHelper
         $this->app->document->addScript('fields:zooapplication.js');
         $javascript = $this->app->jbassets->widget('#' . $unique_id, 'ZooApplication', [
             'url'           => $link,
-            'msgSelectItem' => JText::_('Select Item'),
+            'msgSelectItem' => Joomla\CMS\Language\Text::_('Select Item'),
         ], true);
 
         echo implode(PHP_EOL, $html) . $javascript;
@@ -252,7 +265,7 @@ class JBFieldHelper extends AppHelper
         JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php'); 
         $context = 'com_users.user';
         $fieldsarr = array();
-        $poleuser = JFactory::getUser()->id;
+        $poleuser = Factory::getUser()->id;
         $poleuserstd = new \stdClass;
         $poleuserstd->id = $poleuser;
         $bigProfile = FieldsHelper::getFields($context, $poleuserstd, false);
@@ -285,7 +298,7 @@ class JBFieldHelper extends AppHelper
         $layoutName = str_replace('layout_', '', $this->_getAttr($node, 'name', ''));
 
         $auto = $this->_getAttr($node, 'auto', 'true');
-        $path = JPath::clean(
+        $path = Path::clean(
             $this->app->path->path('jbtmpl:') . '/' .
             $this->app->jbenv->getTemplateName()
             . '/renderer'
@@ -295,7 +308,7 @@ class JBFieldHelper extends AppHelper
         $system = $this->app->path->path("jbapp:templates-system/renderer/{$layoutName}");
 
         if ($auto == 'true') {
-            $options = ['__auto__' => JText::_('JBZOO_LAYOUT_AUTOSELECT')];
+            $options = ['__auto__' => Joomla\CMS\Language\Text::_('JBZOO_LAYOUT_AUTOSELECT')];
         }
 
         if (is_dir($path)) {
@@ -356,7 +369,7 @@ class JBFieldHelper extends AppHelper
         }
 
         $html[] = '<input type="button" class="uk-button uk-button-mini jbmacroslist-button jsShow" '
-            . 'value="?" title="' . JText::_('JBZOO_ORDER_MACROS_LIST') . '" />';
+            . 'value="?" title="' . Joomla\CMS\Language\Text::_('JBZOO_ORDER_MACROS_LIST') . '" />';
 
         $list = $this->app->jbordermacros->getList();
         $html[] = JBZOO_CLR . '<ul class="jsMacrosList macros-list clear">';
@@ -390,7 +403,7 @@ class JBFieldHelper extends AppHelper
 
         $options = [];
         if ($this->_getAttr($node, 'auto', 'true') == 'true') {
-            $options = ['__auto__' => JText::_('JBZOO_LAYOUT_AUTOSELECT')];
+            $options = ['__auto__' => Joomla\CMS\Language\Text::_('JBZOO_LAYOUT_AUTOSELECT')];
         }
 
         $files = Folder::files($lPath, '^([-_A-Za-z0-9\.]*)\.php$', false, false, ['.svn', 'CVS']);
@@ -416,7 +429,7 @@ class JBFieldHelper extends AppHelper
         $application = $this->app->zoo->getApplication();
 
         $options = [
-            '' => JText::_('JBZOO_CART_SELECT_ORDER_FORM'),
+            '' => Joomla\CMS\Language\Text::_('JBZOO_CART_SELECT_ORDER_FORM'),
         ];
 
         if ($application) {
@@ -450,7 +463,7 @@ class JBFieldHelper extends AppHelper
         $application = $this->app->zoo->getApplication();
 
         $options = [
-            '' => JText::_('JBZOO_CART_SELECT_ORDER_FORM'),
+            '' => Joomla\CMS\Language\Text::_('JBZOO_CART_SELECT_ORDER_FORM'),
         ];
 
         if ($application) {
@@ -484,7 +497,7 @@ class JBFieldHelper extends AppHelper
     {
         $application = $this->app->zoo->getApplication();
 
-        $options = ['' => JText::_('JBZOO_CART_SELECT_ORDER_FORM')];
+        $options = ['' => Joomla\CMS\Language\Text::_('JBZOO_CART_SELECT_ORDER_FORM')];
         if ($application) {
             foreach ($application->getSubmissions() as $submission) {
                 $options[$submission->id] = $submission->name;
@@ -566,7 +579,7 @@ class JBFieldHelper extends AppHelper
             return current($cid);
         }
 
-        return '<em>' . JText::_('JBZOO_UNDEFINED') . '</em>';
+        return '<em>' . Joomla\CMS\Language\Text::_('JBZOO_UNDEFINED') . '</em>';
     }
 
     /**
@@ -584,7 +597,7 @@ class JBFieldHelper extends AppHelper
             return $application->id;
         }
 
-        return '<em>' . JText::_('JBZOO_UNDEFINED') . '</em>';
+        return '<em>' . Joomla\CMS\Language\Text::_('JBZOO_UNDEFINED') . '</em>';
     }
 
     /**
@@ -600,7 +613,7 @@ class JBFieldHelper extends AppHelper
     {
         $optionList = [];
         foreach ($node->children() as $option) {
-            $optionList[$this->_getAttr($option, 'value', '')] = JText::_((string)$option);
+            $optionList[$this->_getAttr($option, 'value', '')] = Joomla\CMS\Language\Text::_((string)$option);
         }
 
         return $this->_renderList($optionList, $value, $this->_getName($controlName, $name), $node);
@@ -652,14 +665,14 @@ class JBFieldHelper extends AppHelper
 
         $html[] = '<div id="' . $id . '" class="creation-form jbdownload">';
         $html[] = '<input readonly="readonly" type="text" name="' . $this->_getName($controlName, $name) . '"
-               value="' . $value . '" placeholder="' . JText::_('File') . '" />';
+               value="' . $value . '" placeholder="' . Joomla\CMS\Language\Text::_('File') . '" />';
         $html[] = '</div>';
 
         $html[] = $this->app->jbassets->widget('#' . $id . ' input', 'Directories', [
             'mode'      => 'file',
             'url'       => $this->app->jbrouter->admin($params),
-            'title'     => JText::_('Files'),
-            'msgDelete' => JText::_('Delete'),
+            'title'     => Joomla\CMS\Language\Text::_('Files'),
+            'msgDelete' => Joomla\CMS\Language\Text::_('Delete'),
         ], true);
 
         return implode(PHP_EOL, $html);
@@ -678,7 +691,7 @@ class JBFieldHelper extends AppHelper
         $group = $this->_getAttr($node, 'group');
         $position = $this->_getAttr($node, 'position', 'list');
         $multiple = (bool)$this->_getAttr($node, 'multiple', 0);
-        $emptytext = '<i>' . JText::_($this->_getAttr($node, 'emptytext',
+        $emptytext = '<i>' . Joomla\CMS\Language\Text::_($this->_getAttr($node, 'emptytext',
                 'JBZOO_ELEMENT_CARTFIELDS_EMPTYTEXT')) . '</i>';
 
         if (defined('JBCart::' . $group)) {
@@ -734,7 +747,7 @@ class JBFieldHelper extends AppHelper
         $html = [];
 
         // build select for user groups
-        $html[] = $this->spacer('', JText::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_GROUPS'), $controlName, $node,
+        $html[] = $this->spacer('', Joomla\CMS\Language\Text::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_GROUPS'), $controlName, $node,
             $parent);
         $html[] = JHtml::_('access.usergroup', $name . '[groups][]', $value->get('groups', []), $jbhtml->buildAttrs([
             'multiple' => 'multiple',
@@ -744,8 +757,8 @@ class JBFieldHelper extends AppHelper
 
         // build select for custom fields
         $userOptions = [
-            'usermail' => JText::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_USERMAIL'),
-            'sitemail' => JText::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_SITEMAIL'),
+            'usermail' => Joomla\CMS\Language\Text::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_USERMAIL'),
+            'sitemail' => Joomla\CMS\Language\Text::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_SITEMAIL'),
         ];
         $elements = $this->app->jbcartposition->loadPositions(JBCart::CONFIG_FIELDS, [JBCart::DEFAULT_POSITION]);
         $elements = $elements['list'];
@@ -754,7 +767,7 @@ class JBFieldHelper extends AppHelper
                 $userOptions[$element->identifier] = $element->getName();
             }
         };
-        $html[] = $this->spacer('', JText::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_ORDERFORM'), $controlName, $node,
+        $html[] = $this->spacer('', Joomla\CMS\Language\Text::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_ORDERFORM'), $controlName, $node,
             $parent);
         $html[] = $this->app->html->_('select.genericlist', $userOptions, $name . '[orderform][]',
             $jbhtml->buildAttrs(['multiple' => 'multiple', 'size' => '5']), 'value', 'text',
@@ -762,7 +775,7 @@ class JBFieldHelper extends AppHelper
 
 
         // text field
-        $html[] = $this->spacer('', JText::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_CUSTOM'), $controlName, $node,
+        $html[] = $this->spacer('', Joomla\CMS\Language\Text::_('JBZOO_NOTIFICATION_SENDEMAIL_RECIPIENT_CUSTOM'), $controlName, $node,
             $parent);
         $html[] = $jbhtml->text($name . '[custom]', $value->get('custom', ''));
 
@@ -849,7 +862,7 @@ class JBFieldHelper extends AppHelper
 
         // Assemble menu items to the array
         $options = [
-            '0' => JText::_('JOPTION_SELECT_MENU_ITEM'),
+            '0' => Joomla\CMS\Language\Text::_('JOPTION_SELECT_MENU_ITEM'),
         ];
 
         foreach ($menuTypes as $type) {
@@ -978,7 +991,7 @@ class JBFieldHelper extends AppHelper
         ];
 
         $colorAttrs = [
-            'placeholder' => JText::_('JBZOO_COLOR'),
+            'placeholder' => Joomla\CMS\Language\Text::_('JBZOO_COLOR'),
             'class'       => 'jbcolor-input jbcolor  minicolors-position-bottom',
             'id'          => $id,
         ];
@@ -988,13 +1001,13 @@ class JBFieldHelper extends AppHelper
         $html[] = '<textarea ' . $this->app->jbhtml->buildAttrs($attrs) . '>' . $value . '</textarea>';
 
         $html[] = '<div class="jbpicker">';
-        $html[] = '<input type="text" placeholder="' . JText::_('JBZOO_NAME') . '"  class="jbcolor-input jbname" />';
+        $html[] = '<input type="text" placeholder="' . Joomla\CMS\Language\Text::_('JBZOO_NAME') . '"  class="jbcolor-input jbname" />';
         $html[] = '<input type="text" ' . $this->app->jbhtml->buildAttrs($colorAttrs) . ' />';
-        $html[] = '<span title="' . JText::_('JBZOO_JBCOLOR_ADD_COLOR') . '" class="jsColorAdd"></span>';
+        $html[] = '<span title="' . Joomla\CMS\Language\Text::_('JBZOO_JBCOLOR_ADD_COLOR') . '" class="jsColorAdd"></span>';
         $html[] = '</div></div>';
 
         $html[] = $this->app->jbassets->widget('#' . $divId, 'JBColorElement', [
-            'text' => JText::_('JBZOO_JBCOLOR_COLOR_EXISTS'),
+            'text' => Joomla\CMS\Language\Text::_('JBZOO_JBCOLOR_COLOR_EXISTS'),
         ], true);
 
         return implode(PHP_EOL, $html);
@@ -1036,7 +1049,7 @@ class JBFieldHelper extends AppHelper
         }
 
         if (empty($optionList)) {
-            return JText::_($empty);
+            return Joomla\CMS\Language\Text::_($empty);
         }
 
         return $this->_renderList($optionList, $value, $this->_getName($controlName, $name), $node);
@@ -1160,7 +1173,7 @@ class JBFieldHelper extends AppHelper
             }
 
             if ($value == 0 || $code == '%') {
-                return '<em>' . JText::_('JBZOO_UNDEFINED') . '</em>';
+                return '<em>' . Joomla\CMS\Language\Text::_('JBZOO_UNDEFINED') . '</em>';
             }
 
             $value = JBCart::val($value . ' ' . $code);
@@ -1168,7 +1181,7 @@ class JBFieldHelper extends AppHelper
             return $value->html() . ' (' . $value->noStyle() . ')';
         }
 
-        return JText::_('JBZOO_UNDEFINED');
+        return Joomla\CMS\Language\Text::_('JBZOO_UNDEFINED');
     }
 
     /**
@@ -1183,7 +1196,7 @@ class JBFieldHelper extends AppHelper
     public function spacer($name, $value, $controlName, SimpleXMLElement $node, $parent)
     {
         if ($value) {
-            return '<div class="field-jbspacer"><b> -= ' . JText::_($value) . ' =- </b></div>';
+            return '<div class="field-jbspacer"><b> -= ' . Joomla\CMS\Language\Text::_($value) . ' =- </b></div>';
         }
     }
 
@@ -1199,7 +1212,7 @@ class JBFieldHelper extends AppHelper
     public function important($name, $value, $controlName, SimpleXMLElement $node, $parent)
     {
         if ($value) {
-            return '<div class="field-jbimportant"><b>' . JText::_($value) . '</b></div>';
+            return '<div class="field-jbimportant"><b>' . Joomla\CMS\Language\Text::_($value) . '</b></div>';
         }
     }
 
@@ -1215,7 +1228,7 @@ class JBFieldHelper extends AppHelper
     public function desc($name, $value, $controlName, SimpleXMLElement $node, $parent)
     {
         if ($value) {
-            return '<span style="font-size:1.1em">' . JText::_($value) . '</span>';
+            return '<span style="font-size:1.1em">' . Joomla\CMS\Language\Text::_($value) . '</span>';
         }
 
         return null;
@@ -1235,7 +1248,7 @@ class JBFieldHelper extends AppHelper
         // set attributes
         $attrs = [
             'type'  => 'text',
-            'value' => JText::_($value),
+            'value' => Joomla\CMS\Language\Text::_($value),
             'name'  => $this->_getName($controlName, $name),
             'class' => isset($class) ? $class : '',
         ];
@@ -1261,7 +1274,7 @@ class JBFieldHelper extends AppHelper
         $typesPath = $this->app->path->path('jbtypes:');
         $files = Folder::files($typesPath, '.config');
 
-        $coreGrp = JText::_('JBZOO_FIELDS_CORE');
+        $coreGrp = Joomla\CMS\Language\Text::_('JBZOO_FIELDS_CORE');
         $options = [$coreGrp => []];
         foreach ($stdFields as $stdField) {
             $options[$coreGrp][] = $this->_createOption($stdField, 'JBZOO_FIELDS_CORE' . $stdField);
@@ -1350,7 +1363,7 @@ class JBFieldHelper extends AppHelper
 
             $html[] = '<div class="jbkeyvalue-row">';
             $html[] = '<input ' . $this->app->jbhtml->buildAttrs([
-                    'placeholder' => JText::_('JBZOO_JBKEYVALUE_KEY'),
+                    'placeholder' => Joomla\CMS\Language\Text::_('JBZOO_JBKEYVALUE_KEY'),
                     'type'        => 'text',
                     'name'        => $this->_getName($controlName, $name) . '[' . $i . '][key]',
                     'value'       => isset($valueItem['key']) ? $valueItem['key'] : '',
@@ -1360,7 +1373,7 @@ class JBFieldHelper extends AppHelper
             $html[] = '<strong>&nbsp;=&nbsp;</strong>';
 
             $html[] = '<input ' . $this->app->jbhtml->buildAttrs([
-                    'placeholder' => JText::_('JBZOO_JBKEYVALUE_VALUE'),
+                    'placeholder' => Joomla\CMS\Language\Text::_('JBZOO_JBKEYVALUE_VALUE'),
                     'type'        => 'text',
                     'name'        => $this->_getName($controlName, $name) . '[' . $i . '][value]',
                     'value'       => isset($valueItem['value']) ? $valueItem['value'] : '',
@@ -1373,7 +1386,7 @@ class JBFieldHelper extends AppHelper
         }
 
         $output = implode(PHP_EOL, $html);
-        $output .= '<a href="#jbkeyvalue-add" class="jsKeyValueAdd">' . JText::_('JBZOO_JBKEYVALUE_ADD') . '</a>';
+        $output .= '<a href="#jbkeyvalue-add" class="jsKeyValueAdd">' . Joomla\CMS\Language\Text::_('JBZOO_JBKEYVALUE_ADD') . '</a>';
 
         return '<div class="jsKeyValue">' . $output . '</div>';
     }
@@ -1427,7 +1440,7 @@ class JBFieldHelper extends AppHelper
             . '<div class="jbzoo-itemorder-row">' . implode("</div><div class=\"jbzoo-itemorder-row\">\n ", $html)
             . '</div>'
             . '<br>'
-            . '<a href="#jbitemorder-add" class="jsItemOrderAdd">' . JText::_('JBZOO_SORT_ADD') . '</a>'
+            . '<a href="#jbitemorder-add" class="jsItemOrderAdd">' . Joomla\CMS\Language\Text::_('JBZOO_SORT_ADD') . '</a>'
             . '</div>';
 
         return $output;
@@ -1453,25 +1466,25 @@ class JBFieldHelper extends AppHelper
         $ctrl = [];
         $i = 0;
 
-        $ctrl[] = '<span class="jbzoo-itemorder-label">' . JText::_('JBZOO_SORT_FIELD')
+        $ctrl[] = '<span class="jbzoo-itemorder-label">' . Joomla\CMS\Language\Text::_('JBZOO_SORT_FIELD')
             . ': </span>' . JHtml::_('select.groupedlist', $options, $customName . '[]', [
                 'list.attr'   => $this->app->jbhtml->buildAttrs([]),
                 'list.select' => $values->get('key_' . $i++),
                 'group.items' => null,
             ]);
 
-        $ctrl[] = '<span class="jbzoo-itemorder-label">' . JText::_('JBZOO_SORT_AS')
+        $ctrl[] = '<span class="jbzoo-itemorder-label">' . Joomla\CMS\Language\Text::_('JBZOO_SORT_AS')
             . ': </span>' . $this->app->jbhtml->select([
-                '_jbzoo_' . $index . '_mode_s' => JText::_('JBZOO_SORT_AS_STRINGS'),
-                '_jbzoo_' . $index . '_mode_n' => JText::_('JBZOO_SORT_AS_NUMBERS'),
-                '_jbzoo_' . $index . '_mode_d' => JText::_('JBZOO_SORT_AS_DATES'),
+                '_jbzoo_' . $index . '_mode_s' => Joomla\CMS\Language\Text::_('JBZOO_SORT_AS_STRINGS'),
+                '_jbzoo_' . $index . '_mode_n' => Joomla\CMS\Language\Text::_('JBZOO_SORT_AS_NUMBERS'),
+                '_jbzoo_' . $index . '_mode_d' => Joomla\CMS\Language\Text::_('JBZOO_SORT_AS_DATES'),
             ], $customName . '[]', '', $values->get('key_' . $i++));
 
-        $ctrl[] = '<span class="jbzoo-itemorder-label">' . JText::_('JBZOO_SORT_ORDER')
+        $ctrl[] = '<span class="jbzoo-itemorder-label">' . Joomla\CMS\Language\Text::_('JBZOO_SORT_ORDER')
             . ': </span>' . $this->app->jbhtml->select([
-                '_jbzoo_' . $index . '_order_asc'    => JText::_('JBZOO_SORT_ORDER_ASC'),
-                '_jbzoo_' . $index . '_order_desc'   => JText::_('JBZOO_SORT_ORDER_DESC'),
-                '_jbzoo_' . $index . '_order_random' => JText::_('JBZOO_SORT_ORDER_RANDOM'),
+                '_jbzoo_' . $index . '_order_asc'    => Joomla\CMS\Language\Text::_('JBZOO_SORT_ORDER_ASC'),
+                '_jbzoo_' . $index . '_order_desc'   => Joomla\CMS\Language\Text::_('JBZOO_SORT_ORDER_DESC'),
+                '_jbzoo_' . $index . '_order_random' => Joomla\CMS\Language\Text::_('JBZOO_SORT_ORDER_RANDOM'),
             ], $customName . '[]', '', $values->get('key_' . $i++));
 
         return '<div class="jbzoo-itemorder-row-field">'
@@ -1511,11 +1524,11 @@ class JBFieldHelper extends AppHelper
         $app = $this->app->zoo->getApplication();
 
         // add std fields
-        $coreGrp = JText::_('JBZOO_FIELDS_CORE');
+        $coreGrp = Joomla\CMS\Language\Text::_('JBZOO_FIELDS_CORE');
         $options = [
             $coreGrp => [
-                $prefix . '_none' => JText::_('JBZOO_FIELDS_CORE_NONE'),
-                'random'          => JText::_('JBZOO_SORT_ORDER_RANDOM'),
+                $prefix . '_none' => Joomla\CMS\Language\Text::_('JBZOO_FIELDS_CORE_NONE'),
+                'random'          => Joomla\CMS\Language\Text::_('JBZOO_SORT_ORDER_RANDOM'),
             ]
         ];
         foreach ($stdFields as $stdField) {
@@ -1536,7 +1549,7 @@ class JBFieldHelper extends AppHelper
                     }
 
                     if ($app) {
-                        if ($type = $app->getType(JFile::stripExt($file))) {
+                        if ($type = $app->getType(File::stripExt($file))) {
                             $_element = $type->getElement($elementId);
 
                             if ($_element instanceof ElementJBPrice) {
@@ -1642,7 +1655,7 @@ class JBFieldHelper extends AppHelper
 
             $html[] = '<input ' . $this->app->jbhtml->buildAttrs($attributes) . ' /> '
                 . '<label ' . $this->app->jbhtml->buildAttrs(['for' => $id]) . '>'
-                . JText::_($option)
+                . Joomla\CMS\Language\Text::_($option)
                 . '</label>';
         }
 
@@ -1669,7 +1682,7 @@ class JBFieldHelper extends AppHelper
         $html = [];
         $html[] = '<div class="global list">';
         $html[] = '<input id="' . $id . '" type="checkbox"' . ($global ? ' checked="checked"' : '') . ' />';
-        $html[] = '<label for="' . $id . '">' . JText::_('Global') . '</label>';
+        $html[] = '<label for="' . $id . '">' . Joomla\CMS\Language\Text::_('Global') . '</label>';
         $html[] = '<div class="input">';
         $html[] = call_user_func_array(
             [$this, $method],
@@ -1699,6 +1712,8 @@ class JBFieldHelper extends AppHelper
         }
 
         $attributes['class'] = $this->_getAttr($node, 'class', 'inputbox');
+        // Add stronger inline styles for proper width
+        $attributes['style'] = 'width: 250px !important; min-width: 200px !important; display: inline-block !important;';
 
         $options = $this->app->html->listOptions($optionsList);
 
@@ -1743,7 +1758,7 @@ class JBFieldHelper extends AppHelper
      */
     protected function _createOption($key, $value, $translate = true)
     {
-        $name = $translate ? JText::_($value) : $value;
+        $name = $translate ? Joomla\CMS\Language\Text::_($value) : $value;
 
         return JHtml::_('select.option', $key, $name, 'value', 'text');
     }

@@ -65,7 +65,7 @@ if ($count) {
                 $renderer = $modHelper->createRenderer('item');
 
                 echo '<div class="item-column ' . $colClass . $first . $last . '">'
-                        . '<div class="well clearfix">'
+                        . '<div class="clearfix">'
                             . $renderer->render('item.' . $modHelper->getItemLayout(), array(
                                 'item'   => $item,
                                 'params' => $params

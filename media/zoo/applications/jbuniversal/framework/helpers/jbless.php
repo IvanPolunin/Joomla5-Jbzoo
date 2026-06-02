@@ -16,6 +16,9 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Uri\Uri;
+
 /**
  * Class JBLessHelper
  */
@@ -32,6 +35,7 @@ class JBLessHelper extends AppHelper
     protected $_lessFull = '';
     protected $_lessRel = '';
     protected $_minFull = '';
+    protected $_minRel = '';
 
     /**
      * @type JBCacheHelper
@@ -55,10 +59,10 @@ class JBLessHelper extends AppHelper
     {
         parent::__construct($app);
 
-        $this->_lessFull = JPath::clean($this->app->path->path('jbapp:assets/less'));
-        $this->_lessRel  = JUri::root() . $this->app->path->relative($this->_lessFull);
+        $this->_lessFull = Path::clean($this->app->path->path('jbapp:assets/less'));
+        $this->_lessRel  = Uri::root() . $this->app->path->relative($this->_lessFull);
 
-        $this->_minFull = JPath::clean($this->app->path->path('root:') . '/cache/jbzoo_assets');
+        $this->_minFull = Path::clean($this->app->path->path('root:') . '/cache/jbzoo_assets');
         $this->_minRel  = $this->app->path->relative($this->_minFull);
 
         $this->_force   = (int)JBModelConfig::model()->get('less_mode', '0', 'config.assets');
@@ -82,7 +86,7 @@ class JBLessHelper extends AppHelper
 
             $hash      = $this->_getHash($origFull);
             $filename  = $this->_jbcache->getFileName($origFull) . (JDEBUG ? '-debug' : '') . '.css';
-            $cachePath = JPath::clean($this->_minFull . '/' . $filename);
+            $cachePath = Path::clean($this->_minFull . '/' . $filename);
 
             if (!$this->_jbcache->checkAsset($cachePath, $hash) || $this->_force) {
                 $cssContent = $this->_compile($origFull);
@@ -102,7 +106,7 @@ class JBLessHelper extends AppHelper
     protected function _compile($lessPath)
     {
         try {
-            $relative  = rtrim(JUri::root(), '/') . '/' . ltrim($this->app->path->relative($lessPath), '/');
+            $relative  = rtrim(Uri::root(), '/') . '/' . ltrim($this->app->path->relative($lessPath), '/');
             $precessor = $this->_getProcessor();
             $precessor->parseFile($lessPath, $relative);
             $resultCss = $precessor->getCss();
@@ -123,9 +127,9 @@ class JBLessHelper extends AppHelper
         static $importHash;
 
         if (!isset($importHash)) {
-            $result = array(md5(JURI::root())); // for paths in CSS
+            $result = array(md5(Uri::root())); // for paths in CSS
             foreach ($this->_import as $import) {
-                $path     = JPath::clean($this->app->path->path('jbassets:less/' . $import));
+                $path     = Path::clean($this->app->path->path('jbassets:less/' . $import));
                 $result[] = md5_file($path);
             }
 
@@ -165,7 +169,7 @@ class JBLessHelper extends AppHelper
 
         $paths = array_merge(array(
             $this->_lessFull => $this->_lessRel,
-            JPATH_ROOT       => JUri::root(),
+            JPATH_ROOT       => Uri::root(),
         ), $addPath);
 
         $precessor->SetImportDirs($paths);

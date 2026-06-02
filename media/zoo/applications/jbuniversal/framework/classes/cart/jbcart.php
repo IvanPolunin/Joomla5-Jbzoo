@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
+use Joomla\Utilities\ArrayHelper;
 /**
  * JBZoo Application
  *
@@ -155,7 +158,7 @@ class JBCart
 
         $order->id         = 0;
         $order->created    = $this->app->jbdate->getCurrent();
-        $order->created_by = (int)JFactory::getUser()->id;
+        $order->created_by = (int)Factory::getUser()->id;
 
         return $order;
     }
@@ -287,13 +290,13 @@ class JBCart
                     $element = $this->getItemElement($data);
                     if ($element) {
                         $balance  = $element->getBalance($data['variant']);
-                        $itemName = $data['item_name'] . (!empty($data['values']) ? ' (' . JArrayHelper::toString($data['values'], ': ', '; ', false) . ')' : null);
-                        $this->setError(JText::sprintf('JBZOO_CART_VALIDATOR_ITEM_NOBALANCE', $itemName, $balance));
+                        $itemName = $data['item_name'] . (!empty($data['values']) ? ' (' . ArrayHelper::toString($data['values'], ': ', '; ', false) . ')' : null);
+                        $this->setError(Text::sprintf('JBZOO_CART_VALIDATOR_ITEM_NOBALANCE', $itemName, $balance));
                         $alerttojs = array_unique($this->getErrors());
                         $alerttojs = strip_tags(trim($alerttojs[0]));
                         echo "<script>swal ( '{$alerttojs}' ,  '' ,  'error' );</script>";
                         // JBCart::getInstance()->removeItems();
-                        // JError::raiseError(500, JText::_("JBZOO_CART_VALIDATOR_ITEM_NOBALANCE")); 
+                        // JError::raiseError(500, Text::_("JBZOO_CART_VALIDATOR_ITEM_NOBALANCE")); 
                     }
                 }
             }
@@ -835,7 +838,7 @@ class JBCart
      */
     protected function _getSession()
     {
-        $session = JFactory::getSession();
+        $session = Factory::getSession();
         $result  = $session->get($this->_sessionNamespace, array(), $this->_namespace);
 
         return $this->app->data->create($result);
@@ -848,7 +851,7 @@ class JBCart
      */
     protected function _setSession($key, $value)
     {
-        $session      = JFactory::getSession();
+        $session      = Factory::getSession();
         $result       = $session->get($this->_sessionNamespace, array(), $this->_namespace);
         $result[$key] = $value;
 

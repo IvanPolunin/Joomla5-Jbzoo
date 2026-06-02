@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Filesystem\Folder;
+use Joomla\CMS\Filesystem\File;
 /**
  * JBZoo Application
  *
@@ -71,7 +74,7 @@ class JBLayoutHelper extends AppHelper
         $this->_view = $view;
 
         if (isset($this->_view->template)) {
-            $this->_rendererPath = JPath::clean($this->_view->template->getPath() . '/renderer');
+            $this->_rendererPath = Path::clean($this->_view->template->getPath() . '/renderer');
         }
 
         if (isset($view->params)) {
@@ -149,10 +152,10 @@ class JBLayoutHelper extends AppHelper
 
         $layoutPath = $this->_rendererPath . '/' . $layout;
 
-        if (JFolder::exists($layoutPath)) {
+        if (Folder::exists($layoutPath)) {
             foreach ($tplPaths as $tpl) {
                 $__partial = $layoutPath . '/' . $tpl . '.php';
-                if (JFile::exists($__partial)) {
+                if (File::exists($__partial)) {
                     ob_start();
                     include($__partial);
                     $output = ob_get_contents();
@@ -212,12 +215,12 @@ class JBLayoutHelper extends AppHelper
 
         if ($item && $this->_view) {
             if ($this->_view->renderer->pathExists('item/' . $item->type)
-                && JFile::exists($this->_rendererPath . '/' . 'item' . '/' . $item->type . '/' . $layout . '.php')
+                && File::exists($this->_rendererPath . '/' . 'item' . '/' . $item->type . '/' . $layout . '.php')
             ) {
                 return 'item.' . $item->type . '.' . $layout;
 
             } else {
-                if (JFile::exists($this->_rendererPath . '/item/' . $layout . '.php')) {
+                if (File::exists($this->_rendererPath . '/item/' . $layout . '.php')) {
                     return 'item.' . $layout;
 
                 } else {
@@ -239,12 +242,26 @@ class JBLayoutHelper extends AppHelper
     public function renderItem(Item $item, $defaultLayout = 'teaser', ItemRenderer $renderer = null)
     {
         $this->app->jbdebug->mark('jblayout::renderItem (' . $item->id . ')::start');
+        static $renderedItems = array();
 
         $htmlItem   = null;
         $itemLayout = $this->_getItemLayout($item, $defaultLayout);
 
         if (!$renderer && $this->_view) {
             $renderer = $this->_view->renderer;
+        }
+
+        $cacheKey = implode(':', array(
+            $item->id,
+            $defaultLayout,
+            $itemLayout,
+            $renderer ? get_class($renderer) : 'no-renderer',
+            $this->_rendererPath,
+        ));
+
+        if (isset($renderedItems[$cacheKey])) {
+            $this->app->jbdebug->mark('jblayout::itemRender (' . $item->id . ')::finish');
+            return $renderedItems[$cacheKey];
         }
 
         if ($renderer) {
@@ -259,6 +276,7 @@ class JBLayoutHelper extends AppHelper
             'htmlItem' => &$htmlItem,
         )));
 
+        $renderedItems[$cacheKey] = $htmlItem;
         $this->app->jbdebug->mark('jblayout::itemRender (' . $item->id . ')::finish');
 
         return $htmlItem;
@@ -291,10 +309,10 @@ class JBLayoutHelper extends AppHelper
         $args['view'] = $this->_view;
 
         $name      = preg_replace('/[^A-Z0-9_\.-]/i', '', '_' . $name);
-        $__partial = JPath::clean($this->_rendererPath . '/' . $layout . '/' . $name . '.php');
+        $__partial = Path::clean($this->_rendererPath . '/' . $layout . '/' . $name . '.php');
 
         // render the partial
-        if (JFile::exists($__partial)) {
+        if (File::exists($__partial)) {
 
             // import vars and get content
             extract($args);
@@ -316,9 +334,9 @@ class JBLayoutHelper extends AppHelper
     {
         $layoutPath = $this->_rendererPath . '/' . $layout;
 
-        if (JFolder::exists($layoutPath)) {
+        if (Folder::exists($layoutPath)) {
             $__partial = $layoutPath . '/index.php';
-            if (JFile::exists($__partial)) {
+            if (File::exists($__partial)) {
                 ob_start();
                 include($__partial);
                 $output = ob_get_contents();

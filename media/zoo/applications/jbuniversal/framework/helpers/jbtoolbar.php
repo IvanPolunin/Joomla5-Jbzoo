@@ -1,5 +1,7 @@
 <?php
 use Joomla\CMS\Toolbar\Toolbar;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
 /**
  * JBZoo Application
  *
@@ -53,7 +55,7 @@ class JBToolbarHelper extends AppHelper
 
         }');
 
-        return JToolbar::getInstance('toolbar')->appendButton('Standard', 'apply', 'JTOOLBAR_APPLY', 'save', false);
+        return Toolbar::getInstance('toolbar')->appendButton('Standard', 'apply', 'JTOOLBAR_APPLY', 'save', false);
     }
 
     /**
@@ -73,9 +75,9 @@ class JBToolbarHelper extends AppHelper
             'controller' => 'jbtools',
         ), $urlParams);
 
-        $link = JRoute::_(JURI::root() . 'administrator/index.php?' . $this->app->jbrouter->query($urlParams), true, -1);
+        $link = Route::_(Uri::root() . 'administrator/index.php?' . $this->app->jbrouter->query($urlParams), true, -1);
         // return true;
-        return JToolBar::getInstance('toolbar')->appendButton('Popup', $icon, $name, $link, $width, $height);
+        return Toolbar::getInstance('toolbar')->appendButton('Popup', $icon, $name, $link, $width, $height);
     }
 
     /**
@@ -92,9 +94,9 @@ class JBToolbarHelper extends AppHelper
             'tmpl'   => 'component'
         ), $urlParams);
 
-        $link = JRoute::_(JURI::root() . 'administrator/index.php?' . $this->app->jbrouter->query($urlParams), true, -1);
+        $link = Route::_(Uri::root() . 'administrator/index.php?' . $this->app->jbrouter->query($urlParams), true, -1);
         return true;
-        // return JToolBar::getInstance('toolbar')->appendButton('Link', $icon, $name, $link);
+        // return Toolbar::getInstance('toolbar')->appendButton('Link', $icon, $name, $link);
     }
 
     /**
@@ -107,7 +109,7 @@ class JBToolbarHelper extends AppHelper
     protected function _customLink($icon, $name, $link)
     {
         return true;
-        // return JToolBar::getInstance('toolbar')->appendButton('Link', $icon, $name, $link);
+        // return Toolbar::getInstance('toolbar')->appendButton('Link', $icon, $name, $link);
     }
 
     /**
@@ -117,6 +119,6 @@ class JBToolbarHelper extends AppHelper
     protected function _separator()
     {
         return true;
-        // JToolBar::getInstance('toolbar')->appendButton('Separator', 'spacer', '90');
+        // Toolbar::getInstance('toolbar')->appendButton('Separator', 'spacer', '90');
     }
 }

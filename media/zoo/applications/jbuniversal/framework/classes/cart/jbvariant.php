@@ -324,18 +324,13 @@ class JBCartVariant extends ArrayObject
      * @return JBCartElementPrice|JBCartValue
      */
 
-    // public function getValue($toString = false, $key, $default = null)
+    // public function getValue($key, $toString = false, $default = null)
 
-    //public function getValue($key, $toString = false, $default = null)
-    public function getValue($toString = false, $key, $default = null)
+    public function getValue($key, $toString = false, $default = null)
     {
-        //$key = '160a5690-d184-4a3a-8421-71ade99bb73a';
         if ($element = $this->get($key)) {
             return $element->getValue($toString);
         }
-        
-        //include $_SERVER['DOCUMENT_ROOT'] .'/JBDump-1.5.6/class.jbdump.php';
-        //jbdump($element);
     
         return $default;
     }
@@ -399,7 +394,7 @@ class JBCartVariant extends ArrayObject
     {
         $elements = $this->isBasic() ? $this->getCore() : $this->all();
         $result   = array_filter(array_map(function ($element) {
-            $value = StringHelper::trim($element->getValue(true));
+            $value = StringHelper::trim($element->getValue(true) ?? '');
 
             return (!empty($value) || $value == '0') ? (array)$element->data() : null;
         }, $elements));
@@ -453,9 +448,6 @@ class JBCartVariant extends ArrayObject
         if (!$this->list->isOverlay) {
 
             $total = $this->getPrice()->minus($this->getValue(true, '_discount'), true);
-            //include $_SERVER['DOCUMENT_ROOT'] .'/JBDump-1.5.6/class.jbdump.php';
-        //jbdump($total->data());
-            
 
             if ($this->list instanceof JBCartVariantList) {
                 $total = $this->list->addModifiers($total, true);
@@ -474,18 +466,22 @@ class JBCartVariant extends ArrayObject
      */
     public function getPrice()
     {
-        //include $_SERVER['DOCUMENT_ROOT'] .'/JBDump-1.5.6/class.jbdump.php';
-        
         if ($this->price === null) {
 
             $price = JBCart::val();
             if ($element = $this->get('_value')) {
-                $price->set($element->getValue(true));
+                $value = $element->getValue(true);
+                
+                // Debug: Log value element data
+                if (defined('JDEBUG') && JDEBUG) {
+                    error_log('getPrice - variant: ' . $this->getId() . ', value: ' . $value . ', isModifier: ' . ($element->isModifier() ? 'true' : 'false') . ', isBasic: ' . ($this->isBasic() ? 'true' : 'false'));
+                }
+                
+                $price->set($value);
                 if ($this->list->isOverlay === false && $element->isModifier() && !$this->isBasic()) {
                     $price = $this->list->first()->getValue(false, '_value')->add($price);
                 }
             }
-            //jbdump($price->set($element->getValue(true))->data());
 
             $this->price = $price;
             if ($this->list->isOverlay === false) {

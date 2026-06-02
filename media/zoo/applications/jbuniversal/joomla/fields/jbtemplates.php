@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -16,15 +17,13 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
-
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 
 /**
  * Class JFormFieldJBTemplates
  */
-class JFormFieldJBTemplates extends JFormField
+class JFormFieldJBTemplates extends FormField
 {
 
     protected $type = 'jbtemplates';

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -25,7 +26,7 @@ if (!$this->config->get('total', 1)) {
     <td <?php echo $this->getAttrs(array('colspan' => 2, 'border' => 0)); ?>></td>
 
     <td <?php echo $this->getAttrs(array('colspan' => 3, 'border' => 0)); ?>>
-        <strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_TOTAL_TITLE'); ?></strong>
+        <strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_TOTAL_TITLE'); ?></strong>
     </td>
 
     <td <?php echo $this->getAttrs(array('border' => 0)) .

@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Plugin\PluginHelper;
+use Joomla\CMS\Uri\Uri;
 /**
  * JBZoo Application
  *
@@ -16,6 +19,12 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+// Ensure legacy aliases are available when compat plugin is disabled.
+$jbzooCompat = JPATH_ROOT . '/plugins/system/jbzoo/compat.php';
+if (is_file($jbzooCompat)) {
+    require_once $jbzooCompat;
+}
+
 // include jbzoo init class
 require_once __DIR__ . '/framework/jbzoo.php';
 
@@ -25,7 +34,7 @@ require_once __DIR__ . '/framework/jbzoo.php';
  */
 final class JBUniversalApplication extends Application
 {
-    const JBZOO_VERSION = '4.15.7';
+    const JBZOO_VERSION = '4.50.3';
 
     /**
      * @var bool
@@ -41,6 +50,27 @@ final class JBUniversalApplication extends Application
      * @var JBDebugHelper
      */
     protected $jbdebug;
+
+    /**
+     * @var mixed
+     */
+    public $cartConfig = null;
+
+    /**
+     * Selected basket template name (bs5/bootstrap/uikit/...)
+     * @var string|null
+     */
+    public $basketTmpl = null;
+
+    /**
+     * @var mixed
+     */
+    public $template;
+
+    /**
+     * @var mixed
+     */
+    public $jbtemplate;
 
     /**
      * Register controller path, only for frontend
@@ -79,8 +109,8 @@ final class JBUniversalApplication extends Application
         define('JBZOO_DISPATCHED', true);
 
         // check is event plugin enabled
-        if ($this->isSite && !JPluginHelper::isEnabled('system', 'jbzoo')) {
-            $pluginUrl = JUri::root() . 'administrator/index.php?option=com_plugins&filter_search=jbzoo';
+        if ($this->isSite && !PluginHelper::isEnabled('system', 'jbzoo')) {
+            $pluginUrl = Uri::root() . 'administrator/index.php?option=com_plugins&filter_search=jbzoo';
             $this->app->jbnotify->notice(
                 "\"System - JBZoo\" plugin is not install or not enabled, <a href=\"{$pluginUrl}\">find it</a>"
             );
@@ -110,7 +140,7 @@ final class JBUniversalApplication extends Application
 
         // check is override controller exists
         if ($newCtrlPath) {
-            $newCtrlPath = JPath::clean($newCtrlPath);
+            $newCtrlPath = Path::clean($newCtrlPath);
             require_once $newCtrlPath;
 
             $newCtrl = $ctrlRequest . $this->getGroup();

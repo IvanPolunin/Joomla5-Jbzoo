@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -146,7 +147,7 @@ class JBCartStatusHelper extends AppHelper
     {
         $status = $this->app->jbcartelement->create('custom', JBCart::ELEMENT_TYPE_STATUS, array(
             'code' => self::UNDEFINED,
-            'name' => JText::_('JBZOO_STATUS_UNDEFINED'),
+            'name' => Text::_('JBZOO_STATUS_UNDEFINED'),
         ));
 
         return $status;

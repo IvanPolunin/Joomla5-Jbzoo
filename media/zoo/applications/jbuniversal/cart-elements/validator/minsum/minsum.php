@@ -32,7 +32,7 @@ class JBCartElementValidatorMinsum extends JBCartElementValidator
         $value = $this->_getValue();
 
         if ($value->isPositive() && $value->compare($summa, '>')) {
-            $message = JText::sprintf('JBZOO_ELEMENT_VALIDATOR_MINSUM_ERROR', $value->html());
+            $message = Text::sprintf('JBZOO_ELEMENT_VALIDATOR_MINSUM_ERROR', $value->html());
             throw new JBCartElementValidatorException($message);
         }
 
@@ -44,7 +44,7 @@ class JBCartElementValidatorMinsum extends JBCartElementValidator
      */
     public function render($params = array())
     {
-        $message = JText::sprintf('JBZOO_ELEMENT_VALIDATOR_MINSUM_MESSAGE', $this->_getValue()->html());
+        $message = Text::sprintf('JBZOO_ELEMENT_VALIDATOR_MINSUM_MESSAGE', $this->_getValue()->html());
         return $message;
     }
 

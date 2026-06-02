@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -16,7 +17,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -24,8 +25,18 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBSpacer
  */
-class JFormFieldJBDelimiter extends JFormField
+class JFormFieldJBDelimiter extends FormField
 {
+    /**
+     * @var App
+     */
+    private $app;
+
+    /**
+     * @var string
+     */
+    private $uniq;
+
     /**
      * @var string
      */
@@ -72,7 +83,7 @@ class JFormFieldJBDelimiter extends JFormField
      */
     protected function _getInput()
     {
-        $value = JText::_($this->element->attributes()->default);
+        $value = Text::_($this->element->attributes()->default);
         if(!empty($value)) {
             return '<strong class="jbdelimiter"> - = ' . $value . ' = -</strong>';
         }

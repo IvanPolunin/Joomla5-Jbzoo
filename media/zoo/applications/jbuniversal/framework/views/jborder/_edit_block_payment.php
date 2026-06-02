@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -25,22 +26,22 @@ if (!empty($payment)) :
     ?>
 
     <div class="uk-panel uk-panel-box">
-        <h3 class="uk-panel-title"><?php echo JText::_('JBZOO_ORDER_PAYMENT_TITLE'); ?></h3>
+        <h3 class="uk-panel-title"><?php echo Text::_('JBZOO_ORDER_PAYMENT_TITLE'); ?></h3>
 
         <?php echo $this->paymentRender->renderAdminEdit(array('order' => $order)); ?>
 
         <dl class="uk-description-list-horizontal">
 
-            <dt><?php echo JText::_('JBZOO_ORDER_PAYMENT_METHOD'); ?></dt>
+            <dt><?php echo Text::_('JBZOO_ORDER_PAYMENT_METHOD'); ?></dt>
             <dd><p><?php echo $payment->getName(); ?></p></dd>
 
-            <dt><?php echo JText::_('JBZOO_ORDER_PAYMENT_TAX'); ?></dt>
+            <dt><?php echo Text::_('JBZOO_ORDER_PAYMENT_TAX'); ?></dt>
             <dd><p><?php echo $payment->getRate()->html(); ?></p></dd>
 
-            <dt><?php echo JText::_('JBZOO_ORDER_PAYMENT_TOTAL'); ?></dt>
+            <dt><?php echo Text::_('JBZOO_ORDER_PAYMENT_TOTAL'); ?></dt>
             <dd><p><?php echo $order->getTotalSum(true)->html(); ?></p></dd>
 
-            <dt><?php echo JText::_('JBZOO_ORDER_PAYMENT_STATUS'); ?></dt>
+            <dt><?php echo Text::_('JBZOO_ORDER_PAYMENT_STATUS'); ?></dt>
             <dd><?php echo $this->app->jbhtml->select($statusList, 'order[payment][status]', '', $curStatus); ?></dd>
 
         </dl>

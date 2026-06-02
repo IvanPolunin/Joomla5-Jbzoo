@@ -133,7 +133,14 @@ class JBUniversalController extends AppController
 
         // warpper hack
         if (!$isJoomlaTmpl) {
-            $jVersion = $this->zoo->jbversion->joomla('2.7.0') ? '3': '2';
+            $jVersion = '4';
+            if ($this->zoo->jbversion->joomla('4.0') === true) {
+                $jVersion = '4';
+            } elseif ($this->zoo->jbversion->joomla('2.7.0') === true) {
+                $jVersion = '3';
+            } else {
+                $jVersion = '2';
+            }
 
             echo $view->partial('menu');
             echo '<div class="jbzoo box-bottom joomla-' . $jVersion . '">';
@@ -157,12 +164,17 @@ class JBUniversalController extends AppController
      */
     protected function _setToolbarTitle($postfix = '')
     {
-        $title = JText::_('JBZOO_ADMIN_MENU');
+        $title = Joomla\CMS\Language\Text::_('JBZOO_ADMIN_MENU');
         if (!empty($postfix)) {
-            $title .= ': ' . JText::_($postfix);
+            $title .= ': ' . Joomla\CMS\Language\Text::_($postfix);
         }
 
         $icon = $this->zoo->path->url('jbapp:application.png');
+
+        // Joomla 4/5/6 use Toolbar; skip legacy title injection
+        if ($this->zoo->jbversion->joomla('4.0') === true) {
+            return;
+        }
 
         $html = array();
         if ($this->zoo->joomla->version->isCompatible('3.2')) {

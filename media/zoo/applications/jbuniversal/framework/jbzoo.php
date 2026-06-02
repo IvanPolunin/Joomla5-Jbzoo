@@ -16,6 +16,12 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+// Ensure legacy aliases are available when compat plugin is disabled.
+$jbzooCompat = JPATH_ROOT . '/plugins/system/jbzoo/compat.php';
+if (is_file($jbzooCompat)) {
+    require_once $jbzooCompat;
+}
+
 /**
  * Class JBZoo
  */

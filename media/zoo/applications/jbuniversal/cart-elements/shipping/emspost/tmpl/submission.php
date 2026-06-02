@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,7 +25,7 @@ $locTypes = array('russia', 'countries', 'regions', 'cities');
 
 <div class="emspost-sender-city">
     <p>
-        <strong><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_EMSPOST_SENDER'); ?>:</strong>
+        <strong><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_EMSPOST_SENDER'); ?>:</strong>
         <?php echo $this->_getDefaultCityName(); ?>
     </p>
 </div>
@@ -47,5 +48,5 @@ $locTypes = array('russia', 'countries', 'regions', 'cities');
 
 <?php echo $this->app->jbassets->widget('#' . $uiqueId, 'JBZooShippingTypeEms', array(
     'url_price' => $this->getAjaxUrl('ajaxGetPrice'),
-    'text_free' => JText::_('JBZOO_FREE')
+    'text_free' => Text::_('JBZOO_FREE')
 ), true); ?>

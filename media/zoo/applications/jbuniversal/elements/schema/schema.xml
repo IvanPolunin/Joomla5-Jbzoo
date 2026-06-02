@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<element group="CB9TOIIIA" orderable="true" type="schema">
+    <name>Schema</name>
+    <author>CB9TOIIIA</author>
+    <creationdate>February 2017</creationdate>
+    <copyright>Copyright (C) CB9TOIIIA</copyright>
+    <authoremail>cb9toiiia@gmail.com</authoremail>
+    <authorurl>http://CB9T.ru</authorurl>
+    <version>1.0.0</version>
+    <description>Schema разметки для JBZoo // CB9TOIIIA
+    </description>
+    <params>
+        
+        <param default="" name="@advanced_label7878" type="jbspacer"/>
+        <param default="" label="Выборка цены из склада"  name="@advanced_labe66" type="jbspacer"/>
+        
+        
+        <param
+            default="0"
+            description="От куда брать товары склада"
+            label="Товары склада из?"
+            name="sklad_mode"
+            type="radio">
+            <option value="0">Выбор из списка</option>
+            
+        </param>
+        <param
+            default=""
+            description=""
+            label="Список элементов, выбрать Релейтед для текущего типа*"
+            name="skladElList"
+            type="jbelementlist"
+            types="relateditemsmain"/>
+
+        <param
+            default=""
+            description=""
+            label="ID элемента цены из склада*"
+            name="priceSkladElementId"
+            type="text"/>
+        
+        
+        
+        
+        <param default="" name="@advanced_label" type="jbspacer"/>
+        
+        <param default="" name="@advanced_label" type="jbspacer"/>
+        <param
+            default="0"
+            description="От куда брать Изображение"
+            label="Изображение из?"
+            name="photo_mode"
+            type="radio">
+            <option value="0">Выбор из списка</option>
+            <option value="1">Вручную по ID элемента</option>
+        </param>
+        <param
+            default=""
+            description=""
+            label="Список элементов изображений"
+            name="photoElList"
+            type="jbelementlist"
+            types="jbimage"/>
+        <param
+            default=""
+            description=""
+            label="Изображение (ID элемента)"
+            name="PhotoElementId"
+            type="text"/>
+        <param
+            default=""
+            description="Если нет изображения, использовать это фото"
+            label="Фото по умолчанию (если нет фото)"
+            name="defaultphoto"
+            type="text"/>
+        <param default="" name="@advanced_label1" type="jbspacer"/>
+        <param
+            default="0"
+            description="От куда брать цены"
+            label="Цены из?"
+            name="price_mode"
+            type="radio">
+            <option value="0">JBpricePlain</option>
+            <option value="1">JBpriceCalc</option>
+            <option value="2">Вручную по ID элемента</option>
+        </param>
+        <param
+            default=""
+            description=""
+            label="JBpricePlain"
+            name="jbpriceplain"
+            type="jbelementlist"
+            types="jbpriceplain"/>
+        <param
+            default=""
+            description=""
+            label="JBpriceCalc"
+            name="jbpricecalc"
+            type="jbelementlist"
+            types="jbpricecalc"/>
+        <param
+            default=""
+            description=""
+            label="Цены (ID элемента)"
+            name="PriceElementId"
+            type="text"/>
+        <param
+            default="0"
+            description="Убрать копейки у цены"
+            label="Убрать копейки у цены?"
+            name="jbprice_kop_enabled"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="Отображать цену со скидкой"
+            label="Отображать цену со скидкой?"
+            name="JBZooPriceWithDiscount_enabled"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param default="" name="@advanced_label3" type="jbspacer"/>
+        <param
+            default="0"
+            description="Использовать доп. часть разметки бренда?"
+            label="Название бренда из?"
+            name="brand_mode"
+            type="radio">
+            <option value="0">Нет</option>
+            <option value="1">Выбрать из списка</option>
+            <option value="2">Имя категории</option>
+            <option value="3">Вручную по ID элемента</option>
+            <option value="4">Просто текст</option>
+        </param>
+        <param
+            default=""
+            description=""
+            label="Бренд лист"
+            name="brandListElementId"
+            type="jbelementlist"
+            types="text"/>
+        <param
+            default=""
+            description=""
+            label="Бренд (ID элемента)"
+            name="brandElementId"
+            type="text"/>
+        <param
+            default=""
+            description=""
+            label="Просто текст - бренд"
+            name="brandsimpletext"
+            type="text"/>
+        <param default="" name="@advanced_label31" type="jbspacer"/>
+        <param
+            default="0"
+            description="Использовать доп. часть разметки производителя?"
+            label="Название производителя из?"
+            name="manufacturer_mode"
+            type="radio">
+            <option value="0">Нет</option>
+            <option value="1">Выбрать из списка</option>
+            <option value="2">Имя категории</option>
+            <option value="3">Вручную по ID элемента</option>
+            <option value="4">Просто текст</option>
+        </param>
+        <param
+            default=""
+            description=""
+            label="Производитель лист"
+            name="manufacturerListElementId"
+            type="jbelementlist"
+            types="text"/>
+        <param
+            default=""
+            description=""
+            label="Производитель (ID элемента)"
+            name="manufacturerElementId"
+            type="text"/>
+        <param
+            default=""
+            description=""
+            label="Просто текст - Производитель"
+            name="manufacturersimpletext"
+            type="text"/>
+
+        <param default="" name="@advanced_label2" type="jbspacer"/>
+        <param
+            default="0"
+            description="Описание товара/услуги?"
+            label="Описание товара/услуги?"
+            name="textteaser_mode"
+            type="radio">
+            <option value="0">Нет</option>
+            <option value="1">Выбрать из списка</option>
+            <option value="2">Вручную по ID элемента</option>
+            <option value="3">Просто текст</option>
+        </param>
+        <param
+            default=""
+            description="Краткое описание товара (тизер текст)"
+            label="Краткое описание товара"
+            name="teasertextListElementId"
+            type="jbelementlist"
+            types="textarea"/>
+        <param
+            default=""
+            description=""
+            label="Описание (ID элемента)"
+            name="teasertextElementId"
+            type="text"/>
+        <param
+            default=""
+            description=""
+            label="Просто текст - описания"
+            name="teasertextsimpletext"
+            type="text"/>
+
+        <param default="" name="@advanced_label4" type="jbspacer"/>
+        <param
+            default="0"
+            description="Включить og разметку"
+            label="Включить og разметку?"
+            name="ogtype_enabled"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="Показывать тег site_name"
+            label="Показывать og:site_name?"
+            name="ogtype_site_name_show"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="Показывать тег image"
+            label="Показывать og:image?"
+            name="ogtype_image_show"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="Показывать тег type"
+            label="Показывать og:type?"
+            name="ogtype_type_show"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="Показывать тег title"
+            label="Показывать og:title?"
+            name="ogtype_title_show"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="Показывать тег url"
+            label="Показывать og:url?"
+            name="ogtype_url_show"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="Показывать тег description"
+            label="Показывать og:description?"
+            name="ogtype_description_show"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param
+            default="0"
+            description="От куда брать description"
+            label="og:description из?"
+            name="ogtype_description_mode"
+            type="radio">
+            <option value="0">META</option>
+            <option value="1">Элемента</option>
+        </param>
+        <param
+            default=""
+            description="Выберите элемент описания страницы вместо стандартного дескрипшена"
+            label="Описание og:description из элемента"
+            name="ogtype_text_def"
+            type="jbelementlist"
+            types="textarea"/>
+        <param
+            default="0"
+            description="Убрать Generator тег Joomla!"
+            label="Убрать Generator тег Joomla!"
+            name="mode_generator_tag_joomla"
+            type="radio">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </param>
+        <param default="" name="@advanced_label5" type="jbspacer"/>
+
+        <param
+            default="1"
+            description="Разметка"
+            label="Разметка"
+            name="razmetka_mode"
+            type="radio">
+            <option value="1">Product + offers</option>
+            <option disabled="disabled" value="2">Другие [скоро...]</option>
+        </param>
+        <param
+            default="0"
+            description="Технология разметки"
+            label="Технология разметки"
+            name="razmetka_tech_mode"
+            type="list">
+            <option value="0">только JSON+LD (Schema.org: Product + offers)
+            </option>
+            <option value="1">только Microdata (HTML Schema.org: Product + offers)</option>
+            <option value="2">Оба: JSON+LD и Microdata (HTML Schema.org: Product + offers)</option>
+        </param>
+
+        <param default="" name="@advanced_label6" type="jbspacer"/>
+
+        <param
+            default="0"
+            description="Включить Debug?"
+            label="Включить Debug?"
+            name="jbzoo_el_debug"
+            type="radio">
+            <option value="0">Нет</option>
+            <option value="1">Да</option>
+        </param>
+    </params>
+    <params group="render"></params>
+</element>

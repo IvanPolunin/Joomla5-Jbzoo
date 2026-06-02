@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -28,30 +29,30 @@ $urlPostAjax = $this->app->jbrouter->admin(array('task' => 'lastStep')); ?>
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_MIGRATE_CONFIG_TITLE'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_MIGRATE_CONFIG_TITLE'); ?></h2>
 
-        <h4 style="color:#a00;"><?php echo JText::_('JBZOO_MIGRATE_CONFIG_ATTENTION'); ?></h4>
+        <h4 style="color:#a00;"><?php echo Text::_('JBZOO_MIGRATE_CONFIG_ATTENTION'); ?></h4>
         <ul>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_1'); ?></li>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_2'); ?></li>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_3'); ?></li>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_4'); ?></li>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_5'); ?></li>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_6'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_1'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_2'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_3'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_4'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_5'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_6'); ?></li>
         </ul>
 
-        <h4 style="color:#a00;"><?php echo JText::_('JBZOO_MIGRATE_CONFIG_ATTENTION_2'); ?></h4>
+        <h4 style="color:#a00;"><?php echo Text::_('JBZOO_MIGRATE_CONFIG_ATTENTION_2'); ?></h4>
         <ul>
 
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_7'); ?></li>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_8'); ?></li>
-            <li><?php echo JText::_('JBZOO_MIGRATE_CONFIG_DESC_9'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_7'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_8'); ?></li>
+            <li><?php echo Text::_('JBZOO_MIGRATE_CONFIG_DESC_9'); ?></li>
         </ul>
 
         <?php echo $this->app->jbform->render('migrate', array(
             'action'     => $this->app->jbrouter->admin(array('task' => 'migrateSteps')),
             'showSubmit' => true,
-            'submit'     => JText::_('JBZOO_FORM_NEXT'),
+            'submit'     => Text::_('JBZOO_FORM_NEXT'),
             'method'     => 'post',
         )); ?>
 

@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -16,15 +18,13 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
-
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 
 /**
  * Class JFormFieldJBSpacer
  */
-class JFormFieldJBSpacer extends JFormField
+class JFormFieldJBSpacer extends FormField
 {
 
     /**
@@ -38,7 +38,7 @@ class JFormFieldJBSpacer extends JFormField
      */
     public function getInput()
     {
-        $value = JText::_($this->element->attributes()->default);
+        $value = Text::_($this->element->attributes()->default);
         return '<strong style="width: 100%;float: left;color:#a00;font-size:1.1em"> - = ' . $value . ' = -</strong>';
     }
 

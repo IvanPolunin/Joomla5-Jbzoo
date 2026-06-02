@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -227,7 +228,7 @@ class JBEventHelper extends AppHelper
                 try {
                     $elemResult = $element->notify($params);
                 } catch (JBCartOrderException $e) {
-                    $this->app->jbnotify->warning(JText::_($e->getMessage()));
+                    $this->app->jbnotify->warning(Text::_($e->getMessage()));
                 }
 
                 if (self::EVENT_BREAK == $elemResult) {

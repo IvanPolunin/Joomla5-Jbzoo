@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -60,7 +61,7 @@ $uniqId = $element->htmlId();
     <div class="jbcart-shippingfield-element">
 
         <?php if ($description = $element->config->get('description')) : ?>
-            <p class="jbcart-shippingfield-desc"><?php echo JText::_($description); ?> </p>
+            <p class="jbcart-shippingfield-desc"><?php echo Text::_($description); ?> </p>
         <?php endif; ?>
 
         <?php echo $element->renderSubmission($params); ?>

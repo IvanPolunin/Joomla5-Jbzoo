@@ -16,41 +16,27 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+$align     = $this->app->jbitem->getMediaAlign($item, $layout);
+$bootstrap = $this->app->jbbootstrap;
+$rowClass  = $bootstrap->getRowClass();
 ?>
-<div class="wrapper-item-desc clearfix">
-    <?php if ($this->checkPosition('image')) : ?>
-        <div class="item-image pull-<?php echo $params->get('items_image_align', 'left') ?>">
-            <?php echo $this->renderPosition('image'); ?>
-        </div>
-    <?php endif; ?>
 
-    <?php if ($this->checkPosition('description') ||
-        $this->checkPosition('title') ||
-        $this->checkPosition('properties') ||
-        $this->checkPosition('price')
-    )  : ?>
-        <div class="item-wrapper-desc">
-            <?php if ($this->checkPosition('title')) : ?>
-                <div class="item-title"><?php echo $this->renderPosition('title'); ?></div>
-            <?php endif; ?>
-
-            <?php if ($this->checkPosition('price')) : ?>
-                <div class="item-price"><?php echo $this->renderPosition('price'); ?></div>
-            <?php endif; ?>
-
-            <?php if ($this->checkPosition('properties')) : ?>
-                <div class="product-props">
-                    <ul class="list unstyled">
-                        <?php echo $this->renderPosition('properties', array('style' => 'list')); ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($this->checkPosition('description')) : ?>
-                <div class="item-description"><?php echo $this->renderPosition('description'); ?></div>
-            <?php endif; ?>
-
-        </div>
-    <?php endif; ?>
+<div class="<?php echo $rowClass; ?>">
+   <div class="<?php echo $bootstrap->gridClass(9); ?> col-12 col-sm-12">
+      <?php if ($this->checkPosition('title')) : ?>
+         <h4 class="item-title"><?php echo $this->renderPosition('title'); ?></h4>
+      <?php endif; ?>
+      <?php if ($this->checkPosition('properties')) : ?>
+         <div class="item-properties">
+            <ul class="unstyled">
+               <?php echo $this->renderPosition('properties', array('style' => 'list')); ?>
+            </ul>
+         </div>
+      <?php endif; ?>
+   </div>
+   <div class="<?php echo $bootstrap->gridClass(3); ?> col-12 col-sm-12">
+      <div class="item-button">
+         <?php echo $this->renderPosition('button', array('style' => 'block')); ?>
+      </div>
+   </div>
 </div>
-<div class="item-links"><?php echo $this->renderPosition('links', array('style' => 'pipe')); ?></div>

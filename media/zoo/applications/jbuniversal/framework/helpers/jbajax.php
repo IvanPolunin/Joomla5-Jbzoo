@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -36,7 +37,7 @@ class JBAjaxHelper extends AppHelper
         }
 
         if ($this->app->jbversion->joomla('3')) {
-            $app = JFactory::getApplication();
+            $app = Factory::getApplication();
             $app->allowCache(false);
             $app->setHeader('Last-Modified', gmdate('D, d M Y H:i:s', time()) . ' GMT', true);
             $app->setHeader('Content-Type', 'application/json; charset=utf-8', true);

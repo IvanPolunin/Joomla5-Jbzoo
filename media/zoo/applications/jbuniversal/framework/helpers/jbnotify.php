@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -66,7 +67,7 @@ class JBNotifyHelper extends AppHelper
             }
 
         } else {
-            $this->_call(array($this->app->error, $messageType), array(0, JText::_($messages)));
+            $this->_call(array($this->app->error, $messageType), array(0, Text::_($messages)));
         }
 
     }

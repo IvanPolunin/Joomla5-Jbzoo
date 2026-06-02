@@ -132,7 +132,6 @@
             <option name="Break"><![CDATA[separator=[<br />]]]></option>
             <option name="Span"><![CDATA[tag=[<span>%s</span>]]]></option>
             <option name="Paragraph"><![CDATA[tag=[<p>%s</p>]]]></option>
-			 <option name="Related"><![CDATA[tag=[<div class="col-xxl-12 col-xl-6 col-lg-12 col-12">%s</div>]]]></option>
             <option name="Div"><![CDATA[tag=[<div>%s</div>]]]></option>
             <option name="List Item"><![CDATA[tag=[<li>%s</li>]]]></option>
             <option name="Unordered List"><![CDATA[tag=[<li>%s</li>] enclosing_tag=[<ul>%s</ul>]]]></option>

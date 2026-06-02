@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -92,7 +93,7 @@ echo JBZOO_CLR;
 <?php echo $this->app->jbassets->widget('.jsAssignElements', 'JBZooEditPositions', array(
     'isElementTmpl'     => $this->isElementTmpl,
     'urlAddElement'     => $this->app->jbrouter->admin(array('task' => 'addElement')),
-    'textEmptyPosition' => JText::_('JBZOO_ADMIN_POSITIONS_EMPTY_POSITION'),
-    'textNoElements'    => JText::_('JBZOO_ADMIN_POSITIONS_NO_ELEMENTS'),
-    'textElementRemove' => JText::_('JBZOO_ADMIN_POSITIONS_REMOVE'),
+    'textEmptyPosition' => Text::_('JBZOO_ADMIN_POSITIONS_EMPTY_POSITION'),
+    'textNoElements'    => Text::_('JBZOO_ADMIN_POSITIONS_NO_ELEMENTS'),
+    'textElementRemove' => Text::_('JBZOO_ADMIN_POSITIONS_REMOVE'),
 ), true); ?>

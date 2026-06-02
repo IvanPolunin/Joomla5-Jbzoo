@@ -1,4 +1,9 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Filesystem\Folder;
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Form\Form;
 /**
  * JBZoo Application
  *
@@ -38,9 +43,9 @@ class JBFormHelper extends AppHelper
         $xmlPaths = $this->_getXmlFormPaths();
 
         foreach ($xmlPaths as $path) {
-            $xmlForm = JPath::clean($path . '/' . $formName . '.xml');
+            $xmlForm = Path::clean($path . '/' . $formName . '.xml');
 
-            if (JFile::exists($xmlForm)) {
+            if (File::exists($xmlForm)) {
                 $formPath = $xmlForm;
                 break;
             }
@@ -65,11 +70,11 @@ class JBFormHelper extends AppHelper
                 $html[] = '<fieldset class="' . $fieldSetName . '">';
 
                 if ($fieldSet->label) {
-                    $html[] = '<legend>' . JText::_($fieldSet->label) . '</legend>';
+                    $html[] = '<legend>' . Text::_($fieldSet->label) . '</legend>';
                 }
 
                 if ($fieldSet->description) {
-                    $html[] = '<p>' . JText::_($fieldSet->description) . '</p>';
+                    $html[] = '<p>' . Text::_($fieldSet->description) . '</p>';
                 }
 
                 foreach ($form->getFieldset($fieldSetName) as $field) {
@@ -90,7 +95,7 @@ class JBFormHelper extends AppHelper
 
         if ($this->app->jbenv->isSite() || $options->get('showSubmit', 0)) {
 
-            $submitLabel = $options->get('submit', JText::_('JBZOO_FORM_SAVE'));
+            $submitLabel = $options->get('submit', Text::_('JBZOO_FORM_SAVE'));
             $html .= '<div class="jbzoo-submit">';
             $html .= '<input type="submit" class="jbzoo-button uk-button uk-button-success" name="send" value="' . $submitLabel . '" />';
             $html .= '</div>';
@@ -119,7 +124,7 @@ class JBFormHelper extends AppHelper
 
         $html[] = '<div class="uk-form-row">';
         $html[] = '<div class="uk-form-label">';
-        $html[] = '<label ' . ($id ? 'for="' . $id . '"' : '') . '>' . JText::_($label) . '</label>';
+        $html[] = '<label ' . ($id ? 'for="' . $id . '"' : '') . '>' . Text::_($label) . '</label>';
         $html[] = '</div>';
         $html[] = '<div class="uk-form-controls">' . $controlHtml . '</div>';
         $html[] = '</div>';
@@ -138,7 +143,7 @@ class JBFormHelper extends AppHelper
     {
         jimport('joomla.form.form');
         $options = $this->app->data->create($options);
-        $jform   = JForm::getInstance($name, $xmlPath, array(
+        $jform   = Form::getInstance($name, $xmlPath, array(
             'control' => $options->get('control', JBRequestHelper::ADMIN_FORM_KEY),
         ));
 
@@ -161,13 +166,13 @@ class JBFormHelper extends AppHelper
 
         } else {
 
-            $label = preg_replace("#title=\".*?\"#ius", '', $field->label);
+            $label = preg_replace("#title=\".*?\"#ius", '', $field->label ?? '');
             $label = str_ireplace('hasTip', '', $label);
 
             $html[] = '<div class="uk-form-row">';
             $html[] = '<div class="' . $className . '-label uk-form-label">';
             $html[] = $label;
-            $html[] = '<div class="description-label">' . JText::_($field->description) . '</div>';
+            $html[] = '<div class="description-label">' . Text::_($field->description) . '</div>';
             $html[] = '</div>';
             $html[] = '<div class="uk-form-controls">' . $field->input . '</div>';
             $html[] = '</div>';
@@ -217,12 +222,12 @@ class JBFormHelper extends AppHelper
 
         if ($path) {
             jimport('joomla.filesystem.folders');
-            $folders = JFolder::folders($path);
+            $folders = Folder::folders($path);
 
             foreach ($folders as $folder) {
                 $formDir = $path . '/' . $folder . '/forms/';
 
-                if (JFolder::exists($formDir)) {
+                if (Folder::exists($formDir)) {
                     $paths[] = $formDir;
                     continue;
                 }
@@ -246,9 +251,9 @@ class JBFormHelper extends AppHelper
         $xmlPaths = $this->_getXmlFormPaths();
 
         foreach ($xmlPaths as $path) {
-            $xmlForm = JPath::clean($path . '/' . $formName . '.xml');
+            $xmlForm = Path::clean($path . '/' . $formName . '.xml');
 
-            if (JFile::exists($xmlForm)) {
+            if (File::exists($xmlForm)) {
                 $formPath = $xmlForm;
                 break;
             }
@@ -273,11 +278,11 @@ class JBFormHelper extends AppHelper
                 $html[] = '<fieldset class="' . $fieldSetName . '">';
 
                 if ($fieldSet->label) {
-                    $html[] = '<legend>' . JText::_($fieldSet->label) . '</legend>';
+                    $html[] = '<legend>' . Text::_($fieldSet->label) . '</legend>';
                 }
 
                 if ($fieldSet->description) {
-                    $html[] = '<p>' . JText::_($fieldSet->description) . '</p>';
+                    $html[] = '<p>' . Text::_($fieldSet->description) . '</p>';
                 }
 
                 foreach ($form->getFieldset($fieldSetName) as $field) {

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -23,7 +24,7 @@ if ($mode == 'link') {
     $fileLink = $file['url'];
 }
 
-$filename = JText::_('JBZOO_ELEMENT_EMAIL_DOWNLOAD_FILE') . ' &laquo;' . $file['name'] . '&raquo;';
+$filename = Text::_('JBZOO_ELEMENT_EMAIL_DOWNLOAD_FILE') . ' &laquo;' . $file['name'] . '&raquo;';
 
 ?>
 
@@ -31,7 +32,7 @@ $filename = JText::_('JBZOO_ELEMENT_EMAIL_DOWNLOAD_FILE') . ' &laquo;' . $file['
 
 <dd>
     <a target="_blank" href="<?php echo $fileLink; ?>">
-        <?php echo JText::_('JBZOO_ELEMENT_EMAIL_DOWNLOAD_LINKANCHOR'); ?></a>
+        <?php echo Text::_('JBZOO_ELEMENT_EMAIL_DOWNLOAD_LINKANCHOR'); ?></a>
     &nbsp;&nbsp;&nbsp;
     <span style="font-size: 13px;"><i>(<?php echo $file['size']; ?>)</i></span>
 </dd>

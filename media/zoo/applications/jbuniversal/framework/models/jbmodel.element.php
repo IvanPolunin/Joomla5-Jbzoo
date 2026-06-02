@@ -42,6 +42,11 @@ class JBModelElement extends JBModel
     protected $_itemType = null;
 
     /**
+     * @var int
+     */
+    protected $_applicationId = 0;
+
+    /**
      * @param Element $element
      * @param int     $applicationId
      * @param string  $itemType

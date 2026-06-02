@@ -16,7 +16,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
+use Joomla\CMS\HTML\HTMLHelper;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -24,7 +25,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBCategoryList
  */
-class JFormFieldJBCategoryList extends JFormField
+class JFormFieldJBCategoryList extends FormField
 {
 
     protected $type = 'jbcategorylist';
@@ -68,7 +69,7 @@ class JFormFieldJBCategoryList extends JFormField
                 }
             }
 
-            return JHtml::_('select.groupedlist', $options, $this->getName($this->fieldname), array(
+            return HTMLHelper::_('select.groupedlist', $options, $this->getName($this->fieldname), array(
                 'list.attr'   => $app->jbhtml->buildAttrs($attr),
                 'list.select' => $this->value,
                 'group.items' => null,

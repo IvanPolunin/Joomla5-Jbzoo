@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -23,6 +25,11 @@ defined('_JEXEC') or die('Restricted access');
 class JBCartElementModifierOrderPricePromoCode extends JBCartElementModifierOrderPrice
 {
     /**
+     * @var mixed
+     */
+    protected $_config;
+
+    /**
      * @param App    $app
      * @param string $type
      * @param string $group
@@ -36,7 +43,7 @@ class JBCartElementModifierOrderPricePromoCode extends JBCartElementModifierOrde
         $this->_config = JBModelConfig::model();
 
         // Get session
-        $this->session = JFactory::getSession();
+        $this->session = Factory::getSession();
     }
 
     /**
@@ -184,7 +191,7 @@ class JBCartElementModifierOrderPricePromoCode extends JBCartElementModifierOrde
         if (empty($discount) || empty($discount['code'] || empty($discount['value']))) {
             return array(
                 'result' => false,
-                'msg'    => JText::_('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_EMPTY')
+                'msg'    => Text::_('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_EMPTY')
             );
         }
 
@@ -193,7 +200,7 @@ class JBCartElementModifierOrderPricePromoCode extends JBCartElementModifierOrde
         if (!$discount['enable']) {
             return array(
                 'result' => false,
-                'msg'    => JText::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_ENABLE', $discount['code'])
+                'msg'    => Text::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_ENABLE', $discount['code'])
             );
         }
 
@@ -206,7 +213,7 @@ class JBCartElementModifierOrderPricePromoCode extends JBCartElementModifierOrde
             if ($value->compare($summa, '>')) {
                 return array(
                     'result' => false,
-                    'msg'    => JText::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_MIN', $discount['code'], $value->text())
+                    'msg'    => Text::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_MIN', $discount['code'], $value->text())
                 );
             }
         }
@@ -217,7 +224,7 @@ class JBCartElementModifierOrderPricePromoCode extends JBCartElementModifierOrde
             if ($discount['count'] >= $discount['limit']) {
                 return array(
                     'result' => false,
-                    'msg'    => JText::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_LIMIT', $discount['code'])
+                    'msg'    => Text::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_LIMIT', $discount['code'])
                 );
             }
         }
@@ -231,7 +238,7 @@ class JBCartElementModifierOrderPricePromoCode extends JBCartElementModifierOrde
             if ($now >= $date) {
                 return array(
                     'result' => false,
-                    'msg'    => JText::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_DATE', $discount['code'])
+                    'msg'    => Text::sprintf('JBZOO_ELEMENT_MODIFIERORDERPRICE_PROMOCODE_VALIDATOR_DATE', $discount['code'])
                 );
             }
         }

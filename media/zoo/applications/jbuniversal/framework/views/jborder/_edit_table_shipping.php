@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,23 +25,23 @@ $this->sum->addModify($shipping); ?>
 <tr>
     <td class="noborder-btm"></td>
     <th>
-        <p><?php echo JText::_('JBZOO_ORDER_SHIPPING_FEE'); ?></p>
+        <p><?php echo Text::_('JBZOO_ORDER_SHIPPING_FEE'); ?></p>
     </th>
     <td>
         <?php echo $shipping->getName(); ?>
         <em>(
             <?php
             if ($shipping->isModify()) {
-                echo JText::_('JBZOO_ORDER_SHIPPING_INCLUDED');
+                echo Text::_('JBZOO_ORDER_SHIPPING_INCLUDED');
             } else {
-                echo JText::_('JBZOO_ORDER_SHIPPING_NOT_INCLUDED');
+                echo Text::_('JBZOO_ORDER_SHIPPING_NOT_INCLUDED');
             }
             ?>
             )</em>
         <?php
         if ($shipping->isFree()) {
             $priceCost = $shipping->getOrder()->val($shipping->config->get('limit_for_free'));
-            echo '<br />' . JText::sprintf('JBZOO_ORDER_SHIPPING_IF_FREE', $priceCost->html());
+            echo '<br />' . Text::sprintf('JBZOO_ORDER_SHIPPING_IF_FREE', $priceCost->html());
         }
         ?>
     </td>

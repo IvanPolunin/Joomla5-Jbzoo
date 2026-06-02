@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,7 +25,7 @@ defined('_JEXEC') or die('Restricted access');
     </div>
 
     <div class="uk-width-4-6">
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_TOOLS_INDEX'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_TOOLS_INDEX'); ?></h2>
 
         <?php echo $this->partial('icons', array('items' => array(
             array(

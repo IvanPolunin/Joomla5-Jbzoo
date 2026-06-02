@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -16,15 +18,13 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
-
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 
 /**
  * Class JFormFieldJBShipping
  */
-class JFormFieldJBShipping extends JFormField
+class JFormFieldJBShipping extends FormField
 {
 
     protected $type = 'jbshipping';
@@ -41,11 +41,11 @@ class JFormFieldJBShipping extends JFormField
 
         // create select
         $options = array(
-            '' => JText::_('JBZOO_NONE'),
+            '' => Text::_('JBZOO_NONE'),
         );
 
         foreach ($elements as $key => $element) {
-            $options[] = $app->html->_('select.option', $element->identifier, JText::_($element->getName()));
+            $options[] = $app->html->_('select.option', $element->identifier, Text::_($element->getName()));
         }
 
         return $app->html->_(
@@ -55,7 +55,7 @@ class JFormFieldJBShipping extends JFormField
             '',
             'value',
             'text',
-            $this->value
+            $this->value ?? ''
         );
     }
 

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -90,11 +91,11 @@ if (!empty($items)) :
                 ?>
 
                 <?php if (!$margin->isEmpty()) {
-                    echo '<p>' . JText::_('JBZOO_ORDER_ITEM_MARGIN') . ':' . $margin->htmlAdv($currency, true) . '</p>';
+                    echo '<p>' . Text::_('JBZOO_ORDER_ITEM_MARGIN') . ':' . $margin->htmlAdv($currency, true) . '</p>';
                 } ?>
 
                 <?php if (!$discount->isEmpty()) {
-                    echo '<p>' . JText::_('JBZOO_ORDER_ITEM_DISCOUNT') . ':' . $discount->negative()->htmlAdv($currency, false) . '</p>';
+                    echo '<p>' . Text::_('JBZOO_ORDER_ITEM_DISCOUNT') . ':' . $discount->negative()->htmlAdv($currency, false) . '</p>';
                 } ?>
             </td>
 
@@ -113,7 +114,7 @@ if (!empty($items)) :
             <tr class="item-modifiers">
                 <td></td>
                 <td colspan="3">
-                    <strong><?php echo JText::_('JBZOO_ORDER_ITEM_MODIFIERS'); ?>:</strong>
+                    <strong><?php echo Text::_('JBZOO_ORDER_ITEM_MODIFIERS'); ?>:</strong>
                 </td>
             </tr>
 

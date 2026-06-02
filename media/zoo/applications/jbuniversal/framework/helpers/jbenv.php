@@ -1,5 +1,6 @@
 <?php
 use \Joomla\CMS\Factory;
+use \Joomla\CMS\Uri\Uri;
 
 /**
  * JBZoo Application
@@ -61,7 +62,7 @@ class JBEnvHelper extends AppHelper
         static $url;
 
         if (!isset($url)) {
-            $url = JUri::getInstance()->toString();
+            $url = Uri::getInstance()->toString();
         }
 
         return $url;

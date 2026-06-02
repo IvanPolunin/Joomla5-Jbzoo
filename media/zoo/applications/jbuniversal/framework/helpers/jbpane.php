@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -78,9 +79,9 @@ class JBPaneHelper extends AppHelper
     public function startTab($name, $key = 'jbzoo-tabs')
     {
         if (!$this->_isJoomla3) {
-            return JHtml::_('bootstrap.addTab', $key, 'jbzoo-tab-' . ($this->_tabIndex++), JText::_($name, true));
+            return JHtml::_('bootstrap.addTab', $key, 'jbzoo-tab-' . ($this->_tabIndex++), Text::_($name, true));
         } else {
-            return JHtml::_('tabs.panel', JText::_($name, true), 'jbzoo-tab-' . ($this->_tabIndex++));
+            return JHtml::_('tabs.panel', Text::_($name, true), 'jbzoo-tab-' . ($this->_tabIndex++));
         }
     }
 

@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -24,7 +26,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBAppList
  */
-class JFormFieldJBAppList extends JFormField
+class JFormFieldJBAppList extends FormField
 {
 
     protected $type = 'jbapplist';
@@ -38,7 +40,7 @@ class JFormFieldJBAppList extends JFormField
         $applications = $app->table->application->all();
 
         // create select
-        $options = array(0 => JText::_('JBZOO_FIELDS_SELECT'));
+        $options = array(0 => Text::_('JBZOO_FIELDS_SELECT'));
 
         foreach ($applications as $application) {
             if ($application->application_group == JBZOO_APP_GROUP) {

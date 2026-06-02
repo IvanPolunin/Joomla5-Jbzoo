@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -30,7 +31,7 @@ class JBCartElementPriceValue extends JBCartElementPrice
      */
     public function hasValue($params = array())
     {
-        return (!$this->isEmpty()) || ((int)$params->get('empty_show', 0));
+        return true;
     }
 
     /**
@@ -70,12 +71,36 @@ class JBCartElementPriceValue extends JBCartElementPrice
         }
         $prices   = $this->getPrices();
         $discount = JBCart::val();
-        if ($prices['save']->isNegative()) {
+        
+        // Try to get discount from JBPrice parent
+        $jbPrice = $this->getJBPrice();
+        if ($jbPrice) {
+            $currentVariant = $jbPrice->getList()->current();
+            if ($currentVariant && $discountElement = $currentVariant->get('_discount')) {
+                $discountValue = $discountElement->getValue(true);
+                if (!empty($discountValue)) {
+                    $discount->set($discountValue);
+                    
+                    // Calculate discounted price and original price
+                    // Original price = current price (444)
+                    // Discounted price = current price - discount (444 - 55 = 389)
+                    $originalPrice = clone $prices['price'];
+                    $discountedPrice = clone $prices['price'];
+                    $discountedPrice->minus($discount);
+                    
+                    // Set values for template:
+                    $prices['price'] = $originalPrice; // This will be shown as "Цена:" (444) - should be crossed out
+                    $prices['total'] = $discountedPrice; // This will be shown as "Было:" (389) - current price
+                    $prices['save']->set($discount->val(), $discount->cur())->negative(); // Save amount (-55)
+                }
+            }
+        } elseif ($prices['save']->isNegative()) {
+            // Fallback to save calculation
             $discount->set($prices['save']->val(), $prices['save']->cur());
         }
 
         $total   = $prices['total'];
-        $message = JText::_(StringHelper::trim($params->get('empty_text', '')));
+        $message = Text::_(StringHelper::trim($params->get('empty_text', '')));
 
         $layout = $params->get('layout', 'full-div');
         if ($total->isEmpty() && !empty($message)) {
@@ -83,6 +108,29 @@ class JBCartElementPriceValue extends JBCartElementPrice
         }
 
         if ($layout = $this->getLayout($layout . '.php')) {
+            // Debug: Log prices data
+            if (defined('JDEBUG') && JDEBUG) {
+                error_log('Value render - prices: ' . print_r([
+                    'total' => $total->val() . ' ' . $total->cur(),
+                    'price' => $prices['price']->val() . ' ' . $prices['price']->cur(),
+                    'save' => $prices['save']->val() . ' ' . $prices['save']->cur(),
+                    'total_empty' => $total->isEmpty(),
+                    'variant' => $this->variant,
+                    'item_id' => $this->item_id
+                ], true));
+                
+                // Also log to a specific file
+                file_put_contents('X:\\OSPanel\\home\\jbzoo.test\\tmp\\jbzoo_debug.log', 
+                    date('[Y-m-d H:i:s] ') . 'Value render: ' . print_r([
+                    'total' => $total->val() . ' ' . $total->cur(),
+                    'price' => $prices['price']->val() . ' ' . $prices['price']->cur(),
+                    'save' => $prices['save']->val() . ' ' . $prices['save']->cur(),
+                    'total_empty' => $total->isEmpty(),
+                    'variant' => $this->variant,
+                    'item_id' => $this->item_id
+                ], true) . "\n", FILE_APPEND);
+            }
+            
             return $this->renderLayout($layout, array(
                 'total'    => $total,
                 'price'    => $prices['price'],
@@ -94,6 +142,60 @@ class JBCartElementPriceValue extends JBCartElementPrice
         }
 
         return null;
+    }
+
+    /**
+     * Helper for cart: compute prices/discount in the same way as render(),
+     * but return raw JBCartValue objects instead of HTML.
+     *
+     * @param array $params
+     * @return array|null ['total' => JBCartValue, 'price' => JBCartValue, 'save' => JBCartValue, 'discount' => JBCartValue]
+     */
+    public function getCartPrices($params = array())
+    {
+        if (!$this->hasValue($params)) {
+            return null;
+        }
+
+        $prices   = $this->getPrices();
+        $discount = JBCart::val();
+
+        // Повторяем логику скидки как в render()
+        $jbPrice = $this->getJBPrice();
+        if ($jbPrice) {
+            $currentVariant = $jbPrice->getList()->current();
+            if ($currentVariant && $discountElement = $currentVariant->get('_discount')) {
+                $discountValue = $discountElement->getValue(true);
+                if (!empty($discountValue)) {
+                    $discount->set($discountValue);
+
+                    // Original price = current price (444)
+                    // Discounted price = current price - discount (444 - 55 = 389)
+                    $originalPrice   = clone $prices['price'];
+                    $discountedPrice = clone $prices['price'];
+                    $discountedPrice->minus($discount);
+
+                    // Set values for template:
+                    $prices['price'] = $originalPrice;
+                    $prices['total'] = $discountedPrice;
+                    $prices['save']->set($discount->val(), $discount->cur())->negative();
+                }
+            }
+        } elseif ($prices['save']->isNegative()) {
+            // Fallback to save calculation
+            $discount->set($prices['save']->val(), $prices['save']->cur());
+        }
+
+        $total = $prices['total'];
+        $hasDiscount = !$discount->isEmpty();
+
+        return array(
+            'total'        => $total,
+            'price'        => $prices['price'],
+            'save'         => $prices['save'],
+            'discount'     => $discount,
+            'has_discount' => $hasDiscount,
+        );
     }
 
     /**

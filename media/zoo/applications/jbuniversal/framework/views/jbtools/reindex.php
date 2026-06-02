@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -29,55 +30,55 @@ $this->app->jbassets->progressBar();
     <div class="uk-width-4-6">
 
         <?php if (0 == $this->total) : ?>
-            <?php echo '<strong style="color:#a00;">' . JText::_('JBZOO_CHECKDB_NOITEMS') . '</strong>'; ?>
+            <?php echo '<strong style="color:#a00;">' . Text::_('JBZOO_CHECKDB_NOITEMS') . '</strong>'; ?>
 
         <?php else: ?>
 
-            <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_TOOLS_REINDEX'); ?></h2>
+            <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_TOOLS_REINDEX'); ?></h2>
 
             <p style="color:#a00;">
-                <strong><?php echo JText::_('JBZOO_REINDEX_DESCRIPTION'); ?></strong>
+                <strong><?php echo Text::_('JBZOO_REINDEX_DESCRIPTION'); ?></strong>
             </p>
 
-            <h4><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_TITLE_1'); ?></h4>
-            <p><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_DESC_1'); ?></p>
+            <h4><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_TITLE_1'); ?></h4>
+            <p><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_DESC_1'); ?></p>
 
-            <h4><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_TITLE_2'); ?></h4>
+            <h4><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_TITLE_2'); ?></h4>
             <ul>
-                <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_1'); ?></li>
-                <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_2'); ?></li>
-                <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_3'); ?></li>
-                <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_4'); ?></li>
+                <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_1'); ?></li>
+                <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_2'); ?></li>
+                <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_3'); ?></li>
+                <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_4'); ?></li>
             </ul>
 
-            <p><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_DESC_2'); ?></p>
+            <p><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_REINDEX_DESC_2'); ?></p>
 
             <div class="jsProgressBar"></div>
 
             <div class="statistic">
-                <h3><?php echo JText::_('JBZOO_REINDEX_STATISTIC'); ?>: </h3>
+                <h3><?php echo Text::_('JBZOO_REINDEX_STATISTIC'); ?>: </h3>
                 <ul>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_PROGRESS'); ?>:</strong> <span
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_PROGRESS'); ?>:</strong> <span
                             class="js-progress">0</span>%
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_STEP_CURRENT'); ?>:</strong> <span
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_STEP_CURRENT'); ?>:</strong> <span
                             class="js-step">0</span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_INDEXED'); ?>:</strong> <span
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_INDEXED'); ?>:</strong> <span
                             class="js-current">0</span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_TOTAL'); ?>:</strong> <span
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_TOTAL'); ?>:</strong> <span
                             class="js-total"><?php echo $this->total; ?></span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_STEP_SIZE'); ?>:</strong> <span
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_STEP_SIZE'); ?>:</strong> <span
                             class="js-stepsize"><?php echo $this->indexStep; ?></span>
                     </li>
                 </ul>
                 <ul>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_TIME_PASSED'); ?>:</strong> <span
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_TIME_PASSED'); ?>:</strong> <span
                             class="js-timepassed">00:00</span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_TIME_REMAINING'); ?>:</strong> <span
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_TIME_REMAINING'); ?>:</strong> <span
                             class="js-timeremaining">00:00</span>
                     </li>
                 </ul>
@@ -85,7 +86,7 @@ $this->app->jbassets->progressBar();
 
             <div class="error-block jsErrorBlockWrapper" style="display: none;">
                 <hr />
-                <h3><em><?php echo JText::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
+                <h3><em><?php echo Text::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
 
                 <div class="jsErrorBlock"></div>
             </div>
@@ -102,12 +103,12 @@ $this->app->jbassets->progressBar();
         var totalLines = 0;
 
         $('.jsProgressBar').JBZooProgressBar({
-            'text_start_confirm': "<?php echo JText::_('JBZOO_PROGRESSBAR_START_CONFIRM');?>",
-            'text_stop_confirm' : "<?php echo JText::_('JBZOO_PROGRESSBAR_STOP_CONFIRM');?>",
-            'text_complete'     : "<?php echo JText::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
-            'text_start'        : "<?php echo JText::_('JBZOO_PROGRESSBAR_START');?>",
-            'text_stop'         : "<?php echo JText::_('JBZOO_PROGRESSBAR_STOP');?>",
-            'text_ready'        : "<?php echo JText::_('JBZOO_PROGRESSBAR_READY');?>",
+            'text_start_confirm': "<?php echo Text::_('JBZOO_PROGRESSBAR_START_CONFIRM');?>",
+            'text_stop_confirm' : "<?php echo Text::_('JBZOO_PROGRESSBAR_STOP_CONFIRM');?>",
+            'text_complete'     : "<?php echo Text::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
+            'text_start'        : "<?php echo Text::_('JBZOO_PROGRESSBAR_START');?>",
+            'text_stop'         : "<?php echo Text::_('JBZOO_PROGRESSBAR_STOP');?>",
+            'text_ready'        : "<?php echo Text::_('JBZOO_PROGRESSBAR_READY');?>",
             'url'               : "<?php echo $urlAction;?>",
             'autoStart'         : "<?php echo (bool)$this->app->jbrequest->get('autostart', 0); ?>",
 

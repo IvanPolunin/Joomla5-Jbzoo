@@ -22,6 +22,13 @@ defined('_JEXEC') or die('Restricted access');
 class JBCacheHelper extends AppHelper
 {
     /**
+     * Stack of active output cache buffers.
+     *
+     * @var array<int, array<string, mixed>|null>
+     */
+    protected $_outputStack = array();
+
+    /**
      * Check config, is enabled joomla caching
      * @return int
      */
@@ -115,9 +122,30 @@ class JBCacheHelper extends AppHelper
     /**
      * @deprecated
      */
-    public function start()
+    public function start($key = null, $group = 'default', $isForce = true, array $params = array())
     {
-        return null; // disibled
+        $group = str_replace('-', '_', $group ?: 'default');
+
+        $cacheKey = $this->_buildOutputCacheKey($key, $group, $params);
+        $cached   = $this->get($cacheKey, $group, $isForce, $params);
+
+        if ($cached !== false && $cached !== null) {
+            $this->_outputStack[] = null;
+            echo $cached;
+
+            return true;
+        }
+
+        $this->_outputStack[] = array(
+            'key'     => $cacheKey,
+            'group'   => $group,
+            'force'   => $isForce,
+            'params'  => $params,
+        );
+
+        ob_start();
+
+        return false;
     }
 
     /**
@@ -125,7 +153,51 @@ class JBCacheHelper extends AppHelper
      */
     public function stop()
     {
-        return null; // disibled
+        $state = array_pop($this->_outputStack);
+
+        if ($state === null) {
+            return null;
+        }
+
+        if (!is_array($state)) {
+            if (ob_get_level()) {
+                ob_end_clean();
+            }
+
+            return null;
+        }
+
+        $output = ob_get_clean();
+        $this->set($state['key'], $output, $state['group'], $state['force'], $state['params']);
+
+        echo $output;
+
+        return $output;
+    }
+
+    /**
+     * Build a stable output-cache key for the current request context.
+     *
+     * @param mixed  $key
+     * @param string $group
+     * @param array  $params
+     * @return string
+     */
+    protected function _buildOutputCacheKey($key, $group, array $params = array())
+    {
+        $user = JFactory::getUser();
+        $uri  = class_exists('JUri') ? JUri::getInstance()->toString() : (isset($_SERVER['REQUEST_URI']) ? (string)$_SERVER['REQUEST_URI'] : '');
+
+        return $this->_simpleHash(array(
+            'group'      => $group,
+            'key'        => $key,
+            'params'     => $params,
+            'uri'        => $uri,
+            'user_id'    => (int)$user->id,
+            'user_groups'=> method_exists($user, 'getAuthorisedGroups') ? $user->getAuthorisedGroups() : array(),
+            'language'   => JFactory::getLanguage() ? JFactory::getLanguage()->getTag() : '',
+            'debug'      => (int)JDEBUG,
+        ));
     }
 
     /**

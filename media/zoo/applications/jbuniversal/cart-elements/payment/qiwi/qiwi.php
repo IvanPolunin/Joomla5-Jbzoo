@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -127,7 +128,7 @@ class JBCartElementPaymentQiwi extends JBCartElementPayment
                     'task'       => 'form',
                     'orderId'    => $this->_jbrequest->get('orderId'),
                 )),
-            'submit' => JText::_('JBZOO_BUTTON_SUBMIT_SHOW'),
+            'submit' => Text::_('JBZOO_BUTTON_SUBMIT_SHOW'),
         ));
     }
 
@@ -175,7 +176,7 @@ class JBCartElementPaymentQiwi extends JBCartElementPayment
             return $this->_uri . '?' . $this->_jbrouter->query($query);
         }
 
-        $this->app->jbnotify->warning(JText::_($response->response->description));
+        $this->app->jbnotify->warning(Text::_($response->response->description));
 
         return null;
     }
@@ -192,7 +193,7 @@ class JBCartElementPaymentQiwi extends JBCartElementPayment
         if (preg_match('#\d{1,15}$#', $check['phone'])) {
             return true;
         } else {
-            $this->app->jbnotify->warning(JText::_('JBZOO_PAYMENT_QIWI_NO_VALID_PHONE'));
+            $this->app->jbnotify->warning(Text::_('JBZOO_PAYMENT_QIWI_NO_VALID_PHONE'));
         }
 
         return false;
@@ -206,7 +207,7 @@ class JBCartElementPaymentQiwi extends JBCartElementPayment
      * @param       $authHeaderKey
      * @return JHttpResponse
      */
-    protected function _createBill($shopId = null, $billId, $data = array(), $authHeaderKey)
+    protected function _createBill($billId, $authHeaderKey, $shopId = null, $data = array())
     {
         $curl = $this->_getQiwiCurl($shopId, $billId);
 

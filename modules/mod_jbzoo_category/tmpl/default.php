@@ -29,6 +29,8 @@ $attrs = array(
     ),
 );
 
+$renderer = $modHelper->createRenderer('item');
+
 ?>
 
 <?php if (!empty($categories)): ?>
@@ -61,7 +63,7 @@ $attrs = array(
                     <?php echo JBZOO_CLR; ?>
                 </div>
 
-                <?php if (!empty($category['items'])) {
+                    <?php if (!empty($category['items'])) {
                     echo '<div class="jbcategory-items">';
 
                     $layout = $params->get('item_layout', 'default');
@@ -73,8 +75,6 @@ $attrs = array(
                             'jbzoo-item-' . $item->id,
                             'rborder',
                         );
-                        $renderer    = $modHelper->createRenderer('item');
-
                         ?>
                         <div class="<?php echo implode(' ', $itemClasses); ?>">
                             <?php echo $renderer->render('item.' . $layout, array('item' => $item, 'params' => $params)); ?>

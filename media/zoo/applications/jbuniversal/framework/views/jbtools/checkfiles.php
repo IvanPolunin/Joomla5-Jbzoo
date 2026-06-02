@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -26,22 +27,22 @@ $removeUrl = $this->app->jbrouter->admin(array('task' => 'removeUnversionFiles')
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_TOOLS_CHECKFILES'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_TOOLS_CHECKFILES'); ?></h2>
 
-        <p><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_DESC'); ?></p>
+        <p><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_DESC'); ?></p>
 
-        <h4><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_TITLE'); ?></h4>
+        <h4><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_TITLE'); ?></h4>
 
         <ul>
-            <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_1'); ?></li>
-            <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_2'); ?></li>
+            <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_1'); ?></li>
+            <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_2'); ?></li>
         </ul>
 
         <a class="uk-button uk-button-primary jsCheckFilesReport"
-           href="#check"><?php echo JText::_('JBZOO_CHECKFILES_CHECK'); ?></a>
+           href="#check"><?php echo Text::_('JBZOO_CHECKFILES_CHECK'); ?></a>
 
         <a class="uk-button uk-button-small  uk-button-danger jsCheckFilesRemove"
-           href="#remove"><?php echo JText::_('JBZOO_CHECKFILES_REMOVE_UNVERSION'); ?></a>
+           href="#remove"><?php echo Text::_('JBZOO_CHECKFILES_REMOVE_UNVERSION'); ?></a>
 
         <span class="checkfiles-loader" style="display: none;">
             <img src="<?php echo JUri::root(); ?>media/zoo/applications/jbuniversal/assets/img/misc/loader.gif" />
@@ -56,9 +57,9 @@ $removeUrl = $this->app->jbrouter->admin(array('task' => 'removeUnversionFiles')
 <script type="text/javascript">
     jQuery(function ($) {
 
-        var alert1 = "<?php echo JText::_('JBZOO_CHECKFILES_REMOVE_UNVERSION_ALERT_1'); ?>",
-            alert2 = "<?php echo JText::_('JBZOO_CHECKFILES_REMOVE_UNVERSION_ALERT_2'); ?>",
-            alert3 = "<?php echo JText::_('JBZOO_CHECKFILES_REMOVE_UNVERSION_ALERT_3'); ?>",
+        var alert1 = "<?php echo Text::_('JBZOO_CHECKFILES_REMOVE_UNVERSION_ALERT_1'); ?>",
+            alert2 = "<?php echo Text::_('JBZOO_CHECKFILES_REMOVE_UNVERSION_ALERT_2'); ?>",
+            alert3 = "<?php echo Text::_('JBZOO_CHECKFILES_REMOVE_UNVERSION_ALERT_3'); ?>",
             actionUrl = "<?php echo $actionUrl; ?>",
             removeUrl = "<?php echo $removeUrl; ?>";
 

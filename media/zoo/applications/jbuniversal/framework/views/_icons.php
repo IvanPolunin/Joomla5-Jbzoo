@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -34,7 +35,7 @@ if (!isset($items) || empty($items)) {
         $attrs = '';
 
         // get name
-        $name = JText::_($item['name']);
+        $name = Text::_($item['name']);
 
         // get link
         if (isset($item['link'])) {

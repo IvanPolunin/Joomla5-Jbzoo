@@ -42,7 +42,6 @@ class JBFilterPropsHelper extends AppHelper
             $categoryId = $this->app->jbrequest->getSystem('category');
             if ($categoryId > 0 && !isset($elements['_itemcategory'])) {
                 $elements['_itemcategory'] = $categoryId;
-                
             }
         }
 

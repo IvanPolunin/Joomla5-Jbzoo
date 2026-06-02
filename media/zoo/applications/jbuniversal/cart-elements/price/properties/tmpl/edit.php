@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -22,13 +23,13 @@ defined('_JEXEC') or die('Restricted access');
     <?php
     $html = array(
         $this->_jbhtml->text($this->getControlName('width'), $width, array(
-            'placeholder' => JText::_('JBZOO_ELEMENT_PRICE_PROPERTIES_EDIT_PLACEHOLDER_WIDTH')
+            'placeholder' => Text::_('JBZOO_ELEMENT_PRICE_PROPERTIES_EDIT_PLACEHOLDER_WIDTH')
         )),
         $this->_jbhtml->text($this->getControlName('height'), $height, array(
-            'placeholder' => JText::_('JBZOO_ELEMENT_PRICE_PROPERTIES_EDIT_PLACEHOLDER_HEIGHT')
+            'placeholder' => Text::_('JBZOO_ELEMENT_PRICE_PROPERTIES_EDIT_PLACEHOLDER_HEIGHT')
         )),
         $this->_jbhtml->text($this->getControlName('length'), $length, array(
-            'placeholder' => JText::_('JBZOO_ELEMENT_PRICE_PROPERTIES_EDIT_PLACEHOLDER_LENGTH')
+            'placeholder' => Text::_('JBZOO_ELEMENT_PRICE_PROPERTIES_EDIT_PLACEHOLDER_LENGTH')
         ))
     );
 

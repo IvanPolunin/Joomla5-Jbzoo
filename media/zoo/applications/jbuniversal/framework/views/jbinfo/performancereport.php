@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -25,13 +26,13 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_INFO_PERFORMANCE_REPORT'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_INFO_PERFORMANCE_REPORT'); ?></h2>
 
-        <p><?php echo JText::_('JBZOO_PAGE_INFO_PERFORMANCE_REPORT_DESC_1'); ?></p>
+        <p><?php echo Text::_('JBZOO_PAGE_INFO_PERFORMANCE_REPORT_DESC_1'); ?></p>
 
-        <p><?php echo JText::_('JBZOO_PAGE_INFO_PERFORMANCE_REPORT_DESC_2'); ?></p>
+        <p><?php echo Text::_('JBZOO_PAGE_INFO_PERFORMANCE_REPORT_DESC_2'); ?></p>
 
-        <p><?php echo JText::_('JBZOO_PAGE_INFO_PERFORMANCE_REPORT_DESC_3'); ?></p>
+        <p><?php echo Text::_('JBZOO_PAGE_INFO_PERFORMANCE_REPORT_DESC_3'); ?></p>
 
         <p>&nbsp;</p>
 

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -28,7 +29,7 @@ $this->app->jbassets->widget(".$unique", 'JBZooDiscountCode', array(
     <input type="text" value="<?php echo $this->get('code'); ?>" name="<?php echo $this->getControlName('code'); ?>"
            class="jsCode input-code" />
 
-    <span class="jsSendCode jbbutton small"><?php echo JText::_('JBZOO_ELEMENT_DISCOUNTCODE_SEND'); ?></span>
+    <span class="jsSendCode jbbutton small"><?php echo Text::_('JBZOO_ELEMENT_DISCOUNTCODE_SEND'); ?></span>
 
     <div class="jsMoneyWrap"><?php echo $this->getRate()->html(); ?></div>
 </div>

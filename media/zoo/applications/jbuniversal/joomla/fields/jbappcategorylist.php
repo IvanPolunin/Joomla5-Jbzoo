@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -24,7 +26,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBAppCategoryList
  */
-class JFormFieldJBAppCategoryList extends JFormField
+class JFormFieldJBAppCategoryList extends FormField
 {
 
     protected $type = 'jbappcategorylist';
@@ -37,7 +39,7 @@ class JFormFieldJBAppCategoryList extends JFormField
         $app       = App::getInstance('zoo');
         $idElement = uniqid('element');
 
-        $options      = array(0 => JText::_('JBZOO_FIELDS_APP'));
+        $options      = array(0 => Text::_('JBZOO_FIELDS_APP'));
         $categoryList = array();
         $html         = array();
         $value        = array('appId' => 0, 'catId' => '');
@@ -56,9 +58,9 @@ class JFormFieldJBAppCategoryList extends JFormField
                     $categories    = $application->app->tree->buildList(0, $application->app->tree->build($allCategories, 'Category'));
 
                     if ((int)$this->element->attributes()->showcategories_all == 1) {
-                        $categoryList[$application->id]['-1'] = ' - ' . JText::_('JBZOO_ALL') . ' - ';
+                        $categoryList[$application->id]['-1'] = ' - ' . Text::_('JBZOO_ALL') . ' - ';
                     }
-                    $categoryList[$application->id]['0'] = ' - ' . JText::_('JBZOO_FIELDS_FRONTPAGE') . ' - ';
+                    $categoryList[$application->id]['0'] = ' - ' . Text::_('JBZOO_FIELDS_FRONTPAGE') . ' - ';
 
                     foreach ($categories as $category) {
                         $categoryList[$category->application_id][$category->id] = $category->treename;
@@ -96,6 +98,6 @@ class JFormFieldJBAppCategoryList extends JFormField
             return implode(PHP_EOL, $html);
         }
 
-        return JText::_('JBZOO_MODCATEGORY_EMPTY_APP');
+        return Text::_('JBZOO_MODCATEGORY_EMPTY_APP');
     }
 }

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -17,9 +18,9 @@
 defined('_JEXEC') or die('Restricted access');
 
 if ($this->count) : ?>
-    <h2><?php echo JText::_('JBZOO_ADMIN_INDEX_SHOP_STATS'); ?></h2>
+    <h2><?php echo Text::_('JBZOO_ADMIN_INDEX_SHOP_STATS'); ?></h2>
     <p>
-        <?php echo JText::_('JBZOO_ADMIN_INDEX_ORDERS_SUM'); ?>: <?php echo $this->summ->html(); ?><br />
-        <?php echo JText::_('JBZOO_ADMIN_INDEX_ORDERS_COUNT'); ?>: <?php echo $this->count; ?>
+        <?php echo Text::_('JBZOO_ADMIN_INDEX_ORDERS_SUM'); ?>: <?php echo $this->summ->html(); ?><br />
+        <?php echo Text::_('JBZOO_ADMIN_INDEX_ORDERS_COUNT'); ?>: <?php echo $this->count; ?>
     </p>
 <?php endif; ?>

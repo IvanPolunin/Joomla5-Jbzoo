@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -29,6 +30,11 @@ abstract class JBCartElementModifierItemPrice extends JBCartElement
     protected $_namespace = JBCart::ELEMENT_TYPE_MODIFIER_ITEM_PRICE;
 
     /**
+     * @var mixed
+     */
+    protected $session;
+
+    /**
      * @type ElementJBPrice
      */
     protected $_price = null;
@@ -48,7 +54,7 @@ abstract class JBCartElementModifierItemPrice extends JBCartElement
         parent::__construct($app, $type, $group);
 
         // Get session
-        $this->session = JFactory::getSession();
+        $this->session = Factory::getSession();
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -23,7 +24,7 @@ $uiqueId = $this->app->jbstring->getId('newpost-');
 
 <div class="newpost-sender-city">
     <p>
-        <strong><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_SENDER'); ?>:</strong>
+        <strong><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_SENDER'); ?>:</strong>
         <?php echo $this->_getDefaultCity(); ?>
     </p>
 </div>
@@ -55,12 +56,12 @@ $uiqueId = $this->app->jbstring->getId('newpost-');
         echo $jbhtml->text(
             $this->getControlName('street'),
             $this->get('street'),
-            array('placeholder' => JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_STREET'))
+            array('placeholder' => Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_STREET'))
         );
         echo $jbhtml->text(
             $this->getControlName('floor_count'),
             $this->get('floor_count'),
-            array('placeholder' => JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_FLOOR_COUNT'))
+            array('placeholder' => Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_FLOOR_COUNT'))
         );
         ?>
     </div>

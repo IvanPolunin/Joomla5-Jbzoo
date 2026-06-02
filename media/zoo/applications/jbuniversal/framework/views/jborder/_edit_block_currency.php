@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -23,8 +24,8 @@ if (count($curList) <= 2) {
 
 ?>
 <div class="uk-panel uk-panel-box basic-info currency-info">
-    <h3 class="uk-panel-title"><?php echo JText::_('JBZOO_ORDER_CURRENCY_TITLE'); ?></h3>
-    <p><?php echo JText::_('JBZOO_ORDER_CURRENCY_DESCRIPTION'); ?></p>
+    <h3 class="uk-panel-title"><?php echo Text::_('JBZOO_ORDER_CURRENCY_TITLE'); ?></h3>
+    <p><?php echo Text::_('JBZOO_ORDER_CURRENCY_DESCRIPTION'); ?></p>
 
     <?php
 

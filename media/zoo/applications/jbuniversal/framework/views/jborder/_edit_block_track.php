@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -19,10 +20,10 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 <div class="uk-panel uk-panel-box">
 
-    <h3 class="uk-panel-title"><?php echo JText::_('JBZOO_ORDER_TRACK_TITLE'); ?></h3>
+    <h3 class="uk-panel-title"><?php echo Text::_('JBZOO_ORDER_TRACK_TITLE'); ?></h3>
 
     <dl class="uk-description-list-horizontal">
-        <dt><?php echo JText::_('JBZOO_ORDER_TRACK'); ?></dt>
+        <dt><?php echo Text::_('JBZOO_ORDER_TRACK'); ?></dt>
         <dd><p><?php echo $this->app->jbhtml->text('order[track]', $order->track, '', ''); ?></p></dd>
     </dl>
 

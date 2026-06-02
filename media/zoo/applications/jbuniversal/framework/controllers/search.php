@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -29,8 +31,8 @@ class SearchJBUniversalController extends JBUniversalController
     {
         $this->zoo->jbdebug->mark('filter::init');
 
-        $document       = JFactory::getDocument();
-        $session        = JFactory::getSession();
+        $document       = Factory::getDocument();
+        $session        = Factory::getSession();
 
         $params         = $this->joomla->getParams();
         $type           = $this->_jbrequest->get('type', $params->get('type'));
@@ -107,7 +109,7 @@ class SearchJBUniversalController extends JBUniversalController
 
         // set template and params
         if (!$this->template = $this->application->getTemplate()) {
-            $this->zoo->jbnotify->error(JText::_('No template selected'));
+            $this->zoo->jbnotify->error(Text::_('No template selected'));
             return;
         }
 

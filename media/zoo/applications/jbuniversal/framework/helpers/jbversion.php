@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Filesystem\File;
 /**
  * JBZoo Application
  *
@@ -87,7 +88,7 @@ class JBVersionHelper extends AppHelper
      */
     protected function _getVersionByXml($xml, $compareWirh = null)
     {
-        if (JFile::exists(JPATH_SITE . $xml)) {
+        if (File::exists(JPATH_SITE . $xml)) {
             $xml = simplexml_load_file(JPATH_SITE . $xml);
             return $this->_compareVersion((string)$xml->version, $compareWirh);
         }

@@ -192,7 +192,8 @@ class StringHelper extends AppHelper {
             return $string;
         }
 
-        return ComponentHelper::filterText((string) $string);
+        // Disable Joomla text filters for JBZoo element content (allow raw HTML).
+        return (string) $string;
     }
 
 	/**

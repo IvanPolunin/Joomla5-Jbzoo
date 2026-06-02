@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Form\FormField;
+use Joomla\CMS\HTML\HTMLHelper as Html;
 /**
  * JBZoo Application
  *
@@ -16,15 +18,13 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
-
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 
 /**
  * Class JFormFieldJBBool
  */
-class JFormFieldJBBool extends JFormField
+class JFormFieldJBBool extends FormField
 {
 
     protected $type = 'jbbool';
@@ -37,8 +37,8 @@ class JFormFieldJBBool extends JFormField
         $app = App::getInstance('zoo');
 
         $options = array(
-            JHtml::_('select.option', 0, JText::_('JBZOO_NO')),
-            JHtml::_('select.option', 1, JText::_('JBZOO_YES'))
+            Html::_('select.option', 0, Joomla\CMS\Language\Text::_('JBZOO_NO')),
+            Html::_('select.option', 1, Joomla\CMS\Language\Text::_('JBZOO_YES'))
         );
 
         $html   = array();

@@ -23,29 +23,11 @@ $this->app->jblayout->setView($this);
 if (!$this->app->jbcache->start()) {
     $this->app->jbwrapper->start();
 
-?>
-<div  class="catzag containerr">
-
-            <h1 class="h2title z9 matit"><?php echo $this->title ? $this->title : JText::_('JBZOO_SEARCH_RESULT'); ?></h1>
-			  
-          
-       
-		<div class="bc">{module 17}</div
-
-
-<?php if ($this->description) : ?>
-    <div class="description z9">
-        <?php echo $this->description; ?>
-    </div>
-<?php endif; ?>
-
-<?php
+    ?><h1 class="title"><?php echo JText::_('JBZOO_SEARCH_RESULT'); ?></h1><?php
 
     if ($this->items) {
 
-        if ($this->count) {
-            echo '<p class="z9">' . JText::_('JBZOO_FILTER_TOTAL_RESULT') . ': ' . $this->itemsCount . '</p>';
-        }
+        echo '<p>' . JText::_('JBZOO_FILTER_TOTAL_RESULT') . ': ' . $this->itemsCount . '</p>';
 
         // items
         echo $this->app->jblayout->render('items', $this->items);
@@ -54,13 +36,13 @@ if (!$this->app->jbcache->start()) {
         echo $this->app->jblayout->render('pagination', $this->pagination, array('link' => $this->pagination_link));
 
     } else {
-        ?><p class="z9"><?php echo JText::_('JBZOO_FILTER_ITEMS_NOT_FOUND'); ?></p><?php
+        echo $this->app->jbjoomla->renderPosition('jbzoo_price_filter');
+        ?><p><?php echo JText::_('JBZOO_FILTER_ITEMS_NOT_FOUND'); ?></p><?php
+
     }
 
     $this->app->jbwrapper->end();
     $this->app->jbcache->stop();
 }
-?>
-</div>
 
-<?php $this->app->jbdebug->mark('template::filter::finish'); ?>
+$this->app->jbdebug->mark('template::filter::finish');

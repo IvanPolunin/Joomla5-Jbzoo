@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -28,20 +29,20 @@ $urlPostAjax = $this->app->jbrouter->admin(array('task' => 'migrateAjax'));
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_MIGRATE_CONFIG_TITLE'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_MIGRATE_CONFIG_TITLE'); ?></h2>
 
         <p style="color:#a00;">
-            <strong><?php echo JText::_('JBZOO_MIGRATE_STEPS_DESCRIPTION'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_MIGRATE_STEPS_DESCRIPTION'); ?></strong>
         </p>
 
-        <p><?php echo JText::_('JBZOO_PROGRESSBAR_FATAL'); ?></p>
+        <p><?php echo Text::_('JBZOO_PROGRESSBAR_FATAL'); ?></p>
 
         <div class="jsProgressBar progress jbadminform"></div>
         <p>&nbsp;</p>
 
         <div class="error-block jsErrorBlockWrapper" style="display: none;">
             <hr />
-            <h3><em><?php echo JText::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
+            <h3><em><?php echo Text::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
 
             <div class="jsErrorBlock"></div>
         </div>
@@ -56,13 +57,13 @@ $urlPostAjax = $this->app->jbrouter->admin(array('task' => 'migrateAjax'));
         var postAjax = "<?php echo $urlPostAjax;?>";
 
         $('.jsProgressBar').JBZooProgressBar({
-            'text_start_confirm': "<?php echo JText::_('JBZOO_PROGRESSBAR_START_CONFIRM');?>",
-            'text_stop_confirm' : "<?php echo JText::_('JBZOO_PROGRESSBAR_STOP_CONFIRM');?>",
-            'text_complete'     : "<?php echo JText::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
-            'text_start'        : "<?php echo JText::_('JBZOO_PROGRESSBAR_START');?>",
-            'text_stop'         : "<?php echo JText::_('JBZOO_PROGRESSBAR_STOP');?>",
-            'text_ready'        : "<?php echo JText::_('JBZOO_PROGRESSBAR_READY');?>",
-            'text_wait'         : "<?php echo JText::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
+            'text_start_confirm': "<?php echo Text::_('JBZOO_PROGRESSBAR_START_CONFIRM');?>",
+            'text_stop_confirm' : "<?php echo Text::_('JBZOO_PROGRESSBAR_STOP_CONFIRM');?>",
+            'text_complete'     : "<?php echo Text::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
+            'text_start'        : "<?php echo Text::_('JBZOO_PROGRESSBAR_START');?>",
+            'text_stop'         : "<?php echo Text::_('JBZOO_PROGRESSBAR_STOP');?>",
+            'text_ready'        : "<?php echo Text::_('JBZOO_PROGRESSBAR_READY');?>",
+            'text_wait'         : "<?php echo Text::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
             'url'               : "<?php echo $urlPostAjax;?>",
             'autoStart'         : true,
 

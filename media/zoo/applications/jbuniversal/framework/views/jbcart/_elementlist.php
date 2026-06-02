@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -31,7 +32,7 @@ if ($this->get('elementList')) : ?>
 
         <input type="hidden" name="layout" value="<?php echo $this->layout; ?>" class="jsLayout" />
 
-        <label for="element-list-select"><?php echo JText::_('JBZOO_ADMIN_POSITIONS_ELEMENT_LIST'); ?></label>
+        <label for="element-list-select"><?php echo Text::_('JBZOO_ADMIN_POSITIONS_ELEMENT_LIST'); ?></label>
         <?php echo $this->app->jbhtml->select($this->get('elementList'), 'element', '', $this->element, 'element-list-select'); ?>
 
     </form>

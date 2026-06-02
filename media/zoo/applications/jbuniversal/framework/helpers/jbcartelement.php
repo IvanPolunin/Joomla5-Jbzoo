@@ -195,7 +195,7 @@ class JBCartElementHelper extends AppHelper
         $element = new $elementClass($this->app, $type, $group);
 
         $keyName     = 'JBZOO_ELEMENT_' . strtoupper($group) . '_' . strtoupper($type) . '_NAME';
-        $elementName = JText::_($keyName) !== $keyName ? JText::_($keyName) : '';
+        $elementName = Joomla\CMS\Language\Text::_($keyName) !== $keyName ? Joomla\CMS\Language\Text::_($keyName) : '';
 
         $config = array_merge(array(
             'identifier'  => $this->app->utility->generateUUID(),
@@ -208,7 +208,7 @@ class JBCartElementHelper extends AppHelper
 
         if ($element->isCore()) {
             $config['identifier'] = '_' . strtolower($element->getElementType());
-            $config['name']       = JText::_('JBZOO_ELEMENT_CORE_' . $element->getElementType());
+            $config['name']       = Joomla\CMS\Language\Text::_('JBZOO_ELEMENT_CORE_' . $element->getElementType());
         }
 
         if ($config['identifier']) {

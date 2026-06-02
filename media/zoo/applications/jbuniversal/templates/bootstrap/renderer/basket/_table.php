@@ -31,7 +31,7 @@ echo $this->partial('basket', 'table.styles');
 
 ?>
 
-<table class="jbcart-table jsJBZooCartTable">
+<table class="jbcart-table table table-bordered jsJBZooCartTable">
     <thead>
     <tr>
         <th class="jbcart-col jbcart-col-image"></th>
@@ -51,13 +51,9 @@ echo $this->partial('basket', 'table.styles');
 
     <tbody>
 
-    <tr class="jbcart-row-empty">
-        <td class="jbcart-cell-empty" colspan="6"></td>
-    </tr>
-
     <?php foreach ($view->itemsHtml as $itemKey => $itemHtml) : ?>
         <tr class="jbcart-row jsCartTableRow js<?php echo $itemKey; ?>" data-key="<?php echo $itemKey; ?>">
-            <td class="jbcart-images">
+            <td class="jbcart-image">
                 <?php if ($config->get('tmpl_image_show', 1)) {
                     echo $itemHtml['image'];
                 } ?>
@@ -81,12 +77,35 @@ echo $this->partial('basket', 'table.styles');
             </td>
             <td class="jbcart-subtotal">
                 <?php if ($config->get('tmpl_subtotal', 1)) {
-                    echo $itemHtml['totalsum'];
+                    $rowTotal = null;
+                    $cartItem = null;
+
+                    if (isset($view->items)) {
+                        if (isset($view->items[$itemKey])) {
+                            $cartItem = $view->items[$itemKey];
+                        } elseif (is_object($view->items) && method_exists($view->items, 'get')) {
+                            $cartItem = $view->items->get($itemKey);
+                        }
+                    }
+
+                    if ($cartItem) {
+                        if (is_object($cartItem) && method_exists($cartItem, 'get')) {
+                            $rowTotal = (float)$cartItem->get('total') * (float)$cartItem->get('quantity', 1);
+                        } elseif (is_array($cartItem)) {
+                            $rowTotal = (float)($cartItem['total'] ?? 0) * (float)($cartItem['quantity'] ?? 1);
+                        }
+                    }
+
+                    if ($rowTotal !== null && $rowTotal <= 0) {
+                        echo '<span class="jbcart-item-totalsum jsSubtotal jsPrice-' . $itemKey . '">Цена по запросу</span>';
+                    } else {
+                        echo $itemHtml['totalsum'];
+                    }
                 } ?>
             </td>
             <td class="jbcart-delete">
-                <a class="dele jsDelete">
-                   <i class="fas fa-trash"></i>
+                <a class="btn btn-danger btn-xs btn-small round jsDelete">
+                    <?php echo JText::_('JBZOO_CART_DELETE'); ?>
                 </a>
             </td>
         </tr>
@@ -102,7 +121,7 @@ echo $this->partial('basket', 'table.styles');
     } ?>
 
     <tr class="jbcart-row-total">
-        <td colspan="3" class="jbcart-total-cell">
+        <td colspan="4" class="jbcart-total-cell">
             <div class="jbcart-items-in-cart">
                 <span class="jbcart-label"><?php echo JText::_('JBZOO_CART_TABLE_TOTAL_COUNT'); ?>:</span>
                 <span class="jbcart-value jsTotalCount"><?php echo $order->getTotalCount(); ?></span>
@@ -125,7 +144,7 @@ echo $this->partial('basket', 'table.styles');
     </tr>
     <tr class="jbcart-row-remove">
         <td colspan="6" class="jbcart-delete-all-cell">
-            <a class="jsDeleteAll  delall">
+            <a class="jsDeleteAll item-delete-all btn btn-danger">
                 <?php echo $bootstrap->icon('trash', array('type' => 'white')); ?>
                 <?php echo JText::_('JBZOO_CART_REMOVE_ALL'); ?>
             </a>

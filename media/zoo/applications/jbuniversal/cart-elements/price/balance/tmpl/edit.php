@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -47,7 +48,7 @@ $selected = $value > 0 ? 1 : null;
                 $value,
                 array(
                     'class'       => 'balance-' . $this->variant . '-input jsBalanceInput',
-                    'placeholder' => JText::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_PLACEHOLDER'),
+                    'placeholder' => Text::_('JBZOO_ELEMENT_PRICE_BALANCE_EDIT_PLACEHOLDER'),
                 )
             );
             ?>

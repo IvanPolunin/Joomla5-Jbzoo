@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -18,7 +19,7 @@ defined('_JEXEC') or die('Restricted access');
 
 $urlAction = $this->app->jbrouter->admin(array('task' => 'writeStep'));
 $urlSettings = $this->app->jbrouter->admin(array('controller' => 'jbconfig', 'task' => 'yandexyml'));
-$strFile = JText::_('JBZOO_YML_FILE_URL');
+$strFile = Text::_('JBZOO_YML_FILE_URL');
 
 $this->app->jbassets->progressBar();
 
@@ -31,23 +32,23 @@ $this->app->jbassets->progressBar();
     <div class="uk-width-4-6">
 
         <?php if (0 == $this->total) : ?>
-            <?php echo '<strong style="color:#a00;">' . JText::_('JBZOO_YML_NOITEMS') . '</strong><br>' .
-                JText::_('JBZOO_YML_URL_SETTINGS') . ': <a href="' . $urlSettings . '">' . JText::_('JBZOO_YML_URL_SETTINGS_DESC') . '</a>'; ?>
+            <?php echo '<strong style="color:#a00;">' . Text::_('JBZOO_YML_NOITEMS') . '</strong><br>' .
+                Text::_('JBZOO_YML_URL_SETTINGS') . ': <a href="' . $urlSettings . '">' . Text::_('JBZOO_YML_URL_SETTINGS_DESC') . '</a>'; ?>
         <?php else: ?>
 
-            <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_EXPORT_YML'); ?></h2>
+            <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_EXPORT_YML'); ?></h2>
 
-            <p><strong><em><?php echo JText::_('JBZOO_YML_DESCRIPTION'); ?></em></strong></p>
+            <p><strong><em><?php echo Text::_('JBZOO_YML_DESCRIPTION'); ?></em></strong></p>
 
-            <strong><?php echo JText::_('JBZOO_YML_ATTENTION'); ?></strong>
+            <strong><?php echo Text::_('JBZOO_YML_ATTENTION'); ?></strong>
             <ul>
-                <li><?php echo JText::_('JBZOO_YML_ATTENTION_1'); ?></li>
-                <li><?php echo JText::_('JBZOO_YML_ATTENTION_2'); ?></li>
-                <li><?php echo JText::_('JBZOO_YML_ATTENTION_3'); ?></li>
+                <li><?php echo Text::_('JBZOO_YML_ATTENTION_1'); ?></li>
+                <li><?php echo Text::_('JBZOO_YML_ATTENTION_2'); ?></li>
+                <li><?php echo Text::_('JBZOO_YML_ATTENTION_3'); ?></li>
                 <li>
                     <a target="_blank"
                        href="<?php echo $this->app->jbrouter->admin(array('controller' => 'jbconfig', 'task' => 'yandexYml')); ?>">
-                        <?php echo JText::_('JBZOO_YML_ATTENTION_4'); ?>
+                        <?php echo Text::_('JBZOO_YML_ATTENTION_4'); ?>
                     </a>
                 </li>
             </ul>
@@ -56,29 +57,29 @@ $this->app->jbassets->progressBar();
             <div class="jsProgressBar"></div>
 
             <div class="statistic">
-                <h3><?php echo JText::_('JBZOO_REINDEX_STATISTIC'); ?>: </h3>
+                <h3><?php echo Text::_('JBZOO_REINDEX_STATISTIC'); ?>: </h3>
                 <ul>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_PROGRESS'); ?>:</strong>
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_PROGRESS'); ?>:</strong>
                         <span class="js-progress">0</span>%
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_STEP_CURRENT'); ?>:</strong>
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_STEP_CURRENT'); ?>:</strong>
                         <span class="js-step">0</span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_YML_INDEXED'); ?>:</strong>
+                    <li><strong><?php echo Text::_('JBZOO_YML_INDEXED'); ?>:</strong>
                         <span class="js-ymlcount">0</span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_TOTAL'); ?>:</strong>
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_TOTAL'); ?>:</strong>
                         <span class="js-total"><?php echo $this->total; ?></span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_STEP_SIZE'); ?>:</strong>
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_STEP_SIZE'); ?>:</strong>
                         <span class="js-stepsize"><?php echo $this->indexStep; ?></span>
                     </li>
                 </ul>
                 <ul>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_TIME_PASSED'); ?>:</strong>
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_TIME_PASSED'); ?>:</strong>
                         <span class="js-timepassed">00:00</span>
                     </li>
-                    <li><strong><?php echo JText::_('JBZOO_REINDEX_TIME_REMAINING'); ?>:</strong>
+                    <li><strong><?php echo Text::_('JBZOO_REINDEX_TIME_REMAINING'); ?>:</strong>
                         <span class="js-timeremaining">00:00</span>
                     </li>
                 </ul>
@@ -86,7 +87,7 @@ $this->app->jbassets->progressBar();
 
             <div class="error-block jsErrorBlockWrapper" style="display: none;">
                 <hr />
-                <h3><em><?php echo JText::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
+                <h3><em><?php echo Text::_('JBZOO_PROGRESSBAR_ERROR_REPORTING'); ?></em></h3>
 
                 <div class="jsErrorBlock"></div>
             </div>
@@ -105,12 +106,12 @@ $this->app->jbassets->progressBar();
             pAjax = "<?php echo $this->app->jbyml->getPath(false);?>";
 
         $('.jsProgressBar').JBZooProgressBar({
-            'text_start_confirm': "<?php echo JText::_('JBZOO_PROGRESSBAR_START_CONFIRM');?>",
-            'text_stop_confirm' : "<?php echo JText::_('JBZOO_PROGRESSBAR_STOP_CONFIRM');?>",
-            'text_complete'     : "<?php echo JText::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
-            'text_start'        : "<?php echo JText::_('JBZOO_PROGRESSBAR_START');?>",
-            'text_stop'         : "<?php echo JText::_('JBZOO_PROGRESSBAR_STOP');?>",
-            'text_ready'        : "<?php echo JText::_('JBZOO_PROGRESSBAR_READY');?>",
+            'text_start_confirm': "<?php echo Text::_('JBZOO_PROGRESSBAR_START_CONFIRM');?>",
+            'text_stop_confirm' : "<?php echo Text::_('JBZOO_PROGRESSBAR_STOP_CONFIRM');?>",
+            'text_complete'     : "<?php echo Text::_('JBZOO_PROGRESSBAR_COMPLETE');?>",
+            'text_start'        : "<?php echo Text::_('JBZOO_PROGRESSBAR_START');?>",
+            'text_stop'         : "<?php echo Text::_('JBZOO_PROGRESSBAR_STOP');?>",
+            'text_ready'        : "<?php echo Text::_('JBZOO_PROGRESSBAR_READY');?>",
             'url'               : "<?php echo $urlAction;?>",
 
             'onRequest': function (data) {

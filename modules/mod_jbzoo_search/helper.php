@@ -45,7 +45,7 @@ class JBModuleHelperFilter extends JBModuleHelper
     {
         parent::_loadAssets();
 
-        $this->_jbassets->js('mod_jbzoo_search:assets/js/filter.js');
+        $this->_jbassets->js('mod_jbzoo_search:assets/js/filter-nonmin.js');
 
         $this->_jbassets->less('mod_jbzoo_search:assets/less/filter.less');
         $this->_jbassets->less('mod_jbzoo_search:assets/less/filter-' . $this->getItemLayout() . '.less');
@@ -56,8 +56,19 @@ class JBModuleHelperFilter extends JBModuleHelper
      */
     protected function _initWidget()
     {
+        $url = \Joomla\CMS\Router\Route::_('index.php?Itemid=' . $this->getMenuId());
+        if (strpos($url, '?') === false) {
+            $url .= '?';
+        } else {
+            $url .= '&';
+        }
+
         $this->_jbassets->widget('#' . $this->getModuleId(), 'JBZoo.Filter', [
-            'autosubmit' => (int)$this->_params->get('autosubmit', 0)
+            'url'            => $url,
+            'updateBlock'    => $this->_params->get('updateBlock', '#yoo-zoo'),
+            'ajaxPagination' => (int)$this->_params->get('ajaxPagination', 1),
+            'pagination'     => $this->_params->get('pagination', '.pagination-box'),
+            'autosubmit'     => (int)$this->_params->get('autosubmit', 0),
         ]);
     }
 

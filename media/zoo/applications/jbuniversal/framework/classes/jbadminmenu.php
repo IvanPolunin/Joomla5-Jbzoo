@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Factory;
+use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Filter\OutputFilter;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -27,6 +30,11 @@ class JBAdminMenu
      */
     public static function render()
     {
+        // Joomla 4+ uses a different admin menu; skip legacy injection
+        if (version_compare(JVERSION, '4.0', '>=')) {
+            return false;
+        }
+
         if (version_compare(JVERSION, '3.6', '<')) {
             return false;
         }
@@ -87,7 +95,7 @@ class JBAdminMenu
             $menuHtml
         );
 
-        $app = JFactory::getApplication();
+        $app = Factory::getApplication();
         $body = $app->getBody();
         $body = StringHelper::str_ireplace(
             "</ul>\n<ul id=\"nav-empty\" class=\"dropdown-menu nav-empty hidden-phone\"></ul>",
@@ -119,14 +127,14 @@ if (file_exists(JPATH_ADMINISTRATOR . '/modules/mod_menu/menu.php')) {
                 $titleicon = null
             ) {
                 $this->title = $titleicon ? $title . $titleicon : $title;
-                $this->link = JFilterOutput::ampReplace($link);
+                $this->link = OutputFilter::ampReplace($link);
                 $this->class = $class;
                 $this->active = $active;
 
                 $this->id = null;
 
                 if (!empty($link) && $link !== '#') {
-                    $uri = new JUri($link);
+                    $uri = new Uri($link);
                     $params = $uri->getQuery(true);
                     $parts = [];
 

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -86,13 +87,13 @@ class JBInfoJBUniversalController extends JBUniversalController
                     JFile::delete($tmpArch);
                     jexit();
                 } else {
-                    throw new AppException(JText::sprintf('Unable to create file %s', $tmpArch));
+                    throw new AppException(Text::sprintf('Unable to create file %s', $tmpArch));
                 }
 
             } catch (AppException $e) {
 
                 // raise error on exception
-                $this->zoo->error->raiseNotice(0, JText::_('Error create report') . ' (' . $e . ')');
+                $this->zoo->error->raiseNotice(0, Text::_('Error create report') . ' (' . $e . ')');
 
                 $this->setRedirect($this->zoo->jbrouter->admin(['task' => 'systemReport']));
 
@@ -144,7 +145,7 @@ class JBInfoJBUniversalController extends JBUniversalController
         $tests = $this->zoo->jbperform->getStdValues();
 
         if (count($tests) != count($prevData)) {
-            $this->zoo->jbnotify->notice(JText::_('JBZOO_PERFORMANCE_REPORT_NO_DATA'));
+            $this->zoo->jbnotify->notice(Text::_('JBZOO_PERFORMANCE_REPORT_NO_DATA'));
             $this->setRedirect($this->zoo->jbrouter->admin(['task' => 'performance']));
         }
 
@@ -163,7 +164,7 @@ class JBInfoJBUniversalController extends JBUniversalController
             $this->zoo->jbhttp->request('http://stats.jbzoo.com/api', $sendData);
 
             $this->setRedirect($this->zoo->jbrouter->admin(['task' => 'performance']),
-                JText::_('JBZOO_PERFORMANCE_REPORT_THANK_YOU'));
+                Text::_('JBZOO_PERFORMANCE_REPORT_THANK_YOU'));
         }
 
         $this->renderView();

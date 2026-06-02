@@ -17,6 +17,12 @@ use Joomla\String\StringHelper;
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+// Ensure legacy aliases are available when compat plugin is disabled.
+$jbzooCompat = JPATH_ROOT . '/plugins/system/jbzoo/compat.php';
+if (is_file($jbzooCompat)) {
+    require_once $jbzooCompat;
+}
+
 App::getInstance('zoo')->loader->register('JBCartVariantList', 'jbapp:framework/classes/cart/jbvariantlist.php');
 App::getInstance('zoo')->loader->register('JBCartVariant', 'jbapp:framework/classes/cart/jbvariant.php');
 
@@ -1005,13 +1011,12 @@ return $default;
 // generate hashes
 $values = $this->get('values', []);
 if ($values) {
-$hashTable = array_map(function ($array) use (&$values) {
-if (is_array($array)) { // проверяем, что $array является массивом
-sort($array); // сортируем массив
-return hash('md5', json_encode($array));
-}
-}, $values);
-}
+    $hashTable = array_map(function ($array) {
+        sort($array);
+
+        return hash('md5', json_encode($array));
+    }, $values);
+} 
                 //Check if variant with same options exists
                 $list = array_filter($list, function ($variant) use (&$hashTable) {
                     return ($variant->isBasic() || $variant->count('simple') && !in_array($variant->hash(), $hashTable,

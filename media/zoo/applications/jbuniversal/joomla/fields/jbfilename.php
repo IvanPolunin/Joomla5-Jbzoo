@@ -16,15 +16,17 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Filesystem\Folder;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 
 /**
- * Class JFormFieldJBFilename
+ * Class JFormFieldJBFileName
  */
-class JFormFieldJBFilename extends JFormField
+class JFormFieldJBFileName extends FormField
 {
 
     protected $type = 'jbfilename';
@@ -38,18 +40,18 @@ class JFormFieldJBFilename extends JFormField
         // get app
         $app  = App::getInstance('zoo');
         $ext  = (string)$this->element->attributes()->ext;
-        $path = JPath::clean(JPATH_ROOT . $this->element->attributes()->path);
+        $path = Path::clean(JPATH_ROOT . $this->element->attributes()->path);
 
         $options = array();
 
         if (is_dir($path)) {
             if ($ext) {
-                foreach (JFolder::files($path, '^([-_A-Za-z0-9]*)\.' . $ext) as $tmpl) {
+                foreach (Folder::files($path, '^([-_A-Za-z0-9]*)\.' . $ext) as $tmpl) {
                     $tmpl      = basename($tmpl, '.' . $ext);
                     $options[] = $app->html->_('select.option', $tmpl, ucwords($tmpl));
                 }
             } else {
-                foreach (JFolder::files($path) as $tmpl) {
+                foreach (Folder::files($path) as $tmpl) {
                     $options[] = $app->html->_('select.option', $tmpl, ucwords($tmpl));
                 }
             }

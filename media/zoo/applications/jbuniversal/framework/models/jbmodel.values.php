@@ -40,6 +40,7 @@ class JBModelValues extends JBModel
     public function getPropsValues($elementId, $itemType, $applicationId, array $filter = array())
     {
         $this->app->jbdebug->mark('model::' . $elementId . '::start');
+        static $columnsCache = array();
 
         $cacheHash = md5(serialize(func_get_args()));
         $cacheKey  = 'get-props-values';
@@ -58,7 +59,10 @@ class JBModelValues extends JBModel
                 ->where('tIndex.' . $identifier . ' IS NOT NULL')
                 ->group('tIndex.' . $identifier);
 
-            $columns = $this->_jbtables->getFields($this->_jbtables->getIndexTable($itemType));
+            if (!isset($columnsCache[$tableName])) {
+                $columnsCache[$tableName] = $this->_jbtables->getFields($tableName);
+            }
+            $columns = $columnsCache[$tableName];
 
             // simple filter (if defined)
             foreach ($filter as $filterIdentifier => $filterValue) {
@@ -69,7 +73,7 @@ class JBModelValues extends JBModel
                         $select->where('tItem.name = ?', $filterValue);
 
                     } else if ($filterIdentifier == '_itemcategory') {
-                        $select->leftJoin(ZOO_TABLE_CATEGORY_ITEM
+                        $select->innerJoin(ZOO_TABLE_CATEGORY_ITEM
                             . ' AS tCategoryItem ON tCategoryItem.item_id = tItem.id');
                         $select->where('tCategoryItem.category_id = ?', $filterValue);
 
@@ -124,7 +128,7 @@ class JBModelValues extends JBModel
 
         if ($catId) {
             $ids = $this->getSubCategories($catId);
-            $select->leftJoin(ZOO_TABLE_CATEGORY_ITEM . ' AS tCategoryItem ON tCategoryItem.item_id = tItem.id');
+            $select->innerJoin(ZOO_TABLE_CATEGORY_ITEM . ' AS tCategoryItem ON tCategoryItem.item_id = tItem.id');
             $select->where('tCategoryItem.category_id IN (' . implode(',', $ids) . ')');
         }
         $values = $this->fetchAll($select, true);
@@ -304,7 +308,7 @@ class JBModelValues extends JBModel
             ;
             
             if($categoryId){//ivp depend_category
-                $select->leftJoin(ZOO_TABLE_CATEGORY_ITEM
+                $select->innerJoin(ZOO_TABLE_CATEGORY_ITEM
                             . ' AS tCategoryItem ON tCategoryItem.item_id = tItem.id');
                         $select->where('tCategoryItem.category_id = ?', $categoryId);
             }

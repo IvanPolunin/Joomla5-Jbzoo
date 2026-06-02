@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Uri\Uri;
 /**
  * JBZoo Application
  *
@@ -57,11 +60,11 @@ class JBImageHelper extends AppHelper
      */
     public function resize($imagePath, $width = 0, $height = 0)
     {
-        if (JFile::exists(JPATH_ROOT . '/' . $imagePath)) {
-            $orig = JPath::clean(JPATH_ROOT . '/' . $imagePath);
+        if (File::exists(JPATH_ROOT . '/' . $imagePath)) {
+            $orig = Path::clean(JPATH_ROOT . '/' . $imagePath);
 
-        } else if (JFile::exists($imagePath)) {
-            $orig = JPath::clean($imagePath);
+        } else if (File::exists($imagePath)) {
+            $orig = Path::clean($imagePath);
 
         } else if ($this->isExternal($imagePath)) {
             $orig = $imagePath;
@@ -141,7 +144,7 @@ class JBImageHelper extends AppHelper
                 'url'    => $path,
             );
 
-        } else if (JFile::exists($path)) {
+        } else if (File::exists($path)) {
 
             $info = getimagesize($path);
 
@@ -150,7 +153,7 @@ class JBImageHelper extends AppHelper
                 'height' => $info[1],
                 'mime'   => $info['mime'],
                 'bits'   => $info['bits'],
-                'path'   => JPath::clean($path),
+                'path'   => Path::clean($path),
                 'rel'    => $this->getRelative($path),
                 'url'    => $this->getUrl($path),
             );
@@ -167,7 +170,7 @@ class JBImageHelper extends AppHelper
     public function getUrl($path)
     {
         if (!$this->isExternal($path)) {
-            return JUri::root() . $this->getRelative($path);
+            return Uri::root() . $this->getRelative($path);
         }
 
         return $path;
@@ -204,7 +207,7 @@ class JBImageHelper extends AppHelper
      */
     public function pathToUrl($path)
     {
-        if ($fullPath = JPath::clean($this->app->path->path($path))) {
+        if ($fullPath = Path::clean($this->app->path->path($path))) {
             return $this->getUrl($fullPath);
         }
 

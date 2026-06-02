@@ -33,7 +33,7 @@ class JBCartElementValidatorMinQuantity extends JBCartElementValidator
         foreach ($items as $item) {
 
             if ($value > 0 && $item->get('quantity') < $value) {
-                $message = JText::sprintf('JBZOO_ELEMENT_VALIDATOR_MINQUANTITY_ERROR', $value);
+                $message = Text::sprintf('JBZOO_ELEMENT_VALIDATOR_MINQUANTITY_ERROR', $value);
                 throw new JBCartElementValidatorException($message);
             }
 
@@ -46,7 +46,7 @@ class JBCartElementValidatorMinQuantity extends JBCartElementValidator
      */
     public function render($params = array())
     {
-        $message = JText::sprintf('JBZOO_ELEMENT_VALIDATOR_MINQUANTITY_MESSAGE', $this->_getValue());
+        $message = Text::sprintf('JBZOO_ELEMENT_VALIDATOR_MINQUANTITY_MESSAGE', $this->_getValue());
         return $message;
     }
 

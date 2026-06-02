@@ -16,6 +16,10 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Helper\ModuleHelper;
+
 /**
  * Class JBModuleHelper
  */
@@ -226,6 +230,7 @@ class JBModuleHelper
         $this->_initWidget();
 
         $layout = $this->getModuleLayout();
+        
         if (empty($layout)) {
             return null;
         }
@@ -246,9 +251,9 @@ class JBModuleHelper
     {
         $layout = !empty($layout) ? $layout : $this->getModuleLayout();
 
-        $__layout = JPath::clean((string)JModuleHelper::getLayoutPath($this->_moduleType, $layout));
+        $__layout = Path::clean((string)ModuleHelper::getLayoutPath($this->_moduleType, $layout));
 
-        if (JFile::exists($__layout)) {
+        if (\Joomla\CMS\Filesystem\File::exists($__layout)) {
 
             $vars['modHelper'] = $this;
             $vars['unique'] = $this->getModuleId(true);

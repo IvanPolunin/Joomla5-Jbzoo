@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -18,27 +19,34 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 
-<?php if ($discount->isEmpty()) : ?>
+<?php if ($total->isEmpty() || (float)$total->val() <= 0) : ?>
 
     <div class="jbprice-value-row">
-        <span class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></span>
+        <span class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></span>
+        <span class="jbprice-value-total">Цена по запросу</span>
+    </div>
+
+<?php elseif ($discount->isEmpty()) : ?>
+
+    <div class="jbprice-value-row">
+        <span class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></span>
         <span class="jbprice-value-total"><?php echo $total->html($currency); ?></span>
     </div>
 
 <?php else: ?>
 
     <div class="jbprice-value-row">
-        <span class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_PRICE'); ?></span>
+        <span class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_PRICE'); ?></span>
         <span class="jbprice-value-price"><?php echo $price->html($currency); ?></span>
     </div>
 
     <div class="jbprice-value-row">
-        <span class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></span>
+        <span class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></span>
         <span class="jbprice-value-total"><?php echo $total->html($currency); ?></span>
     </div>
 
     <div class="jbprice-value-row">
-        <span class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_SAVE'); ?></span>
+        <span class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_SAVE'); ?></span>
         <span class="jbprice-value-save">
             <span class="jbprice-value-save-value"><?php echo $save->html($currency); ?></span>
             <span class="jbprice-value-save-percent">

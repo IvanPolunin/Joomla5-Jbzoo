@@ -1,5 +1,6 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\CMS\Filesystem\File;
 /**
  * JBZoo Application
  *
@@ -51,12 +52,12 @@ class JBConfigHelper extends AppHelper
     public function getList($group = null)
     {
         $ymlConfig = $this->app->path->path('jbapp:config') . '/yml_config.php';
-        if (JFile::exists($ymlConfig)) {
+        if (File::exists($ymlConfig)) {
             require_once $ymlConfig;
         }
 
         $config = $this->app->path->path('jbapp:config') . '/config.php';
-        if (JFile::exists($config)) {
+        if (File::exists($config)) {
             require_once $config;
         }
 

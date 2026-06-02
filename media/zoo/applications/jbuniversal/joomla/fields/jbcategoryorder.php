@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -16,7 +17,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -24,7 +25,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBItemOrder
  */
-class JFormFieldJBCategoryOrder extends JFormField
+class JFormFieldJBCategoryOrder extends FormField
 {
 
     protected $type = 'jbcategoryorder';
@@ -71,10 +72,10 @@ class JFormFieldJBCategoryOrder extends JFormField
         $html[] = $app->jbhtml->select($params, "", array('class' => 'order-select'), $value['order']);
 
         $html[] = '<label class="order-reverse-wrap"><input class="order-reverse" type="checkbox">'
-            . JText::_('JBZOO_ORDER_REVERSE') . '</label> ';
+            . Text::_('JBZOO_ORDER_REVERSE') . '</label> ';
 
         $html[] = '<label class="order-random-wrap"><input class="order-random" type="checkbox">'
-            . JText::_('JBZOO_ORDER_RANDOM') . '</label>';
+            . Text::_('JBZOO_ORDER_RANDOM') . '</label>';
 
         $html[] = $app->jbhtml->hidden($this->getName($this->fieldname), $this->value, array('class' => 'hidden-value'));
         $html[] = '</div>';

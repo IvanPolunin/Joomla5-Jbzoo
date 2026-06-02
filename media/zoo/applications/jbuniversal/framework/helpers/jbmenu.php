@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -36,7 +37,7 @@ class JBMenuHelper extends AppHelper
 
         $item = $this->app->object->create('AppMenuItem', [
             $ctrl . '-' . $task,
-            JText::_('JBZOO_ADMIN_MENU_' . $ctrl . '_' . $task),
+            Text::_('JBZOO_ADMIN_MENU_' . $ctrl . '_' . $task),
             $this->app->link(['controller' => $ctrl, 'task' => $task])
         ]);
 

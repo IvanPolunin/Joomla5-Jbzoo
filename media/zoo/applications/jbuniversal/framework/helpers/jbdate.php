@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -39,7 +40,7 @@ class JBDateHelper extends AppHelper
      */
     public function convertToStamp($date)
     {
-        $dates = explode("\n", StringHelper::trim($date));
+        $dates = explode("\n", StringHelper::trim($date ?? ''));
 
         $result = array();
 
@@ -112,7 +113,7 @@ class JBDateHelper extends AppHelper
         }
 
         if ($this->isDate($date)) {
-            $date = $this->app->html->_('date', $date, JText::_($format), $this->app->date->getOffset());
+            $date = $this->app->html->_('date', $date, Text::_($format), $this->app->date->getOffset());
         }
 
         return $date;

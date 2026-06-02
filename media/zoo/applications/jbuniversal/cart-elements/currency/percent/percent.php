@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -43,7 +44,7 @@ class JBCartElementCurrencyPercent extends JBCartElementCurrency
      */
     public function getName()
     {
-        return JText::_('JBZOO_CART_CURRENCY_PERCENT');
+        return Text::_('JBZOO_CART_CURRENCY_PERCENT');
     }
 
     public function checkCurrency($currency)

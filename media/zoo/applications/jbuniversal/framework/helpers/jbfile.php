@@ -16,6 +16,10 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Filesystem\Folder;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Filesystem\Path;
+
 /**
  * Class JBFileHelper
  */
@@ -29,9 +33,9 @@ class JBFileHelper extends AppHelper
      */
     public function read($path, $safeMode = false)
     {
-        $path = JPath::clean($path);
+        $path = Path::clean($path);
 
-        if (JFile::exists($path)) {
+        if (File::exists($path)) {
 
             if ($safeMode) {
                 $handle   = fopen($path, "rb");
@@ -55,11 +59,11 @@ class JBFileHelper extends AppHelper
     public function save($file, $data)
     {
         $dir = dirname($file);
-        if (!JFolder::exists($dir)) {
-            JFolder::create($dir);
+        if (!Folder::exists($dir)) {
+            Folder::create($dir);
         }
 
-        return JFile::write($file, $data);
+        return File::write($file, $data);
     }
 
     /**

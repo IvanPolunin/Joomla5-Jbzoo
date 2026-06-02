@@ -155,7 +155,7 @@
                 }).on('fileuploadprocessalways', function (e, data) {
                     var index = data.index,
                         file = data.files[index],
-                        node = $(data.context.children()[index]);;
+                        node = $(data.context.children()[index]);
 
                     if (file.preview) {
                         var newFile = data.files[0].preview;
@@ -214,12 +214,14 @@
                             $this.$alert.html('').hide();
 
                         } else if (file.error) {
-                            $this.$alert.show().append('<p class="">' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_FILE') + ' <b>' + file.name + '</b> ' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_REASON') + ' ' + file.error + '.</p>');
+                            var errorMsg = file.error || 'Unknown error';
+                            $this.$alert.show().append('<p class="">' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_FILE') + ' <b>' + file.name + '</b> ' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_REASON') + ' ' + errorMsg + '.</p>');
                         }
                     });
                 }).on('fileuploadfail', function (e, data) {
-                    $.each(data.files, function (index) {
-                        $this.$alert.show().append('<p class="">' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_FILE') + ' <b>' + file.name + '</b> ' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_REASON') + ' ' + file.error + '.</p>');
+                    $.each(data.files, function (index, file) {
+                        var errorMsg = file.error || 'Upload failed';
+                        $this.$alert.show().append('<p class="">' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_FILE') + ' <b>' + file.name + '</b> ' + JBZoo.getVar('JBZOO_UPLOAD_ERROR_REASON') + ' ' + errorMsg + '.</p>');
                     });
                 });
             },

@@ -1,5 +1,6 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -72,7 +73,7 @@ class JBTemplateHelper extends AppHelper
         }
 
         if ($appGroup == JBZOO_APP_GROUP) {
-            JFactory::getLanguage()->load('jbzoo_' . $template, $this->app->path->path('jbtmpl:' . $template));
+            Factory::getLanguage()->load('jbzoo_' . $template, $this->app->path->path('jbtmpl:' . $template));
         }
     }
 

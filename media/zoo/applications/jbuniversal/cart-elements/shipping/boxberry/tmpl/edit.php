@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -17,6 +18,6 @@
 defined('_JEXEC') or die('Restricted access');
 
 echo $this->app->jbhtml->dataList(array(
-    JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_EDIT_ID') => $this->get('pvz'),
-    JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_EDIT_ADDRESS') => $this->get('address'),
+    Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_EDIT_ID') => $this->get('pvz'),
+    Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_EDIT_ADDRESS') => $this->get('address'),
 ));

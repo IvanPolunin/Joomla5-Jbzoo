@@ -108,13 +108,13 @@ class JBMoneyHelper extends AppHelper
                 JBCartValue::DEFAULT_CODE => array(
                     'code'   => JBCartValue::DEFAULT_CODE,
                     'value'  => 1,
-                    'name'   => JText::_('JBZOO_CURRENCY_DEFAULT_CODE'),
+                    'name'   => Joomla\CMS\Language\Text::_('JBZOO_CURRENCY_DEFAULT_CODE'),
                     'format' => $this->_defaultFormat,
                 ),
                 self::PERCENT             => array(
                     'code'   => self::PERCENT,
                     'value'  => 1,
-                    'name'   => JText::_('JBZOO_CART_CURRENCY_PERCENT'),
+                    'name'   => Joomla\CMS\Language\Text::_('JBZOO_CART_CURRENCY_PERCENT'),
                     'format' => array_merge($this->_defaultFormat, array('symbol' => self::PERCENT)),
                 )
             );

@@ -15,15 +15,20 @@
     <positions layout="default">
         <position name="fields">Fields</position>
     </positions>
+    
+    <positions layout="catalog">
+        <position name="fields">Fields</position>
+    </positions>
+    
+    <positions layout="tomflon">
+        <position name="fields">Fields</position>
+    </positions>
 
     <positions layout="2colomns">
         <position name="left">Left fields</position>
         <position name="right">Right fields</position>
     </positions>
-<positions layout="search">
-        <position name="left">Left fields</position>
-       
-    </positions>
+
     <positions layout="table">
         <position name="cell_1_1">Table cell #1:1</position>
         <position name="cell_1_2">Table cell #1:2</position>

@@ -1,5 +1,4 @@
 <?php
-use Joomla\String\StringHelper;
 /**
  * JBZoo Application
  *
@@ -49,7 +48,7 @@ class ElementJBImage extends ElementRepeatable implements iRepeatSubmittable
      */
     public function _hasValue($params = array())
     {
-        $file         = StringHelper::trim($this->get('file'));
+        $file         = trim($this->get('file'));
         $isExists     = !empty($file) && JFile::exists(JPATH_ROOT . '/' . $file);
         $defaultImage = $this->_getDefaultImage($params);
 
@@ -66,7 +65,7 @@ class ElementJBImage extends ElementRepeatable implements iRepeatSubmittable
      */
     public function _getSearchData()
     {
-        $file     = StringHelper::trim($this->get('file'));
+        $file     = trim($this->get('file'));
         $isExists = !empty($file) && JFile::exists(JPATH_ROOT . '/' . $file);
         $title    = $this->get('title');
 
@@ -558,11 +557,25 @@ class ElementJBImage extends ElementRepeatable implements iRepeatSubmittable
      */
     protected function _isFileExists($imagePath)
     {
+        if (!is_string($imagePath)) {
+            return false;
+        }
+        $imagePath = trim($imagePath);
+        if ($imagePath === '') {
+            return false;
+        }
         if (strpos($imagePath, 'http') !== false) {
             return true;
 
-        } else if (JFile::exists($imagePath) || JFile::exists(JPATH_ROOT . '/' . $imagePath)) {
-            return true;
+        } else {
+            // Avoid open_basedir warnings for absolute paths like "/images/..."
+            if (strpos($imagePath, '/') === 0) {
+                $relPath = ltrim($imagePath, '/');
+                return JFile::exists(JPATH_ROOT . '/' . $relPath);
+            }
+            if (JFile::exists($imagePath) || JFile::exists(JPATH_ROOT . '/' . $imagePath)) {
+                return true;
+            }
         }
 
         return false;

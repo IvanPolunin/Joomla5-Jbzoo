@@ -86,7 +86,7 @@ class JBCartJBUniversalController extends JBUniversalController
     {
         if ($this->_jbrequest->isPost()) {
             $this->_config->setGroup('cart.config', $this->_jbrequest->getAdminForm());
-            $this->setRedirect($this->zoo->jbrouter->admin(), JText::_('JBZOO_CONFIG_SAVED'));
+            $this->setRedirect($this->zoo->jbrouter->admin(), Joomla\CMS\Language\Text::_('JBZOO_CONFIG_SAVED'));
         }
 
         $this->configData = $this->_config->getGroup('cart.config');
@@ -447,7 +447,7 @@ class JBCartJBUniversalController extends JBUniversalController
 
         $this->_position->save($group, $positions, $layout);
 
-        $this->setRedirect($redirect, JText::_('JBZOO_ADMIN_MESSAGE_SAVED'));
+        $this->setRedirect($redirect, Joomla\CMS\Language\Text::_('JBZOO_ADMIN_MESSAGE_SAVED'));
     }
 
     /**
@@ -473,7 +473,7 @@ class JBCartJBUniversalController extends JBUniversalController
 
         $this->_position->savePrice($group, $positions, $element, $layout);
 
-        $this->setRedirect($redirect, JText::_('JBZOO_ADMIN_MESSAGE_SAVED'));
+        $this->setRedirect($redirect, Joomla\CMS\Language\Text::_('JBZOO_ADMIN_MESSAGE_SAVED'));
     }
 
     /**
@@ -567,7 +567,7 @@ class JBCartJBUniversalController extends JBUniversalController
 
         if (!empty($list)) {
             foreach ($list as $id => $order) {
-                $result[$id] = JText::sprintf('JBZOO_EMAILTMPL_PREVIEW_ORDERNAME', $order->getName());
+                $result[$id] = Joomla\CMS\Language\Text::sprintf('JBZOO_EMAILTMPL_PREVIEW_ORDERNAME', $order->getName());
             }
         }
 

@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -18,7 +19,7 @@ use Joomla\String\StringHelper;
 defined('_JEXEC') or die('Restricted access');
 
 if (($html === '' || $html === null) && (!$this->isCore())) {
-    $html = $this->getJBPrice()->renderWarning('_warning.php', JText::_('JBZOO_PRICE_EDIT_ERROR_ADD_OPTIONS'));
+    $html = $this->getJBPrice()->renderWarning('_warning.php', Text::_('JBZOO_PRICE_EDIT_ERROR_ADD_OPTIONS'));
 }
 
 $type   = $this->getElementType();

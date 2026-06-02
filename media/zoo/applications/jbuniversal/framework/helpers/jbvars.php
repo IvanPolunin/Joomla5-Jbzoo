@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -176,9 +177,9 @@ class JBVarsHelper extends AppHelper
                 'true',
                 'да',
                 'on',
-                $this->lower(JText::_('YES')),
-                $this->lower(JText::_('JYES')),
-                $this->lower(JText::_('JBZOO_YES'))
+                $this->lower(Text::_('YES')),
+                $this->lower(Text::_('JYES')),
+                $this->lower(Text::_('JBZOO_YES'))
             ));
         }
 

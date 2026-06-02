@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -21,7 +22,7 @@ $params = $this->app->data->create($params);
 // create error
 $error = '';
 if ($element->isDebug()) {
-    $error .= '<p class="jbcart-payment-debug">' . JText::_('JBZOO_PAYMENT_DEBUG_MESSAGE') . '</p>';
+    $error .= '<p class="jbcart-payment-debug">' . Text::_('JBZOO_PAYMENT_DEBUG_MESSAGE') . '</p>';
 }
 
 $isError = isset($element->error) && !empty($element->error);
@@ -67,7 +68,7 @@ $paymentId = $element->htmlId();
         </div>
 
         <?php if ($description = $element->config->get('description')) : ?>
-            <p class="jbcart-payment-desc"><?php echo JText::_($description); ?> </p>
+            <p class="jbcart-payment-desc"><?php echo Text::_($description); ?> </p>
         <?php endif; ?>
 
         <?php echo $error; ?>

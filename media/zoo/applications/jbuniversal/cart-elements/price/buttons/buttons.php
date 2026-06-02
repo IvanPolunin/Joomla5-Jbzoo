@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -68,7 +69,7 @@ class JBCartElementPriceButtons extends JBCartElementPrice
             'isModal'         => $interface['isModal'],
             'isInCart'        => $interface['isInCart'],
             'addAlert'        => (int)$this->config->get('add_alert', 0),
-            'addAlertText'    => $this->config->get('add_alert_text', JText::_('JBZOO_ELEMENT_PRICE_BUTTONS_ADD_ALERT_TEXT_DEFAULT')),
+            'addAlertText'    => $this->config->get('add_alert_text', Text::_('JBZOO_ELEMENT_PRICE_BUTTONS_ADD_ALERT_TEXT_DEFAULT')),
             'addAlertTimeout' => $this->app->jbvars->number($this->config->get('add_alert_timeout', 3)) * 1000,
             'remove'          => $jbrouter->element($interface['element_id'], $interface['item_id'], 'ajaxRemoveFromCart'),
             'add'             => $jbrouter->element($interface['element_id'], $interface['item_id'], 'ajaxAddToCart'),

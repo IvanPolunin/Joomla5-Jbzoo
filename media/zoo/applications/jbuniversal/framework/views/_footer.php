@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -23,7 +24,7 @@ defined('_JEXEC') or die('Restricted access');
 
     <span class="footer-copyrights">
         &copy; 2011 - <?php echo date('Y'); ?>
-        <?php echo JText::_('JBZOO_ADMIN_WEBSITE'); ?>
+        <?php echo Text::_('JBZOO_ADMIN_WEBSITE'); ?>
     </span>
 
     <span class="footer-version-row">Joomla: <strong><?php echo $this->app->jbversion->joomla(); ?></strong></span>

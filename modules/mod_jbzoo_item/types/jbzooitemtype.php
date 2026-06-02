@@ -27,15 +27,15 @@ abstract class JBZooItemType
     public $app = null;
 
     /**
-     * @var JRegistry
+     * @var \Joomla\Registry\Registry
      */
     protected $_params = null;
 
     /**
      * Init Zoo
-     * @param JRegistry $params
+     * @param \Joomla\Registry\Registry $params
      */
-    public function __construct(JRegistry $params)
+    public function __construct(\Joomla\Registry\Registry $params)
     {
         $this->app     = App::getInstance('zoo');
         $this->_params = $params;

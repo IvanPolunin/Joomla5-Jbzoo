@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -50,7 +51,7 @@ class JBCartElementShippingEmsPost extends JBCartElementShipping
             'type'   => $locType,
         ));
 
-        $result = array('' => '-&nbsp;' . JText::_('JBZOO_ELEMENT_SHIPPING_EMSPOST_' . $locType) . '&nbsp;-');
+        $result = array('' => '-&nbsp;' . Text::_('JBZOO_ELEMENT_SHIPPING_EMSPOST_' . $locType) . '&nbsp;-');
 
         if (!$locations) {
             return $result;

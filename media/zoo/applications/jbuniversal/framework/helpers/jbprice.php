@@ -155,7 +155,7 @@ class JBPriceHelper extends AppHelper
             return $this->getValue((array)$value, $toString);
 
         }
-        $value = StringHelper::trim($value);
+        $value = StringHelper::trim($value ?? '');
 
         return (!$this->isEmpty($value) ? $value : null);
     }
@@ -217,7 +217,7 @@ class JBPriceHelper extends AppHelper
         $positions = $model->getGroup('cart.' . JBCart::CONFIG_PRICE . '.' . $jbPrice->identifier);
         $position = $positions->get(JBCart::DEFAULT_POSITION, []);
 
-        if (StringHelper::strlen($id) === ElementJBPrice::SIMPLE_PARAM_LENGTH) {
+        if (StringHelper::strlen($id ?? '') === ElementJBPrice::SIMPLE_PARAM_LENGTH) {
             $option = $value;
 
             if (isset($position[$id])) {
@@ -348,7 +348,7 @@ class JBPriceHelper extends AppHelper
     private function _clean($str, $charlist = false)
     {
         $str = StringHelper::trim($str, $charlist);
-        $str = StringHelper::strtolower($str);
+        $str = StringHelper::strtolower($str ?? '');
 
         return $str;
     }

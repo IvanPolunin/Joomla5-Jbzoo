@@ -1,4 +1,11 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Filesystem\Folder;
+use Joomla\CMS\Filesystem\Path;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -322,19 +329,19 @@ class JBYmlHelper extends AppHelper
         if (!empty($siteUrl)) {
             $site_url = $this->replaceSpecial($this->_appParams->get('site_url', ''));
         } else {
-            $site_url = $this->replaceSpecial(JURI::root());
+            $site_url = $this->replaceSpecial(Uri::root());
         }
 
         if (!empty($siteName)) {
             $site_name = $this->replaceSpecial($this->_appParams->get('site_name', ''));
         } else {
-            $site_name = $this->replaceSpecial(JFactory::getConfig()->get('sitename'));
+            $site_name = $this->replaceSpecial(Factory::getConfig()->get('sitename'));
         }
 
         if (!empty($companyName)) {
             $company_name = $this->replaceSpecial($this->_appParams->get('company_name', ''));
         } else {
-            $company_name = $this->replaceSpecial(JFactory::getConfig()->get('sitename'));
+            $company_name = $this->replaceSpecial(Factory::getConfig()->get('sitename'));
         }
 
         foreach ($this->app->jbmoney->getCurrencyList() as $key => $value) {
@@ -384,14 +391,14 @@ class JBYmlHelper extends AppHelper
      */
     public function renderStart()
     {
-        $this->_count = null;
         $marketParams = $this->_getMarketParams();
-        $string       = '<?xml version="1.0" encoding="utf-8"?>' . "\n" . '<!DOCTYPE yml_catalog SYSTEM "shops.dtd">' . "\n" . '<yml_catalog date="' . JHTML::_("date", "now", JText::_("Y-m-d H:i")) . '">
-        <shop>
-            <name>' . $marketParams['site_name'] . '</name>
-            <company>' . $marketParams['company_name'] . '</company>
-            <url>' . $marketParams['site_url'] . '</url>
-            <currencies>' . "\n";
+
+        $string = '<?xml version="1.0" encoding="utf-8"?>' . "\n" . '<!DOCTYPE yml_catalog SYSTEM "shops.dtd">' . "\n" . '<yml_catalog date="' . HTMLHelper::_("date", "now", Text::_("Y-m-d H:i")) . '">' . "\n" . '<shop>' . "\n";
+
+        $string .= '<name>' . $this->replaceSpecial($marketParams['company_name']) . '</name>' . "\n";
+        $string .= '<company>' . $this->replaceSpecial($marketParams['company_name']) . '</company>' . "\n";
+        $string .= '<url>' . $this->replaceSpecial($marketParams['site_url']) . '</url>' . "\n";
+        $string .= '<currencies>' . "\n";
 
         foreach ($marketParams['currency_rate'] as $key => $value) {
             $string .= '<currency id="' . $key . '" rate="' . $this->replaceSpecial($value) . '"/>' . "\n";
@@ -503,7 +510,7 @@ class JBYmlHelper extends AppHelper
 
                 // get image paths
                 if ($element->config->type == 'image') {
-                    $picture[$key][] = $this->replaceSpecial(JURI::root() . str_replace('\\', '/', $data->get('file')));
+                    $picture[$key][] = $this->replaceSpecial(Uri::root() . str_replace('\\', '/', $data->get('file')));
                 }
 
                 // get jbimage paths
@@ -514,7 +521,7 @@ class JBYmlHelper extends AppHelper
 
                     foreach ((array)$imageData as $i => $row) {
                         if (isset($row['file']) && $row['file']) {
-                            $picture[$key][] = $this->replaceSpecial(JURI::root() . str_replace('\\', '/', $row['file']));
+                            $picture[$key][] = $this->replaceSpecial(Uri::root() . str_replace('\\', '/', $row['file']));
                         }
 
                         if ($limit == $i + 1) {
@@ -546,11 +553,11 @@ class JBYmlHelper extends AppHelper
             if (!$offer) {
                 $filePath = $this->getPath();
 
-                if (JFile::exists($filePath)) {
-                    JFile::delete($filePath);
+                if (File::exists($filePath)) {
+                    File::delete($filePath);
                 }
 
-                throw new AppException(JText::_('JBZOO_YML_NOT_PRODUCT_OFFER_FILE') . $item->getType()->getName());
+                throw new AppException(Text::_('JBZOO_YML_NOT_PRODUCT_OFFER_FILE') . $item->getType()->getName());
             }
 
             // get item link
@@ -621,7 +628,7 @@ class JBYmlHelper extends AppHelper
                 $strItems .= $tmpStrItems;
 
             } else {
-                throw new AppException(JText::_('JBZOO_YML_NOT_EXISTS_TEMPLATE') . ' ' . $item->getType()->getName());
+                throw new AppException(Text::_('JBZOO_YML_NOT_EXISTS_TEMPLATE') . ' ' . $item->getType()->getName());
             }
         }
         $this->app->jbsession->set('ymlCount', $this->_count, 'yml');
@@ -647,12 +654,12 @@ class JBYmlHelper extends AppHelper
         $filePath = $this->getPath();
         $dir      = $this->_appParams->get('file_path', 'images');
 
-        if ($start && JFile::exists($filePath)) {
-            JFile::delete($filePath);
+        if ($start && File::exists($filePath)) {
+            File::delete($filePath);
         }
 
-        if (!JFile::exists($filePath)) {
-            JFolder::create(JPATH_ROOT . DS . $dir);
+        if (!File::exists($filePath)) {
+            Folder::create(JPATH_ROOT . DS . $dir);
         }
 
         $handle = fopen($filePath, 'a');
@@ -662,7 +669,7 @@ class JBYmlHelper extends AppHelper
             fwrite($handle, $resource);
 
         } else {
-            throw new AppException(JText::_('JBZOO_YML_NOT_WRITABLE_FILE'));
+            throw new AppException(Text::_('JBZOO_YML_NOT_WRITABLE_FILE'));
         }
         fclose($handle);
     }
@@ -678,10 +685,10 @@ class JBYmlHelper extends AppHelper
             $tmpPath  = $this->_appParams->get('file_path', 'images');
             $tmpPath  = JPATH_ROOT . DS . $tmpPath;
             $fileName = $this->_appParams->get('file_name', 'yml');
-            $filePath = JPath::clean($tmpPath . DS . $fileName . '.xml');
+            $filePath = Path::clean($tmpPath . DS . $fileName . '.xml');
         } else {
             $tmpPath  = trim($this->_appParams->get('file_path', 'images'), '/');
-            $filePath = JUri::root() . $tmpPath . '/' . $this->_appParams->get('file_name', 'yml') . '.xml';
+            $filePath = Uri::root() . $tmpPath . '/' . $this->_appParams->get('file_name', 'yml') . '.xml';
         }
 
         return $filePath;

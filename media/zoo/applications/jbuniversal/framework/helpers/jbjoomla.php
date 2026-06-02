@@ -16,6 +16,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Helper\ModuleHelper;
+
 /**
  * Class JBJoomlaHelper
  */
@@ -59,7 +61,7 @@ class JBJoomlaHelper extends AppHelper
         if ($moduleId && isset($modules[$moduleId])) {
 
             if ($modules[$moduleId]->published) {
-                $rendered = JModuleHelper::renderModule($modules[$moduleId]);
+                $rendered = ModuleHelper::renderModule($modules[$moduleId]);
 
                 $this->app->jbdebug->mark('jbjoomla::renderModuleById (' . $moduleId . ')::finish');
 
@@ -80,7 +82,7 @@ class JBJoomlaHelper extends AppHelper
      */
     public function getModuleParams($name)
     {
-        $module = JModuleHelper::getModule($name);
+        $module = ModuleHelper::getModule($name);
 
         return new JRegistry($module->params);
     }

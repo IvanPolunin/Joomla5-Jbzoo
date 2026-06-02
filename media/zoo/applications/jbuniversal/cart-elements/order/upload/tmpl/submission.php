@@ -23,7 +23,7 @@ $uniqId = $this->app->jbstring->getId('upload');
 <div id="<?php echo $uniqId; ?>" class="download-select">
 
     <?php if ($maxSizeBytes > 0) { ?>
-        <div class="info"><?php echo JText::sprintf('JBZOO_CART_UPLOAD_MAX_SIZE', $maxSizeFormated); ?></div>
+        <div class="info"><?php echo Text::sprintf('JBZOO_CART_UPLOAD_MAX_SIZE', $maxSizeFormated); ?></div>
     <?php } ?>
 
     <div class="upload">
@@ -40,6 +40,6 @@ $uniqId = $this->app->jbstring->getId('upload');
 </div>
 
 <?php echo $this->app->jbassets->widget('#' . $uniqId, 'JBZooOrderUpload', array(
-    'text_size_reached' => JText::sprintf('JBZOO_CART_UPLOAD_MAX_SIZE_REACHED', $maxSizeFormated),
+    'text_size_reached' => Text::sprintf('JBZOO_CART_UPLOAD_MAX_SIZE_REACHED', $maxSizeFormated),
     'max_size'          => $maxSizeBytes,
 ), true); ?>

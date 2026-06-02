@@ -25,7 +25,7 @@ if ($count) {
         $this->app->jbassets->heightFix();
     }
 
-    echo '<div class="related-items  related-items-col-' . $columns . ' clearfix">';
+    echo '<div class="related-items related-items-col-' . $columns . ' clearfix">';
 
     $j = 0;
     foreach ($items as $item) {

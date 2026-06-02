@@ -39,7 +39,7 @@ $editUrl = $this->app->jbrouter->admin(array('cid' => array($order->id)));
         <div class="uk-grid">
             <div class="uk-width-8-10">
                 <h1>
-                    <?php echo JText::sprintf('JBZOO_ORDER_TITLE', $order->getName(), '<span style="font-size: 0.6em;">' . $created . '</span>'); ?>
+                    <?php echo Text::sprintf('JBZOO_ORDER_TITLE', $order->getName(), '<span style="font-size: 0.6em;">' . $created . '</span>'); ?>
                 </h1>
             </div>
         </div>

@@ -514,7 +514,31 @@ class JBCartVariantList extends ArrayObject
     {
         $jbPrice = $this->getJBPrice();
 
+        // Базовый total для варианта (без нашей доработки скидки на витрине)
         $total    = $this->getTotal()->data(true);
+
+        // Попробуем использовать тот же источник цен/скидок, что и JBCartElementPriceValue
+        try {
+            $currentVariant = $this->current();
+            if ($currentVariant) {
+                // Элемент значения цены внутри варианта
+                $valueElement = $currentVariant->get('_value');
+                if ($valueElement && method_exists($valueElement, 'getCartPrices')) {
+                    $cartPrices = $valueElement->getCartPrices();
+                    if (is_array($cartPrices) && !empty($cartPrices['has_discount']) && isset($cartPrices['total'])) {
+                        /** @var JBCartValue $discVal */
+                        $discVal = $cartPrices['total'];
+                        if (is_object($discVal) && method_exists($discVal, 'data')) {
+                            // total в cartData должен быть ценой за единицу со скидкой
+                            $total = $discVal->data(true);
+                        }
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            // В случае любой ошибки используем исходный total
+        }
+
         $discount = $this->current()->getValue(true, '_discount');
         $margin   = $this->current()->getValue(true, '_margin');
         $elements = $this->defaultVariantCartData(); // bug, call only at the end!
@@ -609,7 +633,15 @@ class JBCartVariantList extends ArrayObject
      */
     protected function _plainTotal()
     {
-        return $this->current()->getTotal();
+        $current = $this->current();
+        $total = $current->getTotal();
+        
+        // Debug: Log variant and total info
+        if (defined('JDEBUG') && JDEBUG) {
+            error_log('_plainTotal - variant: ' . $current->getId() . ', total: ' . $total->val() . ' ' . $total->cur() . ', empty: ' . ($total->isEmpty() ? 'true' : 'false'));
+        }
+        
+        return $total;
     }
 
     /**

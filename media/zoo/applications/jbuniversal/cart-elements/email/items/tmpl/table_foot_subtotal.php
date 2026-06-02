@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -27,7 +28,7 @@ if (!$this->config->get('subtotal', 1)) {
             $this->getStyles(array('padding' => '8px 0 8px 8px')); ?>></td>
 
         <td <?php echo $this->getAttrs(array('colspan' => 3)) . $this->getStyles(); ?>>
-            <p><?php echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_SUBTOTAL_TITLE'); ?></p>
+            <p><?php echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_SUBTOTAL_TITLE'); ?></p>
         </td>
 
         <td <?php echo $this->getAttrs(array('colspan' => 1)) .

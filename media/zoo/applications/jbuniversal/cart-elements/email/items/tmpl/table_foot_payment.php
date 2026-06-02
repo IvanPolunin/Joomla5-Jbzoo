@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -31,7 +32,7 @@ if (!$this->config->get('payment', 1)) {
         <td colspan="2" style="border-bottom: none;"></td>
 
         <td <?php echo $this->getStyles(); ?>>
-            <p><strong><?php echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_PAYMENT_RATE'); ?></strong></p>
+            <p><strong><?php echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_PAYMENT_RATE'); ?></strong></p>
         </td>
 
         <td colspan="2" <?php echo $this->getStyles(); ?>>
@@ -39,9 +40,9 @@ if (!$this->config->get('payment', 1)) {
             <em>(
                 <?php
                 if ($payment->isModify()) {
-                    echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_PAYMENT_RATE_INCLUDED');
+                    echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_PAYMENT_RATE_INCLUDED');
                 } else {
-                    echo JText::_('JBZOO_ELEMENT_EMAIL_ITEMS_PAYMENT_RATE_NOT_INCLUDED');
+                    echo Text::_('JBZOO_ELEMENT_EMAIL_ITEMS_PAYMENT_RATE_NOT_INCLUDED');
                 }
                 ?>
             )</em>

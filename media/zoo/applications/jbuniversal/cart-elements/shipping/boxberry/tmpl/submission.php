@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,16 +25,16 @@ $isSelected = ($price && $address && $pvz) ? true : false;
 
 <div id="<?php echo $uiqueId; ?>" class="boxberry">
     <div class="boxberry__sender">
-        <p><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_FROM'); ?>: <?php echo $this->config->get('city'); ?></p>
+        <p><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_FROM'); ?>: <?php echo $this->config->get('city'); ?></p>
     </div>
 
     <div class="boxberry__result" style="display: <?php echo !$isSelected ? 'none' : 'block'; ?>">
-        <p><?php echo JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_TYPE_1'); ?>: <span class="boxberry__result-address jsBoxberryPvzAddress">ID: <?php echo $pvz; ?>, <?php echo $address; ?></span></p>
+        <p><?php echo Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_TYPE_1'); ?>: <span class="boxberry__result-address jsBoxberryPvzAddress">ID: <?php echo $pvz; ?>, <?php echo $address; ?></span></p>
     </div>
 
     <div class="boxberry__client">
         <p>
-            <a href="#boxberry-map" class="jsGetBoxberry"><?php echo !$isSelected ? JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_SELECT') : JText::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_CHANGE'); ?></a>
+            <a href="#boxberry-map" class="jsGetBoxberry"><?php echo !$isSelected ? Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_SELECT') : Text::_('JBZOO_ELEMENT_SHIPPING_BOXBERRY_CHANGE'); ?></a>
         </p>   
     </div>
 

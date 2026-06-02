@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\HTML\HTMLHelper;
 /**
  * JBZoo Application
  *
@@ -16,7 +18,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -24,7 +26,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBItemOrder
  */
-class JFormFieldJBItemOrderAdv extends JFormField
+class JFormFieldJBItemOrderAdv extends FormField
 {
 
     protected $type = 'jbitemorderadv';
@@ -42,24 +44,24 @@ class JFormFieldJBItemOrderAdv extends JFormField
         $customName = $this->getName($this->fieldname);
 
         $html   = array();
-        $html[] = '<span class="jbzoo-itemorder-label">' . JText::_('JBZOO_SORT_FIELD') . ': </span> ' .
-            JHtml::_('select.groupedlist', $list, $customName . '[field]', array(
+        $html[] = '<span class="jbzoo-itemorder-label">' . Text::_('JBZOO_SORT_FIELD') . ': </span> ' .
+            HTMLHelper::_('select.groupedlist', $list, $customName . '[field]', array(
                 'list.select' => $this->value,
                 'group.items' => null,
             ));
 
-        $html[] = '<span class="jbzoo-itemorder-label">' . JText::_('JBZOO_SORT_AS') . ': </span> ' .
+        $html[] = '<span class="jbzoo-itemorder-label">' . Text::_('JBZOO_SORT_AS') . ': </span> ' .
             $app->jbhtml->select(array(
-                's' => JText::_('JBZOO_SORT_AS_STRINGS'),
-                'n' => JText::_('JBZOO_SORT_AS_NUMBERS'),
-                'd' => JText::_('JBZOO_SORT_AS_DATES'),
+                's' => Text::_('JBZOO_SORT_AS_STRINGS'),
+                'n' => Text::_('JBZOO_SORT_AS_NUMBERS'),
+                'd' => Text::_('JBZOO_SORT_AS_DATES'),
             ), $customName . '[mode]', '', $values->get('mode'));
 
-        $html[] = '<span class="jbzoo-itemorder-label">' . JText::_('JBZOO_SORT_ORDER') . ': </span> ' .
+        $html[] = '<span class="jbzoo-itemorder-label">' . Text::_('JBZOO_SORT_ORDER') . ': </span> ' .
             $app->jbhtml->select(array(
-                'asc'    => JText::_('JBZOO_SORT_ORDER_ASC'),
-                'desc'   => JText::_('JBZOO_SORT_ORDER_DESC'),
-                'random' => JText::_('JBZOO_SORT_ORDER_RANDOM'),
+                'asc'    => Text::_('JBZOO_SORT_ORDER_ASC'),
+                'desc'   => Text::_('JBZOO_SORT_ORDER_DESC'),
+                'random' => Text::_('JBZOO_SORT_ORDER_RANDOM'),
             ), $customName . '[order]', '', $values->get('order'));
 
 

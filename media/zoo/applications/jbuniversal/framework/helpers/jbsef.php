@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -256,10 +257,11 @@ class JBSefHelper extends AppHelper
         $items_get_fix   = [];
         $items_get_fix[] = (object) [
             'id'        => $item_get_fix->id,
+            'alias'     => $item_get_fix->alias,
             'name'      => $item_get_fix->name,
             'published' => $item_get_fix->state,
             'url'       => App::getInstance('zoo')->route->item($item_get_fix, 0),
-            'type'      => JText::_('ITEM'),
+            'type'      => Text::_('ITEM'),
         ];
 
         $cats = $item_get_fix->getRelatedCategories();
@@ -268,14 +270,33 @@ class JBSefHelper extends AppHelper
         {
             $items_get_fix[] = (object) [
                 'id'        => $cat->id,
+                'alias'     => $cat->alias,
                 'name'      => $cat->name,
                 'published' => $cat->published,
                 'url'       => App::getInstance('zoo')->route->category($cat, 0),
-                'type'      => JText::_('CATEGORY'),
+                'type'      => Text::_('CATEGORY'),
             ];
         }
 
-        $fix_url_v2 = end($items_get_fix)->url;
+        $primary_category_obj = $this->app->table->category->get($item_get_fix->getPrimarycategory()->id); 
+
+        // Переменная для хранения ключа найденного элемента
+        $key = null;
+
+        // Поиск значения в массиве
+        foreach ($items_get_fix as $index => $item) {
+            if ($item->alias === $primary_category_obj->alias) {
+                $key = $index;
+                break; // Прерываем цикл после нахождения первого совпадения
+            }
+        }
+
+        if (NULL !== $key) {
+            $fix_url_v2 = $items_get_fix[$key]->url;
+        }
+        else {
+            $fix_url_v2 = end($items_get_fix)->url;
+        }
 
         // Проверяем наличие item_id
         if (strpos($fix_url_v2, 'item_id=') === false) {
@@ -388,7 +409,7 @@ class JBSefHelper extends AppHelper
             }
 
             if ($mode === '404_strict' || $mode === '404_noquery') {
-                return $this->app->error->raiseError(404, JText::_('Item not found'));
+                return $this->app->error->raiseError(404, Text::_('Item not found'));
             }
         }
     }

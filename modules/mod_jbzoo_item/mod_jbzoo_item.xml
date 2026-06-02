@@ -18,7 +18,7 @@
     <copyright>Copyright (C) JBZoo.com, All rights reserved.</copyright>
     <authorEmail>admin@jbzoo.com</authorEmail>
     <authorUrl>http://jbzoo.com</authorUrl>
-    <version>4.15.7</version>
+    <version>4.50.4</version>
     <license>GPL-2.0</license>
     <description>JBZOO_ITEM_MODULE_DESCRIPTION</description>
 
@@ -119,8 +119,6 @@
                     <option value="4">JBZOO_NUMBERS_4</option>
                     <option value="5">JBZOO_NUMBERS_5</option>
                     <option value="6">JBZOO_NUMBERS_6</option>
-					<option value="8">JBZOO_NUMBERS_8</option>
-					<option value="12">JBZOO_NUMBERS_12</option>
                 </field>
 
                 <field name="display_border" type="jbbool" default="1" label="JBZOO_MODITEM_DISPLAY_BORDER"

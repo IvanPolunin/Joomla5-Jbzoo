@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -35,7 +36,7 @@ $orderDir = $this->filter->get('filter_order_Dir', 'desc');
         ));
     } else {
         echo $this->partial('message', array(
-            'title'   => JText::_('JBZOO_ADMIN_ORDER_NO_ITEMS_YET'),
+            'title'   => Text::_('JBZOO_ADMIN_ORDER_NO_ITEMS_YET'),
             'message' => '',
         ));
     } ?>

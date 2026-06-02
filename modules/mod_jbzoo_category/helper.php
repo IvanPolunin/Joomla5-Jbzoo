@@ -27,10 +27,15 @@ require_once JPATH_BASE . '/media/zoo/applications/jbuniversal/framework/classes
 class JBModuleHelperCategory extends JBModuleHelper
 {
     /**
+     * @var array|null
+     */
+    protected $_categoryCounts = null;
+
+    /**
      * @param JRegistry $params
      * @param stdClass  $module
      */
-    public function __construct(Joomla\Registry\Registry $params, $module)
+    public function __construct(\Joomla\Registry\Registry $params, $module)
     {
         parent::__construct($params, $module);
 
@@ -57,6 +62,9 @@ class JBModuleHelperCategory extends JBModuleHelper
         $menuItem   = (int)$this->_params->get('menu_item', 0);
         $categories = $this->_getCategories();
         $curCatId   = $this->getCurrentCategory();
+        $showCount  = (int)$this->_params->get('display_count_items', 1);
+        $showItems  = (int)$this->_params->get('display_items', 1);
+        $counts     = $showCount ? $this->_getCategoryItemCounts($categories) : array();
 
         if ($appId && !empty($categories)) {
 
@@ -78,8 +86,8 @@ class JBModuleHelperCategory extends JBModuleHelper
                     'items'         => array(),
                 );
 
-                if ((int)$this->_params->get('display_count_items', 1)) {
-                    $currentCat['item_count'] = $this->app->table->item->getItemCountFromCategory($category->application_id, $category->id, true);
+                if ($showCount) {
+                    $currentCat['item_count'] = isset($counts[$category->id]) ? $counts[$category->id] : 0;
                 }
 
                 if ((int)$this->_params->get('category_display_image', 1) && $image = $category->getImage('content.category_teaser_image')) {
@@ -87,7 +95,7 @@ class JBModuleHelperCategory extends JBModuleHelper
                     $currentCat['attr']  = $this->_getImageSettings($image, true);
                 }
 
-                if ((int)$this->_params->get('display_items', 1)) {
+                if ($showItems) {
                     $currentCat['items'] = $this->_getItems($category->id);
                 }
 
@@ -100,6 +108,61 @@ class JBModuleHelperCategory extends JBModuleHelper
         }
 
         return $renderCat;
+    }
+
+    /**
+     * Get published item counts for all rendered categories in one query.
+     *
+     * @param array $categories
+     * @return array
+     */
+    protected function _getCategoryItemCounts($categories)
+    {
+        if ($this->_categoryCounts !== null) {
+            return $this->_categoryCounts;
+        }
+
+        $categoryIds = array();
+        foreach ($categories as $category) {
+            $categoryIds[] = (int) $category->id;
+        }
+
+        $categoryIds = array_filter(array_unique($categoryIds));
+
+        if (empty($categoryIds)) {
+            $this->_categoryCounts = array();
+            return $this->_categoryCounts;
+        }
+
+        $db   = $this->app->database;
+        $user = $this->app->user->get();
+        $date = $this->app->date->create();
+        $now  = $db->Quote($date->toSQL());
+        $null = $db->Quote($db->getNullDate());
+
+        $query = "SELECT ci.category_id, COUNT(DISTINCT i.id) AS item_count"
+            ." FROM ".ZOO_TABLE_CATEGORY_ITEM." AS ci"
+            ." JOIN ".ZOO_TABLE_ITEM." AS i ON ci.item_id = i.id"
+            ." WHERE ci.category_id IN (".implode(',', $categoryIds).")"
+            ." AND i.application_id = ".(int) $this->_params->get('app_id')
+            ." AND i.".$this->app->user->getDBAccessString($user)
+            ." AND i.state = 1"
+            ." AND (i.publish_up = ".$null." OR i.publish_up <= ".$now.")"
+            ." AND (i.publish_down = ".$null." OR i.publish_down >= ".$now.")"
+            ." GROUP BY ci.category_id";
+
+        $rows   = $db->queryObjectList($query);
+        $counts = array_fill_keys($categoryIds, 0);
+
+        if (!empty($rows)) {
+            foreach ($rows as $row) {
+                $counts[(int) $row->category_id] = (int) $row->item_count;
+            }
+        }
+
+        $this->_categoryCounts = $counts;
+
+        return $this->_categoryCounts;
     }
 
     /**

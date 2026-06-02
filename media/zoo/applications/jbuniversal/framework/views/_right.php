@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -20,7 +21,7 @@ defined('_JEXEC') or die('Restricted access');
 
 <?php if ($helpMsg = $this->app->jbhelp->hook('cart', 'right')) : ?>
     <div class="jbinfo uk-panel uk-panel-box">
-        <h3 class="jbinfo-header"><?php echo JText::_('JBZOO_CART_HELP_RIGHT') ?></h3>
+        <h3 class="jbinfo-header"><?php echo Text::_('JBZOO_CART_HELP_RIGHT') ?></h3>
 
         <div class="jbinfo-block-right">
             <?php echo $helpMsg; ?>

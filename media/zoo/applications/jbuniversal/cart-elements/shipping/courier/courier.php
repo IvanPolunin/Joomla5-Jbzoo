@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -172,7 +173,7 @@ class JBCartElementShippingCourier extends JBCartElementShipping
 
         $name   = $this->getControlName('fulldate');
         $uniqid = $this->app->jbstring->getId('fulldate');
-        $attrs  = 'class="calendar-input jsFulldate" placeholder="' . JText::_('JBZOO_SHIPPING_COURIER_TIME_DELIVERY') . '"';
+        $attrs  = 'class="calendar-input jsFulldate" placeholder="' . Text::_('JBZOO_SHIPPING_COURIER_TIME_DELIVERY') . '"';
         $value  = $this->get('fulldate', date('Y-m-d', time() + 186400));
 
         return '<div class="shipping-courier">' . $this->app->html->_('zoo.calendar', $value, $name, $uniqid, $attrs, false) . '</div>';

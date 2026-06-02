@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -24,16 +25,16 @@ $this->sum->addModify($payment); ?>
 <tr>
     <td class="noborder-btm"></td>
     <th>
-        <p><?php echo JText::_('JBZOO_ORDER_PAYMENT_FEE'); ?></p>
+        <p><?php echo Text::_('JBZOO_ORDER_PAYMENT_FEE'); ?></p>
     </th>
     <td>
         <?php echo $payment->getName(); ?>
         <em>(
             <?php
             if ($payment->isModify()) {
-                echo JText::_('JBZOO_ORDER_PAYMENT_INCLUDED');
+                echo Text::_('JBZOO_ORDER_PAYMENT_INCLUDED');
             } else {
-                echo JText::_('JBZOO_ORDER_PAYMENT_NOT_INCLUDED');
+                echo Text::_('JBZOO_ORDER_PAYMENT_NOT_INCLUDED');
             }
             ?>
         )</em>

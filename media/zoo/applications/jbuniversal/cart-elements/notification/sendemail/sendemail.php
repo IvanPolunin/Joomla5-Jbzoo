@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -46,7 +47,7 @@ class JBCartElementNotificationSendemail extends JBCartElementNotification
     {
         parent::__construct($app, $type, $group);
 
-        $this->_mailer   = JFactory::getMailer();
+        $this->_mailer   = Factory::getMailer();
         $this->_renderer = $this->app->jbrenderer->create('email');
     }
 

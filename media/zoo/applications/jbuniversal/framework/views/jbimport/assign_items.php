@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -27,7 +28,7 @@ $jbform = $this->app->jbform;
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_IMPORT_ITEMS_FIELDS'); ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_IMPORT_ITEMS_FIELDS'); ?></h2>
 
         <form class="jbzoo-import-fields jbadminform uk-form uk-form-horizontal" id="jbzooimport"
               action="<?php echo $actionUrl; ?>" name="jbzooimport" method="post" enctype="multipart/form-data">
@@ -36,7 +37,7 @@ $jbform = $this->app->jbform;
 
                 <div class="assign-group">
                     <div class="uk-form-row">
-                        <input type="submit" name="send" value="<?php echo JText::_('JBZOO_FORM_IMPORT'); ?>"
+                        <input type="submit" name="send" value="<?php echo Text::_('JBZOO_FORM_IMPORT'); ?>"
                                class="uk-button uk-button-primary" style="float: right;" />
                     </div>
 
@@ -61,14 +62,24 @@ $jbform = $this->app->jbform;
                     <ul id="fields-assign">
                         <?php foreach ($this->info['columns'] as $key => $column) : ?>
                             <li class="assign">
-                                <?php
-                                foreach ($this->controls['fields_types'] as $control) {
-                                    echo str_ireplace('__name_placeholder__', $key, $control);
-                                }
-                                ?>
+                                <div class="field-controls" id="field-<?php echo $key; ?>">
+                                    <?php
+                                    if (!empty($this->controls['fields_types'])) {
+                                        foreach ($this->controls['fields_types'] as $typeid => $control) {
+                                            echo '<div class="type-controls type-select-' . $typeid . '" style="display:none;">';
+                                            echo str_ireplace('__name_placeholder__', $key, $control);
+                                            echo '</div>';
+                                        }
+                                    } else {
+                                        echo '<div class="type-controls">';
+                                        echo '<select class="type-select"><option value="">Выберите тип материала</option></select>';
+                                        echo '</div>';
+                                    }
+                                    ?>
+                                </div>
 
                                 <span class="name">
-                                <?php echo JText::_('JBZOO_COLUMN'); ?> #<?php echo($key + 1); ?>
+                                <?php echo Text::_('JBZOO_COLUMN'); ?> #<?php echo($key + 1); ?>
                                     <?php echo !empty($column) ? ' - ' . $column : ''; ?>
                             </span>
                             </li>
@@ -76,7 +87,7 @@ $jbform = $this->app->jbform;
                     </ul>
 
                     <div class="uk-form-row">
-                        <input type="submit" name="send" value="<?php echo JText::_('JBZOO_FORM_IMPORT'); ?>"
+                        <input type="submit" name="send" value="<?php echo Text::_('JBZOO_FORM_IMPORT'); ?>"
                                class="uk-button uk-button-primary" style="float: right;" />
                     </div>
 
@@ -95,7 +106,7 @@ $jbform = $this->app->jbform;
     (function ($) {
 
         function showSelects(val) {
-            $('.type-select', $form).hide();
+            $('.type-controls', $form).hide();
             if (val) {
                 $('.type-select-' + val, $form).show();
             }
@@ -126,8 +137,12 @@ $jbform = $this->app->jbform;
 
             if (prev.typeid) {
                 var typeid = prev.typeid;
-                $('#fields-assign select.type-select-' + prev.typeid).each(function (n, obj) {
-                    $(obj).val(prevParams[typeid][n]);
+                $('.type-select-' + typeid).each(function (n, obj) {
+                    var fieldName = $(obj).find('select').attr('name');
+                    var fieldIndex = fieldName.match(/\[(\d+)\]/);
+                    if (fieldIndex && prevParams[typeid][fieldIndex[1]]) {
+                        $(obj).find('select').val(prevParams[typeid][fieldIndex[1]]);
+                    }
                 });
             }
 
@@ -155,12 +170,12 @@ $jbform = $this->app->jbform;
             var selectedParam = $('#key').val();
 
             if (!$('#appid', $form).val()) {
-                alert('<?php echo JText::_('JBZOO_IMPORT_NO_APP');?>');
+                alert('<?php echo Text::_('JBZOO_IMPORT_NO_APP');?>');
                 return false;
             }
 
             if (!$('#typeid', $form).val()) {
-                alert('<?php echo JText::_('JBZOO_IMPORT_NO_TYPE');?>');
+                alert('<?php echo Text::_('JBZOO_IMPORT_NO_TYPE');?>');
                 return false;
             }
 
@@ -168,28 +183,28 @@ $jbform = $this->app->jbform;
                 var value = 'id';
                 var result = checkKey(value);
                 if (!result) {
-                    alert('<?php echo JText::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
+                    alert('<?php echo Text::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
                     return false;
                 }
             } else if (selectedParam == <?php echo JBImportHelper::KEY_NAME ?>) {
                 var value = 'name';
                 var result = checkKey(value);
                 if (!result) {
-                    alert('<?php echo JText::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
+                    alert('<?php echo Text::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
                     return false;
                 }
             } else if (selectedParam == <?php echo JBImportHelper::KEY_ALIAS ?>) {
                 var value = 'alias';
                 var result = checkKey(value);
                 if (!result) {
-                    alert('<?php echo JText::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
+                    alert('<?php echo Text::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
                     return false;
                 }
             } else if (selectedParam == <?php echo JBImportHelper::KEY_SKU ?>) {
                 var value = 'jbprice';
                 var result = checkKey(value);
                 if (!result) {
-                    alert('<?php echo JText::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
+                    alert('<?php echo Text::_('JBZOO_IMPORT_NO_SELECT_KEY');?>');
                     return false;
                 }
             }

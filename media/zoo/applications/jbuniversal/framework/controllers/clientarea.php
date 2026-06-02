@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -35,10 +37,10 @@ class ClientareaJBUniversalController extends JBUniversalController
         $this->application = $this->zoo->zoo->getApplication();
         $this->template    = $this->application->getTemplate();
 
-        $this->_user = JFactory::getUser();
+        $this->_user = Factory::getUser();
         if (empty($this->_user->id)) {
             $url = 'index.php?option=com_users&view=login&return=' . base64_encode($this->zoo->jbenv->getCurrentUrl());
-            $this->setRedirect($url, JText::_('JBZOO_CLIENTAREA_NEED_LOGIN'));
+            $this->setRedirect($url, Text::_('JBZOO_CLIENTAREA_NEED_LOGIN'));
             return;
         }
 
@@ -51,10 +53,10 @@ class ClientareaJBUniversalController extends JBUniversalController
     {
         $this->init();
 
-        $user = JFactory::getUser();
+        $user = Factory::getUser();
         if (empty($user->id)) {
             $url = 'index.php?option=com_users&view=login&return=' . base64_encode($this->zoo->jbenv->getCurrentUrl());
-            $this->setRedirect($url, JText::_('JBZOO_CLIENTAREA_NEED_LOGIN'));
+            $this->setRedirect($url, Text::_('JBZOO_CLIENTAREA_NEED_LOGIN'));
             return;
         }
 

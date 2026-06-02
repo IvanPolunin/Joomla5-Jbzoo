@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Filesystem\File;
+use Joomla\CMS\Filesystem\Folder;
 /**
  * JBZoo Application
  *
@@ -42,7 +45,7 @@ class JBImportJBuniversalController extends JBuniversalController
      */
     private $_defaultParams = array(
         'header'    => 1,
-        'separator' => ',',
+        'separator' => ';',
         'enclosure' => '"',
         'step'      => '25',
     );
@@ -117,14 +120,14 @@ class JBImportJBuniversalController extends JBuniversalController
         try {
             $userfile = $this->zoo->validator->create('file', array('extension' => array('csv')))->clean($csvfile);
         } catch (AppException $e) {
-            $this->zoo->jbnotify->notice(JText::_('JBZOO_UNABLE_TO_UPLOAD_FILE') . ' (' . $e . ')');
+            $this->zoo->jbnotify->notice(Text::_('JBZOO_UNABLE_TO_UPLOAD_FILE') . ' (' . $e . ')');
             $this->setRedirect($this->zoo->jbrouter->admin(array('task' => $importType)));
             return;
         }
 
         // upload file
         $file = $this->_jbimport->getTmpFilename();
-        if (JFile::upload($userfile['tmp_name'], $file)) {
+        if (File::upload($userfile['tmp_name'], $file)) {
 
             // prepare session data
             $this->_config->setGroup('import.' . $importType, $request);
@@ -160,7 +163,7 @@ class JBImportJBuniversalController extends JBuniversalController
             }
 
         } else {
-            $this->zoo->error->raiseNotice(0, JText::_('JBZOO_CHECK_TEMP_PERMISIONS'));
+            $this->zoo->error->raiseNotice(0, Text::_('JBZOO_CHECK_TEMP_PERMISIONS'));
             $this->setRedirect($this->baseurl . '&task=index');
             return;
         }
@@ -182,7 +185,7 @@ class JBImportJBuniversalController extends JBuniversalController
         $appid        = (int)$this->_jbrequest->get('appid');
 
         if (empty($appid) || empty($typeid) || !isset($assign[$typeid]) || empty($assign[$typeid])) {
-            $this->zoo->jbnotify->notice(JText::_('JBZOO_INCORRECT_DATA'));
+            $this->zoo->jbnotify->notice(Text::_('JBZOO_INCORRECT_DATA'));
             $this->setRedirect($this->zoo->jbrouter->admin(array('task' => 'index')));
         }
 
@@ -225,7 +228,7 @@ class JBImportJBuniversalController extends JBuniversalController
         $appid       = (int)$this->_jbrequest->get('appid');
 
         if (empty($appid) || empty($assign)) {
-            $this->zoo->jbnotify->notice(JText::_('JBZOO_INCORRECT_DATA'));
+            $this->zoo->jbnotify->notice(Text::_('JBZOO_INCORRECT_DATA'));
             $this->setRedirect($this->zoo->jbrouter->admin(array('task' => 'index')));
         }
 
@@ -286,9 +289,9 @@ class JBImportJBuniversalController extends JBuniversalController
             }
 
             // remove all csv files
-            $files = (array)JFolder::files($this->zoo->jbpath->sysPath('tmp'), '\.csv');
+            $files = (array)Folder::files($this->zoo->jbpath->sysPath('tmp'), '\.csv');
             foreach ($files as $csvFile) {
-                JFile::delete($csvFile);
+                File::delete($csvFile);
             }
 
             $this->zoo->jbajax->send();

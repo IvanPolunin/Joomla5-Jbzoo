@@ -97,7 +97,7 @@ abstract class JBCartElementCurrency extends JBCartElement
             $elemName = $this->getName() . ' (' . $this->getElementType() . ', ' . $code . ')';
             $fallback = '1 eur = ' . $this->getFallbackValue() . ' ' . $code;
 
-            $message = JText::sprintf('JBZOO_ELEMENT_CURRENCY_NO_CONNECT', $elemName, $fallback);
+            $message = Text::sprintf('JBZOO_ELEMENT_CURRENCY_NO_CONNECT', $elemName, $fallback);
 
             if (JDEBUG) {
                 if (is_object($result) && isset($result->body)) { // for server response (error text)
@@ -106,10 +106,10 @@ abstract class JBCartElementCurrency extends JBCartElement
                     $reason = $result;
                 }
 
-                $reason = StringHelper::trim(strip_tags($reason));
+                $reason = StringHelper::trim(strip_tags($reason ?? ''));
                 if ($reason) {
                     $reason = StringHelper::substr($reason, 0, 200);
-                    $message .= '<br>' . JText::sprintf('JBZOO_ELEMENT_CURRENCY_NO_CONNECT_REASON', $reason);
+                    $message .= '<br>' . Text::sprintf('JBZOO_ELEMENT_CURRENCY_NO_CONNECT_REASON', $reason);
                 }
             }
 
@@ -136,7 +136,7 @@ abstract class JBCartElementCurrency extends JBCartElement
     public function getCode()
     {
         $code = $this->config->get('code');
-        $code = trim($code);
+        $code = trim($code ?? '');
         $code = strtolower($code);
 
         return $code;

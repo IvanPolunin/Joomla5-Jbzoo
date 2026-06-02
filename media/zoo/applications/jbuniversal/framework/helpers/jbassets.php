@@ -18,11 +18,10 @@
 defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
-use Joomla\String\StringHelper;
 use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Filesystem\File;
+use Joomla\Filesystem\File;
+use Joomla\String\StringHelper;
 
 /**
  * Class JBAssetsHelper
@@ -230,14 +229,29 @@ class JBAssetsHelper extends AppHelper
     /**
      * Add script and styles for back-end
      */
-    public function admin()
-    {
-        if ($this->app->jbenv->isSite())
-        {
-            return;
-        }
+public function admin()
+{
+    // Load JBZoo language file
+    $lang = Factory::getLanguage();
+    $lang->load('com_jbzoo', JPATH_ROOT . '/media/zoo/applications/jbuniversal');
 
-        $jVersion = $this->app->jbversion->joomla('2.7.0') ? '3' : '2';
+    $jVersion = $this->app->joomla->version->getShortVersion();
+    $jVersion = substr($jVersion, 0, 1);
+
+    if ($this->app->jbenv->isSite())
+    {
+        return;
+    }
+
+    // Joomla 4/5/6 use separate styles; fallback to legacy map for 2/3
+    $jVersion = '4';
+    if ($this->app->jbversion->joomla('4.0') === true) {
+        $jVersion = '4';
+    } elseif ($this->app->jbversion->joomla('2.7.0') === true) {
+        $jVersion = '3';
+    } else {
+        $jVersion = '2';
+    }
 
         $this->tools();
         $this->less('jbassets:less/general.less');
@@ -253,10 +267,35 @@ class JBAssetsHelper extends AppHelper
             'jbassets:js/admin/keyvalue.js',
             'jbassets:js/admin/jkeyvalue.js',
             'jbassets:js/admin/menu.js',
+            'jbassets:js/libs/chosen.min.js',
             'jbassets:js/back-end.js',
         ));
 
+        $this->css(array(
+            'jbassets:css/libs/chosen.css',
+        ));
+
         $this->addVar('joomlaVersion', $jVersion);
+
+        // Initialize chosen for multiselects
+        $this->addScript('
+            jQuery(document).ready(function($) {
+                $("select[size], select[multiple]").each(function() {
+                    if (!$(this).data("chosen")) {
+                        // Add multiple attribute if not present but size is set
+                        if (!$(this).attr("multiple") && $(this).attr("size")) {
+                            $(this).attr("multiple", "multiple");
+                        }
+                        $(this).chosen({
+                            placeholder_text_multiple: "' . Joomla\CMS\Language\Text::_('JBZOO_CHOSEN_SELECT') . '",
+                            no_results_text: "' . Joomla\CMS\Language\Text::_('JBZOO_CHOSEN_NORESULT') . '",
+                            allow_single_deselect: true,
+                            width: "100%"
+                        });
+                    }
+                });
+            });
+        ');
     }
 
     /**
@@ -494,19 +533,23 @@ class JBAssetsHelper extends AppHelper
         if (!$isAdded)
         {
             $isAdded = true;
-            if (!$this->app->joomla->version->isCompatible('3.0'))
-            {
+            $joomlaApp = Factory::getApplication();
+            $document  = $joomlaApp->getDocument();
+
+            // Joomla 4/5/6: use Web Asset Manager when available
+            if ($document && method_exists($document, 'getWebAssetManager')) {
+                $wa = $document->getWebAssetManager();
+                $wa->useScript('jquery');
+            } elseif ($this->app->joomla->version->isCompatible('3.0') && $document) {
+                HTMLHelper::_('jquery.framework');
+            } else {
+                // Joomla 2.5 legacy fallback
                 if (!$this->app->system->application->get('jquery'))
                 {
                     $this->app->system->application->set('jquery', true);
                     $this->app->system->document->addScript($this->app->path->url('libraries:jquery/jquery.js'));
                 }
             }
-            // else
-            // {
-            //      todoj4fix
-            //     JHtml::_('jquery.framework');
-            // }
         }
     }
 
@@ -704,7 +747,7 @@ class JBAssetsHelper extends AppHelper
      */
     public function addRootUrl()
     {
-        $this->addVar('rootUrl', JURI::root());
+        $this->addVar('rootUrl', Uri::root());
     }
 
     /**
@@ -962,7 +1005,7 @@ class JBAssetsHelper extends AppHelper
         static $root;
         if (!isset($root))
         {
-            //$root = JUri::root();
+            //$root = Uri::root();
             $root = '/';
         }
 
@@ -1150,18 +1193,18 @@ class JBAssetsHelper extends AppHelper
      */
     public function upload()
     {
-        $this->addVar('JBZOO_UPLOAD_ERROR_FILE', Text::_('JBZOO_UPLOAD_ERROR_FILE'));
-        $this->addVar('JBZOO_UPLOAD_ERROR_REASON', Text::_('JBZOO_UPLOAD_ERROR_REASON'));
-        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET', Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET'));
-        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_YES', Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_YES'));
-        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_NO', Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_NO'));
-        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TITLE', Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TITLE'));
-        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_LINK', Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_LINK'));
-        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_REL', Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_REL'));
-        $this->addVar('JBZOO_UPLOAD_ERROR_9', Text::_('JBZOO_UPLOAD_ERROR_9'));
-        $this->addVar('JBZOO_UPLOAD_ERROR_10', Text::_('JBZOO_UPLOAD_ERROR_10'));
-        $this->addVar('JBZOO_UPLOAD_ERROR_11', Text::_('JBZOO_UPLOAD_ERROR_11'));
-        $this->addVar('JBZOO_UPLOAD_ERROR_12', Text::_('JBZOO_UPLOAD_ERROR_12'));
+        $this->addVar('JBZOO_UPLOAD_ERROR_FILE', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_FILE'));
+        $this->addVar('JBZOO_UPLOAD_ERROR_REASON', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_REASON'));
+        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET'));
+        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_YES', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_YES'));
+        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_NO', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TARGET_NO'));
+        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_TITLE', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_TITLE'));
+        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_LINK', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_LINK'));
+        $this->addVar('JBZOO_UPLOAD_EXTRA_OPTIONS_REL', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_EXTRA_OPTIONS_REL'));
+        $this->addVar('JBZOO_UPLOAD_ERROR_9', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_9'));
+        $this->addVar('JBZOO_UPLOAD_ERROR_10', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_10'));
+        $this->addVar('JBZOO_UPLOAD_ERROR_11', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_11'));
+        $this->addVar('JBZOO_UPLOAD_ERROR_12', Joomla\CMS\Language\Text::_('JBZOO_UPLOAD_ERROR_12'));
 
         $this->js(array(
             'jbassets:js/widget/upload.js',

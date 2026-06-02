@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -59,7 +61,7 @@ class JBCartElementHookSdekOrder extends JBCartElementHook
     {
         parent::__construct($app, $type, $group);
 
-        JFactory::getLanguage()->load('com_jbzoo_cart_elements_hook_sdekorder', $this->app->path->path('jbapp:cart-elements').'/hook/sdekorder', null, true);
+        Factory::getLanguage()->load('com_jbzoo_cart_elements_hook_sdekorder', $this->app->path->path('jbapp:cart-elements').'/hook/sdekorder', null, true);
     }
 
     /**
@@ -140,7 +142,7 @@ class JBCartElementHookSdekOrder extends JBCartElementHook
                     0 => array(
                         'number'        => $orderName,
                         'weight'        => $this->getWeight() * 1000,
-                        'comment'       => JText::_('JBZOO_ELEMENT_HOOK_SDEKORDER_PACK'),
+                        'comment'       => Text::_('JBZOO_ELEMENT_HOOK_SDEKORDER_PACK'),
                     )
                 )
             );

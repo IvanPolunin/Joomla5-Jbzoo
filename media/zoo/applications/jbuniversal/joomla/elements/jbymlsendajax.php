@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -21,7 +22,7 @@ $appId = App::getInstance('zoo')->zoo->getApplication()->id;
 $link  = '/?controller=ymlexport&task=index&app_id=' . $appId . '&ajaxSubmit=true';
 
 echo '<input id="' . $id . '" name="ajaxSubmit" type="button" class="ajaxSubmit"
- style="cursor: pointer" value="' . JText::_('JBZOO_FIELDS_YMLSENDAJAX') . '" />';
+ style="cursor: pointer" value="' . Text::_('JBZOO_FIELDS_YMLSENDAJAX') . '" />';
 
 ?>
 <script type="text/javascript">
@@ -33,7 +34,7 @@ echo '<input id="' . $id . '" name="ajaxSubmit" type="button" class="ajaxSubmit"
                 dataType: 'html',
                 url     : '<?php echo $link ;?>',
                 success : function () {
-                    alert('<?php echo JText::_('JBZOO_YML_EXPORT') ?>');
+                    alert('<?php echo Text::_('JBZOO_YML_EXPORT') ?>');
                 }
             });
         });

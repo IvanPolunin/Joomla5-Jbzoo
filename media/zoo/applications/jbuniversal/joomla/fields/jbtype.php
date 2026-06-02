@@ -1,4 +1,7 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
+use Joomla\CMS\Filesystem\Folder;
 /**
  * JBZoo Application
  *
@@ -24,7 +27,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBType
  */
-class JFormFieldJBType extends JFormField
+class JFormFieldJBType extends FormField
 {
 
     protected $type = 'jbtype';
@@ -38,9 +41,9 @@ class JFormFieldJBType extends JFormField
         $typePath = $app->path->path('jbapp:types');
         $attr     = array();
 
-        $options = array('' => JText::_('JBZOO_FIELDS_TYPE'));
+        $options = array('' => Text::_('JBZOO_FIELDS_TYPE'));
 
-        $files = JFolder::files($typePath, '\.config$');
+        $files = Folder::files($typePath, '\.config$');
         if (!empty($files)) {
             foreach ($files as $file) {
                 $typeId           = pathinfo($file, PATHINFO_FILENAME);

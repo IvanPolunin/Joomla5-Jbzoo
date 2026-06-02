@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\HTML\HTMLHelper;
 /**
  * JBZoo Application
  *
@@ -16,7 +18,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.form.formfield');
+use Joomla\CMS\Form\FormField;
 
 // load config
 require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
@@ -24,7 +26,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBLogic
  */
-class JFormFieldJBLogic extends JFormField
+class JFormFieldJBLogic extends FormField
 {
 
     protected $type = 'jblogic';
@@ -37,8 +39,8 @@ class JFormFieldJBLogic extends JFormField
         $app = App::getInstance('zoo');
 
         $options = array(
-            JHtml::_('select.option', 'and', JText::_('JBZOO_AND')),
-            JHtml::_('select.option', 'or', JText::_('JBZOO_OR'))
+            HTMLHelper::_('select.option', 'and', Text::_('JBZOO_AND')),
+            HTMLHelper::_('select.option', 'or', Text::_('JBZOO_OR'))
         );
 
         $html   = array();

@@ -387,7 +387,7 @@ abstract class JBCartElementPayment extends JBCartElement
      */
     public function getOrderDescription()
     {
-        return JText::sprintf('JBZOO_ELEMENT_PAYMENT_ORDER_DESCRIPTION', $this->getOrderId(), JUri::getInstance()->getHost());
+        return Text::sprintf('JBZOO_ELEMENT_PAYMENT_ORDER_DESCRIPTION', $this->getOrderId(), JUri::getInstance()->getHost());
     }
 
     /**

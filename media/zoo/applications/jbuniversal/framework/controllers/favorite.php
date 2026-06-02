@@ -1,4 +1,9 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Factory;
+
+// Import compare controller
+require_once dirname(__FILE__) . DS . 'compare.php';
 /**
  * JBZoo Application
  *
@@ -41,8 +46,8 @@ class FavoriteJBUniversalController extends JBUniversalController
             $appId = 0;
         }
 
-        if (!JFactory::getUser()->id) {
-            $this->zoo->jbnotify->notice(JText::_('JBZOO_FAVORITE_NOTAUTH_NOTICE'));
+        if (!Factory::getUser()->id) {
+            $this->zoo->jbnotify->notice(Text::_('JBZOO_FAVORITE_NOTAUTH_NOTICE'));
         }
 
         // get items
@@ -95,6 +100,26 @@ class FavoriteJBUniversalController extends JBUniversalController
     {
         $this->zoo->jbfavorite->removeItems();
         $this->zoo->jbajax->send();
+    }
+
+    /**
+     * Compare action - redirect to compare controller
+     */
+    public function compare()
+    {
+        // Redirect to the actual compare controller
+        $type   = $this->_jbrequest->get('type');
+        $appId  = $this->_jbrequest->get('app_id');
+        $itemId = $this->_jbrequest->get('Itemid');
+        $layout = $this->_jbrequest->get('layout', 'v');
+
+        if (!$type || !$appId) {
+            throw new AppException('Type or AppId is not set');
+        }
+
+        // Forward to compare controller
+        $compareController = new CompareJBUniversalController($this->app, $this->config);
+        $compareController->compare();
     }
 
 }

@@ -33,6 +33,16 @@ class JBFilterHelper extends AppHelper
     protected $_application = null;
 
     /**
+     * @var array
+     */
+    protected $_types = array();
+
+    /**
+     * @var array
+     */
+    protected $_elements = array();
+
+    /**
      * Constructor
      * @param $app
      */

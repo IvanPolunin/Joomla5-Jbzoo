@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    JBZoo App is universal Joomla CCK, application for YooTheme Zoo component
+
+    @package     jbzoo
+    @version     2.x Pro
+    @author      JBZoo App http://jbzoo.com
+    @copyright   Copyright (C) JBZoo.com,  All rights reserved.
+    @license     http://jbzoo.com/license-pro.php JBZoo Licence
+    @coder       Denis Smetannikov <denis@jbzoo.com>
+-->
+<element type="element" group="Core" hidden="false">
+    <name>Поле телефона</name>
+    <author>iKIT</author>
+    <creationDate>2016</creationDate>
+    <copyright>Copyright (C) ikIT.by</copyright>
+    <authorEmail>info@ikit.by</authorEmail>
+    <authorUrl>https://ikit.by</authorUrl>
+    <version>1.0</version>
+    <description>Номер телефона для полей заказа с маской ввода</description>
+
+    <params>
+
+        <param name="name" type="text" default="" label="JBZOO_ELEMENT_NAME"
+               description="JBZOO_ELEMENT_NAME_DESC"/>
+
+        <param name="description" type="text" default="" label="JBZOO_ELEMENT_DESCRIPTION"
+               description="JBZOO_ELEMENT_DESCRIPTION_DESC"/>
+
+        <param name="mask" type="list" default="all" label="Режим"
+            description="Выберите меску телефона из предустановок">
+            <option value="+375 (99) 999-99-99">Телефон РБ</option>
+            <option value="+380 (99) 999-99-99">Телефон UA</option>
+            <option value="+7 (999) 999-99-99">Телефон РФ</option>
+            <option value="custom">Своя маска</option>
+        </param>
+
+        <param name="custommask" type="text" placeholder="+375 (99) 999-99-99" default="" label="Своя маска" description="9 - обозначает любую цифру:: а - любую букву латинского алфавита:: * - любой знак" />
+
+        <param name="placeholder" type="text" default="+375 (__) ___-__-__" label="Подсказка" description="Посдказка которая будет показана в поле ввода" />
+
+        <param name="access" type="zooaccesslevel" default="" label="JBZOO_ELEMENT_ACCESS"
+               description="JBZOO_ELEMENT_ACCESS_DESC"/>
+
+    </params>
+
+</element>

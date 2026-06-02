@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -317,7 +318,7 @@ class JBMigratePriceHelper extends AppHelper
 
         $elements = array(
             '_sku'      => array(
-                'name'        => JText::_('JBZOO_ELEMENT_PRICE_SKU_NAME'),
+                'name'        => Text::_('JBZOO_ELEMENT_PRICE_SKU_NAME'),
                 'description' => '',
                 'access'      => $element->config->get('access'),
                 'type'        => 'sku',
@@ -325,7 +326,7 @@ class JBMigratePriceHelper extends AppHelper
                 'identifier'  => '_sku',
             ),
             '_value'    => array(
-                'name'        => JText::_('JBZOO_ELEMENT_PRICE_VALUE_NAME'),
+                'name'        => Text::_('JBZOO_ELEMENT_PRICE_VALUE_NAME'),
                 'description' => '',
                 'access'      => $element->config->get('access'),
                 'type'        => 'value',
@@ -333,7 +334,7 @@ class JBMigratePriceHelper extends AppHelper
                 'identifier'  => '_value',
             ),
             '_discount' => array(
-                'name'        => JText::_('JBZOO_ELEMENT_PRICE_DISCOUNT_NAME'),
+                'name'        => Text::_('JBZOO_ELEMENT_PRICE_DISCOUNT_NAME'),
                 'description' => '',
                 'access'      => $element->config->get('access'),
                 'type'        => 'discount',
@@ -341,7 +342,7 @@ class JBMigratePriceHelper extends AppHelper
                 'identifier'  => '_discount',
             ),
             '_balance'  => array(
-                'name'        => JText::_('JBZOO_ELEMENT_PRICE_BALANCE_NAME'),
+                'name'        => Text::_('JBZOO_ELEMENT_PRICE_BALANCE_NAME'),
                 'description' => '',
                 'access'      => $element->config->get('access'),
                 'usestock'    => (int)$config->get('balance_mode', 1),
@@ -354,7 +355,7 @@ class JBMigratePriceHelper extends AppHelper
 
         if (!empty($config['adv_field_text']) && ((int)$config['adv_field_text'] == 1)) {
             $elements['_description'] = array(
-                'name'        => JText::_('JBZOO_ELEMENT_PRICE_DESCRIPTION_NAME'),
+                'name'        => Text::_('JBZOO_ELEMENT_PRICE_DESCRIPTION_NAME'),
                 'description' => '',
                 'access'      => $element->config->get('access'),
                 'type'        => 'description',
@@ -380,7 +381,7 @@ class JBMigratePriceHelper extends AppHelper
 
         return array(
             '_quantity' => array(
-                'name'        => JText::_('JBZOO_ELEMENT_PRICE_QUANTITY_NAME'),
+                'name'        => Text::_('JBZOO_ELEMENT_PRICE_QUANTITY_NAME'),
                 'description' => '',
                 'access'      => $element->config->get('access'),
                 'default'     => (float)$config->get('quantity_default', 1),
@@ -392,7 +393,7 @@ class JBMigratePriceHelper extends AppHelper
                 'identifier'  => '_quantity',
             ),
             '_currency' => array(
-                'name'        => JText::_('JBZOO_ELEMENT_PRICE_CURRENCY_NAME'),
+                'name'        => Text::_('JBZOO_ELEMENT_PRICE_CURRENCY_NAME'),
                 'description' => '',
                 'access'      => $element->config->get('access'),
                 'default'     => $config->get('currency_default'),

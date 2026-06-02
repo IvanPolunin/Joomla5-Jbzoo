@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -22,7 +23,7 @@ defined('_JEXEC') or die('Restricted access');
 
     <table class="jbprice-value-table no-border">
         <tr class="jbprice-value-row">
-            <td class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></td>
+            <td class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></td>
             <td class="jbprice-value-total"><?php echo $total->html($currency); ?></td>
         </tr>
     </table>
@@ -31,17 +32,17 @@ defined('_JEXEC') or die('Restricted access');
 
     <table class="jbprice-value-table no-border">
         <tr class="jbprice-value-row">
-            <td class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_PRICE'); ?></td>
+            <td class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_PRICE'); ?></td>
             <td class="jbprice-value-price"><?php echo $price->html($currency); ?></td>
         </tr>
 
         <tr class="jbprice-value-row">
-            <td class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></td>
+            <td class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_TOTAL'); ?></td>
             <td class="jbprice-value-total"><?php echo $total->html($currency); ?></td>
         </tr>
 
         <tr class="jbprice-value-row">
-            <td class="jbprice-value-label"><?php echo JText::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_SAVE'); ?></td>
+            <td class="jbprice-value-label"><?php echo Text::_('JBZOO_ELEMENT_PRICE_VALUE_LABEL_SAVE'); ?></td>
             <td class="jbprice-value-save">
                 <span class="jbprice-value-save-value"><?php echo $save->html($currency); ?></span>
                 <span class="jbprice-value-save-percent">

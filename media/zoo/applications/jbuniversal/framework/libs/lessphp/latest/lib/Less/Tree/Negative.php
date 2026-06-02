@@ -10,6 +10,7 @@ class Less_Tree_Negative extends Less_Tree {
 
 	public $value;
 	public $type = 'Negative';
+	public $parensInOp = false; // Initialize to fix deprecated warning
 
 	public function __construct( $node ) {
 		$this->value = $node;

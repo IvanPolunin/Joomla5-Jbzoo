@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Filesystem\Folder;
 /**
  * JBZoo Application
  *
@@ -60,7 +61,7 @@ class JBStorageHelper extends AppHelper
         parent::__construct($app);
 
         $path     = JPATH_ROOT . '/media/zoo/applications/jbuniversal/cart-elements/';
-        $elements = JFolder::folders($path . 'price/');
+        $elements = Folder::folders($path . 'price/');
 
         $this->configs    = new AppData();
         $this->assets     = new AppData();

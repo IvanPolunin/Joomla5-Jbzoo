@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -27,18 +28,18 @@ if ($shipping) {
 ?>
 <div class="uk-panel uk-panel-box">
 
-    <h3 class="uk-panel-title"><?php echo JText::_('JBZOO_ORDER_SHIPPING_TITLE'); ?></h3>
+    <h3 class="uk-panel-title"><?php echo Text::_('JBZOO_ORDER_SHIPPING_TITLE'); ?></h3>
 
     <?php echo $this->shipRender->renderAdminEdit(array('order' => $order)); ?>
 
     <?php if ($shipping) : ?>
         <dl class="uk-description-list-horizontal">
-            <dt><?php echo JText::_('JBZOO_ORDER_SHIPPING_BLOCK_PRICE'); ?></dt>
+            <dt><?php echo Text::_('JBZOO_ORDER_SHIPPING_BLOCK_PRICE'); ?></dt>
             <dd>
                 <p><?php echo $shipping->getRate()->html(); ?></p>
             </dd>
 
-            <dt><?php echo JText::_('JBZOO_ORDER_SHIPPING_BLOCK_STATUS'); ?></dt>
+            <dt><?php echo Text::_('JBZOO_ORDER_SHIPPING_BLOCK_STATUS'); ?></dt>
             <dd>
                 <p><?php echo $this->app->jbhtml->select($statusList, 'order[shipping][status]', '', $curStatus); ?></p>
             </dd>

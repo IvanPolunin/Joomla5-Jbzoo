@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -19,5 +20,5 @@ defined('_JEXEC') or die('Restricted access');
 ?>
 
 <span class="jsAddToCart jbbutton green jbprice-buttons-add"><?php
-    echo JText::_($params->get('add_label', 'JBZOO_ELEMENT_PRICE_BUTTONS_ADD_LABEL_DEFAULT'));
+    echo Text::_($params->get('add_label', 'JBZOO_ELEMENT_PRICE_BUTTONS_ADD_LABEL_DEFAULT'));
     ?></span>

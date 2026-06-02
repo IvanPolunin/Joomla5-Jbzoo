@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 use Joomla\String\StringHelper;
 /**
  * JBZoo Application
@@ -185,7 +186,7 @@ class JBCartElementShippingNewPost extends JBCartElementShipping
     {
         $resp = $this->_apiRequest(array('city' => null));
 
-        $locations = array('' => '-&nbsp;' . JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_REGION') . '&nbsp;-');
+        $locations = array('' => '-&nbsp;' . Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_REGION') . '&nbsp;-');
         if ($resp && isset($resp['cities']['city'])) {
             foreach ($resp['cities']['city'] as $region) {
                 $locations[$region['areaNameUkr']] = $region['areaNameUkr'];
@@ -202,7 +203,7 @@ class JBCartElementShippingNewPost extends JBCartElementShipping
      */
     protected function _getCityList($region = null)
     {
-        $locations = array('' => '-&nbsp;' . JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_CITY') . '&nbsp;-');
+        $locations = array('' => '-&nbsp;' . Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_CITY') . '&nbsp;-');
 
         if ($region) {
             $resp = $this->_apiRequest(array('city' => null));
@@ -223,7 +224,7 @@ class JBCartElementShippingNewPost extends JBCartElementShipping
      */
     protected function _getWarehouseList($city = null)
     {
-        $warehouses = array('' => '-&nbsp;' . JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_WAREHOUSES') . '&nbsp;-');
+        $warehouses = array('' => '-&nbsp;' . Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_WAREHOUSES') . '&nbsp;-');
         if (empty($city)) {
             return $warehouses;
         }
@@ -247,8 +248,8 @@ class JBCartElementShippingNewPost extends JBCartElementShipping
     protected function _getTypeList()
     {
         return array(
-            self::TYPE_DOORS => JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_TO_DOORS'),
-            self::TYPE_WARE  => JText::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_TO_WAREHOUSE'),
+            self::TYPE_DOORS => Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_TO_DOORS'),
+            self::TYPE_WARE  => Text::_('JBZOO_ELEMENT_SHIPPING_NEWPOST_TO_WAREHOUSE'),
         );
     }
 

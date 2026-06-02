@@ -1,4 +1,6 @@
 <?php
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Form\FormField;
 /**
  * JBZoo Application
  *
@@ -24,7 +26,7 @@ require_once(JPATH_ADMINISTRATOR . '/components/com_zoo/config.php');
 /**
  * Class JFormFieldJBItemState
  */
-class JFormFieldJBItemState extends JFormField
+class JFormFieldJBItemState extends FormField
 {
 
     protected $type = 'jbitemstate';
@@ -39,13 +41,13 @@ class JFormFieldJBItemState extends JFormField
 
         // create select
         $options = array(
-            '0' => JText::_('JBZOO_FIELDS_ALL'),
-            '1' => JText::_('JBZOO_FIELDS_ITEMSTATE_ON_PUBLISHED_TIME'),
-            '2' => JText::_('JBZOO_FIELDS_ITEMSTATE_ON'),
-            '3' => JText::_('JBZOO_FIELDS_ITEMSTATE_OFF'),
+            '0' => Text::_('JBZOO_FIELDS_ALL'),
+            '1' => Text::_('JBZOO_FIELDS_ITEMSTATE_ON_PUBLISHED_TIME'),
+            '2' => Text::_('JBZOO_FIELDS_ITEMSTATE_ON'),
+            '3' => Text::_('JBZOO_FIELDS_ITEMSTATE_OFF'),
         );
 
-        return $app->html->_('select.genericlist', $options, $this->getName($this->fieldname), '', 'value', 'text', $this->value);
+        return $app->html->_('select.genericlist', $options, $this->getName($this->fieldname), '', 'value', 'text', $this->value ?? "");
     }
 
 }

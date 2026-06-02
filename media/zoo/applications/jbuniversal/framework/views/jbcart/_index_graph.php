@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -39,7 +40,7 @@ $graphRows = JBModelOrder::model()->countByDate();
         var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
 
         var options = {
-            title   : "<?php echo JText::_('JBZOO_ADMIN_INDEX_GRAPH_TITLE'); ?>",
+            title   : "<?php echo Text::_('JBZOO_ADMIN_INDEX_GRAPH_TITLE'); ?>",
             calendar: {
                 daysOfWeek: 'ВПВСЧПС'
             }

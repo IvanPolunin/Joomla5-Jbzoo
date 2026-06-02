@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -27,19 +28,19 @@ $actionUrl = $this->app->jbrouter->admin(array('task' => 'checkFilesZoo'));
 
     <div class="uk-width-4-6">
 
-        <h2><?php echo JText::_('JBZOO_ADMIN_TITLE_TOOLS_CHECKFILESZOO') ?></h2>
+        <h2><?php echo Text::_('JBZOO_ADMIN_TITLE_TOOLS_CHECKFILESZOO') ?></h2>
 
-        <p><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_DESC'); ?></p>
+        <p><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_DESC'); ?></p>
 
-        <h4><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_TITLE'); ?></h4>
+        <h4><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_TITLE'); ?></h4>
 
         <ul>
-            <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_1'); ?></li>
-            <li><?php echo JText::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_2'); ?></li>
+            <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_1'); ?></li>
+            <li><?php echo Text::_('JBZOO_ADMIN_PAGE_TOOLS_CHECKFILES_2'); ?></li>
         </ul>
 
         <a class="uk-button uk-button-primary jsCheckFilesReport" style="display: inline-block;"
-           href="<?php echo $actionUrl; ?>"><?php echo JText::_('JBZOO_CHECKFILES_CHECK'); ?></a>
+           href="<?php echo $actionUrl; ?>"><?php echo Text::_('JBZOO_CHECKFILES_CHECK'); ?></a>
 
         <span class="checkfiles-loader" style="display: none;">
             <img src="<?php echo JUri::root(); ?>media/zoo/applications/jbuniversal/assets/img/misc/loader.gif" />

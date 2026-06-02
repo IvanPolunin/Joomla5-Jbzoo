@@ -18,6 +18,9 @@
         {
             rePaint: function (data) {
                 var $this = this;
+
+                // Debug removed for production
+
                 if (typeof data == 'array' || typeof data == 'object') {
                     $.each(data, function (i, html) {
                         $this._rePaint(html, $.trim(i));
@@ -29,8 +32,7 @@
             },
 
             _rePaint: function (data, selector) {
-                var container = JBZoo.empty(selector) ? this.el : $('.' + selector, this.el.closest('.jsPrice'));+
-
+                var container = JBZoo.empty(selector) ? this.el : $('.' + selector, this.el.closest('.jsPrice'));
                 container.empty().prepend($(data).contents());
             },
 

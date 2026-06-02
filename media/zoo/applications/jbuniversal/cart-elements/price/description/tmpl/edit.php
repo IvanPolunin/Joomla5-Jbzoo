@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -22,7 +23,7 @@ $attrs  = $this->_jbhtml->buildAttrs(array(
     'style'       => 'resize: vertical;',
     'class'       => 'jsField description',
     'name'        => $this->getControlName('value'),
-    'placeholder' => JText::_('JBZOO_ELEMENT_PRICE_DESCRIPTION_PLACEHOLDER')
+    'placeholder' => Text::_('JBZOO_ELEMENT_PRICE_DESCRIPTION_PLACEHOLDER')
 ));
 
 echo '<textarea ' . $attrs . '>' . $value . '</textarea>';

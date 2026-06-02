@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -53,8 +54,8 @@ class JBModelElementCountry extends JBModelElement
             }
 
             foreach ($values as $value) {
-                if ($key = array_search(JText::_($value), $countryMap)) {
-                    $result[] = JText::_($this->app->country->isoToName($key));
+                if ($key = array_search(Text::_($value), $countryMap)) {
+                    $result[] = Text::_($this->app->country->isoToName($key));
                 }
             }
 
@@ -76,7 +77,7 @@ class JBModelElementCountry extends JBModelElement
 
         $result = array();
         foreach ($countries as $key => $country) {
-            $translite    = JText::_($country);
+            $translite    = Text::_($country);
             $result[$key] = $translite;
         }
 

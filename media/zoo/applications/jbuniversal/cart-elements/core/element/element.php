@@ -1,5 +1,7 @@
 <?php
 use Joomla\String\StringHelper;
+use Joomla\CMS\Filesystem\Path;
+use Joomla\CMS\Factory;
 /**
  * JBZoo Application
  *
@@ -115,7 +117,7 @@ abstract class JBCartElement
      */
     protected function _loadLangs()
     {
-        JFactory::getLanguage()->load('elem_' . $this->getElementType(), $this->getPath(), null, true);
+        Factory::getLanguage()->load('elem_' . $this->getElementType(), $this->getPath(), null, true);
     }
 
     /**
@@ -458,7 +460,7 @@ abstract class JBCartElement
         // trigger configform event
         $this->app->jbevent->fire($this, 'cart-element:configform', compact('form'));
 
-        $fieldsPath = JPath::clean($this->getPath() . '/fields');
+        $fieldsPath = Path::clean($this->getPath() . '/fields');
         if (is_dir($fieldsPath)) {
             $form->addElementPath($fieldsPath);
         }
@@ -489,14 +491,14 @@ abstract class JBCartElement
             $data['system-tmpl']  = $xml->attributes()->{'system-tmpl'} ? (string)$xml->attributes()->{'system-tmpl'} : 'false';
             $data['trusted']      = $xml->attributes()->trusted ? (string)$xml->attributes()->trusted : 'false';
             $data['orderable']    = $xml->attributes()->orderable ? (string)$xml->attributes()->orderable : 'false';
-            $data['name']         = JText::_((string)$xml->name);
+            $data['name']         = Joomla\CMS\Language\Text::_((string)$xml->name);
             $data['creationdate'] = $xml->creationDate ? (string)$xml->creationDate : 'Unknown';
             $data['author']       = $xml->author ? (string)$xml->author : 'Unknown';
             $data['copyright']    = (string)$xml->copyright;
             $data['authorEmail']  = (string)$xml->authorEmail;
             $data['authorUrl']    = (string)$xml->authorUrl;
             $data['version']      = (string)$xml->version;
-            $data['description']  = JText::_((string)$xml->description);
+            $data['description']  = Joomla\CMS\Language\Text::_((string)$xml->description);
 
             $this->_metaData = $this->app->data->create($data);
         }
@@ -642,7 +644,7 @@ abstract class JBCartElement
         if (empty($name)) {
             $retult = $this->getMetaData('name');
         } else {
-            $retult = JText::_($name);
+            $retult = Joomla\CMS\Language\Text::_($name);
         }
 
         $retult = StringHelper::trim($retult);
@@ -667,7 +669,7 @@ abstract class JBCartElement
      */
     public function getDescription($default = null)
     {
-        return JText::_($this->config->get('description', $default));
+        return Joomla\CMS\Language\Text::_($this->config->get('description', $default));
     }
 
     /**

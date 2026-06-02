@@ -1,4 +1,5 @@
 <?php
+use Joomla\CMS\Language\Text;
 /**
  * JBZoo Application
  *
@@ -15,6 +16,8 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+
+use Joomla\Filesystem\Folder;
 
 /**
  * Class JBEntityHelper
@@ -162,7 +165,7 @@ class JBEntityHelper extends AppHelper
             $result[$groupByType] = array();
 
             $typesPath = $this->app->path->path('jbtypes:');
-            $files     = JFolder::files($typesPath, '.config');
+            $files     = Folder::files($typesPath, '.config');
 
             $result[$groupByType] = array();
             foreach ($files as $file) {
@@ -229,7 +232,7 @@ class JBEntityHelper extends AppHelper
             return $elements[$fieldId]['name'];
         }
 
-        return JText::_('JBZOO_FIELDS_CORE_' . $fieldId);
+        return Text::_('JBZOO_FIELDS_CORE_' . $fieldId);
     }
 
 }
